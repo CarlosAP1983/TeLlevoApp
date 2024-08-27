@@ -1,22 +1,32 @@
 <ion-header>
   <ion-toolbar color="success">
-    <ion-title class="ion-text-center" color="primary">BIENVENIDOS</ion-title>
+    <ion-title class="ion-text-center" color="primary">!BIENVENIDOS!</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-
+<ion-content class="ion-padding" [fullscreen]="true" style="overflow-y: auto;">
   <div class="image-container">
     <img src="assets/images/Diseño_4.png" alt="Estudiantes en viaje" class="image">
   </div>
 
   <div class="message-container">
-    <h1 class="main-message"><strong>¡REGRESA A CASA DE MANERA SEGURA Y FACIL CON TeLlevoAPP!  </strong></h1>
+    <h1 class="main-message"><strong>¡REGRESA A CASA DE MANERA SEGURA Y FACIL CON TeLlevoAPP!</strong></h1>
   </div>
 
   <div class="register-container">
     <h2>Regístrate y empieza a planificar tu viaje</h2>
-    <ion-button expand="full" color="primary" routerLink="/registro">Registrarse</ion-button>  
+    <ion-button expand="full" color="primary" routerLink="/registro" class="rounded-button">Registrarse</ion-button>
   </div>
 
+  <div class="program-container">
+    <ion-icon name="car-sport-outline" class="program-icon"></ion-icon>
+    <a [routerLink]="['/programar-viaje']" class="program-link">Programa un viaje</a>
+  </div>
+  
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">TeLlevoApp.. de estudiantes,<br> para estudiantes.</ion-title>
+  </ion-toolbar>
+</ion-footer>
