@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Registro Exitoso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Registro Exitoso</ion-title>    
+    </ion-toolbar>
+  </ion-header>
+
+  <p>
+    ¡Registro Exitoso! Es hora de ofrecer tus servicios
+  </p>
+
+  
+  
+  <ion-list>
+    <ion-item>
+      <ion-input label="Traer nombre con el que se registro"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input label="¿Dónde Estas?" placeholder="Ingresa Dirección"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input label="¿Dónde vas?" placeholder="Ingresa Destino"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-input label="Danos un Precio" value="$" placeholder="" ></ion-input>
+    </ion-item>
+  
+    <ion-button expand="full"  routerLink="/esperando-pasajeros" type="submit" color="primary">Comenzar viaje!</ion-button>
+  </ion-list>
+</ion-content>

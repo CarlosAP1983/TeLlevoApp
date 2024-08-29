@@ -14,7 +14,7 @@ export class RegistroPage implements OnInit {
   }
   onSubmit() {
     console.log('Formulario enviado');
-    this.router.navigate(['/home']);
+    this.router.navigate(['/registro-exitoso']);
   }
 
 }

@@ -18,7 +18,15 @@ const routes: Routes = [
   {
     path: 'programar-viaje',
     loadChildren: () => import('./programar-viaje/programar-viaje.module').then( m => m.ProgramarViajePageModule)
+  },  {
+    path: 'registro-exitoso',
+    loadChildren: () => import('./registro-exitoso/registro-exitoso.module').then( m => m.RegistroExitosoPageModule)
   },
+  {
+    path: 'esperando-pasajeros',
+    loadChildren: () => import('./esperando-pasajeros/esperando-pasajeros.module').then( m => m.EsperandoPasajerosPageModule)
+  },
+
 ];
 
 @NgModule({
