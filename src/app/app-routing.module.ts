@@ -26,6 +26,14 @@ const routes: Routes = [
     path: 'esperando-pasajeros',
     loadChildren: () => import('./esperando-pasajeros/esperando-pasajeros.module').then( m => m.EsperandoPasajerosPageModule)
   },
+  {
+    path: 'iniciar-sesion',
+    loadChildren: () => import('./iniciar-sesion/iniciar-sesion.module').then( m => m.IniciarSesionPageModule)
+  },
+  {
+    path: 'perfil-usuario',
+    loadChildren: () => import('./perfil-usuario/perfil-usuario.module').then( m => m.PerfilUsuarioPageModule)
+  },
 
 ];
 
