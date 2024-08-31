@@ -1,37 +1,30 @@
-<ion-header>
-  <ion-toolbar color="success">
-    <ion-title class="ion-text-center" color="primary">¡BIENVENIDOS!</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="home-background ion-padding" fullscreen="true" force-overscroll="false">
+  <div class="flex-container">
+    <!-- Logo -->
+    <div class="logo-container">
+      <img src="assets/logo.png" alt="Logo TeLlevoAPP" class="logo" />
+    </div>
 
-<ion-content class="ion-padding" [fullscreen]="true" style="overflow-y: auto;">
-  <div class="image-container">
-    <img src="assets/images/Diseño_4.png" alt="Estudiantes en viaje" class="image">
+    <!-- Formulario de Login -->
+    <div class="login-form">
+      <ion-item lines="none">
+        <ion-label position="floating" class="input-label">Correo Electrónico</ion-label>
+        <ion-input type="email" class="input-field" [(ngModel)]="email"></ion-input>
+      </ion-item>
+
+      <ion-item lines="none">
+        <ion-label position="floating" class="input-label">Contraseña</ion-label>
+        <ion-input type="password" class="input-field" [(ngModel)]="password"></ion-input>
+      </ion-item>
+
+      <!-- Botones para iniciar y crear cuenta -->
+      <ion-button expand="block" color="primary" (click)="login()">Iniciar Sesión</ion-button>
+      <ion-button expand="block" color="secondary" (click)="goToRegister()">Crea una cuenta</ion-button>
+    </div>
   </div>
 
-  <div class="message-container">
-    <h1 class="main-message"><strong>¡REGRESA A CASA DE MANERA SEGURA Y FACIL CON TeLlevoAPP!</strong></h1>
+  <!-- Enlaces -->
+  <div class="link-container">
+    <a href="#" class="link">¿Olvidaste tu contraseña?</a>
   </div>
-
-  <div class="register-container">
-    <h2>Regístrate y empieza a planificar tu viaje</h2>
-    <ion-button expand="full" color="primary" routerLink="/registro" class="rounded-button">Registrarse</ion-button>
-  </div>
-
-  <div class="program-container">
-    <ion-icon name="car-sport-outline" class="program-icon"></ion-icon>
-    <a [routerLink]="['/programar-viaje']" class="program-link">Programa un viaje</a>
-  </div>
-
-  <div class="register-container">
-    <h2>Ya tienes una cuenta ?</h2>
-    <ion-button expand="full" color="primary" routerLink="/iniciar-sesion" class="rounded-button">Iniciar sesión</ion-button>
-  </div>
-  
 </ion-content>
-
-<ion-footer>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">TeLlevoApp.. de estudiantes,<br> para estudiantes.</ion-title>
-  </ion-toolbar>
-</ion-footer>

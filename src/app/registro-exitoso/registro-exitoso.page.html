@@ -1,6 +1,21 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!-- Menú de hamburguesa en la parte superior izquierda -->
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+      <ion-button (click)="changeUserOrLogout()">
+        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
     <ion-title>Registro Exitoso</ion-title>
+
+    <!-- Menú de hamburguesa en la parte superior derecha -->
+    <ion-buttons slot="end">
+      <ion-button (click)="goToEditUser()">
+        <ion-icon slot="icon-only" name="create-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -11,29 +26,32 @@
     </ion-toolbar>
   </ion-header>
 
-  <p>
+  <!-- Mensaje de bienvenida -->
+  <p class="welcome-message">
     ¡Registro Exitoso! Es hora de ofrecer tus servicios
   </p>
 
-  
-  
+  <!-- Formulario para Crear Viaje -->
   <ion-list>
     <ion-item>
-      <ion-input label="Traer nombre con el que se registro"></ion-input>
+      <ion-label position="floating">¿Dónde estás?</ion-label>
+      <ion-input placeholder="Ingresa Dirección" [(ngModel)]="currentLocation"></ion-input>
     </ion-item>
-  
+
     <ion-item>
-      <ion-input label="¿Dónde Estas?" placeholder="Ingresa Dirección"></ion-input>
+      <ion-label position="floating">¿Dónde vas?</ion-label>
+      <ion-input placeholder="Ingresa Destino" [(ngModel)]="destination"></ion-input>
     </ion-item>
-  
+
     <ion-item>
-      <ion-input label="¿Dónde vas?" placeholder="Ingresa Destino"></ion-input>
+      <ion-label position="floating">Danos un Precio</ion-label>
+      <ion-input type="number" min="0" [(ngModel)]="price" placeholder="$$"></ion-input>
     </ion-item>
-  
-    <ion-item>
-      <ion-input label="Danos un Precio" value="$" placeholder="" ></ion-input>
-    </ion-item>
-  
-    <ion-button expand="full"  routerLink="/esperando-pasajeros" type="submit" color="primary">Comenzar viaje!</ion-button>
   </ion-list>
+
+  <!-- Botones para crear o cancelar viaje -->
+  <div class="button-container">
+    <ion-button expand="full" color="success" (click)="createTrip()">Crear Viaje</ion-button>
+    <ion-button expand="full" color="danger" (click)="cancelTrip()">Cancelar Viaje</ion-button>
+  </div>
 </ion-content>

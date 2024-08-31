@@ -1,55 +1,68 @@
-/* Estilos para el header */
-ion-header {
-  ion-toolbar {
-    background-color: #2ee29c; /* Cambia el color de fondo del header */
-    
-    ion-title {
-      color: #FFFFFF; /* Cambia el color del texto del título */
-      font-size: 30px; /* Cambia el tamaño de la fuente del título */
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; /* Cambia la fuente del título */
-      text-align: center; /* Centra el texto */
-    }
-  }
-}
-
-/* Estilos para los elementos <strong> dentro del contenedor */
-#container strong {
-  text-align: center; 
-  font-size: 20px;
-  line-height: 26px;
-}
-
-/* Estilos para los elementos <p> dentro del contenedor */
-#container p {
-  text-align: center;
-  font-size: 16px;
-  line-height: 22px;
-  color: #8c8c8c;
-  margin: 0;
-}
-
-.rounded-button {
-  --border-radius: 20px; /* Cambia el radio de las esquinas del botón */
-}
-
-/* Estilos para el contenedor del ícono y el enlace */
-.program-container {
+ion-content.home-background {
+  --background: linear-gradient(180deg, #c1b8d0, #c1b8d0 25%, #714dab); /* Degradado de color */
   display: flex;
-  flex-direction: column; /* Alinea los elementos en columna (verticalmente) */
-  align-items: center; /* Centra los elementos horizontalmente */
-  justify-content: center; /* Centra los elementos verticalmente en el contenedor */
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+.logo-container {
+  text-align: center;
   margin-top: 20px;
 }
 
-.program-icon {
-  font-size: 50px; /* Tamaño del ícono */
-  margin-bottom: 8px; /* Espacio entre el ícono y el texto */
+.logo {
+  width: 180px; /* Aumenta el tamaño predeterminado del logo */
+  height: auto;
+  max-width: 50vw; /* Permite que el logo ocupe hasta el 40% del ancho de la pantalla */
 }
 
-.program-link {
-  font-size: 16px; /* Tamaño del texto */
-  color: #3880ff; /* Color del texto */
-  text-decoration: none; /* Elimina el subrayado */
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  margin-top: auto; /* Empuja el formulario hacia la parte inferior */
+  padding: 0 20px;
 }
 
+.input-label {
+  color: #280b74;
+  font-family: 'Helvetica', sans-serif;
+}
 
+.input-field {
+  --placeholder-color: #2a2a2a;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.login-button {
+  margin-top: 20px;
+  font-family: 'Helvetica', sans-serif;
+}
+
+.register-button {
+  margin-top: 10px;  
+  font-family: 'Helvetica', sans-serif;
+}
+
+/* Estilos para centrar y dar color blanco al contenedor de enlaces */
+.link-container {
+  text-align: center; /* Centra el texto del enlace */
+  margin-top: 20px; /* Margen superior para separación */
+}
+
+.link {
+  color: #ffffff; /* Color blanco para el texto del enlace */
+  text-decoration: none; /* Quita el subrayado del enlace */
+  font-family: 'Helvetica', sans-serif;
+}
