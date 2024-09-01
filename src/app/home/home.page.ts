@@ -7,7 +7,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-  email: string = ''; // Variable para almacenar el correo electrónico
+  username: string = ''; // Variable para almacenar el nombre de usuario
   password: string = ''; // Variable para almacenar la contraseña
 
   constructor(private navCtrl: NavController) {}
@@ -20,7 +20,7 @@ export class HomePage {
     ];
 
     const user = validUsers.find(
-      (u) => u.username === this.email.toLowerCase() && u.password === this.password
+      (u) => u.username === this.username.toLowerCase() && u.password === this.password
     );
 
     if (user) {

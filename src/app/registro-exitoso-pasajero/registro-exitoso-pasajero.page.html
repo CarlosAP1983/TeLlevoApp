@@ -3,7 +3,7 @@
     <!-- Menú de hamburguesa en la parte superior izquierda -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-      <ion-button (click)="changeUserOrLogout()">
+      <ion-button (click)="goToCuenta()">
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -13,7 +13,8 @@
 
     <!-- Menú de hamburguesa en la parte superior derecha -->
     <ion-buttons slot="end">
-      <ion-button (click)="goToEditUser()">
+      <!-- Redirige a la vista de perfil de usuario -->
+      <ion-button (click)="goToUserProfile()">
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
     </ion-buttons>

@@ -9,10 +9,8 @@ import { NavController } from '@ionic/angular';
 export class RegistroExitosoPasajeroPage {
   username: string = ''; // Variable para almacenar el nombre de usuario
   rutasDisponibles = [
-    
-    { origen: 'Dirección A', destino: 'Destino A', precio: '$800' },
-    { origen: 'Dirección B', destino: 'Destino B', precio: '$800' },
-    { origen: 'Dirección B', destino: 'Destino B', precio: '$800' },
+    { origen: 'Dirección A', destino: 'Destino A', precio: '$10' },
+    { origen: 'Dirección B', destino: 'Destino B', precio: '$15' },
     // Añade más rutas simuladas
   ];
 
@@ -20,15 +18,15 @@ export class RegistroExitosoPasajeroPage {
     this.username = history.state.username; // Obtén el nombre del usuario desde el estado de navegación
   }
 
+  goToCuenta() {
+    this.navCtrl.navigateForward('/cuenta'); // Redirige a la página de cuenta
+  }
+
+  goToUserProfile() {
+    this.navCtrl.navigateForward('/perfil-usuario'); // Redirige a la página de perfil de usuario
+  }
+
   verViajesDisponibles() {
     console.log('Mostrando viajes disponibles');
-  }
-
-  goToEditUser() {
-    this.navCtrl.navigateForward('/editarUsuario'); // Redirige a la página de edición del usuario
-  }
-
-  changeUserOrLogout() {
-    console.log('Cambiando usuario o cerrando sesión');
   }
 }

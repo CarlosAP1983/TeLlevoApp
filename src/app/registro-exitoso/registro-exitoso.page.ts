@@ -16,6 +16,14 @@ export class RegistroExitosoPage {
     this.username = history.state.username; // Obtén el nombre del usuario desde el estado de navegación
   }
 
+  goToCuenta() {
+    this.navCtrl.navigateForward('/cuenta'); // Redirige a la página de gestión de cuenta
+  }
+
+  goToUserProfile() {
+    this.navCtrl.navigateForward('/perfil-usuario'); // Redirige a la página de perfil de usuario
+  }
+
   // Función para redirigir a la página de edición del usuario
   goToEditUser() {
     this.navCtrl.navigateForward('/editarUsuario');
