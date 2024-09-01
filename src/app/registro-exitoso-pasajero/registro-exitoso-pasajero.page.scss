@@ -1,0 +1,26 @@
+ion-content.background {
+  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Estilos para ion-button */
+ion-button {
+  width: 100%;
+  max-width: 400px;
+  margin-top: 20px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: larger;
+  font-weight: bold;
+  --border-radius: 25px;
+  /* Propiedad específica de Ionic para redondear bordes */
+  height: 50px;
+}
+
+.welcome-message{
+  font-size: larger;
+  font-weight: bold;
+  color: white;
+}

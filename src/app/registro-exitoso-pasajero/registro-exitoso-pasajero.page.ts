@@ -9,9 +9,11 @@ import { NavController } from '@ionic/angular';
 export class RegistroExitosoPasajeroPage {
   username: string = ''; // Variable para almacenar el nombre de usuario
   rutasDisponibles = [
-    { origen: 'Dirección A', destino: 'Destino A', precio: '$10' },
-    { origen: 'Dirección B', destino: 'Destino B', precio: '$15' },
-    // Añade más rutas simuladas
+    // rutas simuladas
+    { origen: 'Dirección A', destino: 'Destino A', precio: '$800' },
+    { origen: 'Dirección B', destino: 'Destino B', precio: '$800' },
+    { origen: 'Dirección B', destino: 'Destino B', precio: '$800' },
+    
   ];
 
   constructor(private navCtrl: NavController) {

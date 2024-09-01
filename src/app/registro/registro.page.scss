@@ -1,7 +1,16 @@
+ion-content.background {
+  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
 .header-title {
   font-family: 'Helvetica', sans-serif;
   font-size: 24px; /* Aumenta el tamaño de la fuente del encabezado */
   text-align: center;
+  font-weight: bold;
 }
 
 .error-message {
@@ -9,7 +18,8 @@
   text-align: center;
   margin-top: 10px;
   font-family: 'Helvetica', sans-serif;
-  font-size: 14px;
+  font-size: 20px;
+
 }
 
 ion-item {
@@ -17,5 +27,13 @@ ion-item {
 }
 
 ion-button {
-  margin-top: 20px; /* Espacio superior para el botón */
+  --width: 100%;
+  --max-width: 400px; 
+  margin-top: 20px;
+  font-family: 'Helvetica', sans-serif;
+  font-size: larger;
+  font-weight: bold;
+  --border-radius: 100px; /* Redondea los extremos del botón */
+  height: 50px; /* Altura del botón para un diseño más grande */
+
 }

@@ -1,0 +1,23 @@
+ion-content.background {
+    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+ion-button {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 20px;
+    font-family: 'Helvetica', sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    --border-radius: 25px; /* Redondea los extremos del botón */
+    height: 50px;
+}
+
+ion-list.color_list {
+    color: #403F51;
+
+}

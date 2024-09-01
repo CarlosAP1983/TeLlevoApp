@@ -21,12 +21,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Registro Exitoso</ion-title>    
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding background">
 
   <!-- Mensaje de bienvenida -->
   <p class="welcome-message">
@@ -44,5 +39,8 @@
   </ion-list>
 
   <!-- Botón para ver viajes disponibles -->
-  <ion-button expand="full" color="primary" (click)="verViajesDisponibles()">Ver Viajes Disponibles</ion-button>
+  <ion-button expand="block" color="primary" (click)="verViajesDisponibles()">Ver Viajes Disponibles</ion-button>
+
+
+
 </ion-content>

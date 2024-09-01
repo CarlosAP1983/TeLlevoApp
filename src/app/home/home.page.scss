@@ -1,68 +1,83 @@
 ion-content.home-background {
-  --background: linear-gradient(180deg, #c1b8d0, #c1b8d0 25%, #714dab); /* Degradado de color */
+  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   padding: 20px;
 }
 
-
 .flex-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 100%;
 }
 
 .logo-container {
-  text-align: center;
   margin-top: 20px;
+  text-align: center;
 }
 
 .logo {
-  width: 180px; /* Aumenta el tamaño predeterminado del logo */
+  width: 300px; 
   height: auto;
-  max-width: 50vw; /* Permite que el logo ocupe hasta el 40% del ancho de la pantalla */
+  max-width: 100vw;
 }
 
 .login-form {
   width: 100%;
   max-width: 400px;
-  margin-top: auto; /* Empuja el formulario hacia la parte inferior */
   padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
 }
 
 .input-label {
-  color: #280b74;
+  color: #f7f6f8;
   font-family: 'Helvetica', sans-serif;
+  margin-right: 10px;
+  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  font-size: x-large;
+  font-weight: bold;
 }
 
 .input-field {
+  flex: 1; /* Permite que el campo de entrada ocupe el espacio restante */
   --placeholder-color: #2a2a2a;
   font-family: 'Helvetica', sans-serif;
+  color: #cecdd3;
+  font-size: x-large;
+  font-weight: bold;
 }
 
-.login-button {
+/* Botones más anchos y redondeados */
+ion-button {
+  --width: 100%;
+  --max-width: 400px; 
   margin-top: 20px;
   font-family: 'Helvetica', sans-serif;
+  font-size: larger;
+  font-weight: bold;
+  --border-radius: 100px; /* Redondea los extremos del botón */
+  height: 50px; /* Altura del botón para un diseño más grande */
 }
 
-.register-button {
-  margin-top: 10px;  
-  font-family: 'Helvetica', sans-serif;
-}
-
-/* Estilos para centrar y dar color blanco al contenedor de enlaces */
 .link-container {
-  text-align: center; /* Centra el texto del enlace */
-  margin-top: 20px; /* Margen superior para separación */
+  text-align: center; 
+  margin-top: 20px;
 }
 
 .link {
-  color: #ffffff; /* Color blanco para el texto del enlace */
-  text-decoration: none; /* Quita el subrayado del enlace */
+  color: #ffffff;
+  text-decoration: none; 
   font-family: 'Helvetica', sans-serif;
+  font-weight: bold;
 }
