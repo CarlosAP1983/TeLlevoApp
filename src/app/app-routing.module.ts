@@ -24,6 +24,10 @@ const routes: Routes = [
     loadChildren: () => import('./registro-exitoso/registro-exitoso.module').then(m => m.RegistroExitosoPageModule)
   },
   {
+    path: 'registro-exitoso-pasajero', // Usar guiones en lugar de guiones bajos
+    loadChildren: () => import('./registro-exitoso-pasajero/registro-exitoso-pasajero.module').then(m => m.RegistroExitosoPasajeroPageModule)
+  },
+  {
     path: 'esperando-pasajeros',
     loadChildren: () => import('./esperando-pasajeros/esperando-pasajeros.module').then(m => m.EsperandoPasajerosPageModule)
   },
@@ -34,7 +38,7 @@ const routes: Routes = [
   {
     path: 'perfil-usuario',
     loadChildren: () => import('./perfil-usuario/perfil-usuario.module').then(m => m.PerfilUsuarioPageModule)
-  },
+  }
 ];
 
 @NgModule({

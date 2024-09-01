@@ -19,12 +19,6 @@
       <ion-input type="email" required [(ngModel)]="email" name="email"></ion-input>
     </ion-item>
 
-        <!-- Campo Número de Teléfono -->
-        <ion-item lines="full">
-          <ion-label position="floating">Número de Teléfono</ion-label>
-          <ion-input type="tel" required [(ngModel)]="phone" name="phone"></ion-input>
-        </ion-item>
-
     <!-- Campo Usuario -->
     <ion-item lines="full">
       <ion-label position="floating">Usuario</ion-label>
@@ -43,9 +37,15 @@
       <ion-input type="password" required [(ngModel)]="confirmPassword" name="confirmPassword"></ion-input>
     </ion-item>
 
+    <!-- Campo Número de Teléfono -->
+    <ion-item lines="full">
+      <ion-label position="floating">Número de Teléfono</ion-label>
+      <ion-input type="tel" required [(ngModel)]="phone" name="phone"></ion-input>
+    </ion-item>
+
     <!-- Tipo de Usuario -->
     <ion-item>
-      <ion-label>Selecciona el <br> tipo de Usuario</ion-label>
+      <ion-label>Tipo de Usuario</ion-label>
       <ion-radio-group [(ngModel)]="userType" name="userType">
         <ion-item>
           <ion-label>Usuario Conductor</ion-label>

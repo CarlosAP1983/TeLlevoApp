@@ -7,21 +7,24 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./registro-exitoso.page.scss'],
 })
 export class RegistroExitosoPage {
-  currentLocation: string = ''; // Variable para la dirección actual
-  destination: string = ''; // Variable para el destino
-  price: number = 0; // Variable para el precio
+  username: string = ''; // Variable para almacenar el nombre de usuario
+  currentLocation: string = ''; // Ubicación actual
+  destination: string = ''; // Destino del viaje
+  price: number = 0; // Precio por persona
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController) {
+    this.username = history.state.username; // Obtén el nombre del usuario desde el estado de navegación
+  }
 
-  // Función para redirigir a la vista de editar usuario
+  // Función para redirigir a la página de edición del usuario
   goToEditUser() {
-    this.navCtrl.navigateForward('/editarUsuario'); // Redirige a la página de edición del usuario
+    this.navCtrl.navigateForward('/editarUsuario');
   }
 
   // Función para cambiar de usuario o cerrar sesión
   changeUserOrLogout() {
-    // Aquí puedes agregar la lógica para cambiar de usuario o cerrar sesión
-    console.log('Usuario o sesión cambiada');
+    console.log('Cambiando usuario o cerrando sesión');
+    // Lógica para cambiar de usuario o cerrar sesión
   }
 
   // Función para crear un viaje
@@ -34,6 +37,6 @@ export class RegistroExitosoPage {
   // Función para cancelar un viaje
   cancelTrip() {
     console.log('Viaje cancelado');
-    // Aquí puedes agregar la lógica para cancelar el viaje
+    // Lógica para cancelar el viaje
   }
 }

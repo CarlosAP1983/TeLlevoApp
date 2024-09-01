@@ -30,15 +30,13 @@ export class RegistroPage {
       return;
     }
 
-    // Aquí puedes agregar la lógica de registro
-    console.log('Registro exitoso:', {
-      name: this.name,
-      email: this.email,
-      username: this.username,
-      phone: this.phone,
-      userType: this.userType, // Muestra el tipo de usuario
-    });
-
-    this.navCtrl.navigateForward('/registro-exitoso'); // Redirige a una página de confirmación
+    // Redirigir según el tipo de usuario seleccionado
+    if (this.userType === 'conductor') {
+      console.log('Registro exitoso como Conductor');
+      this.navCtrl.navigateForward('/registro-exitoso'); // Redirige a la vista del conductor
+    } else if (this.userType === 'pasajero') {
+      console.log('Registro exitoso como Pasajero');
+      this.navCtrl.navigateForward('/registro-exitoso-pasajero'); // Redirige a la vista del pasajero
+    }
   }
 }

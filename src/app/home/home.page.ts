@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular'; // Importa NavController para la navegación
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -14,14 +14,19 @@ export class HomePage {
 
   // Función de inicio de sesión
   login() {
-    const validUser = 'carlos'; // Usuario válido
-    const validPass = '123'; // Contraseña válida
+    const validUsers = [
+      { username: 'carlos', password: '123', redirectTo: '/registro-exitoso-pasajero' },
+      { username: 'alan', password: '123', redirectTo: '/registro-exitoso' }
+    ];
 
-    // Verifica si las credenciales coinciden
-    if (this.email.toLowerCase() === validUser && this.password === validPass) {
+    const user = validUsers.find(
+      (u) => u.username === this.email.toLowerCase() && u.password === this.password
+    );
+
+    if (user) {
       console.log('Inicio de sesión exitoso');
-      // Navega a la página principal o vista deseada
-      this.navCtrl.navigateForward('/programar-viaje'); // Redirige a la página "programar-viaje"
+      // Navega a la página correspondiente pasando el nombre del usuario
+      this.navCtrl.navigateForward(user.redirectTo, { state: { username: user.username } });
     } else {
       console.log('Credenciales incorrectas');
       alert('Usuario o contraseña incorrectos'); // Muestra una alerta de error

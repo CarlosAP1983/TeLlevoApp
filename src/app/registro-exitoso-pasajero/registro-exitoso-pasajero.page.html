@@ -8,7 +8,7 @@
       </ion-button>
     </ion-buttons>
 
-    <!-- Título con el nombre del usuario -->
+    <!-- Mostrar el nombre del usuario -->
     <ion-title>Hola {{username}}</ion-title>
 
     <!-- Menú de hamburguesa en la parte superior derecha -->
@@ -29,30 +29,19 @@
 
   <!-- Mensaje de bienvenida -->
   <p class="welcome-message">
-    ¡Registro Exitoso! Es hora de ofrecer tus servicios
+    Verifica los viajes disponibles
   </p>
 
-  <!-- Formulario para Crear Viaje -->
+  <!-- Cuadro de rutas disponibles -->
   <ion-list>
-    <ion-item>
-      <ion-label position="floating">¿Dónde estás?</ion-label>
-      <ion-input placeholder="Ingresa Dirección" [(ngModel)]="currentLocation"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">¿Dónde vas?</ion-label>
-      <ion-input placeholder="Ingresa Destino" [(ngModel)]="destination"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Danos un Precio</ion-label>
-      <ion-input type="number" min="0" [(ngModel)]="price" placeholder="$$"></ion-input>
+    <ion-item *ngFor="let ruta of rutasDisponibles">
+      <ion-label>
+        <h2><strong>ORIGEN:</strong> {{ ruta.origen }} <strong>DESTINO:</strong> {{ ruta.destino }}</h2>
+        <p>Precio: {{ ruta.precio }}</p>
+      </ion-label>
     </ion-item>
   </ion-list>
 
-  <!-- Botones para crear o cancelar viaje -->
-  <div class="button-container">
-    <ion-button expand="full" color="success" (click)="createTrip()">Crear Viaje</ion-button>
-    <ion-button expand="full" color="danger" (click)="cancelTrip()">Cancelar Viaje</ion-button>
-  </div>
+  <!-- Botón para ver viajes disponibles -->
+  <ion-button expand="full" color="primary" (click)="verViajesDisponibles()">Ver Viajes Disponibles</ion-button>
 </ion-content>
