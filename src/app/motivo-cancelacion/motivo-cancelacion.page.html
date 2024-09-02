@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>MotivoCancelacion</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Motivo Cancelacion</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-radio-group value="motivos">
+    <ion-radio value="Motivo_1">Mi mamá no me dejo salir</ion-radio><br />
+    <ion-radio value="Motivo_2">Me pararon los pacos</ion-radio><br />
+    <ion-radio value="Motivo_3">Problemas del auto</ion-radio><br />
+    <ion-radio value="Motivo_4">Me hicieron un portonazo</ion-radio>
+  </ion-radio-group>
+  
+
+  <ion-input label="Redacta una disculpa :)" label-placement="floating" fill="outline" placeholder="Escribe aquí!"></ion-input>
+</ion-content>
