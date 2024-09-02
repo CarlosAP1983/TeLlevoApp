@@ -1,0 +1,35 @@
+ion-header.custom-header {
+  --background: #4e54c8; /* Fondo degradado */
+}
+
+/* Estilo para el contenido */
+ion-content.background {
+  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+ion-header[collapse="condense"] ion-toolbar {
+  --background: transparent; /* Fondo transparente para el toolbar */
+}
+ion-header[collapse="condense"] ion-toolbar {
+  text-align: center; /* Centra el texto dentro del ion-toolbar */
+}
+
+  ion-content.background {
+    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  } 
+
+.color-letter {
+    color: white;
+    font-size: 18px;
+    margin: 20px 0;
+    font-family: 'Helvetica', sans-serif;
+  }
+  

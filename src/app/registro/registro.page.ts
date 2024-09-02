@@ -16,19 +16,37 @@ export class RegistroPage {
   userType: string = ''; // Variable para almacenar el tipo de usuario
   errorMessage: string = '';
 
+  vehiculo = {
+    patente: '',
+    color: '',
+    marca: ''
+  };
+
   constructor(private navCtrl: NavController) {}
 
   // Función para manejar el registro del usuario
   onRegister() {
+    // Validación de las contraseñas
     if (this.password !== this.confirmPassword) {
       this.errorMessage = 'Las contraseñas no coinciden';
       return;
     }
 
+    // Validación del tipo de usuario
     if (!this.userType) {
       this.errorMessage = 'Por favor, selecciona un tipo de usuario';
       return;
     }
+
+    // Lógica para procesar el registro (incluye los datos del vehículo)
+    console.log('Datos del vehículo:', this.vehiculo);
+    console.log('Datos del usuario:', {
+      name: this.name,
+      email: this.email,
+      username: this.username,
+      phone: this.phone,
+      userType: this.userType
+    });
 
     // Redirigir según el tipo de usuario seleccionado
     if (this.userType === 'conductor') {

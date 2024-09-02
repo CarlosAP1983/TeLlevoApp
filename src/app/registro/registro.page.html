@@ -28,6 +28,38 @@
       <ion-input type="tel" required [(ngModel)]="phone" name="phone"></ion-input>
     </ion-item>
 
+    <!-- Información del Vehículo -->
+    <ion-item>
+      <ion-label position="floating">Patente</ion-label>
+      <ion-input type="text" [(ngModel)]="vehiculo.patente"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Color</ion-label>
+      <ion-input type="text" [(ngModel)]="vehiculo.color"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Marca</ion-label>
+      <ion-input type="text" [(ngModel)]="vehiculo.marca"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Patente</ion-label>
+      <ion-input type="text" [(ngModel)]="vehiculo.patente" name="patente"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Color</ion-label>
+      <ion-input type="text" [(ngModel)]="vehiculo.color" name="color"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Marca</ion-label>
+      <ion-input type="text" [(ngModel)]="vehiculo.marca" name="marca"></ion-input>
+    </ion-item>
+
+
     <!-- Campo Usuario -->
     <ion-item lines="full">
       <ion-label position="floating">Usuario:</ion-label>
@@ -48,7 +80,7 @@
       <br><br>
       <ion-input type="password" required [(ngModel)]="confirmPassword" name="confirmPassword"></ion-input>
     </ion-item>
-    
+
     <!-- Tipo de Usuario -->
     <ion-item>
       <ion-label>Tipo de Usuario</ion-label>

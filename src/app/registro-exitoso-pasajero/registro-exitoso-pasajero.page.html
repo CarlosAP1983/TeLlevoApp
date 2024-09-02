@@ -1,6 +1,5 @@
 <ion-header [translucent]="true" class="custom-header">
   <ion-toolbar class="custom-toolbar">
-    <!-- Menú de hamburguesa en la parte superior izquierda -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
       <ion-button (click)="goToCuenta()">
@@ -8,12 +7,7 @@
       </ion-button>
     </ion-buttons>
 
-    <!-- Mostrar el nombre del usuario -->
-    <ion-title class="custom-title">Hola {{username}}</ion-title>
-
-    <!-- Menú de hamburguesa en la parte superior derecha -->
     <ion-buttons slot="end">
-      <!-- Redirige a la vista de perfil de usuario -->
       <ion-button (click)="goToUserProfile()">
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
@@ -27,6 +21,7 @@
       <ion-title class="condensed-title" size="large">Bienvenido a <br>TeLlevoApp</ion-title>    
     </ion-toolbar>
   </ion-header>
+
   <!-- Mensaje de bienvenida -->
   <p class="welcome-message">
     ¡Vamos! Revisa si hay viajes disponibles
@@ -34,17 +29,17 @@
 
   <!-- Cuadro de rutas disponibles -->
   <ion-list>
-    <ion-item *ngFor="let ruta of rutasDisponibles">
+    <ion-item *ngFor="let ruta of rutasDisponibles" (click)="selectRuta(ruta)" [color]="rutaSeleccionada === ruta ? 'secondary' : ''">
       <ion-label>
         <h2><strong>ORIGEN:</strong> {{ ruta.origen }} <strong>DESTINO:</strong> {{ ruta.destino }}</h2>
-        <p>Precio: {{ ruta.precio }}</p>
+        <p><strong>Precio:</strong> {{ ruta.precio }}</p>
+        <p><strong>Conductor:</strong> {{ ruta.conductor }}</p>
+        <p><strong>Hora:</strong> {{ ruta.hora }}</p>
+        <p><strong>Asientos Disponibles:</strong> {{ ruta.AsientosDisponibles }}</p>
       </ion-label>
     </ion-item>
   </ion-list>
 
-  <!-- Botón para ver viajes disponibles -->
-  <ion-button expand="block" color="primary" (click)="verViajesDisponibles()">Ver Viajes Disponibles</ion-button>
-
-
-
+  <!-- Botón para ver detalles del viaje seleccionado -->
+  <ion-button expand="block" color="primary" (click)="verDetallesViaje()">Ver datos del viaje</ion-button>
 </ion-content>
