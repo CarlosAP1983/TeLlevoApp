@@ -56,5 +56,24 @@ ion-header.custom-header {
     --border-radius: 100px; /* Redondea los extremos del botón */
     height: 50px; /* Altura del botón para un diseño más grande */
   }
+ 
+  ion-content {
+    position: relative; /* Permite la posición absoluta de los elementos hijos */
+  }
   
+  .image-container {
+    position: absolute; /* Posiciona el contenedor de la imagen de forma absoluta */
+    bottom: 0; /* Alínea el contenedor en la parte inferior del ion-content */
+    left: 50%; /* Centra horizontalmente el contenedor */
+    transform: translateX(-50%); /* Ajusta la posición horizontal para estar perfectamente centrado */
+    margin-bottom: 10px; /* Espacio inferior opcional para no estar pegado al borde */
+  }
+  
+  .gradient-image {
+    width: 100%;
+    max-width: 150px; /* Ajusta el tamaño máximo de la imagen */
+    border-radius: 40px; /* Redondea los bordes */
+    mask-image: radial-gradient(circle, white 10%, transparent 100%); /* Aplica una máscara de degradado circular */
+    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+  }
   

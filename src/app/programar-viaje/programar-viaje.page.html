@@ -1,42 +1,59 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Programar un Viaje</ion-title>
+    <!-- Botón para crear un nuevo viaje -->
     <ion-buttons slot="end">
-      <ion-button routerLink="/nueva">Nuevo</ion-button>
+      <ion-button routerLink="/registro-exitoso">Volver</ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light" [fullscreen]="true">
-  <h1>Disponibilidad de Autos</h1>
-  <p>Aquí puedes ver la disponibilidad de autos para programar tu viaje.</p>
-
-  <ion-list [inset]="true">
+<ion-content color="light" [fullscreen]="true" class="ion-padding">
+  <form (ngSubmit)="guardarViaje()">
+    <!-- Campo Origen -->
     <ion-item>
-      <ion-label>Mostrar Autos Disponibles</ion-label>
-      <ion-toggle [(ngModel)]="mostrarDisponibles" slot="end"></ion-toggle>
+      <ion-label position="floating">Origen</ion-label>
+      <ion-input [(ngModel)]="nuevoViaje.origen" name="origen"></ion-input>
     </ion-item>
-    <ion-item>
-      <ion-label>Mostrar Autos No Disponibles</ion-label>
-      <ion-toggle [(ngModel)]="mostrarNoDisponibles" slot="end"></ion-toggle>
-    </ion-item>
-  </ion-list>
 
-  <ion-list [inset]="true">
-    <ion-item *ngFor="let auto of autos">
-      <ion-avatar aria-hidden="true" slot="start">
-        <img alt="Foto del auto" [src]="obtenerAvatar(auto)" />
-      </ion-avatar>
-      <ion-label>{{auto.nombre}}</ion-label>
-      <ion-note slot="end" [color]="auto.disponible ? 'primary' : 'danger'">
-        {{auto.disponible ? 'Disponible' : 'No Disponible'}}
-      </ion-note>
+    <!-- Campo Destino -->
+    <ion-item>
+      <ion-label position="floating">Destino</ion-label>
+      <ion-input [(ngModel)]="nuevoViaje.destino" name="destino"></ion-input>
     </ion-item>
-  </ion-list>
+
+    <!-- Campo Fecha de Salida -->
+    <ion-item>
+      <ion-label position="stacked">Fecha de Salida</ion-label>
+      <ion-input type="date" [(ngModel)]="nuevoViaje.fecha" name="fecha" placeholder="DD/MM/YYYY"></ion-input>
+    </ion-item>
+
+
+    <!-- Campo Hora de Salida -->
+    <ion-item>
+      <ion-label position="stacked">Hora de Salida</ion-label>
+      <ion-input type="time" [(ngModel)]="nuevoViaje.hora" name="hora" placeholder="HH:mm"></ion-input>
+    </ion-item>
+
+    <!-- Campo Precio -->
+    <ion-item>
+      <ion-label position="floating">Precio</ion-label>
+      <ion-input type="number" [(ngModel)]="nuevoViaje.precio" name="precio"></ion-input>
+    </ion-item>
+
+    <!-- Campo Asientos Disponibles -->
+    <ion-item>
+      <ion-label position="floating">Asientos Disponibles</ion-label>
+      <ion-input type="number" [(ngModel)]="nuevoViaje.asientos" name="asientos"></ion-input>
+    </ion-item>
+
+    <!-- Botón para guardar el viaje -->
+    <ion-button expand="block" color="success" type="submit">Guardar Viaje</ion-button>
+  </form>
 </ion-content>
 
 <ion-footer>
   <ion-toolbar>
-    <ion-title class="ion-text-center">TeLlevoApp - Programar un Viaje</ion-title>
+    <ion-title class="ion-text-center">TeLlevoApp</ion-title>
   </ion-toolbar>
 </ion-footer>

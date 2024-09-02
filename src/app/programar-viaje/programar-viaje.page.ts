@@ -1,10 +1,5 @@
 import { Component } from '@angular/core';
-
-interface Auto {
-  nombre: string;
-  disponible: boolean;
-  avatar: string;
-}
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-programar-viaje',
@@ -12,19 +7,24 @@ interface Auto {
   styleUrls: ['./programar-viaje.page.scss'],
 })
 export class ProgramarViajePage {
+  nuevoViaje = {
+    origen: '',
+    destino: '',
+    hora: '',
+    fecha: '',
+    precio: '',
+    asientos: 0
+  };
 
-  titulo = 'Programar un Viaje';
-  mostrarDisponibles = true;
-  mostrarNoDisponibles = true;
+  constructor(private navCtrl: NavController) {}
 
-  autos: Auto[] = [
-    { nombre: 'Toyota Corolla', disponible: true, avatar: 'assets/images/toyota_corolla.jpg' },
-    { nombre: 'Ford Fiesta', disponible: false, avatar: 'assets/images/ford_fiesta.jpg' },
-    { nombre: 'Honda Civic', disponible: true, avatar: 'assets/images/honda_civic.jpg' },
-    { nombre: 'Chevrolet Spark', disponible: false, avatar: 'assets/images/chevrolet_spark.jpg' },
-  ];
+  guardarViaje() {
+    // Guardar el nuevo viaje en localStorage o en una base de datos
+    const viajesGuardados = JSON.parse(localStorage.getItem('viajes') || '[]');
+    viajesGuardados.push(this.nuevoViaje);
+    localStorage.setItem('viajes', JSON.stringify(viajesGuardados));
 
-  obtenerAvatar(auto: Auto): string {
-    return auto.avatar;
+    // Redirigir al usuario a la vista principal o de confirmación
+    this.navCtrl.navigateBack('/registro-exitoso');
   }
 }

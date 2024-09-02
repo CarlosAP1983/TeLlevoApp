@@ -39,7 +39,7 @@ export class RegistroExitosoPage {
   createTrip() {
     console.log('Viaje creado:', this.currentLocation, this.destination, this.price);
     // Redirige a la vista donde se esperan pasajeros
-    this.navCtrl.navigateForward('/esperando-pasajeros');
+    this.navCtrl.navigateForward('/programar-viaje');
   }
 
   // Función para cancelar un viaje

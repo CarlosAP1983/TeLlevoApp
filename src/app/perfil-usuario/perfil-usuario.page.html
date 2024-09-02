@@ -12,7 +12,7 @@
 
   <!-- Card para el Perfil del Usuario -->
   <ion-card class="card-background">
-    <!-- Imagen del Avatar con opción para cambiar -->
+    <!-- Avatar con opción para cambiar -->
     <ion-card-header>
       <div class="avatar-container">
         <img [src]="avatar" alt="Avatar del usuario" class="avatar" />
@@ -22,7 +22,6 @@
 
     <!-- Información del Usuario -->
     <ion-card-content>
-      <ion-list>
         <ion-item>
           <ion-label><strong>Nombre:</strong> {{nombre}}</ion-label>
         </ion-item>
@@ -38,7 +37,6 @@
         <ion-item>
           <ion-label><strong>Tipo de Usuario:</strong> {{tipoUsuario}}</ion-label>
         </ion-item>
-      </ion-list>
     </ion-card-content>
 
     <!-- Botones de Acción -->

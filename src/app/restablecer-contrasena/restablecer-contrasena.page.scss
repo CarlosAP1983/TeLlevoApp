@@ -32,3 +32,10 @@ ion-button {
     font-weight: bold;
     text-align: center;
 }
+
+ion-item {
+    --background: transparent; /* Hace el fondo de los items transparente */
+    --border-color: transparent; /* Hace que las líneas de los items sean transparentes */
+    --ion-text-color: #ffffff; /* Ajusta el color del texto si es necesario */
+    font-size: larger;
+  }
