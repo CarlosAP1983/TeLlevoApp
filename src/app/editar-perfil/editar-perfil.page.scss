@@ -1,0 +1,20 @@
+ion-content.background {
+    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+ion-button {
+    width: 70%; /* Ancho del botón, ajustable según tu preferencia */
+    max-width: 400px;
+    margin: 20px auto; /* Centra el botón horizontalmente */
+    font-family: 'Helvetica', sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    --border-radius: 25px; /* Valor ajustado para redondear extremos */
+    height: 50px;
+    display: block; /* Asegura que se centre correctamente */
+    text-align: center; /* Centra el contenido del botón */
+}

@@ -1,18 +1,17 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <!-- Botón de regreso en la parte izquierda -->
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button> <!-- Vuelve a la página de inicio si no hay historial -->
+    </ion-buttons>
     <ion-title>Perfil Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Perfil Usuario</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="background ion-padding" [fullscreen]="true">
 
   <!-- Card para el Perfil del Usuario -->
-  <ion-card>
+  <ion-card class="card-background">
     <!-- Imagen del Avatar con opción para cambiar -->
     <ion-card-header>
       <div class="avatar-container">
@@ -43,7 +42,7 @@
     </ion-card-content>
 
     <!-- Botones de Acción -->
-    <ion-button expand="full" color="primary" routerLink="/editar-perfil">Editar Perfil</ion-button>
-    <ion-button expand="full" color="danger" routerLink="/home">Cerrar Sesión</ion-button>
+    <ion-button expand="block" color="primary" routerLink="/editar-perfil">Editar Perfil</ion-button>
+    <ion-button expand="block" color="danger" routerLink="/home">Cerrar Sesión</ion-button>
   </ion-card>
 </ion-content>

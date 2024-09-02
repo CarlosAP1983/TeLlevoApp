@@ -39,4 +39,8 @@ export class RegistroPage {
       this.navCtrl.navigateForward('/registro-exitoso-pasajero'); // Redirige a la vista del pasajero
     }
   }
+
+  goHome() {
+    this.navCtrl.navigateRoot('/home');
+  }
 }

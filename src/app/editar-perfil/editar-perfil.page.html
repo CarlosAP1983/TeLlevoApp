@@ -1,10 +1,13 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button> <!-- Vuelve a la página de inicio si no hay historial -->
+    </ion-buttons>
     <ion-title>Editar Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
+<ion-content class="background ion-padding" [fullscreen]="true">
   <!-- Formulario de Edición de Perfil -->
   <ion-list>
     <ion-item>
@@ -26,5 +29,5 @@
   </ion-list>
   
   <!-- Botón para guardar los cambios -->
-  <ion-button expand="full" color="success" (click)="guardarCambios()">Guardar Cambios</ion-button>
+  <ion-button expand="block" color="success" (click)="guardarCambios()">Guardar Cambios</ion-button>
 </ion-content>

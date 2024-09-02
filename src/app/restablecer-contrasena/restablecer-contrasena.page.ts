@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-restablecer-contrasena',
@@ -7,19 +6,21 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./restablecer-contrasena.page.scss'],
 })
 export class RestablecerContrasenaPage {
-  email: string = ''; // Variable para almacenar el correo electrónico del usuario
+  email: string = ''; // Variable para almacenar el correo electrónico
+  successMessage: string = ''; // Mensaje de éxito
+  errorMessage: string = ''; // Mensaje de error
 
-  constructor(private navCtrl: NavController) {}
+  constructor() {}
 
-  // Función para enviar el enlace de restablecimiento de contraseña
+  // Función para enviar el enlace de restablecimiento
   enviarEnlace() {
-    if (!this.email) {
-      alert('Por favor, introduce tu correo electrónico');
-      return;
+    if (this.email) {
+      // Simula el envío del enlace de restablecimiento de contraseña
+      this.successMessage = 'Se ha enviado un enlace de restablecimiento a tu correo electrónico.';
+      this.errorMessage = ''; // Resetea el mensaje de error
+    } else {
+      this.errorMessage = 'Por favor, ingresa un correo electrónico válido.';
+      this.successMessage = ''; // Resetea el mensaje de éxito
     }
-
-    console.log('Enlace de recuperación enviado a:', this.email);
-    alert('El enlace de recuperación ha sido enviado a tu correo electrónico');
-    this.navCtrl.navigateRoot('/home'); // Redirige a la página de inicio después de enviar el enlace
   }
 }

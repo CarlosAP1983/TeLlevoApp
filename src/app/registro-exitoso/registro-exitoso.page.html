@@ -1,5 +1,5 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-toolbar">
     <!-- Menú de hamburguesa en la parte superior izquierda -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
@@ -7,9 +7,6 @@
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-
-    <!-- Título con el nombre del usuario -->
-    <ion-title>Hola {{username}}</ion-title>
 
     <!-- Menú de hamburguesa en la parte superior derecha -->
     <ion-buttons slot="end">
@@ -24,13 +21,13 @@
 <ion-content class="background" [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Registro Exitoso</ion-title>    
+      <ion-title class="condensed-title" size="large">Bienvenido a <br>TeLlevoApp</ion-title>    
     </ion-toolbar>
   </ion-header>
 
   <!-- Mensaje de bienvenida -->
   <p class="welcome-message">
-    Ofrecer servicio de viaje
+    ¡Vamos! Crea tu ruta de viaje...
   </p>
 
   <!-- Formulario para Crear Viaje -->
@@ -59,3 +56,4 @@
     <ion-button expand="block" color="danger" (click)="cancelTrip()">Cancelar Viaje</ion-button>
   </div>
 </ion-content>
+

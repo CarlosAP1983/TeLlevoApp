@@ -48,9 +48,7 @@
       <br><br>
       <ion-input type="password" required [(ngModel)]="confirmPassword" name="confirmPassword"></ion-input>
     </ion-item>
-
-
-
+    
     <!-- Tipo de Usuario -->
     <ion-item>
       <ion-label>Tipo de Usuario</ion-label>
@@ -68,6 +66,8 @@
 
     <!-- Botón Registrarse -->
     <ion-button expand="block" color="primary" type="submit">Registrarse</ion-button>
+    <ion-button expand="block" color="danger" (click)="goHome()">Salir</ion-button>
+
   </form>
 
   <!-- Mensajes de error -->

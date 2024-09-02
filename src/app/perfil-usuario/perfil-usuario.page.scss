@@ -1,0 +1,37 @@
+ion-content.background {
+    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.avatar {
+    width: 200px; /* tamaño del avatar */
+    height: 200px; /* tamaño del avatar */
+    border-radius: 50%; /* Hace que el avatar sea redondo */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor redondo */
+    display: block;
+    margin: 0 auto 10px; /* Centra la imagen horizontalmente */
+}
+
+ion-button {
+    width: 70%; /* Ancho del botón, ajustable según tu preferencia */
+    max-width: 400px;
+    margin: 20px auto; /* Centra el botón horizontalmente */
+    font-family: 'Helvetica', sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    --border-radius: 25px; /* Valor ajustado para redondear extremos */
+    height: 50px;
+    display: block; /* Asegura que se centre correctamente */
+    text-align: center; /* Centra el contenido del botón */
+}
+
+ion-card.card-background {
+    --background: #1e1446;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 5px; /* Reduce el margen para que sea más uniforme */
+}
