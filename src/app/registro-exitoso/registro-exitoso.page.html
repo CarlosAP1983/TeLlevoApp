@@ -25,31 +25,21 @@
     </ion-toolbar>
   </ion-header>
 
+  <p class="mensaje-compartir">
+    Comparte tu auto y disfruta del viaje acompañado.
+  </p>
+
+    <!-- Imagen con degradado en los bordes -->
+    <div class="image-container">
+      <img src="assets/images/car-sharing.png" alt="Compartir Auto" class="gradient-image" />
+    </div>
+
+  
   <!-- Mensaje de bienvenida -->
   <p class="welcome-message">
     ¡Vamos! Crea tu ruta de viaje...
   </p>
-
-  <!-- Formulario para Crear Viaje -->
-  <ion-list>
-    <ion-item>
-      <ion-label position="floating">¿Dónde estás?</ion-label>
-      <br><br>
-      <ion-input placeholder="Ingresa Dirección" [(ngModel)]="currentLocation"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">¿Dónde vas?</ion-label>
-      <br><br>
-      <ion-input placeholder="Ingresa Destino" [(ngModel)]="destination"></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label position="floating">Danos un Precio</ion-label>
-      <ion-input type="number" min="0" [(ngModel)]="price" placeholder="$$"></ion-input>
-    </ion-item>
-  </ion-list>
-
+    
   <!-- Botones para crear o cancelar viaje -->
   <div class="button-container">
     <ion-button expand="block" color="success" (click)="createTrip()">Crear Viaje</ion-button>

@@ -56,3 +56,26 @@ ion-button {
   --border-radius: 100px; /* Redondea los extremos del botón */
   height: 50px; /* Altura del botón para un diseño más grande */
 }
+
+/* Estilo para la imagen con degradado en los bordes */
+.image-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.gradient-image {
+  width: 100%;
+  max-width: 250px; /* Ajusta el tamaño máximo de la imagen */
+  border-radius: 40px; /* Redondea los bordes */
+  mask-image: radial-gradient(circle, white 20%, transparent 100%); /* Aplica una máscara de degradado circular */
+  object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
+}
+
+.mensaje-compartir {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  margin: 20px 0;
+  font-family: 'Helvetica', sans-serif;
+}
