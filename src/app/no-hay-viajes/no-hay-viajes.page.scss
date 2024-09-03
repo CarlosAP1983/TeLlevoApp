@@ -1,0 +1,16 @@
+.button-container {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    margin-top: 20px; 
+  }
+  
+  ion-button {
+    transition: transform 0.3s ease, background-color 0.3s ease; 
+  }
+  
+  ion-button:hover {
+    transform: scale(1.05); 
+    background-color: #1e90ff; 
+  }
+  

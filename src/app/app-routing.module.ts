@@ -15,7 +15,11 @@ const routes: Routes = [
   { path: 'editar-perfil', loadChildren: () => import('./editar-perfil/editar-perfil.module').then( m => m.EditarPerfilPageModule)},
   { path: 'restablecer-contrasena', loadChildren: () => import('./restablecer-contrasena/restablecer-contrasena.module').then( m => m.RestablecerContrasenaPageModule)},
   { path: 'detalle-viaje',loadChildren: () => import('./detalle-viaje/detalle-viaje.module').then( m => m.DetalleViajePageModule)},
-  { path: 'motivo-cancelacion', loadChildren: () => import('./motivo-cancelacion/motivo-cancelacion.module').then( m => m.MotivoCancelacionPageModule)},
+  { path: 'motivo-cancelacion', loadChildren: () => import('./motivo-cancelacion/motivo-cancelacion.module').then( m => m.MotivoCancelacionPageModule)},  {
+    path: 'no-hay-viajes',
+    loadChildren: () => import('./no-hay-viajes/no-hay-viajes.module').then( m => m.NoHayViajesPageModule)
+  },
+
 ];
 
 @NgModule({
