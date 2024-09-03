@@ -22,7 +22,7 @@ export class ProgramarViajePage {
     hora: '',
     fecha: '',
     precio: '',
-    asientos: 0
+    asientos: 1
   };
 
   constructor(
@@ -49,10 +49,12 @@ export class ProgramarViajePage {
       const toast = await this.toastCtrl.create({
         message: 'Viaje guardado exitosamente.',
         duration: 2000,  // Duración del mensaje de éxito
-        color: 'success'
+        color: 'dark',
+        position: 'middle',
+        cssClass: 'custom-toast' // Clase personalizada para el estilo
       });
       await toast.present();
-
+      
       // Redirigir a la vista de registro-exitoso
       this.navCtrl.navigateBack('/registro-exitoso');
     });

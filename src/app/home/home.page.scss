@@ -1,3 +1,4 @@
+/* Estilo para el fondo de ion-content */
 ion-content.home-background {
   --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
   display: flex;
@@ -6,6 +7,7 @@ ion-content.home-background {
   padding: 20px;
 }
 
+/* Contenedor flexible para centrar los elementos */
 .flex-container {
   display: flex;
   flex-direction: column;
@@ -14,6 +16,7 @@ ion-content.home-background {
   height: 100%;
 }
 
+/* Contenedor y estilo del logo */
 .logo-container {
   margin-top: 20px;
   text-align: center;
@@ -25,6 +28,7 @@ ion-content.home-background {
   max-width: 100vw;
 }
 
+/* Estilo del formulario de login */
 .login-form {
   width: 100%;
   max-width: 400px;
@@ -34,12 +38,14 @@ ion-content.home-background {
   gap: 10px;
 }
 
+/* Estilo de los grupos de entrada */
 .input-group {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
+/* Estilo de etiquetas de entrada */
 .input-label {
   color: #f7f6f8;
   font-family: 'Helvetica', sans-serif;
@@ -49,6 +55,7 @@ ion-content.home-background {
   font-weight: bold;
 }
 
+/* Estilo de los campos de entrada */
 .input-field {
   flex: 1; /* Permite que el campo de entrada ocupe el espacio restante */
   --placeholder-color: #2a2a2a;
@@ -60,16 +67,25 @@ ion-content.home-background {
 
 /* Botones más anchos y redondeados */
 ion-button {
-  --width: 100%;
-  --max-width: 400px; 
+  width: 100%;
+  max-width: 400px; 
   margin-top: 20px;
   font-family: 'Helvetica', sans-serif;
   font-size: larger;
   font-weight: bold;
   --border-radius: 100px; /* Redondea los extremos del botón */
   height: 50px; /* Altura del botón para un diseño más grande */
+  display: flex; /* Utiliza flexbox para centrar el contenido */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  --border-width: 05px; /* Ancho del borde */
+  --border-style: solid; /* Estilo del borde */
+  --border-color: black; /* Color del borde */
+  --background: black; /* Fondo del botón */
+  --color: black; /* Color del texto */
 }
 
+/* Estilo para los enlaces */
 .link-container {
   text-align: center; 
   margin-top: 20px;
@@ -81,6 +97,3 @@ ion-button {
   font-family: 'Helvetica', sans-serif;
   font-weight: bold;
 }
-
-
-

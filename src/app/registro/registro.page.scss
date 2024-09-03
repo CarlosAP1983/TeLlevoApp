@@ -27,13 +27,20 @@ ion-item {
 }
 
 ion-button {
-  --width: 100%;
-  --max-width: 400px; 
+  width: 100%;
+  max-width: 400px; 
   margin-top: 20px;
   font-family: 'Helvetica', sans-serif;
   font-size: larger;
   font-weight: bold;
   --border-radius: 100px; /* Redondea los extremos del botón */
   height: 50px; /* Altura del botón para un diseño más grande */
-
+  display: flex; /* Utiliza flexbox para centrar el contenido */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  --border-width: 05px; /* Ancho del borde */
+  --border-style: solid; /* Estilo del borde */
+  --border-color: black; /* Color del borde */
+  --background: black; /* Fondo del botón */
+  --color: black; /* Color del texto */
 }

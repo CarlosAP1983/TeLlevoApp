@@ -1,8 +1,13 @@
-ion-item {
-    --padding-bottom: 16px; /* Agrega un poco de espacio inferior para evitar que los elementos se superpongan */
-  }
-  
-  ion-datetime {
-    width: 100%;
-  }
-  
+/* Estilo personalizado para el Toast */
+.custom-toast {
+  --background: var(--ion-color-dark) !important; /* Asegura el color de fondo del Toast */
+  --color: white !important; /* Color del texto del Toast */
+  width: 90% !important; /* Ancho del Toast */
+  max-width: 400px !important; /* Ancho máximo del Toast */
+  margin: 0 auto !important; /* Centrado horizontal */
+  border-radius: 100px !important; /* Redondea los extremos del Toast */
+  text-align: center !important; /* Centra el texto */
+  font-family: 'Helvetica', sans-serif !important;
+  font-size: larger !important;
+  font-weight: bold !important;
+}

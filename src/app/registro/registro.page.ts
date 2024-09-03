@@ -7,6 +7,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage {
+  // Datos del formulario de registro
   name: string = '';
   email: string = '';
   username: string = '';
@@ -21,6 +22,12 @@ export class RegistroPage {
     color: '',
     marca: ''
   };
+
+  // Definir los tipos de usuario
+  userTypes = [
+    { label: 'Usuario Conductor', value: 'conductor' },
+    { label: 'Usuario Pasajero', value: 'pasajero' }
+  ];
 
   constructor(private navCtrl: NavController) {}
 
@@ -58,6 +65,12 @@ export class RegistroPage {
     }
   }
 
+  // Maneja el cambio de tipo de usuario
+  onUserTypeChange(event: any) {
+    console.log('Tipo de usuario seleccionado:', event.detail.value);
+  }
+
+  // Navega a la página de inicio
   goHome() {
     this.navCtrl.navigateRoot('/home');
   }

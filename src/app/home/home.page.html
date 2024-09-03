@@ -10,19 +10,19 @@
     <div class="login-form">
       <!-- Campo para el Usuario -->
       <div class="input-group">
-        <label class="input-label">* Usuario:</label>
-        <ion-input type="text" class="input-field" [(ngModel)]="username"></ion-input>
+        <label class="input-label"> Usuario:</label>
+        <ion-input type="text" class="fixed" [(ngModel)]="username"></ion-input>
       </div>
 
       <!-- Campo para la Contraseña -->
       <div class="input-group">
-        <label class="input-label">* Contraseña:</label>
-        <ion-input type="password" class="input-field" [(ngModel)]="password"></ion-input>
+        <label class="input-label"> Contraseña:</label>
+        <ion-input type="password" class="fixed" [(ngModel)]="password"></ion-input>
       </div>
 
       <!-- Botones para iniciar y crear cuenta -->
-      <ion-button expand="block" color="primary" (click)="login()">Iniciar Sesión</ion-button>
-      <ion-button expand="block" color="secondary" (click)="goToRegister()">Crea una cuenta</ion-button>
+      <ion-button expand="block" color="medium" (click)="login()">Iniciar Sesión</ion-button>
+      <ion-button expand="block" color="medium" (click)="goToRegister()">Crea una cuenta</ion-button>
       <!-- Enlaces -->
       <div class="link-container">
         <a [routerLink]="'/restablecer-contrasena'" class="link">¿Olvidaste tu contraseña?</a>

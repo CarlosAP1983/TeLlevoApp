@@ -46,16 +46,32 @@ ion-header.custom-header {
     margin-top: 20px;
   }
   
-  ion-button {
-    width: 100%;
-    max-width: 400px; 
-    margin-top: 10px;
-    font-family: 'Helvetica', sans-serif;
-    font-size: larger;
-    font-weight: bold;
-    --border-radius: 100px; /* Redondea los extremos del botón */
-    height: 50px; /* Altura del botón para un diseño más grande */
-  }
+/* Estilo para los botones en el contenido */
+ion-content.background {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra horizontalmente los elementos dentro del ion-content */
+  padding: 20px;
+}
+
+/* Estilo específico para los botones dentro del ion-content */
+ion-content.background ion-button {
+  width: 80%;
+  max-width: 400px;
+  margin: 10px auto; /* Centra el botón horizontalmente */
+  font-family: 'Helvetica', sans-serif;
+  font-size: larger;
+  font-weight: bold;
+  --border-radius: 100px;
+  height: 50px;
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  --border-width: 5px; /* Ancho del borde */
+  --border-style: solid; /* Estilo del borde */
+  --border-color: black; /* Color del borde */
+  --background: black; /* Fondo del botón */
+  --color: black; /* Color del texto */
+}
  
   ion-content {
     position: relative; /* Permite la posición absoluta de los elementos hijos */

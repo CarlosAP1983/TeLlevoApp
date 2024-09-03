@@ -14,10 +14,9 @@ ion-content.background {
 
 ion-header[collapse="condense"] ion-toolbar {
   --background: transparent; /* Fondo transparente para el toolbar */
-}
-ion-header[collapse="condense"] ion-toolbar {
   text-align: center; /* Centra el texto dentro del ion-toolbar */
 }
+
 /* Estilo para el título grande */
 .condensed-title {
   font-family: system-ui; /* Cambia la fuente */
@@ -38,23 +37,25 @@ ion-header[collapse="condense"] ion-toolbar {
   font-family: 'Helvetica', sans-serif;
 }
 
-/* Estilo para los botones */
+/* Contenedor para los botones */
 .button-container {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  align-items: center; /* Centra los botones */
+  gap: 05px; /* Espacio entre los botones */
   margin-top: 20px;
 }
 
+/* Estilo para los botones */
 ion-button {
-  width: 100%;
-  max-width: 400px; 
-  margin-top: 10px;
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto; /* Centra el botón */
   font-family: 'Helvetica', sans-serif;
   font-size: larger;
   font-weight: bold;
   --border-radius: 100px; /* Redondea los extremos del botón */
-  height: 50px; /* Altura del botón para un diseño más grande */
+  height: 50px;
 }
 
 /* Estilo para la imagen con degradado en los bordes */
