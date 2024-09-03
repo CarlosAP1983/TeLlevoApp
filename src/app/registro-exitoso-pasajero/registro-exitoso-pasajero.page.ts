@@ -26,11 +26,10 @@ export class RegistroExitosoPasajeroPage {
 
   verDetallesViaje() {
     if (this.rutaSeleccionada) {
-      this.navCtrl.navigateForward('/detalle-viaje', {
-        state: { ruta: this.rutaSeleccionada } // Pasa la ruta seleccionada a la vista de detalles
-      });
+      // Navega a la página de detalle de viaje pasando los datos de la ruta seleccionada
+      this.navCtrl.navigateForward('/detalle-viaje', { state: { ruta: this.rutaSeleccionada } });
     } else {
-      alert('Por favor, seleccione un viaje para ver los detalles.');
+      alert('Por favor, selecciona un viaje para ver los detalles.');
     }
   }
 

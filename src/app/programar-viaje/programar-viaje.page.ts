@@ -1,30 +1,36 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
 
+interface Viaje {
+  origen: string;
+  destino: string;
+  hora: string;
+  fecha: string;
+  precio: string;
+  asientos: number;
+}
+
 @Component({
   selector: 'app-programar-viaje',
   templateUrl: './programar-viaje.page.html',
   styleUrls: ['./programar-viaje.page.scss'],
 })
 export class ProgramarViajePage {
-  nuevoViaje = {
+  nuevoViaje: Viaje = {
     origen: '',
     destino: '',
     hora: '',
     fecha: '',
     precio: '',
-    asientos: 0
+    asientos: 1,
   };
 
   constructor(private navCtrl: NavController) {}
 
+  // Cambia la función a "guardarViaje"
   guardarViaje() {
-    // Guardar el nuevo viaje en localStorage o en una base de datos
-    const viajesGuardados = JSON.parse(localStorage.getItem('viajes') || '[]');
-    viajesGuardados.push(this.nuevoViaje);
-    localStorage.setItem('viajes', JSON.stringify(viajesGuardados));
-
-    // Redirigir al usuario a la vista principal o de confirmación
-    this.navCtrl.navigateBack('/registro-exitoso');
+    console.log('Viaje guardado:', this.nuevoViaje);
+    // Aquí podrías agregar lógica adicional para guardar el viaje o navegar a otra vista
+    this.navCtrl.navigateForward('/esperando-pasajeros'); // Navega a la página "esperando-pasajeros"
   }
 }

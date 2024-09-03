@@ -1,5 +1,6 @@
-<ion-header [translucent]="true" class="custom-header">
+<ion-header [translucent]="true" collapse="fade" class="custom-header">
   <ion-toolbar class="custom-toolbar">
+    <!-- Menú de hamburguesa en la parte superior izquierda -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
       <ion-button (click)="goToCuenta()">
@@ -7,6 +8,7 @@
       </ion-button>
     </ion-buttons>
 
+    <!-- Menú de hamburguesa en la parte superior derecha -->
     <ion-buttons slot="end">
       <ion-button (click)="goToUserProfile()">
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
@@ -16,9 +18,9 @@
 </ion-header>
 
 <ion-content class="background" [fullscreen]="true">
-  <ion-header collapse="condense">
+  <ion-header collapse="fade">
     <ion-toolbar>
-      <ion-title class="condensed-title" size="large">Bienvenido a <br>TeLlevoApp</ion-title>    
+      <ion-title class="condensed-title" size="large">Bienvenido a <br>TeLlevoApp</ion-title>
     </ion-toolbar>
   </ion-header>
 

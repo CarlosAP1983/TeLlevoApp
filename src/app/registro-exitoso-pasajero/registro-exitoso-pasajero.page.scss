@@ -1,6 +1,13 @@
 /* Estilo para el header principal */
 ion-header.custom-header {
-  --background: #403F51; /* Fondo degradado */
+  --background: transparent; /* Fondo transparente para que coincida con el fondo del contenido */
+  color: white; /* Asegura que el texto del header sea blanco */
+}
+
+ion-toolbar.custom-toolbar {
+  --background: none; /* Sin fondo para el toolbar */
+  color: white; /* Color del texto en el toolbar */
+  text-align: center;
 }
 
 /* Estilo para el contenido */
@@ -12,24 +19,24 @@ ion-content.background {
   padding: 20px;
 }
 
-ion-header[collapse="condense"] ion-toolbar {
-  --background: transparent; /* Fondo transparente para el toolbar */
-}
-ion-header[collapse="condense"] ion-toolbar {
-  text-align: center; /* Centra el texto dentro del ion-toolbar */
-}
-/* Estilo para el título grande */
-.condensed-title {
-  font-family: system-ui; /* Cambia la fuente */
-  color: #ffffff !important; /* Cambia el color del texto */
-  font-size: 2.5rem; /* Tamaño del texto */
-  font-weight: bold; /* Texto en negrita */
-  text-align: center; /* Centra el texto */
-  width: 100%; /* Asegura que el título ocupe todo el ancho */
-  margin: 0; /* Elimina cualquier margen extra */
-  display: block; /* Asegura que el título se comporte como un elemento de bloque */
+/* Aplica un color de fondo al header cuando se colapsa */
+ion-header[collapse="fade"] ion-toolbar {
+  --background: #403F51;
+  color: white;
 }
 
+/* Estilo para el título grande cuando el header colapsa */
+.condensed-title {
+  font-family: system-ui;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  display: block;
+}
+
+/* Estilo para el mensaje de bienvenida */
 .welcome-message {
   color: white;
   text-align: center;
@@ -39,21 +46,13 @@ ion-header[collapse="condense"] ion-toolbar {
 }
 
 /* Estilo para los botones */
-.button-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 20px;
-}
-
 ion-button {
   width: 100%;
-  max-width: 400px; 
+  max-width: 400px;
   margin-top: 10px;
   font-family: 'Helvetica', sans-serif;
   font-size: larger;
   font-weight: bold;
-  --border-radius: 100px; /* Redondea los extremos del botón */
-  height: 50px; /* Altura del botón para un diseño más grande */
-  
+  --border-radius: 100px;
+  height: 50px;
 }

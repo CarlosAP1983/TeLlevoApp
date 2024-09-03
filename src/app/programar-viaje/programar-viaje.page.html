@@ -9,16 +9,17 @@
 </ion-header>
 
 <ion-content color="light" [fullscreen]="true" class="ion-padding">
+  <!-- Cambiar la referencia a "ngSubmit" para usar la función "guardarViaje()" -->
   <form (ngSubmit)="guardarViaje()">
     <!-- Campo Origen -->
     <ion-item>
-      <ion-label position="floating">Origen</ion-label>
+      <ion-label position="stacked">Origen</ion-label>
       <ion-input [(ngModel)]="nuevoViaje.origen" name="origen"></ion-input>
     </ion-item>
 
     <!-- Campo Destino -->
     <ion-item>
-      <ion-label position="floating">Destino</ion-label>
+      <ion-label position="stacked">Destino</ion-label>
       <ion-input [(ngModel)]="nuevoViaje.destino" name="destino"></ion-input>
     </ion-item>
 
@@ -28,7 +29,6 @@
       <ion-input type="date" [(ngModel)]="nuevoViaje.fecha" name="fecha" placeholder="DD/MM/YYYY"></ion-input>
     </ion-item>
 
-
     <!-- Campo Hora de Salida -->
     <ion-item>
       <ion-label position="stacked">Hora de Salida</ion-label>
@@ -37,7 +37,7 @@
 
     <!-- Campo Precio -->
     <ion-item>
-      <ion-label position="floating">Precio</ion-label>
+      <ion-label position="stacked">Precio</ion-label>
       <ion-input type="number" [(ngModel)]="nuevoViaje.precio" name="precio"></ion-input>
     </ion-item>
 
@@ -47,8 +47,8 @@
       <ion-input type="number" [(ngModel)]="nuevoViaje.asientos" name="asientos"></ion-input>
     </ion-item>
 
-    <!-- Botón para guardar el viaje -->
-    <ion-button expand="block" color="success" type="submit">Guardar Viaje</ion-button>
+    <!-- Botón Guardar -->
+    <ion-button expand="block" type="submit" color="success">Guardar Viaje</ion-button>
   </form>
 </ion-content>
 
