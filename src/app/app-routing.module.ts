@@ -16,6 +16,8 @@ const routes: Routes = [
   { path: 'restablecer-contrasena', loadChildren: () => import('./restablecer-contrasena/restablecer-contrasena.module').then( m => m.RestablecerContrasenaPageModule)},
   { path: 'detalle-viaje',loadChildren: () => import('./detalle-viaje/detalle-viaje.module').then( m => m.DetalleViajePageModule)},
   { path: 'motivo-cancelacion', loadChildren: () => import('./motivo-cancelacion/motivo-cancelacion.module').then( m => m.MotivoCancelacionPageModule)},
+  { path: 'gestionar-tus-rutas', loadChildren: () => import('./gestionar-tus-rutas/gestionar-tus-rutas.module').then( m => m.GestionarTusRutasPageModule)},
+
 ];
 
 @NgModule({

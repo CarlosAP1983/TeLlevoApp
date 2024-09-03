@@ -1,18 +1,28 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-toolbar">
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button> <!-- Vuelve a la página de inicio si no hay historial -->
+      <ion-menu-button></ion-menu-button>
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/home"></ion-back-button> <!-- Vuelve a la página de inicio si no hay historial -->
+      </ion-buttons>
     </ion-buttons>
-    <ion-title>Restablecer Contraseña</ion-title>
+    <ion-title></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background ion-padding">
+<ion-content class="background ion-padding" [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title class="condensed-title" size="large">Restablecer <br> Contraseña</ion-title>    
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- Formulario de Restablecimiento de Contraseña -->
   <form (ngSubmit)="enviarEnlace()" #resetForm="ngForm">
     <!-- Campo de Correo Electrónico -->
-    <ion-item lines="full">
-      <ion-label position="floating">Correo Electrónico: </ion-label>
-      <ion-input type="email" required [(ngModel)]="email" name="email"></ion-input>
+    <ion-item lines="none"> <!-- Usar "lines='none'" para ocultar la línea por defecto de IonItem -->
+      <ion-label position="stacked">Correo Electrónico:</ion-label>
+      <ion-input type="email" required [(ngModel)]="email" name="email" class="underline-input"></ion-input>
     </ion-item>
 
     <!-- Botón para Enviar Enlace de Restablecimiento -->
@@ -23,4 +33,6 @@
   <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
   <!-- Mensaje de Error -->
   <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+
+
 </ion-content>

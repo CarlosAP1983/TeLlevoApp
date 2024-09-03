@@ -1,3 +1,16 @@
+ion-header.custom-header {
+    --background: #4e54c8; /* Fondo degradado */
+  }
+
+
+  ion-header[collapse="condense"] ion-toolbar {
+    --background: transparent; /* Fondo transparente para el toolbar */
+  }
+  ion-header[collapse="condense"] ion-toolbar {
+    text-align: center; /* Centra el texto dentro del ion-toolbar */
+    font-size: small;
+}
+
 ion-content.background {
     --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab);
     display: flex;
@@ -7,16 +20,21 @@ ion-content.background {
 }
 
 ion-button {
-    width: 70%; /* Ancho del botón, ajustable según tu preferencia */
+    width: 70%;
+    /* Ancho del botón, ajustable según tu preferencia */
     max-width: 400px;
-    margin: 20px auto; /* Centra el botón horizontalmente */
+    margin: 20px auto;
+    /* Centra el botón horizontalmente */
     font-family: 'Helvetica', sans-serif;
     font-size: larger;
     font-weight: bold;
-    --border-radius: 25px; /* Valor ajustado para redondear extremos */
+    --border-radius: 25px;
+    /* Valor ajustado para redondear extremos */
     height: 50px;
-    display: block; /* Asegura que se centre correctamente */
-    text-align: center; /* Centra el contenido del botón */
+    display: block;
+    /* Asegura que se centre correctamente */
+    text-align: center;
+    /* Centra el contenido del botón */
 }
 
 .success-message {
@@ -34,8 +52,19 @@ ion-button {
 }
 
 ion-item {
-    --background: transparent; /* Hace el fondo de los items transparente */
-    --border-color: transparent; /* Hace que las líneas de los items sean transparentes */
-    --ion-text-color: #ffffff; /* Ajusta el color del texto si es necesario */
+    --background: transparent;
+    /* Hace el fondo de los items transparente */
+    --border-color: transparent;
+    /* Hace que las líneas de los items sean transparentes */
+    --ion-text-color: #ffffff;
+    /* Ajusta el color del texto si es necesario */
     font-size: larger;
-  }
+}
+
+/* Estilo personalizado para subrayar el campo de entrada */
+.underline-input {
+    border-bottom: 1px solid #ccc;
+    /* Línea gris debajo del campo de entrada */
+    padding-bottom: 5px;
+    /* Espacio entre el texto y la línea */
+}

@@ -7,44 +7,25 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./registro-exitoso.page.scss'],
 })
 export class RegistroExitosoPage {
-  username: string = ''; // Variable para almacenar el nombre de usuario
-  currentLocation: string = ''; // Ubicación actual
-  destination: string = ''; // Destino del viaje
-  price: number = 0; // Precio por persona
+  constructor(private navCtrl: NavController) {}
 
-  constructor(private navCtrl: NavController) {
-    this.username = history.state.username; // Obtén el nombre del usuario desde el estado de navegación
-  }
-
-  goToCuenta() {
-    this.navCtrl.navigateForward('/cuenta'); // Redirige a la página de gestión de cuenta
-  }
-
-  goToUserProfile() {
-    this.navCtrl.navigateForward('/perfil-usuario'); // Redirige a la página de perfil de usuario
-  }
-
-  // Función para redirigir a la página de edición del usuario
-  goToEditUser() {
-    this.navCtrl.navigateForward('/editarUsuario');
-  }
-
-  // Función para cambiar de usuario o cerrar sesión
-  changeUserOrLogout() {
-    console.log('Cambiando usuario o cerrando sesión');
-    // Lógica para cambiar de usuario o cerrar sesión
-  }
-
-  // Función para crear un viaje
   createTrip() {
-    console.log('Viaje creado:', this.currentLocation, this.destination, this.price);
-    // Redirige a la vista donde se esperan pasajeros
     this.navCtrl.navigateForward('/programar-viaje');
   }
 
-  // Función para cancelar un viaje
+  goToCuenta() {
+    this.navCtrl.navigateForward('/cuenta');
+  }
+
+  goToUserProfile() {
+    this.navCtrl.navigateForward('/perfil-usuario');
+  }
+
+  verTusRutas() {
+    this.navCtrl.navigateForward('/gestionar-tus-rutas');
+  }
+
   cancelTrip() {
-    console.log('Viaje cancelado');
-    // Lógica para cancelar el viaje
+    this.navCtrl.navigateForward('/motivo-cancelacion');
   }
 }

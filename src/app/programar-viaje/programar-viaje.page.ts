@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController, ToastController } from '@ionic/angular';
 
 interface Viaje {
   origen: string;
@@ -22,15 +22,39 @@ export class ProgramarViajePage {
     hora: '',
     fecha: '',
     precio: '',
-    asientos: 1,
+    asientos: 0
   };
 
-  constructor(private navCtrl: NavController) {}
+  constructor(
+    private navCtrl: NavController,
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
+  ) {}
 
-  // Cambia la función a "guardarViaje"
-  guardarViaje() {
-    console.log('Viaje guardado:', this.nuevoViaje);
-    // Aquí podrías agregar lógica adicional para guardar el viaje o navegar a otra vista
-    this.navCtrl.navigateForward('/esperando-pasajeros'); // Navega a la página "esperando-pasajeros"
+  async guardarViaje() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Guardando datos...',
+      duration: 2000  // Duración de 2 segundos para la animación de carga
+    });
+
+    await loading.present();
+
+    // Guardar los detalles del viaje en localStorage
+    const viajesGuardados = JSON.parse(localStorage.getItem('viajes') || '[]');
+    viajesGuardados.push(this.nuevoViaje);
+    localStorage.setItem('viajes', JSON.stringify(viajesGuardados));
+
+    // Espera hasta que termine el loading
+    loading.onDidDismiss().then(async () => {
+      const toast = await this.toastCtrl.create({
+        message: 'Viaje guardado exitosamente.',
+        duration: 2000,  // Duración del mensaje de éxito
+        color: 'success'
+      });
+      await toast.present();
+
+      // Redirigir a la vista de registro-exitoso
+      this.navCtrl.navigateBack('/registro-exitoso');
+    });
   }
 }

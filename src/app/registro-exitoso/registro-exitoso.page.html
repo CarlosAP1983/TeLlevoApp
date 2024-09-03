@@ -1,16 +1,12 @@
 <ion-header [translucent]="true" class="custom-header">
   <ion-toolbar class="custom-toolbar">
-    <!-- Menú de hamburguesa en la parte superior izquierda -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
       <ion-button (click)="goToCuenta()">
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-
-    <!-- Menú de hamburguesa en la parte superior derecha -->
     <ion-buttons slot="end">
-      <!-- Redirige a la vista de perfil de usuario -->
       <ion-button (click)="goToUserProfile()">
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
@@ -29,21 +25,16 @@
     Comparte tu auto y disfruta del viaje acompañado.
   </p>
 
-    <!-- Imagen con degradado en los bordes -->
-    <div class="image-container">
-      <img src="assets/images/car-sharing.png" alt="Compartir Auto" class="gradient-image" />
-    </div>
+  <div class="image-container">
+    <img src="assets/images/car-sharing.png" alt="Compartir Auto" class="gradient-image" />
+  </div>
 
-  
-  <!-- Mensaje de bienvenida -->
   <p class="welcome-message">
     ¡Vamos! Crea tu ruta de viaje...
   </p>
-    
-  <!-- Botones para crear o cancelar viaje -->
+
   <div class="button-container">
     <ion-button expand="block" color="success" (click)="createTrip()">Crear Viaje</ion-button>
-    <ion-button expand="block" color="danger" a [routerLink]="'/motivo-cancelacion'" (click)="cancelTrip()">Cancelar Viaje</ion-button>
+    <ion-button expand="block" color="primary" (click)="verTusRutas()">Ver tus Rutas</ion-button>
   </div>
 </ion-content>
-

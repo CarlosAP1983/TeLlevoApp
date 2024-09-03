@@ -1,0 +1,59 @@
+/* Estilo para el header principal */
+ion-header.custom-header {
+    --background: transparent; /* Fondo transparente para que coincida con el fondo del contenido */
+    color: white; /* Asegura que el texto del header sea blanco */
+  }
+  
+  ion-toolbar.custom-toolbar {
+    --background: none; /* Sin fondo para el toolbar */
+    color: white; /* Color del texto en el toolbar */
+    text-align: center;
+  }
+  
+  /* Estilo para el contenido */
+  ion-content.background {
+    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Aplica un color de fondo al header cuando se colapsa */
+  ion-header[collapse="fade"] ion-toolbar {
+    --background: #403F51;
+    color: white;
+  }
+  
+  /* Estilo para el título grande cuando el header colapsa */
+  .condensed-title {
+    font-family: system-ui;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    display: block;
+  }
+  
+  /* Estilo para el mensaje de bienvenida */
+  .welcome-message {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px 0;
+    font-family: 'Helvetica', sans-serif;
+  }
+  
+  /* Estilo para los botones */
+  ion-button {
+    width: 100%;
+    max-width: 400px;
+    margin-top: 10px;
+    font-family: 'Helvetica', sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    --border-radius: 100px;
+    height: 50px;
+  }
+  
