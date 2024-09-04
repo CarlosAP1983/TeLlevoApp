@@ -1,100 +1,108 @@
 /* Estilo para el header principal */
 ion-header.custom-header {
-    --background: #4e54c8; /* Fondo degradado */
-  }
-  
-  /* Estilo para el contenido */
-  ion-content.background {
-    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
-  
-  ion-header[collapse="condense"] ion-toolbar {
-    --background: transparent; /* Fondo transparente para el toolbar */
-  }
-  ion-header[collapse="condense"] ion-toolbar {
-    text-align: center; /* Centra el texto dentro del ion-toolbar */
-  }
-  /* Estilo para el título grande */
-  .condensed-title {
-    font-family: system-ui; /* Cambia la fuente */
-    color: #ffffff !important; /* Cambia el color del texto */
-    font-size: 2.5rem; /* Tamaño del texto */
-    font-weight: bold; /* Texto en negrita */
-    text-align: center; /* Centra el texto */
-    width: 100%; /* Asegura que el título ocupe todo el ancho */
-    margin: 0; /* Elimina cualquier margen extra */
-    display: block; /* Asegura que el título se comporte como un elemento de bloque */
-  }
-  
-  .welcome-message {
-    color: white;
-    text-align: center;
-    font-size: 18px;
-    margin: 20px 0;
-    font-family: 'Helvetica', sans-serif;
-  }
-  
-  /* Estilo para los botones */
-  .button-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  
-/* Estilo para los botones en el contenido */
-ion-content.background {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra horizontalmente los elementos dentro del ion-content */
-  padding: 20px;
+  --background: #4e54c8; /* Fondo degradado */
 }
 
-/* Estilo específico para los botones dentro del ion-content */
-ion-content.background ion-button {
-  width: 80%;
-  max-width: 400px;
-  margin: 10px auto; /* Centra el botón horizontalmente */
-  font-family: 'Helvetica', sans-serif;
-  font-size: larger;
-  font-weight: bold;
-  --border-radius: 100px;
-  height: 50px;
-  align-items: center; /* Centra el contenido verticalmente */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  --border-width: 5px; /* Ancho del borde */
-  --border-style: solid; /* Estilo del borde */
-  --border-color: black; /* Color del borde */
-  --background: black; /* Fondo del botón */
-  --color: black; /* Color del texto */
+/* Estilo para el contenido */
+ion-content.background {
+  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  justify-content: space-between; /* Distribuye el espacio entre los elementos para empujar el icono hacia abajo */
 }
- 
-  ion-content {
-    position: relative; /* Permite la posición absoluta de los elementos hijos */
-  }
-  
-  .image-container {
-    position: absolute; /* Posiciona el contenedor de la imagen de forma absoluta */
-    bottom: 0; /* Alínea el contenedor en la parte inferior del ion-content */
-    left: 50%; /* Centra horizontalmente el contenedor */
-    transform: translateX(-50%); /* Ajusta la posición horizontal para estar perfectamente centrado */
-    margin-bottom: 10px; /* Espacio inferior opcional para no estar pegado al borde */
-  }
-  
-  .gradient-image {
-    width: 100%;
-    max-width: 300px; /* Ajusta el tamaño máximo de la imagen */
-    object-fit: cover; /* Asegura que la imagen cubra todo el contenedor */
-    
-    /* Aplica el fondo blanco con un degradado circular */
-    background: radial-gradient(circle, white 50%, transparent 70%);
-    padding: 10px; /* Agrega un espacio alrededor de la imagen */
-  
-    opacity: 0.5; /* Transparencia: 0 para ser transparente hasta 1 es completo */
-  }
-  
-  
+
+/* Estilo para el título del header */
+.header-title {
+  font-family: system-ui; /* Cambia la fuente */
+  color: #ffffff !important; /* Cambia el color del texto */
+  font-size: 1.5rem; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Centra el texto */
+  width: 100%;
+  margin: 0; /* Elimina cualquier margen extra */
+  display: block; /* Asegura que el título se comporte como un elemento de bloque */
+}
+
+/* Contenedor del icono y texto para cambiar de usuario */
+.icon-text-container {
+  display: flex; /* Alinea los elementos horizontalmente */
+  align-items: center; /* Centra verticalmente los elementos */
+  gap: 10px; /* Espacio entre el icono y el texto */
+  cursor: pointer; /* Cambia el cursor al pasar por encima */
+  margin-bottom: 20px;
+}
+
+/* Estilo para el icono de usuario */
+.user-icon {
+  font-size: 40px; /* Tamaño del icono de usuario */
+  color: white; /* Color del icono */
+  padding: 5px; /* Espaciado alrededor del icono */
+  border: 2px solid #7636a1; /* Borde alrededor del icono */
+  border-radius: 50%; /* Hace el borde redondo */
+  background: linear-gradient(90deg, #030303, #121111); /* Fondo degradado similar al botón */
+  box-shadow: 0 0 15px #c9c9e8; /* Sombra para el icono */
+  transition: all 0.3s ease-in-out;
+}
+
+.user-icon:hover {
+  background-color: #2822cb; /* Cambio de fondo al pasar el ratón */
+  box-shadow: 0 0 20px #228acb;
+  transform: scale(1.1); /* Animación al hacer hover */
+}
+
+.user-text {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Estilo para el icono de cierre de sesión */
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centra el icono y el texto horizontalmente */
+  margin-bottom: 20px;
+}
+
+.logout-icon {
+  margin-top: 200px;
+  font-size: 80px; /* Tamaño grande del icono */
+  color: white; /* Color del icono */
+  padding: 15px; /* Espaciado alrededor del icono */
+  border: 2px solid #7636a1; /* Borde alrededor del icono */
+  border-radius: 50%; /* Hace el borde redondo */
+  background: linear-gradient(90deg, #030303, #121111); /* Fondo degradado similar al botón */
+  box-shadow: 0 0 25px #c9c9e8; /* Sombra para el icono */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer; /* Cambia el cursor al pasar por encima del icono */
+}
+
+.logout-icon:hover {
+  background-color: #2822cb; /* Cambio de fondo al pasar el ratón */
+  box-shadow: 0 0 30px #228acb;
+  transform: scale(1.30); /* Animación al hacer hover */
+}
+
+.logout-text {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 20px;
+  text-align: center;
+}
+
+/* Estilo personalizado para el alert */
+.custom-alert .alert-button {
+  --background: white;
+  --color: black;
+  --border-radius: 5px;
+  transition: background-color 1.0s ease-in-out, color 1.0s ease-in-out;
+}
+
+.custom-alert .alert-button.selected-button {
+  --background: #4e54c8; /* Color de fondo para la opción seleccionada */
+  --color: white; /* Color del texto para la opción seleccionada */
+}

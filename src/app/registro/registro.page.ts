@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro',
@@ -7,71 +7,79 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./registro.page.scss'],
 })
 export class RegistroPage {
-  // Datos del formulario de registro
   name: string = '';
-  email: string = '';
+  email: string = '';  // Agregar propiedad email
+  phone: string = '';  // Agregar propiedad phone
   username: string = '';
   password: string = '';
-  confirmPassword: string = '';
-  phone: string = '';
-  userType: string = ''; // Variable para almacenar el tipo de usuario
   errorMessage: string = '';
-
+  tieneVehiculo: boolean = false; // Estado del toggle para el vehículo
   vehiculo = {
     patente: '',
-    color: '',
-    marca: ''
+    marca: '',
+    color: ''
   };
 
-  // Definir los tipos de usuario
-  userTypes = [
-    { label: 'Usuario Conductor', value: 'conductor' },
-    { label: 'Usuario Pasajero', value: 'pasajero' }
-  ];
+  constructor(private navCtrl: NavController, private toastCtrl: ToastController) {}
 
-  constructor(private navCtrl: NavController) {}
+  toggleVehiculo() {
+    if (!this.tieneVehiculo) {
+      // Si no tiene vehículo, limpiar los campos
+      this.vehiculo.patente = '';
+      this.vehiculo.marca = '';
+      this.vehiculo.color = '';
+    }
+  }
 
-  // Función para manejar el registro del usuario
-  onRegister() {
-    // Validación de las contraseñas
-    if (this.password !== this.confirmPassword) {
-      this.errorMessage = 'Las contraseñas no coinciden';
+  async onRegister() {
+    // Validar que los campos no estén vacíos
+    if (!this.name || !this.email || !this.phone || !this.username || !this.password) {
+      this.errorMessage = 'Todos los campos son obligatorios';
       return;
     }
 
-    // Validación del tipo de usuario
-    if (!this.userType) {
-      this.errorMessage = 'Por favor, selecciona un tipo de usuario';
-      return;
-    }
-
-    // Lógica para procesar el registro (incluye los datos del vehículo)
-    console.log('Datos del vehículo:', this.vehiculo);
-    console.log('Datos del usuario:', {
+    const newUser = {
       name: this.name,
       email: this.email,
-      username: this.username,
       phone: this.phone,
-      userType: this.userType
-    });
+      username: this.username,
+      password: this.password,
+      vehiculo: this.tieneVehiculo ? this.vehiculo : null, // Guardar datos del vehículo si lo tiene
+      perfil: ''
+    };
 
-    // Redirigir según el tipo de usuario seleccionado
-    if (this.userType === 'conductor') {
-      console.log('Registro exitoso como Conductor');
-      this.navCtrl.navigateForward('/registro-exitoso'); // Redirige a la vista del conductor
-    } else if (this.userType === 'pasajero') {
-      console.log('Registro exitoso como Pasajero');
-      this.navCtrl.navigateForward('/registro-exitoso-pasajero'); // Redirige a la vista del pasajero
+    // Obtener usuarios existentes de localStorage
+    const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
+
+    // Verificar si el usuario ya existe
+    const userExists = storedUsers.some(
+      (user: any) => user.username === this.username
+    );
+
+    if (userExists) {
+      this.errorMessage = 'El nombre de usuario ya está en uso';
+      return;
     }
+
+    // Añadir el nuevo usuario al array de usuarios
+    storedUsers.push(newUser);
+
+    // Guardar los usuarios actualizados en localStorage
+    localStorage.setItem('users', JSON.stringify(storedUsers));
+
+    // Mostrar mensaje de éxito tipo toast
+    const toast = await this.toastCtrl.create({
+      message: 'Registro exitoso. Redirigiendo...',
+      duration: 2000,
+      position: 'middle'
+    });
+    await toast.present();
+
+    // Redirigir al usuario a la página de selección de perfil
+    this.navCtrl.navigateForward('/seleccion-perfil');
   }
 
-  // Maneja el cambio de tipo de usuario
-  onUserTypeChange(event: any) {
-    console.log('Tipo de usuario seleccionado:', event.detail.value);
-  }
-
-  // Navega a la página de inicio
   goHome() {
-    this.navCtrl.navigateRoot('/home');
+    this.navCtrl.navigateRoot('/home'); // Navega a la página de inicio
   }
 }

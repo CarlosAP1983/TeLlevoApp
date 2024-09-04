@@ -7,33 +7,32 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./home.page.scss'],
 })
 export class HomePage {
-  username: string = ''; // Variable para almacenar el nombre de usuario
-  password: string = ''; // Variable para almacenar la contraseña
+  username: string = '';
+  password: string = '';
 
   constructor(private navCtrl: NavController) {}
 
-  // Función de inicio de sesión
+  // Método para manejar el inicio de sesión
   login() {
-    const validUsers = [
-      { username: 'carlos', password: '123', redirectTo: '/registro-exitoso-pasajero' },
-      { username: 'alan', password: '123', redirectTo: '/registro-exitoso' }
-    ];
-
-    const user = validUsers.find(
-      (u) => u.username === this.username.toLowerCase() && u.password === this.password
+    // Obtener usuarios almacenados en localStorage
+    const storedUsers = JSON.parse(localStorage.getItem('users') || '[]'); 
+    // Buscar el usuario en la lista de usuarios almacenados
+    const user = storedUsers.find(
+      (u: { username: string; password: string }) =>
+        u.username === this.username && u.password === this.password
     );
 
     if (user) {
-      console.log('Inicio de sesión exitoso');
-      // Navega a la página correspondiente pasando el nombre del usuario
-      this.navCtrl.navigateForward(user.redirectTo, { state: { username: user.username } });
+      // Guardar el usuario actualmente conectado en localStorage
+      localStorage.setItem('loggedInUser', JSON.stringify(user));
+      // Redirigir a la vista de selección de perfil
+      this.navCtrl.navigateForward('/seleccion-perfil');
     } else {
-      console.log('Credenciales incorrectas');
-      alert('Usuario o contraseña incorrectos'); // Muestra una alerta de error
+      alert('Usuario o contraseña incorrectos.');
     }
   }
 
-  // Función para redirigir a la página de registro
+  // Método para navegar a la página de registro
   goToRegister() {
     this.navCtrl.navigateForward('/registro'); // Navega a la página de registro
   }

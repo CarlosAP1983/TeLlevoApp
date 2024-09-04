@@ -3,26 +3,23 @@
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
       <ion-buttons slot="start">
-        <ion-back-button defaultHref="/home"></ion-back-button> <!-- Vuelve a la página de inicio si no hay historial -->
+        <ion-back-button defaultHref="/home"></ion-back-button>
       </ion-buttons>
     </ion-buttons>
+    <ion-title class="header-title">Cuenta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background ion-padding" [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title class="condensed-title" size="large">Cuenta</ion-title>    
-    </ion-toolbar>
-  </ion-header>
+  <!-- Contenedor horizontal para el texto y el icono -->
+  <div class="icon-text-container">
+    <p class="user-text">Cambia de Usuario:</p>
+    <ion-icon name="person-circle-outline" size="large" class="user-icon" (click)="abrirCambioUsuario()"></ion-icon>
+  </div>
 
-  <!-- Botón para cerrar sesión -->
-  <ion-button expand="block" color="primary" (click)="cerrarSesion()">
-    <ion-icon slot="start" name="log-out-outline"></ion-icon>
-    Cerrar sesión
-  </ion-button>
-
-  <div class="image-container">
-    <img src="assets/images/logout.png" alt="Compartir Auto" class="gradient-image" />
+  <!-- Icono para cerrar sesión con texto "Salir" -->
+  <div class="icon-container">
+    <ion-icon name="log-out-outline" size="large" class="logout-icon" (click)="cerrarSesion()"></ion-icon>
+    <p class="logout-text">Salir</p>
   </div>
 </ion-content>

@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Selección de Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- Formulario para seleccionar el tipo de usuario -->
+  <ion-list>
+    <ion-radio-group [(ngModel)]="perfil" name="perfil">
+      <ion-item>
+        <ion-label>Usuario Conductor</ion-label>
+        <ion-radio slot="start" value="conductor"></ion-radio>
+      </ion-item>
+      <ion-item>
+        <ion-label>Usuario Pasajero</ion-label>
+        <ion-radio slot="start" value="pasajero"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <!-- Botón de siguiente para confirmar la selección -->
+  <ion-button expand="block" (click)="confirmarPerfil()">Siguiente</ion-button>
+</ion-content>

@@ -33,43 +33,33 @@
       </ion-item>
     </div>
 
-    <!-- Información del Vehículo -->
-    <div class="form-group">
+    <ion-item lines="full" class="form-item">
+      <ion-label position="fixed">Contraseña:</ion-label>
+      <ion-input type="password" required [(ngModel)]="password" name="password"></ion-input>
+    </ion-item>  
+
+      <!-- Información del Vehículo -->
       <ion-item lines="full" class="form-item">
-        <ion-label position="fixed">Patente:</ion-label>
-        <ion-input type="text" [(ngModel)]="vehiculo.patente" name="patente"></ion-input>
+        <ion-label>¿Tienes vehículo?</ion-label>
+        <ion-toggle slot="end" [(ngModel)]="tieneVehiculo" name="tieneVehiculo" (ionChange)="toggleVehiculo()"></ion-toggle>
       </ion-item>
 
-      <ion-item lines="full" class="form-item">
-        <ion-label position="fixed">Color:</ion-label>
-        <ion-input type="text" [(ngModel)]="vehiculo.color" name="color"></ion-input>
-      </ion-item>
-    </div>
+      <div class="form-group">
+        <ion-item lines="full" class="form-item">
+          <ion-label position="fixed">Patente:</ion-label>
+          <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.patente" name="patente"></ion-input>
+        </ion-item>
 
-    <div class="form-group">
-      <ion-item lines="full" class="form-item">
-        <ion-label position="fixed">Marca:</ion-label>
-        <ion-input type="text" [(ngModel)]="vehiculo.marca" name="marca"></ion-input>
-      </ion-item>
+        <ion-item lines="full" class="form-item">
+          <ion-label position="fixed">Marca:</ion-label>
+          <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.marca" name="marca"></ion-input>
+        </ion-item>
 
-      <ion-item lines="full" class="form-item">
-        <ion-label position="fixed">Contraseña:</ion-label>
-        <ion-input type="password" required [(ngModel)]="password" name="password"></ion-input>
-      </ion-item>
-    </div>
-
-    <!-- Tipo de Usuario -->
-    <ion-item>
-      <ion-label>Tipo de Usuario</ion-label>
-      <ion-radio-group [(ngModel)]="userType" name="userType" (ionChange)="onUserTypeChange($event)">
-        <ion-list>
-          <ion-item *ngFor="let option of userTypes">
-            <ion-label>{{ option.label }}</ion-label>
-            <ion-radio slot="start" [value]="option.value"></ion-radio>
-          </ion-item>
-        </ion-list>
-      </ion-radio-group>
-    </ion-item>      
+        <ion-item lines="full" class="form-item">
+          <ion-label position="fixed">Color:</ion-label>
+          <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.color" name="color"></ion-input>
+        </ion-item>
+      </div>
 
     <!-- Contenedor de los botones -->
     <div class="button-container">

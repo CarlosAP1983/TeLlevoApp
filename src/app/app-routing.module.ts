@@ -17,7 +17,11 @@ const routes: Routes = [
   { path: 'detalle-viaje', loadChildren: () => import('./detalle-viaje/detalle-viaje.module').then(m => m.DetalleViajePageModule) },
   { path: 'motivo-cancelacion', loadChildren: () => import('./motivo-cancelacion/motivo-cancelacion.module').then(m => m.MotivoCancelacionPageModule) },
   { path: 'gestionar-tus-rutas', loadChildren: () => import('./gestionar-tus-rutas/gestionar-tus-rutas.module').then(m => m.GestionarTusRutasPageModule) },
-  { path: 'no-hay-viajes', loadChildren: () => import('./no-hay-viajes/no-hay-viajes.module').then(m => m.NoHayViajesPageModule) }
+  { path: 'no-hay-viajes', loadChildren: () => import('./no-hay-viajes/no-hay-viajes.module').then(m => m.NoHayViajesPageModule) },
+  {
+    path: 'seleccion-perfil',
+    loadChildren: () => import('./seleccion-perfil/seleccion-perfil.module').then( m => m.SeleccionPerfilPageModule)
+  }
 ];
 
 @NgModule({
