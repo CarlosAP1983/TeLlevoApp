@@ -38,28 +38,28 @@
       <ion-input type="password" required [(ngModel)]="password" name="password"></ion-input>
     </ion-item>  
 
-      <!-- Información del Vehículo -->
-      <ion-item lines="full" class="form-item">
-        <ion-label>¿Tienes vehículo?</ion-label>
-        <ion-toggle slot="end" [(ngModel)]="tieneVehiculo" name="tieneVehiculo" (ionChange)="toggleVehiculo()"></ion-toggle>
+    <!-- Información del Vehículo -->
+    <ion-item lines="full" class="form-item">
+      <ion-label>¿Tienes vehículo?</ion-label>
+      <ion-toggle slot="end" [(ngModel)]="tieneVehiculo" name="tieneVehiculo" (ionChange)="toggleVehiculo()"></ion-toggle>
+    </ion-item>
+
+    <div class="form-group">
+      <ion-item lines="full" class="form-item" [ngClass]="{'disabled-item': !tieneVehiculo}">
+        <ion-label position="fixed">Patente:</ion-label>
+        <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.patente" name="patente"></ion-input>
       </ion-item>
 
-      <div class="form-group">
-        <ion-item lines="full" class="form-item">
-          <ion-label position="fixed">Patente:</ion-label>
-          <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.patente" name="patente"></ion-input>
-        </ion-item>
+      <ion-item lines="full" class="form-item" [ngClass]="{'disabled-item': !tieneVehiculo}">
+        <ion-label position="fixed">Marca:</ion-label>
+        <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.marca" name="marca"></ion-input>
+      </ion-item>
 
-        <ion-item lines="full" class="form-item">
-          <ion-label position="fixed">Marca:</ion-label>
-          <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.marca" name="marca"></ion-input>
-        </ion-item>
-
-        <ion-item lines="full" class="form-item">
-          <ion-label position="fixed">Color:</ion-label>
-          <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.color" name="color"></ion-input>
-        </ion-item>
-      </div>
+      <ion-item lines="full" class="form-item" [ngClass]="{'disabled-item': !tieneVehiculo}">
+        <ion-label position="fixed">Color:</ion-label>
+        <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.color" name="color"></ion-input>
+      </ion-item>
+    </div>
 
     <!-- Contenedor de los botones -->
     <div class="button-container">

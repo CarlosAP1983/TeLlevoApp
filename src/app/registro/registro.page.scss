@@ -44,3 +44,10 @@ ion-button {
   --background: black; /* Fondo del botón */
   --color: black; /* Color del texto */
 }
+
+/* Estilo para deshabilitar los items */
+.disabled-item {
+  color: #a8a8a8; /* Color gris */
+  --background: #f0f0f0; /* Fondo gris claro */
+  --color: #a8a8a8; /* Texto gris */
+}
