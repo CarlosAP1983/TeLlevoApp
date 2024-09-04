@@ -43,6 +43,7 @@ ion-content.home-background {
   display: flex;
   align-items: center;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 /* Estilo de etiquetas de entrada */
@@ -53,36 +54,75 @@ ion-content.home-background {
   white-space: nowrap; /* Evita que el texto se divida en varias líneas */
   font-size: x-large;
   font-weight: bold;
+  width: 100%;
 }
 
-/* Estilo de los campos de entrada */
-.input-field {
-  flex: 1; /* Permite que el campo de entrada ocupe el espacio restante */
-  --placeholder-color: #2a2a2a;
-  font-family: 'Helvetica', sans-serif;
-  color: #cecdd3;
+/* Ingreso de usuario y contraseña */
+ion-input {
+  --padding-start: 20px;
+  --padding-end: 10px;
+  --background: #5d3b93; /* Fondo oscuro para el input */
+  --color: #d1d1d3; /* Color del texto del input */
+  --border-radius: 25px;
+  --border-width: 2px;
+  --height: 50px; /* Altura del input */
   font-size: x-large;
   font-weight: bold;
+  width: 100%;
+  caret-color: #ffffff; /* Color del cursor de texto */
+  --placeholder-color: #d1d1d3; /* Color del texto de placeholder */
+  --border-color: #d1d1d3; /* Color del borde predeterminado */
+  border-radius: 20px;
+}
+
+/* Ajuste del estado de enfoque para asegurar visibilidad */
+ion-input:focus,
+ion-input:focus-within {
+  --border-color: #ffffff; /* Cambia el color del borde al enfocarse */
+  caret-color: #ffffff; /* Asegura que el color del cursor sea blanco */
+  --background: #5d3b93; /* Fondo oscuro para mantener contraste */
+  outline: none; /* Quitar borde de enfoque predeterminado */
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Agregar sombra suave al enfocarse */
+}
+
+/* Estilo del placeholder para diferentes navegadores */
+.fixed::-webkit-input-placeholder {
+  color: #d1d1d3; /* Color del placeholder para Safari y Chrome */
+  opacity: 1; /* Asegura que el placeholder sea visible */
+}
+
+.fixed::-moz-placeholder {
+  color: #d1d1d3; /* Color del placeholder para Firefox */
+  opacity: 1;
+}
+
+.fixed:-ms-input-placeholder {
+  color: #d1d1d3; /* Color del placeholder para IE */
+  opacity: 1;
+}
+
+.fixed::placeholder {
+  color: #d1d1d3; /* Color del placeholder genérico */
+  opacity: 1;
 }
 
 /* Botones más anchos y redondeados */
-ion-button {
-  width: 100%;
-  max-width: 400px; 
-  margin-top: 20px;
-  font-family: 'Helvetica', sans-serif;
-  font-size: larger;
-  font-weight: bold;
-  --border-radius: 100px; /* Redondea los extremos del botón */
-  height: 50px; /* Altura del botón para un diseño más grande */
-  display: flex; /* Utiliza flexbox para centrar el contenido */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  --border-width: 05px; /* Ancho del borde */
-  --border-style: solid; /* Estilo del borde */
-  --border-color: black; /* Color del borde */
-  --background: black; /* Fondo del botón */
-  --color: black; /* Color del texto */
+.boton-tono-especial {
+  --background: linear-gradient(90deg, #030303, #121111);
+  border: 2px solid #7636a1;
+  color: white;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  text-align: center;
+  box-shadow: 0 0 25px #c9c9e8;
+  transition: all 0.3s ease-in-out;
+}
+
+.boton-tono-especial:hover {
+  background-color: #2822cb;
+  box-shadow: 0 0 30px #228acb;
+  transform: scale(1.05);
 }
 
 /* Estilo para los enlaces */
