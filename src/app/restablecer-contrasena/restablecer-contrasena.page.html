@@ -23,10 +23,10 @@
     <ion-item lines="none"> <!-- Usar "lines='none'" para ocultar la línea por defecto de IonItem -->
       <ion-label position="stacked">Correo Electrónico:</ion-label>
       <ion-input type="email" required [(ngModel)]="email" name="email" class="underline-input"></ion-input>
-    </ion-item>
+    </ion-item><br><br>
 
     <!-- Botón para Enviar Enlace de Restablecimiento -->
-    <ion-button expand="block" color="primary" type="submit">Enviar Enlace de Restablecimiento</ion-button>
+    <ion-button expand="block" class="boton-enviar-enlace" type="submit">Enviar Enlace de Restablecimiento</ion-button>
   </form>
 
   <!-- Mensaje de Confirmación -->

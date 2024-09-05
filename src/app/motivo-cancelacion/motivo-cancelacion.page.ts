@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController, ToastController, LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-motivo-cancelacion',
@@ -7,13 +7,23 @@ import { NavController, ToastController } from '@ionic/angular';
   styleUrls: ['./motivo-cancelacion.page.scss'],
 })
 export class MotivoCancelacionPage {
-  selectedMotivo: string = '';
+  selectedMotivo: string = ''; // Variable para almacenar el motivo seleccionado
+  enviarEmail: boolean = false; // Variable para manejar el checkbox de envío de correo
 
-  constructor(private navCtrl: NavController, private toastCtrl: ToastController) {}
+  constructor(
+    private navCtrl: NavController, 
+    private toastCtrl: ToastController,
+    private loadingCtrl: LoadingController
+  ) {}
 
   // Método para seleccionar el motivo de cancelación
   onMotivoSelected(event: any) {
-    this.selectedMotivo = event.detail.value;
+    this.selectedMotivo = event.detail.value; // Almacena el valor del motivo seleccionado
+  }
+
+  // Método para manejar el checkbox de envío de correo
+  onEmailToggle(event: any) {
+    this.enviarEmail = event.detail.checked; // Actualiza el estado del checkbox
   }
 
   // Método para confirmar la cancelación y eliminar el viaje
@@ -32,14 +42,28 @@ export class MotivoCancelacionPage {
       // Eliminar la ruta temporal para editar
       localStorage.removeItem('rutaParaEditar');
 
-      // Mostrar un mensaje de éxito
+      // Mostrar un loading si se seleccionó enviar correo
+      if (this.enviarEmail) {
+        const loading = await this.loadingCtrl.create({
+          message: 'Enviando correo...',
+          duration: 2000 // Duración del spinner de 2 segundos
+        });
+        await loading.present();
+        
+        // Espera a que el loading termine
+        await loading.onDidDismiss();
+      }
+
+      // Mensaje combinado de éxito
+      const combinedMessage = this.enviarEmail 
+        ? 'Correo enviado al pasajero. Ruta borrada exitosamente.'
+        : 'Ruta borrada exitosamente.';
+
       const toast = await this.toastCtrl.create({
-        message: 'Ruta borrada exitosamente.',
+        message: combinedMessage,
         duration: 2000,  // Duración del mensaje de éxito
         color: 'success',
-        position: 'middle'  // Centrar el mensaje en la pantalla
-
-        
+        position: 'middle'
       });
       await toast.present();
 

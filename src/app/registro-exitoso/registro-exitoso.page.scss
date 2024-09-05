@@ -85,8 +85,9 @@ ion-button {
 }
 
 
+/* Estilos especiales para el boton-crear-viaje */
 .boton-crear-viaje {
-  background: linear-gradient(145deg, #5d3b93, #6531b9); /* Fondo degradado basado en color cian */
+  background: linear-gradient(145deg, #3dc2ff, #36a2e4); /* Fondo degradado basado en color cian */
   border-radius: 50px; /* Bordes redondeados igual que los otros botones */
   box-shadow: 0 4px 8px rgba(61, 194, 255, 0.5), 0 -4px 8px rgba(54, 162, 228, 0.5); /* Sombra alrededor del botón */
   color: white; /* Color del texto */
@@ -111,14 +112,14 @@ ion-button {
 .boton-crear-viaje:focus {
   background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Mantiene el color en hover cuando está activo */
 }
-.boton-crear-viaje:before {
+.boton-crear-viaje::before {
   content: '';
   position: absolute;
   top: 3px; /* Ajusta para controlar el grosor de la línea negra */
   left: 3px; /* Ajusta para controlar el grosor de la línea negra */
   right: 3px; /* Ajusta para controlar el grosor de la línea negra */
   bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  border: 2px solid rgba(255, 255, 255, 0.5); /* Línea negra interna */
+  border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
   border-radius: 45px; /* Ajusta el radio del borde interno */
   z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
   background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
@@ -135,10 +136,11 @@ ion-button {
   z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
 }
 
+/* Estilos especiales para el boton-ver-rutas */
 .boton-ver-rutas {
-  background: linear-gradient(145deg, #5d3b93, #6531b9); /* Fondo degradado basado en color cian */
-  border-radius: 50px; /* Bordes redondeados igual que los otros botones */
-  box-shadow: 0 4px 8px rgba(61, 194, 255, 0.5), 0 -4px 8px rgba(54, 162, 228, 0.5); /* Sombra alrededor del botón */
+  background: linear-gradient(145deg, #00ff00, #00cc00); /* Fondo degradado */
+  border-radius: 50px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5); /* Sombra alrededor del botón */
   color: white; /* Color del texto */
   width: 200px; /* Ancho del botón */
   height: 50px; /* Altura del botón */
@@ -154,21 +156,21 @@ ion-button {
   transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
 }
 .boton-ver-rutas:hover {
-  background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Fondo más oscuro en hover */
+  background: linear-gradient(145deg, #00cc00, #009900); /* Fondo más oscuro en hover */
   transform: scale(1.05); /* Efecto de agrandamiento en hover */
 }
 .boton-ver-rutas:active,
 .boton-ver-rutas:focus {
-  background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Mantiene el color en hover cuando está activo */
+  background: linear-gradient(145deg, #00cc00, #009900); /* Mantiene el color en hover cuando está activo */
 }
-.boton-ver-rutas:before {
+.boton-ver-rutas::before {
   content: '';
   position: absolute;
   top: 3px; /* Ajusta para controlar el grosor de la línea negra */
   left: 3px; /* Ajusta para controlar el grosor de la línea negra */
   right: 3px; /* Ajusta para controlar el grosor de la línea negra */
   bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  border: 2px solid rgba(255, 255, 255, 0.5); /* Línea negra interna */
+  border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
   border-radius: 45px; /* Ajusta el radio del borde interno */
   z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
   background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */

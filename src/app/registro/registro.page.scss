@@ -12,7 +12,6 @@ ion-content.background {
   text-align: center;
   font-weight: bold;
 }
-
 .error-message {
   color: red;
   text-align: center;
@@ -26,28 +25,127 @@ ion-item {
   --highlight-color-focused: #6a0dad; /* Color morado para la línea y la etiqueta cuando el campo está enfocado */
 }
 
-ion-button {
-  width: 100%;
-  max-width: 400px; 
-  margin-top: 20px;
-  font-family: 'Helvetica', sans-serif;
-  font-size: larger;
-  font-weight: bold;
-  --border-radius: 100px; /* Redondea los extremos del botón */
-  height: 50px; /* Altura del botón para un diseño más grande */
-  display: flex; /* Utiliza flexbox para centrar el contenido */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  align-items: center; /* Centra el contenido verticalmente */
-  --border-width: 05px; /* Ancho del borde */
-  --border-style: solid; /* Estilo del borde */
-  --border-color: black; /* Color del borde */
-  --background: black; /* Fondo del botón */
-  --color: black; /* Color del texto */
-}
-
-/* Estilo para deshabilitar los items */
+/* Estilo para que deshabilitar los items los muetsre en gris */
 .disabled-item {
   color: #a8a8a8; /* Color gris */
   --background: #f0f0f0; /* Fondo gris claro */
   --color: #a8a8a8; /* Texto gris */
+}
+
+ion-button {
+  width: 70%; /* Ancho del botón, ajustable según tu preferencia */
+  max-width: 400px;
+  margin: 20px auto; /* Centra el botón horizontalmente */
+  font-family: 'Helvetica', sans-serif;
+  font-size: larger;
+  font-weight: bold;
+  height: 50px; /* Mantén el tamaño del botón */
+  display: block; /* Asegura que se centre correctamente */
+  text-align: center; /* Centra el contenido del botón */
+  border-radius: 25px; /* Valor ajustado para redondear extremos */
+  /* Quitar cualquier estilo de fondo o color que pueda interferir */
+  --background: none;
+  --color: inherit;
+}
+
+/* Estilos especiales para el boton-salir */
+.boton-salir {
+  background: linear-gradient(145deg, #ff4c4c, #e60000); /* Fondo degradado basado en rojo vibrante */
+  border-radius: 50px; /* Bordes redondeados igual que el botón "Salir" */
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5); /* Sombra alrededor del botón */
+  color: white; /* Color del texto */
+  width: 200px; /* Ancho del botón */
+  height: 50px; /* Altura del botón */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative; /* Necesario para los detalles adicionales */
+  border: none; /* Quita cualquier borde por defecto */
+  padding: 0; /* Quita el padding por defecto */
+  overflow: hidden; /* Esconde cualquier desbordamiento */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+}
+.boton-salir:hover {
+  background: linear-gradient(145deg, #e60000, #cc0000); /* Fondo más oscuro en hover */
+  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+}
+.boton-salir:active,
+.boton-salir:focus {
+  background: linear-gradient(145deg, #e60000, #cc0000); /* Mantiene el color en hover cuando está activo */
+}
+.boton-salir::before {
+  content: '';
+  position: absolute;
+  top: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  left: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  right: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
+  border-radius: 45px; /* Ajusta el radio del borde interno */
+  z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
+  background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+}
+.boton-salir::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+  border-radius: 5px;
+  position: absolute;
+  left: 40px; /* Ajusta según tu diseño */
+  bottom: 10px; /* Ajusta según tu diseño */
+  z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+}
+
+.boton-registrarse {
+  background: linear-gradient(145deg, #3dc2ff, #36a2e4); /* Fondo degradado basado en color cian */
+  border-radius: 50px; /* Bordes redondeados igual que los otros botones */
+  box-shadow: 0 4px 8px rgba(61, 194, 255, 0.5), 0 -4px 8px rgba(54, 162, 228, 0.5); /* Sombra alrededor del botón */
+  color: white; /* Color del texto */
+  width: 200px; /* Ancho del botón */
+  height: 50px; /* Altura del botón */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative; /* Necesario para los detalles adicionales */
+  border: none; /* Quita cualquier borde por defecto */
+  padding: 0; /* Quita el padding por defecto */
+  overflow: hidden; /* Esconde cualquier desbordamiento */
+  margin: 5px auto; /* Reduce el margen entre botones */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+}
+
+.boton-registrarse:hover {
+  background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Fondo más oscuro en hover */
+  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+}
+.boton-registrarse:active,
+.boton-registrarse:focus {
+  background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Mantiene el color en hover cuando está activo */
+}
+.boton-registrarse::before {
+  content: '';
+  position: absolute;
+  top: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  left: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  right: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Línea negra interna */
+  border-radius: 45px; /* Ajusta el radio del borde interno */
+  z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
+  background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+}
+
+.boton-registrarse::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+  border-radius: 5px;
+  position: absolute;
+  left: 40px; /* Ajusta según tu diseño */
+  bottom: 10px; /* Ajusta según tu diseño */
+  z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
 }

@@ -1,49 +1,44 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Motivo Cancelación</ion-title>
+    <ion-title>Motivo de Cancelación</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen class="fondo">
   <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Motivo Cancelación</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  </ion-header><br>
 
+  <!-- Grupo de radios para seleccionar el motivo de cancelación -->
   <ion-list>
-    <ion-radio-group (ionChange)="onMotivoSelected($event)" value="motivos">
-      <ion-item>
-        <ion-label>Mi mamá no me dejó salir</ion-label>
+    <ion-radio-group [(ngModel)]="selectedMotivo" (ionChange)="onMotivoSelected($event)">
+      <ion-item [ngClass]="{'selected-item': selectedMotivo === 'Motivo_1'}" button>
+        <ion-label>Imprevisto familiar</ion-label>
         <ion-radio slot="start" value="Motivo_1"></ion-radio>
       </ion-item>
 
-      <ion-item>
-        <ion-label>Me pararon los pacos</ion-label>
+      <ion-item [ngClass]="{'selected-item': selectedMotivo === 'Motivo_2'}" button>
+        <ion-label>Problemas con la autoridad</ion-label>
         <ion-radio slot="start" value="Motivo_2"></ion-radio>
       </ion-item>
 
-      <ion-item>
-        <ion-label>Problemas del auto</ion-label>
+      <ion-item [ngClass]="{'selected-item': selectedMotivo === 'Motivo_3'}" button>
+        <ion-label>Fallas mecánicas</ion-label>
         <ion-radio slot="start" value="Motivo_3"></ion-radio>
       </ion-item>
 
-      <ion-item>
-        <ion-label>Me hicieron un portonazo</ion-label>
+      <ion-item [ngClass]="{'selected-item': selectedMotivo === 'Motivo_4'}" button>
+        <ion-label>Inseguridad en la ruta</ion-label>
         <ion-radio slot="start" value="Motivo_4"></ion-radio>
       </ion-item>
     </ion-radio-group>
   </ion-list>
 
+  <!-- Checkbox para enviar correo de cancelación -->
   <ion-item>
-    <ion-input
-      label="Redacta una disculpa"
-      label-placement="floating"
-      fill="outline"
-      placeholder="Escribe aquí!"
-    ></ion-input>
-  </ion-item>
+    <ion-label>Enviar mail de cancelación a pasajero</ion-label>
+    <ion-checkbox slot="start" [(ngModel)]="enviarEmail" (ionChange)="onEmailToggle($event)"></ion-checkbox>
+  </ion-item><br><br>
 
   <!-- Botón para confirmar la cancelación del viaje -->
-  <ion-button expand="block" color="danger" (click)="confirmarCancelacion()">Confirmar Cancelación</ion-button>
+  <ion-button expand="block" class="boton-confirmar-cancelacion" color="danger" (click)="confirmarCancelacion()">Confirmar Cancelación</ion-button>
 </ion-content>

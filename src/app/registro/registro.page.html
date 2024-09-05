@@ -58,13 +58,13 @@
       <ion-item lines="full" class="form-item" [ngClass]="{'disabled-item': !tieneVehiculo}">
         <ion-label position="fixed">Color:</ion-label>
         <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.color" name="color"></ion-input>
-      </ion-item>
+      </ion-item> <br>
     </div>
 
     <!-- Contenedor de los botones -->
     <div class="button-container">
-      <ion-button expand="block" color="medium" type="submit">Registrarse</ion-button>
-      <ion-button expand="block" color="danger" (click)="goHome()">Salir</ion-button>
+      <ion-button expand="block" class="boton-registrarse" type="submit">Registrarse</ion-button>
+      <ion-button expand="block" class="boton-salir" color="danger" (click)="goHome()">Salir</ion-button>
     </div>
 
   </form>
