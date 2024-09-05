@@ -1,59 +1,162 @@
 /* Estilo para el header principal */
 ion-header.custom-header {
-    --background: transparent; /* Fondo transparente para que coincida con el fondo del contenido */
-    color: white; /* Asegura que el texto del header sea blanco */
-  }
+  --background: transparent; /* Fondo transparente para que coincida con el fondo del contenido */
+  color: white; /* Asegura que el texto del header sea blanco */
+}  
+ion-toolbar.custom-toolbar {
+  --background: none; /* Sin fondo para el toolbar */
+  color: white; /* Color del texto en el toolbar */
+  text-align: center;
+}
   
-  ion-toolbar.custom-toolbar {
-    --background: none; /* Sin fondo para el toolbar */
-    color: white; /* Color del texto en el toolbar */
-    text-align: center;
-  }
+/* Estilo para el contenido */
+ion-content.background {
+  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
   
-  /* Estilo para el contenido */
-  ion-content.background {
-    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  }
+/* Aplica un color de fondo al header cuando se colapsa */
+ion-header[collapse="fade"] ion-toolbar {
+  --background: #403F51;
+  color: white;
+}
+
+/* Estilo para el título grande cuando el header colapsa */
+.condensed-title {
+  font-family: system-ui;
+  color: #ffffff;
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  display: block;
+}
+
+/* Estilo para el mensaje de bienvenida */
+.welcome-message {
+  color: white;
+  text-align: center;
+  font-size: 18px;
+  margin: 20px 0;
+  font-family: 'Helvetica', sans-serif;
+}
   
-  /* Aplica un color de fondo al header cuando se colapsa */
-  ion-header[collapse="fade"] ion-toolbar {
-    --background: #403F51;
-    color: white;
-  }
-  
-  /* Estilo para el título grande cuando el header colapsa */
-  .condensed-title {
-    font-family: system-ui;
-    color: #ffffff;
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    margin: 0;
-    display: block;
-  }
-  
-  /* Estilo para el mensaje de bienvenida */
-  .welcome-message {
-    color: white;
-    text-align: center;
-    font-size: 18px;
-    margin: 20px 0;
-    font-family: 'Helvetica', sans-serif;
-  }
-  
-  /* Estilo para los botones */
-  ion-button {
-    width: 100%;
-    max-width: 400px;
-    margin-top: 10px;
-    font-family: 'Helvetica', sans-serif;
-    font-size: larger;
-    font-weight: bold;
-    --border-radius: 100px;
-    height: 50px;
-  }
-  
+/* configuracion general para el ion-button */
+ion-button {
+  width: 70%; /* Ancho del botón, ajustable según tu preferencia */
+  max-width: 400px;
+  margin: 20px auto; /* Centra el botón horizontalmente */
+  font-family: 'Helvetica', sans-serif;
+  font-size: larger;
+  font-weight: bold;
+  height: 50px; /* Mantén el tamaño del botón */
+  display: block; /* Asegura que se centre correctamente */
+  text-align: center; /* Centra el contenido del botón */
+  border-radius: 25px; /* Valor ajustado para redondear extremos */
+  /* Quitar cualquier estilo de fondo o color que pueda interferir */
+  --background: none;
+  --color: inherit;
+}
+
+/* Estilos especiales para el boton editar viaje */
+.boton-editar-viaje {
+  background: linear-gradient(145deg, #00ff00, #00cc00); /* Fondo degradado */
+  border-radius: 50px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5); /* Sombra alrededor del botón */
+  color: white; /* Color del texto */
+  width: 200px; /* Ancho del botón */
+  height: 50px; /* Altura del botón */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative; /* Necesario para los detalles adicionales */
+  border: none; /* Quita cualquier borde por defecto */
+  padding: 0; /* Quita el padding por defecto */
+  overflow: hidden; /* Esconde cualquier desbordamiento */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+}
+.boton-editar-viaje:hover {
+  background: linear-gradient(145deg, #00cc00, #009900); /* Fondo más oscuro en hover */
+  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+}
+.boton-editar-viaje:active,
+.boton-editar-viaje:focus {
+  background: linear-gradient(145deg, #00cc00, #009900); /* Mantiene el color en hover cuando está activo */
+}
+.boton-editar-viaje::before {
+  content: '';
+  position: absolute;
+  top: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  left: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  right: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
+  border-radius: 45px; /* Ajusta el radio del borde interno */
+  z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
+  background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+}
+.boton-editar-viaje::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+  border-radius: 5px;
+  position: absolute;
+  left: 40px; /* Ajusta según tu diseño */
+  bottom: 10px; /* Ajusta según tu diseño */
+  z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+}
+
+/* Estilos especiales para el boton boton-cancelar-viaje */
+.boton-cancelar-viaje {
+  background: linear-gradient(145deg, #ff4c4c, #e60000); /* Fondo degradado basado en rojo vibrante */
+  border-radius: 50px; /* Bordes redondeados igual que el botón "Salir" */
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5); /* Sombra alrededor del botón */
+  color: white; /* Color del texto */
+  width: 200px; /* Ancho del botón */
+  height: 50px; /* Altura del botón */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative; /* Necesario para los detalles adicionales */
+  border: none; /* Quita cualquier borde por defecto */
+  padding: 0; /* Quita el padding por defecto */
+  overflow: hidden; /* Esconde cualquier desbordamiento */
+  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+}
+.boton-cancelar-viaje:hover {
+  background: linear-gradient(145deg, #e60000, #cc0000); /* Fondo más oscuro en hover */
+  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+}
+.boton-cancelar-viaje:active,
+.boton-cancelar-viaje:focus {
+  background: linear-gradient(145deg, #e60000, #cc0000); /* Mantiene el color en hover cuando está activo */
+}
+.boton-cancelar-viaje::before {
+  content: '';
+  position: absolute;
+  top: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  left: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  right: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
+  border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
+  border-radius: 45px; /* Ajusta el radio del borde interno */
+  z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
+  background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+}
+.boton-cancelar-viaje::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+  border-radius: 5px;
+  position: absolute;
+  left: 40px; /* Ajusta según tu diseño */
+  bottom: 10px; /* Ajusta según tu diseño */
+  z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+}

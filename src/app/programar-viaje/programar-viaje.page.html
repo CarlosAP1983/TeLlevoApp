@@ -1,15 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Programar un Viaje</ion-title>
-    <!-- Botón para crear un nuevo viaje -->
-    <ion-buttons slot="end">
-      <ion-button routerLink="/registro-exitoso">Volver</ion-button>
+    <!-- Botón de retroceso alineado a la izquierda -->
+    <ion-buttons slot="start">
+      <!-- Botón de retroceso que vuelve a la página anterior -->
+      <ion-back-button defaultHref="/registro-exitoso" text="Volver"></ion-back-button>
     </ion-buttons>
+    <ion-title>Programar un Viaje</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content color="light" [fullscreen]="true" class="ion-padding">
-  <!-- Cambiar la referencia a "ngSubmit" para usar la función "guardarViaje()" -->
+<ion-content [fullscreen]="true" class="background ion-padding">
   <form (ngSubmit)="guardarViaje()">
     <!-- Campo Origen -->
     <ion-item>
@@ -48,7 +48,7 @@
     </ion-item>
 
     <!-- Botón Guardar -->
-    <ion-button expand="block" type="submit" color="success">Guardar Viaje</ion-button>
+    <ion-button expand="block" type="submit" color="success" class="guardar-viaje">Guardar Viaje</ion-button>
   </form>
 </ion-content>
 

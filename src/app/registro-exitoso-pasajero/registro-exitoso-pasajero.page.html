@@ -43,6 +43,6 @@
   </ion-list>
 
   <!-- Botón para ver detalles del viaje seleccionado -->
-  <ion-button expand="block" color="medium" (click)="verDetallesViaje()">Ver datos del viaje</ion-button>
-  <ion-button expand="block" color="success"  [routerLink]="'/no-hay-viajes'">Recargar</ion-button>
+  <ion-button expand="block" class="boton-datos-viaje" (click)="verDetallesViaje()">Ver datos del viaje</ion-button>
+  <ion-button expand="block" color="success" class="boton-recargar" [routerLink]="'/no-hay-viajes'">Recargar</ion-button>
 </ion-content>

@@ -7,20 +7,28 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./seleccion-perfil.page.scss'],
 })
 export class SeleccionPerfilPage {
-  perfil: string = '';
+  perfil: string = ''; // Variable para almacenar el perfil seleccionado
 
   constructor(private navCtrl: NavController) {}
 
+  // Función para seleccionar el perfil
+  seleccionarPerfil(tipo: string) {
+    this.perfil = tipo;
+  }
+
+  // Función para confirmar el perfil y redirigir a la vista correspondiente
   confirmarPerfil() {
     if (this.perfil === 'conductor') {
-      // Redirigir a la vista de registro de conductor
       this.navCtrl.navigateForward('/registro-exitoso');
     } else if (this.perfil === 'pasajero') {
-      // Redirigir a la vista de registro de pasajero
       this.navCtrl.navigateForward('/registro-exitoso-pasajero');
     } else {
-      // Si no se ha seleccionado un perfil, muestra un mensaje de error o advertencia
-      alert('Por favor, selecciona un tipo de usuario.');
+      alert('Por favor, selecciona un perfil.');
     }
+  }
+
+  // Función para salir y regresar a la página de inicio
+  goHome() {
+    this.navCtrl.navigateRoot('/home');
   }
 }

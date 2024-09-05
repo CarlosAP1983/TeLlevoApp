@@ -18,8 +18,9 @@
   </div>
 
   <!-- Icono para cerrar sesión con texto "Salir" -->
-  <div class="icon-container">
-    <ion-icon name="log-out-outline" size="large" class="logout-icon" (click)="cerrarSesion()"></ion-icon>
-    <p class="logout-text">Salir</p>
-  </div>
+  <ion-button expand="block" color="danger" class="boton-salir" (click)="cerrarSesion()">
+    <ion-icon slot="start" name="log-out-outline" size="large"></ion-icon>
+    Salir
+  </ion-button>
+  
 </ion-content>

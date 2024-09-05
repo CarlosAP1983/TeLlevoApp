@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button> <!-- Vuelve a la página de inicio si no hay historial -->
+      <ion-back-button defaultHref="/home"></ion-back-button>
     </ion-buttons>
     <ion-title>Editar Perfil</ion-title>
   </ion-toolbar>
@@ -29,5 +29,11 @@
   </ion-list>
   
   <!-- Botón para guardar los cambios -->
-  <ion-button expand="block" color="success" (click)="guardarCambios()">Guardar Cambios</ion-button>
+  <ion-button expand="block" class="guardar-button" (click)="guardarCambios()">Guardar Cambios</ion-button>
+  
+  <!-- Botón para eliminar -->
+  <ion-button expand="block" class="delete-button" (click)="eliminarCuenta()">Eliminar Cuenta</ion-button>
+
+  <!-- Botón para salir con la clase personalizada -->
+  <ion-button expand="block" class="salir-button" (click)="salir()">Salir</ion-button>
 </ion-content>

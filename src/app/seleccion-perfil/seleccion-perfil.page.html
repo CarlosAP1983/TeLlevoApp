@@ -4,21 +4,27 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <!-- Formulario para seleccionar el tipo de usuario -->
-  <ion-list>
-    <ion-radio-group [(ngModel)]="perfil" name="perfil">
-      <ion-item>
-        <ion-label>Usuario Conductor</ion-label>
-        <ion-radio slot="start" value="conductor"></ion-radio>
-      </ion-item>
-      <ion-item>
-        <ion-label>Usuario Pasajero</ion-label>
-        <ion-radio slot="start" value="pasajero"></ion-radio>
-      </ion-item>
-    </ion-radio-group>
+<ion-content class="background ion-padding">
+  <!-- Lista para seleccionar el tipo de usuario -->
+  <ion-list class="fondo">
+    <ion-item class="fondo-2"
+      button 
+      [ngClass]="{'selected-item': perfil === 'conductor'}" 
+      (click)="seleccionarPerfil('conductor')">
+      <ion-label>Usuario Conductor</ion-label>
+    </ion-item>
+    <br>
+    <ion-item class="fondo-2"
+      button 
+      [ngClass]="{'selected-item': perfil === 'pasajero'}" 
+      (click)="seleccionarPerfil('pasajero')">
+      <ion-label>Usuario Pasajero</ion-label>
+    </ion-item> <br><br>
   </ion-list>
 
   <!-- Botón de siguiente para confirmar la selección -->
-  <ion-button expand="block" (click)="confirmarPerfil()">Siguiente</ion-button>
+  <ion-button expand="block" class="boton-siguiente" (click)="confirmarPerfil()">Siguiente</ion-button>
+
+  <!-- Botón de salir para regresar a la página de inicio -->
+  <ion-button expand="block" class="boton-salir" color="danger" (click)="goHome()" style="margin-top: auto;">Salir</ion-button>
 </ion-content>
