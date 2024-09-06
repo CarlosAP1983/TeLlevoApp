@@ -7,7 +7,8 @@
     <br><br><br>
 
     <!-- Formulario de Login -->
-    <div class="login-form">
+    <div class="login-form" *ngIf="!showSpinner">
+      <br>
       <!-- Campo para el Usuario -->
       <div class="input-group">
         <label class="input-label"> Usuario:</label>
@@ -28,6 +29,11 @@
       <div class="link-container">
         <a [routerLink]="'/restablecer-contrasena'" class="link">¿Olvidaste tu contraseña?</a>
       </div>
+    </div>
+
+    <!-- Spinner centrado -->
+    <div class="spinner-container" *ngIf="showSpinner">
+      <ion-spinner class="white-spinner mirror-animation"></ion-spinner>
     </div>
   </div>
 </ion-content>

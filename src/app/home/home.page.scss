@@ -106,7 +106,7 @@ ion-input:focus-within {
   font-weight: bold;
 }
 
-/* configuracion general para el ion-button */
+/* Configuración general para el ion-button */
 ion-button {
   width: 70%; /* Ancho del botón, ajustable según tu preferencia */
   max-width: 400px;
@@ -171,4 +171,28 @@ ion-button {
   left: 40px; /* Ajusta según tu diseño */
   bottom: 10px; /* Ajusta según tu diseño */
   z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+}
+
+/* Estilo para el spinner */
+ion-spinner.white-spinner {
+  width: 100px;
+  height: 100px;
+  color: white; /* Spinner en tono blanco */
+}
+
+.mirror-animation {
+  animation: mirrorEffect 1s forwards;
+}
+
+@keyframes mirrorEffect {
+  0% {
+    transform: scaleX(1);
+  }
+  50% {
+    transform: scaleX(-1);
+  }
+  100% {
+    transform: scaleX(1);
+    opacity: 0;
+  }
 }

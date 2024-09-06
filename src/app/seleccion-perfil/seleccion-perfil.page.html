@@ -5,20 +5,31 @@
 </ion-header>
 
 <ion-content class="background ion-padding">
+  <h2 class="titulo">¡Bienvenido a TeLlevoApp!</h2><br>
+  <h1 class="sub-titulo">Selecciona un tipo de usuario para comenzar:</h1><br><br>
   <!-- Lista para seleccionar el tipo de usuario -->
   <ion-list class="fondo">
+    <div class="inline-content">
+      <ion-icon class="parrafos" name="chevron-forward-circle-outline"></ion-icon>
+      <p class="parrafos">Conduce y comparte tu viaje con otros...</p>
+    </div><br>
     <ion-item class="fondo-2"
       button 
       [ngClass]="{'selected-item': perfil === 'conductor'}" 
       (click)="seleccionarPerfil('conductor')">
-      <ion-label>Usuario Conductor</ion-label>
+            <ion-label>* Usuario Conductor *</ion-label>
     </ion-item>
     <br>
+    <div class="inline-content">
+      <ion-icon class="parrafos" name="chevron-forward-circle-outline"></ion-icon>
+    <p class="parrafos">Encuentra y únete a un viaje coordinado...</p> <br>
+  </div><br>
     <ion-item class="fondo-2"
       button 
       [ngClass]="{'selected-item': perfil === 'pasajero'}" 
       (click)="seleccionarPerfil('pasajero')">
-      <ion-label>Usuario Pasajero</ion-label>
+
+      <ion-label>* Usuario Pasajero *</ion-label>
     </ion-item> <br><br>
   </ion-list>
 
