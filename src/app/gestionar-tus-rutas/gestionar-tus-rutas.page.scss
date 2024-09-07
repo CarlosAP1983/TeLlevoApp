@@ -160,3 +160,16 @@ ion-button {
   bottom: 10px; /* Ajusta según tu diseño */
   z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
 }
+
+/* Estilo para la imagen con bordes circulares, degradado y sombreado */
+.imagen-rutas {
+  width: 90%; /* Ajusta la imagen al ancho completo del contenedor */
+  height: auto; /* Mantiene la proporción original de la imagen */
+  border-radius: 50%; /* Aplica bordes circulares a la imagen */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19); /* Sombra alrededor de los bordes */
+  background: linear-gradient(145deg, #3dc2ff, #36a2e4); /* Degradado de fondo */
+  padding: 5px; /* Añade un poco de espacio alrededor de la imagen para el degradado */
+  display: block; /* Asegura que la imagen se muestre como un bloque */
+  margin: 20px auto; /* Centra la imagen horizontalmente con margen superior e inferior */
+}
+

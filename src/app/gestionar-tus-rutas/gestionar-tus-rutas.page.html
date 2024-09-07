@@ -9,6 +9,8 @@
 </ion-header>
 
 <ion-content class="background" [fullscreen]="true">
+  <img class="imagen-rutas" src="assets/images/tus_rutas.jpg" alt="Tus Rutas" class="imagen-rutas">
+
   <!-- Mostrar rutas guardadas -->
   <div *ngIf="rutas.length > 0" class="rutas-container">
     <ion-card *ngFor="let ruta of rutas; let i = index">
