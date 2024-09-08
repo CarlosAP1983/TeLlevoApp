@@ -4,11 +4,9 @@ ion-toolbar.custom-toolbar {
   color: var(--ion-color-primary-contrast); /* Color del texto en el toolbar */
   text-align: center;
 }
-
 ion-back-button.letra {
   font-weight: bold;
 }
-
 ion-title.titulo-header {
   --color: #2F2E2E;
 }
@@ -27,6 +25,28 @@ ion-content.background {
 ion-header[collapse="fade"] ion-toolbar {
   --background: var(--ion-color-primary); /* Fondo del menú */
   color: var(--ion-color-primary-contrast); /* Color del texto en el toolbar */
+}
+
+/*Estilos del titulo y subtitulo*/
+.titulo {
+  font-family: system-ui; /* Cambia la fuente */
+  color: #2F2E2E !important; /* Cambia el color del texto */
+  font-size: 2.5rem; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Centra el texto */
+  width: 100%; /* Asegura que el título ocupe todo el ancho */
+  margin: 0; /* Elimina cualquier margen extra */
+  display: block; /* Asegura que el título se comporte como un elemento de bloque */
+}
+.sub-titulo{
+  font-family: system-ui; /* Cambia la fuente */
+  color: #2F2E2E !important; /* Cambia el color del texto */
+  font-size: 1.2rem; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  text-align: left; /* Texto a la izquierda*/
+  width: 100%; /* Asegura que el título ocupe todo el ancho */
+  margin: 0; /* Elimina cualquier margen extra */
+  display: block; /* Asegura que el título se comporte como un elemento de bloque */
 }
 
 /* Estilo para el item seleccionado */
@@ -104,29 +124,6 @@ ion-button {
     left: 40px;
     bottom: 10px;
     z-index: 2;
-}
-
-
-/*Estilos del titulo y subtitulo*/
-.titulo {
-    font-family: system-ui; /* Cambia la fuente */
-    color: #2F2E2E !important; /* Cambia el color del texto */
-    font-size: 2.5rem; /* Tamaño del texto */
-    font-weight: bold; /* Texto en negrita */
-    text-align: center; /* Centra el texto */
-    width: 100%; /* Asegura que el título ocupe todo el ancho */
-    margin: 0; /* Elimina cualquier margen extra */
-    display: block; /* Asegura que el título se comporte como un elemento de bloque */
-}
-.sub-titulo{
-    font-family: system-ui; /* Cambia la fuente */
-    color: #2F2E2E !important; /* Cambia el color del texto */
-    font-size: 1.2rem; /* Tamaño del texto */
-    font-weight: bold; /* Texto en negrita */
-    text-align: left; /* Texto a la izquierda*/
-    width: 100%; /* Asegura que el título ocupe todo el ancho */
-    margin: 0; /* Elimina cualquier margen extra */
-    display: block; /* Asegura que el título se comporte como un elemento de bloque */
 }
 
 /* Contenedor para alinear los elementos en la misma línea */

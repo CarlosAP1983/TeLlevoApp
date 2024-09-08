@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-registro-exitoso-pasajero',
@@ -9,6 +9,7 @@ import { NavController } from '@ionic/angular';
 export class RegistroExitosoPasajeroPage {
   username: string = ''; // Variable para almacenar el nombre de usuario
   rutaSeleccionada: any; // Variable para almacenar la ruta seleccionada
+  mostrarSpinner: boolean = false; // Variable para controlar la visibilidad del spinner
   rutasDisponibles = [
     { origen: 'Sede', destino: 'Providencia', precio: '$1000', conductor: 'Juan Pedro', hora: '22:30', AsientosDisponibles: 2 },
     { origen: 'Sede', destino: 'Quinta Normal', precio: '$800', conductor: 'Ana Gabriela', hora: '21:20', AsientosDisponibles: 3 },
@@ -16,7 +17,7 @@ export class RegistroExitosoPasajeroPage {
     { origen: 'Sede', destino: 'Lo Prado', precio: '$800', conductor: 'Maria Magdalena', hora: '21:50', AsientosDisponibles: 3 },
   ];
 
-  constructor(private navCtrl: NavController) {
+  constructor(private navCtrl: NavController, private toastCtrl: ToastController) {
     this.username = history.state.username || 'Carlos'; // Obtén el nombre del usuario desde el estado de navegación o usa un valor predeterminado
   }
 
@@ -39,5 +40,24 @@ export class RegistroExitosoPasajeroPage {
 
   goToUserProfile() {
     this.navCtrl.navigateForward('/perfil-usuario'); // Redirige a la página de perfil de usuario
+  }
+
+  async recargarRutas() {
+    // Mostrar el spinner
+    this.mostrarSpinner = true;
+
+    // Ocultar el spinner después de 3 segundos
+    setTimeout(async () => {
+      this.mostrarSpinner = false;
+
+      // Mostrar un toast de rutas actualizadas
+      const toast = await this.toastCtrl.create({
+        message: 'Rutas actualizadas.',
+        duration: 2000,
+        position: 'middle',
+        color: 'success'
+      });
+      await toast.present();
+    }, 3000);
   }
 }

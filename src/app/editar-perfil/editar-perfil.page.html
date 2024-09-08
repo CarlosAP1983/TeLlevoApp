@@ -1,39 +1,44 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-toolbar">
+    <!--Retroceder a la vista anterior-->
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
+      <ion-back-button class="letra" defaultHref="/home"></ion-back-button>
     </ion-buttons>
-    <ion-title>Editar Perfil</ion-title>
+    <ion-title class="titulo-header">Edita tu perfil de usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background ion-padding" [fullscreen]="true">
-  <!-- Formulario de Edición de Perfil -->
+  <h2 class="titulo">Actualiza tus datos</h2>
+  <!--Formulario Edición de Perfil-->
   <ion-list>
     <ion-item>
-      <ion-label position="floating">Nombre</ion-label>
+      <ion-label position="floating">• Nombre:</ion-label>
       <ion-input [(ngModel)]="nombre" type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Teléfono</ion-label>
+      <ion-label position="floating">• Teléfono:</ion-label>
       <ion-input [(ngModel)]="telefono" type="tel"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Usuario</ion-label>
+      <ion-label position="floating">• Usuario:</ion-label>
       <ion-input [(ngModel)]="usuario" type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">Email</ion-label>
+      <ion-label position="floating">• Email:</ion-label>
       <ion-input [(ngModel)]="email" type="email"></ion-input>
     </ion-item>
   </ion-list>
   
-  <!-- Botón para guardar los cambios -->
-  <ion-button expand="block" class="guardar-button" (click)="guardarCambios()">Guardar Cambios</ion-button>
-  
-  <!-- Botón para eliminar -->
-  <ion-button expand="block" class="delete-button" (click)="eliminarCuenta()">Eliminar Cuenta</ion-button>
-
-  <!-- Botón para salir con la clase personalizada -->
-  <ion-button expand="block" class="salir-button" (click)="salir()">Salir</ion-button>
+  <!--Botonera-->
+  <ion-button expand="block" class="boton-azul" (click)="guardarCambios()">Guardar Cambios</ion-button>
+  <ion-button expand="block" color="danger" class="delete-button" (click)="eliminarCuenta()">Elimina tu Cuenta</ion-button>
 </ion-content>
+
+<ion-footer class="custom-footer">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

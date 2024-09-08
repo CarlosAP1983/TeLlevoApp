@@ -1,35 +1,75 @@
-ion-header.custom-header {
-  --background: #4e54c8; /* Fondo degradado */
+/* Estilo para el header principal */
+ion-toolbar.custom-toolbar {
+  --background: #B5B8BF; /* Fondo del toolbar */
+  color: var(--ion-color-primary-contrast); /* Color del texto en el toolbar */
+  text-align: center;
 }
 
+ion-back-button.letra {
+  font-weight: bold;
+}
+
+ion-title.titulo-header {
+  --color: #2F2E2E;
+}
+  
 /* Estilo para el contenido */
 ion-content.background {
-  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+  --background: #EEF1FB; /* Fondo claro */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
+}
+/*Estilos del titulo y subtitulo*/
+.titulo {
+  font-family: system-ui; /* Cambia la fuente */
+  color: #2F2E2E !important; /* Cambia el color del texto */
+  font-size: 2.5rem; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Centra el texto */
+  width: 100%; /* Asegura que el título ocupe todo el ancho */
+  margin: 0; /* Elimina cualquier margen extra */
+  display: block; /* Asegura que el título se comporte como un elemento de bloque */
+}
+.sub-titulo{
+  font-family: system-ui; /* Cambia la fuente */
+  color: #2F2E2E !important; /* Cambia el color del texto */
+  font-size: 1.2rem; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  text-align: left; /* Texto a la izquierda*/
+  width: 100%; /* Asegura que el título ocupe todo el ancho */
+  margin: 0; /* Elimina cualquier margen extra */
+  display: block; /* Asegura que el título se comporte como un elemento de bloque */
 }
 
-ion-header[collapse="condense"] ion-toolbar {
-  --background: transparent; /* Fondo transparente para el toolbar */
-}
-ion-header[collapse="condense"] ion-toolbar {
-  text-align: center; /* Centra el texto dentro del ion-toolbar */
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+  --background: #09184D; /* Color del fondo del footer igual al menú */
+  height: 50px; /* Ajusta la altura del footer */
+  padding: 0; /* Elimina cualquier relleno adicional */
+  position: fixed; /* Fija el footer al fondo de la página */
+  bottom: 0; /* Alinea el footer al fondo de la página */
+  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  display: flex; /* Flexbox para alinear el contenido */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  z-index: 10; /* Asegura que el footer esté siempre en la parte superior */
 }
 
-  ion-content.background {
-    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  } 
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #09184D; /* Asegura que el fondo de la toolbar coincida con el footer */
+  padding: 0; /* Sin relleno */
+  text-align: center; /* Centra el texto */
+  color: var(--ion-color-primary-contrast); /* Color de texto de contraste (blanco) */
+}
 
-.color-letter {
-    color: white;
-    font-size: 18px;
-    margin: 20px 0;
-    font-family: 'Helvetica', sans-serif;
-  }
-  
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: var(--ion-color-primary-contrast); /* Color del texto del mensaje (blanco) */
+  font-size: 0.9rem; /* Tamaño de la fuente */
+  margin: 0; /* Sin margen adicional */
+  font-family: 'Helvetica', sans-serif; /* Fuente personalizada */
+}

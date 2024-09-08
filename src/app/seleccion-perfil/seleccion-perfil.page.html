@@ -2,7 +2,7 @@
   <ion-toolbar class="custom-toolbar">
     <!--Retroceder a la vista anterior-->
     <ion-buttons slot="start">
-      <ion-back-button class="letra" defaultHref="/home"></ion-back-button>
+      <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
     <ion-title class="titulo-header">Selección de Perfil</ion-title>
   </ion-toolbar>
@@ -21,7 +21,7 @@
       button 
       [ngClass]="{'selected-item': perfil === 'conductor'}" 
       (click)="seleccionarPerfil('conductor')">
-            <ion-label>* Usuario Conductor *</ion-label>
+            <ion-label>• Usuario Conductor • </ion-label>
     </ion-item>
     <br>
     <div class="inline-content">
@@ -32,7 +32,7 @@
       button 
       [ngClass]="{'selected-item': perfil === 'pasajero'}" 
       (click)="seleccionarPerfil('pasajero')">
-      <ion-label>* Usuario Pasajero *</ion-label>
+      <ion-label>• Usuario Pasajero •</ion-label>
     </ion-item> <br><br>
   </ion-list>
 

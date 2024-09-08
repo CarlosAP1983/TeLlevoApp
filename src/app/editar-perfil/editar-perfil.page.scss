@@ -1,10 +1,37 @@
-ion-content.background {
-    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab);
+/* Estilo para el header principal */
+ion-toolbar.custom-toolbar {
+    --background: #B5B8BF; /* Fondo del toolbar */
+    color: var(--ion-color-primary-contrast); /* Color del texto en el toolbar */
+    text-align: center;
+  }  
+  ion-back-button.letra {
+    font-weight: bold;
+  }  
+  ion-title.titulo-header {
+    --color: #2F2E2E;
+  }
+    
+  /* Estilo para el contenido */
+  ion-content.background {
+    --background: #EEF1FB; /* Fondo claro */
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-}
+    flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
+  }
+ 
+/*Estilos del titulo y subtitulo*/
+.titulo {
+    font-family: system-ui; /* Cambia la fuente */
+    color: #2F2E2E !important; /* Cambia el color del texto */
+    font-size: 2.5rem; /* Tamaño del texto */
+    font-weight: bold; /* Texto en negrita */
+    text-align: center; /* Centra el texto */
+    width: 100%; /* Asegura que el título ocupe todo el ancho */
+    margin: 0; /* Elimina cualquier margen extra */
+    display: block; /* Asegura que el título se comporte como un elemento de bloque */
+  }  
 
 /* configuracion general para el ion-button */
 ion-button {
@@ -23,54 +50,54 @@ ion-button {
     --color: inherit;
 }
 
-/* Estilos especiales para el boton guardar cambios */
-.guardar-button {
-    background: linear-gradient(145deg, #3dc2ff, #36a2e4); /* Fondo degradado basado en color cian */
-    border-radius: 50px; /* Bordes redondeados igual que los otros botones */
-    box-shadow: 0 4px 8px rgba(61, 194, 255, 0.5), 0 -4px 8px rgba(54, 162, 228, 0.5); /* Sombra alrededor del botón */
-    color: white; /* Color del texto */
-    width: 200px; /* Ancho del botón */
-    height: 50px; /* Altura del botón */
+/* Estilos especiales para el botón azul (Siguiente) */
+.boton-azul {
+    background: linear-gradient(145deg, #7B5BF2, #6A4ED9); /* Fondo degradado basado en el tono #7B5BF2 */
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
+    color: white;
+    width: 200px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    position: relative; /* Necesario para los detalles adicionales */
-    border: none; /* Quita cualquier borde por defecto */
-    padding: 0; /* Quita el padding por defecto */
-    overflow: hidden; /* Esconde cualquier desbordamiento */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+    position: relative;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.guardar-button:hover {
-    background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Fondo más oscuro en hover */
-    transform: scale(1.05); /* Efecto de agrandamiento en hover */
+.boton-azul:hover {
+    background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+    transform: scale(1.05);
 }
-.guardar-button:active,
-.guardar-button:focus {
-    background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Mantiene el color en hover cuando está activo */
+.boton-azul:active,
+.boton-azul:focus {
+    background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
 }
-.guardar-button::before {
+.boton-azul::before {
     content: '';
     position: absolute;
-    top: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    left: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    right: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
-    border-radius: 45px; /* Ajusta el radio del borde interno */
-    z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
-    background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 2px solid rgb(90, 89, 89);
+    border-radius: 45px;
+    z-index: 1;
+    background: transparent;
 }
-.guardar-button::after {
+.boton-azul::after {
     content: '';
     width: 40px;
     height: 5px;
-    background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     position: absolute;
-    left: 40px; /* Ajusta según tu diseño */
-    bottom: 10px; /* Ajusta según tu diseño */
-    z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+    left: 40px;
+    bottom: 10px;
+    z-index: 2;
 }
 
 /* Estilos especiales para el boton eliminar */
@@ -172,3 +199,33 @@ ion-button {
     bottom: 10px; /* Ajusta según tu diseño */
     z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
 }
+
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+    --background: #09184D; /* Color del fondo del footer igual al menú */
+    height: 50px; /* Ajusta la altura del footer */
+    padding: 0; /* Elimina cualquier relleno adicional */
+    position: fixed; /* Fija el footer al fondo de la página */
+    bottom: 0; /* Alinea el footer al fondo de la página */
+    width: 100%; /* Asegura que el footer ocupe todo el ancho */
+    display: flex; /* Flexbox para alinear el contenido */
+    align-items: center; /* Centra el contenido verticalmente */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    z-index: 10; /* Asegura que el footer esté siempre en la parte superior */
+  }
+  
+  /* Estilo para la toolbar del footer */
+  .footer-toolbar {
+    --background: #09184D; /* Asegura que el fondo de la toolbar coincida con el footer */
+    padding: 0; /* Sin relleno */
+    text-align: center; /* Centra el texto */
+    color: var(--ion-color-primary-contrast); /* Color de texto de contraste (blanco) */
+  }
+  
+  /* Estilo para el mensaje del footer */
+  .footer-message p {
+    color: var(--ion-color-primary-contrast); /* Color del texto del mensaje (blanco) */
+    font-size: 0.9rem; /* Tamaño de la fuente */
+    margin: 0; /* Sin margen adicional */
+    font-family: 'Helvetica', sans-serif; /* Fuente personalizada */
+  }

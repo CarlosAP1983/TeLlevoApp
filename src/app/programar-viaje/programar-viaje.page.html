@@ -1,59 +1,51 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <!-- Botón de retroceso alineado a la izquierda -->
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-toolbar">
+    <!--Retroceder a la vista anterior-->
     <ion-buttons slot="start">
-      <!-- Botón de retroceso que vuelve a la página anterior -->
-      <ion-back-button defaultHref="/registro-exitoso" text="Volver"></ion-back-button>
+      <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title>Programar un Viaje</ion-title>
+    <ion-title class="titulo-header">Programar un viaje</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="background ion-padding">
+<ion-content class="background ion-padding">
+  <h2 class="titulo">Crea una nueva ruta</h2>
   <form (ngSubmit)="guardarViaje()">
-    <!-- Campo Origen -->
+    <!--Campos de la ruta-->
     <ion-item>
-      <ion-label position="stacked">Origen</ion-label>
+      <ion-label position="stacked">• Origen</ion-label>
       <ion-input [(ngModel)]="nuevoViaje.origen" name="origen"></ion-input>
     </ion-item>
-
-    <!-- Campo Destino -->
     <ion-item>
-      <ion-label position="stacked">Destino</ion-label>
+      <ion-label position="stacked">• Destino</ion-label>
       <ion-input [(ngModel)]="nuevoViaje.destino" name="destino"></ion-input>
     </ion-item>
-
-    <!-- Campo Fecha de Salida -->
     <ion-item>
-      <ion-label position="stacked">Fecha de Salida</ion-label>
+      <ion-label position="stacked">• Fecha de Salida</ion-label>
       <ion-input type="date" [(ngModel)]="nuevoViaje.fecha" name="fecha" placeholder="DD/MM/YYYY"></ion-input>
     </ion-item>
-
-    <!-- Campo Hora de Salida -->
     <ion-item>
-      <ion-label position="stacked">Hora de Salida</ion-label>
+      <ion-label position="stacked">• Hora de Salida</ion-label>
       <ion-input type="time" [(ngModel)]="nuevoViaje.hora" name="hora" placeholder="HH:mm"></ion-input>
     </ion-item>
-
-    <!-- Campo Precio -->
     <ion-item>
-      <ion-label position="stacked">Precio</ion-label>
+      <ion-label position="stacked">• Precio</ion-label>
       <ion-input type="number" [(ngModel)]="nuevoViaje.precio" name="precio"></ion-input>
     </ion-item>
-
-    <!-- Campo Asientos Disponibles -->
     <ion-item>
-      <ion-label position="floating">Asientos Disponibles</ion-label>
+      <ion-label position="floating">• Asientos Disponibles</ion-label>
       <ion-input type="number" [(ngModel)]="nuevoViaje.asientos" name="asientos"></ion-input>
     </ion-item>
 
-    <!-- Botón Guardar -->
+    <!--Boton Guardar viaje-->
     <ion-button expand="block" type="submit" color="success" class="guardar-viaje">Guardar Viaje</ion-button>
   </form>
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">TeLlevoApp</ion-title>
+<ion-footer class="custom-footer">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+    </div>
   </ion-toolbar>
 </ion-footer>
