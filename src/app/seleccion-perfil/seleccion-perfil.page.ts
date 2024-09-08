@@ -7,7 +7,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./seleccion-perfil.page.scss'],
 })
 export class SeleccionPerfilPage {
-  perfil: string = ''; //Variable para almacenar el perfil seleccionado
+  perfil: string = ''; 
 
   constructor(private navCtrl: NavController) {}
 
