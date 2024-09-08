@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController, NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-detalle-viaje',
@@ -9,25 +9,28 @@ import { ToastController } from '@ionic/angular';
 })
 export class DetalleViajePage {
   ruta: any;
+  mostrarSpinner: boolean = false; // Variable para controlar la visibilidad del spinner
 
-  constructor(private route: ActivatedRoute, private toastCtrl: ToastController) {
+  constructor(
+    private route: ActivatedRoute,
+    private toastCtrl: ToastController,
+    private navCtrl: NavController
+  ) {
     // Obtener los datos de la ruta seleccionada desde el estado de navegación
     this.ruta = history.state.ruta;
   }
 
   // Función para manejar la acción de "Tomar viaje"
   async tomarViaje() {
-    // Lógica para tomar el viaje (puedes implementar lo que necesites aquí)
-    console.log('Viaje tomado:', this.ruta);
+    // Mostrar el spinner
+    this.mostrarSpinner = true;
 
-    // Mostrar un Toast de confirmación
-    const toast = await this.toastCtrl.create({
-      message: 'Has tomado el viaje con éxito.',
-      duration: 2000,
-      position: 'bottom',
-      color: 'success'
-    });
+    // Espera 3 segundos para simular el proceso de carga
+    setTimeout(async () => {
+      this.mostrarSpinner = false; // Oculta el spinner después de 3 segundos
 
-    await toast.present();
+      // Redirigir a la página de contacto con el chofer
+      this.navCtrl.navigateForward('/contacto-chofer', { state: { ruta: this.ruta } });
+    }, 3000);
   }
 }

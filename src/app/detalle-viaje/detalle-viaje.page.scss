@@ -145,3 +145,24 @@ ion-footer.custom-footer {
   margin: 0; /* Sin margen adicional */
   font-family: 'Helvetica', sans-serif; /* Fuente personalizada */
 }
+
+/* Estilo para el contenedor del spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  position: fixed; /* Posiciona el contenedor de forma fija en la pantalla */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100; /* Asegura que el spinner esté por encima de otros elementos */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para resaltar el spinner */
+}
+
+/* Estilo para el spinner */
+.spinner-grande {
+  width: 100px;
+  height: 100px;
+  --spinner-size: 100px; /* Ajusta el tamaño del spinner */
+}

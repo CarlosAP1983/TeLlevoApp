@@ -28,6 +28,11 @@
 
   <!-- Botón para tomar el viaje -->
   <ion-button expand="block" class="boton-azul" (click)="tomarViaje()">Tomar viaje</ion-button><br>
+
+  <!-- Contenedor para centrar el spinner -->
+  <div class="spinner-container" *ngIf="mostrarSpinner">
+    <ion-spinner name="lines" class="spinner-grande"></ion-spinner>
+  </div>
 </ion-content>
 
 <ion-footer class="custom-footer">

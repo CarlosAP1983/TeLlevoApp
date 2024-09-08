@@ -201,3 +201,12 @@ ion-footer.custom-footer {
   margin: 0; /* Sin margen adicional */
   font-family: 'Helvetica', sans-serif; /* Fuente personalizada */
 }
+
+/* Estilo para el item seleccionado */
+.selected-item {
+  --background: #81a9ee !important; /* Color de fondo para el item seleccionado */
+  color: white !important; /* Color del texto para el item seleccionado */
+  font-weight: bold; /* Texto en negrita */
+  border-radius: 10px; /* Bordes redondeados para el item */
+  transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
+}
