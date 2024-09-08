@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular'; // Importa ToastController
 
 @Component({
   selector: 'app-cuenta',
@@ -9,7 +9,7 @@ import { NavController } from '@ionic/angular';
 export class CuentaPage {  // Asegúrate de que el nombre de la clase sea CuentaPage
   perfil: string = ''; // Variable para almacenar el perfil seleccionado
 
-  constructor(private navCtrl: NavController) {}
+  constructor(private navCtrl: NavController, private toastController: ToastController) {} // Añade ToastController al constructor
 
   // Función para seleccionar el perfil
   seleccionarPerfil(tipo: string) {
@@ -23,7 +23,7 @@ export class CuentaPage {  // Asegúrate de que el nombre de la clase sea Cuenta
     } else if (this.perfil === 'pasajero') {
       this.navCtrl.navigateForward('/registro-exitoso-pasajero');
     } else {
-      alert('Por favor, selecciona un perfil.');
+      this.mostrarToast('Por favor, selecciona un perfil.');
     }
   }
 
@@ -33,8 +33,25 @@ export class CuentaPage {  // Asegúrate de que el nombre de la clase sea Cuenta
   }
 
   // Función para cerrar sesión
-  cerrarSesion() {
-    alert('Sesión cerrada');
-    this.navCtrl.navigateRoot('/home'); // Redirigir al inicio
+  async cerrarSesion() {
+    const toast = await this.toastController.create({
+      message: 'Sesión cerrada',
+      duration: 2000, // Duración del Toast en milisegundos
+      position: 'bottom' // Posición del Toast en la pantalla (puede ser 'top', 'middle' o 'bottom')
+    });
+
+    await toast.present();
+    this.navCtrl.navigateRoot('/home'); // Redirigir al inicio después de mostrar el Toast
+  }
+
+  // Función para mostrar un Toast personalizado
+  async mostrarToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000,
+      position: 'bottom'
+    });
+
+    await toast.present();
   }
 }

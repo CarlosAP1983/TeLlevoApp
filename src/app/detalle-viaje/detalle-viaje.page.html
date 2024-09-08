@@ -1,6 +1,6 @@
 <ion-header [translucent]="true" class="custom-header">
   <ion-toolbar class="custom-toolbar">
-    <!--Retroceder a la vista anterior-->
+    <!-- Retroceder a la vista anterior -->
     <ion-buttons slot="start">
       <ion-back-button class="letra" defaultHref="/home"></ion-back-button>
     </ion-buttons>
@@ -9,7 +9,7 @@
 </ion-header>
 
 <ion-content class="background ion-padding">
-      <h2 class="titulo">Detalles de la ruta creada</h2><br>
+  <h2 class="titulo">Detalles de la ruta creada</h2><br>
   <div class="color-letter" *ngIf="ruta">
     <h3 class="sub-titulo">Detalle del viaje:</h3>
     <p><strong> • Origen:</strong> {{ ruta.origen }}</p>
@@ -18,13 +18,16 @@
     <p><strong> • Conductor:</strong> {{ ruta.conductor }}</p>
     <p><strong> • Hora Salida:</strong> {{ ruta.hora }}</p>
     <p><strong> • Asientos Disponibles:</strong> {{ ruta.AsientosDisponibles }}</p>
-<br>
+    <br>
     <!-- Información adicional del vehículo -->
     <h3 class="sub-titulo">Detalles del Vehículo:</h3>
     <p><strong> • Patente:</strong> {{ ruta.vehiculo?.patente }}</p>
     <p><strong> • Color:</strong> {{ ruta.vehiculo?.color }}</p>
     <p><strong> • Marca:</strong> {{ ruta.vehiculo?.marca }}</p>
   </div>
+
+  <!-- Botón para tomar el viaje -->
+  <ion-button expand="block" class="boton-azul" (click)="tomarViaje()">Tomar viaje</ion-button><br>
 </ion-content>
 
 <ion-footer class="custom-footer">

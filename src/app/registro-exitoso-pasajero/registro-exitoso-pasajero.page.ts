@@ -30,7 +30,7 @@ export class RegistroExitosoPasajeroPage {
       // Navega a la página de detalle de viaje pasando los datos de la ruta seleccionada
       this.navCtrl.navigateForward('/detalle-viaje', { state: { ruta: this.rutaSeleccionada } });
     } else {
-      alert('Por favor, selecciona un viaje para ver los detalles.');
+      this.mostrarToast('Por favor, selecciona un viaje para ver los detalles.', 'danger');
     }
   }
 
@@ -59,5 +59,17 @@ export class RegistroExitosoPasajeroPage {
       });
       await toast.present();
     }, 3000);
+  }
+
+  // Función para mostrar un Toast personalizado
+  async mostrarToast(mensaje: string, color: string) {
+    const toast = await this.toastCtrl.create({
+      message: mensaje,
+      duration: 2000,
+      position: 'bottom',
+      color: color // Usa el color pasado como parámetro
+    });
+
+    await toast.present();
   }
 }
