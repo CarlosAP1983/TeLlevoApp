@@ -1,86 +1,125 @@
 /* Estilo para el header principal */
-ion-header.custom-header {
-  --background: #4e54c8; /* Fondo degradado */
+ion-toolbar.custom-toolbar {
+  --background: #B5B8BF; /* Fondo del toolbar */
+  color: var(--ion-color-primary-contrast); /* Color del texto en el toolbar */
+  text-align: center;
+}
+
+ion-back-button.letra {
+  font-weight: bold;
+}
+
+ion-title.titulo-header {
+  --color: #2F2E2E;
 }
 
 /* Estilo para el contenido */
 ion-content.background {
-  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+  --background: #EEF1FB; /* Fondo claro */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  justify-content: space-between; /* Distribuye el espacio entre los elementos para empujar el icono hacia abajo */
+  flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
+  justify-content: center; /* Alinea el contenido verticalmente en el centro */
+  height: 100%; /* Asegura que el contenido tome el 100% de la altura disponible */
+  position: relative; /* Necesario para los elementos posicionados absolutamente dentro del contenido */
 }
 
-/* Estilo para el título del header */
-.header-title {
+/*Estilos del titulo y subtitulo*/
+.titulo {
   font-family: system-ui; /* Cambia la fuente */
-  color: #ffffff !important; /* Cambia el color del texto */
-  font-size: 1.5rem; /* Tamaño del texto */
+  color: #2F2E2E !important; /* Cambia el color del texto */
+  font-size: 2.5rem; /* Tamaño del texto */
   font-weight: bold; /* Texto en negrita */
   text-align: center; /* Centra el texto */
-  width: 100%;
+  width: 100%; /* Asegura que el título ocupe todo el ancho */
   margin: 0; /* Elimina cualquier margen extra */
   display: block; /* Asegura que el título se comporte como un elemento de bloque */
+  font-size: x-large;
 }
 
-/* Contenedor del icono y texto para cambiar de usuario */
-.icon-text-container {
-  display: flex; /* Alinea los elementos horizontalmente */
-  align-items: center; /* Centra verticalmente los elementos */
-  gap: 10px; /* Espacio entre el icono y el texto */
-  cursor: pointer; /* Cambia el cursor al pasar por encima */
-  margin-bottom: 20px;
-}
-
-/* Estilo para el icono de usuario */
-.user-icon {
-  --font-size: 100px; /* Tamaño del icono de usuario */
-  color: white; /* Color del icono */
-  padding: 5px; /* Espaciado alrededor del icono */
-  border: 2px solid #7636a1; /* Borde alrededor del icono */
-  border-radius: 50%; /* Hace el borde redondo */
-  background: linear-gradient(90deg, #030303, #121111); /* Fondo degradado similar al botón */
-  box-shadow: 0 0 15px #c9c9e8; /* Sombra para el icono */
-  transition: all 0.3s ease-in-out;
-}
-.user-icon:hover {
-  background-color: #2822cb; /* Cambio de fondo al pasar el ratón */
-  box-shadow: 0 0 20px #228acb;
-  transform: scale(1.1); /* Animación al hacer hover */
-}
-.user-text {
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  text-align: center;
-}
-
-ion-button[color="danger"] {
-  position: absolute;
-  bottom: 20px;
-  left: 40%;
-
-}
-
-/* Estilo para el icono de cierre de sesión */
+/* Estilo para todos los botones */
 ion-button {
   width: 70%; /* Ancho del botón, ajustable según tu preferencia */
   max-width: 400px;
-  margin: 20px auto; /* Centra el botón horizontalmente */
+  margin: 10px auto; /* Ajusta el margen vertical entre botones */
   font-family: 'Helvetica', sans-serif;
   font-size: larger;
   font-weight: bold;
   height: 50px; /* Mantén el tamaño del botón */
-  display: block; /* Asegura que se centre correctamente */
-  text-align: center; /* Centra el contenido del botón */
-  border-radius: 25px; /* Valor ajustado para redondear extremos */
-  /* Quitar cualquier estilo de fondo o color que pueda interferir */
+  display: block;
+  text-align: center;
+  border-radius: 25px;
   --background: none;
   --color: inherit;
+  border: none;
+  box-shadow: none;
+  position: relative; /* Asegura que se mantenga en el flujo del documento */
 }
 
+/* Ajuste del botón de peligro */
+ion-button[color="danger"] {
+  position: relative; /* Cambia a relativo para evitar que se salga del flujo normal de la página */
+  bottom: auto; /* Resetea la posición para evitar conflictos */
+  margin-top: 10px; /* Ajusta el margen superior */
+}
+
+/* Estilos especiales para el botón azul (Siguiente) */
+.boton-azul {
+  background: linear-gradient(145deg, #7B5BF2, #6A4ED9); /* Fondo degradado basado en el tono #7B5BF2 */
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
+  color: white;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.boton-azul:hover {
+  background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+  transform: scale(1.05);
+}
+
+.boton-azul:active,
+.boton-azul:focus {
+  background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+}
+
+.boton-azul::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border: 2px solid rgb(90, 89, 89);
+  border-radius: 45px;
+  z-index: 1;
+  background: transparent;
+}
+
+.boton-azul::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  position: absolute;
+  left: 40px;
+  bottom: 10px;
+  z-index: 2;
+}
+
+/* Estilos especiales para el botón salir */
 .boton-salir {
   background: linear-gradient(145deg, #ff4c4c, #e60000); /* Fondo degradado basado en rojo vibrante */
   border-radius: 50px; /* Bordes redondeados igual que el botón "Salir" */
@@ -98,14 +137,17 @@ ion-button {
   overflow: hidden; /* Esconde cualquier desbordamiento */
   transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
 }
+
 .boton-salir:hover {
   background: linear-gradient(145deg, #e60000, #cc0000); /* Fondo más oscuro en hover */
   transform: scale(1.05); /* Efecto de agrandamiento en hover */
 }
+
 .boton-salir:active,
 .boton-salir:focus {
   background: linear-gradient(145deg, #e60000, #cc0000); /* Mantiene el color en hover cuando está activo */
 }
+
 .boton-salir::before {
   content: '';
   position: absolute;
@@ -118,6 +160,7 @@ ion-button {
   z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
   background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
 }
+
 .boton-salir::after {
   content: '';
   width: 40px;
@@ -128,4 +171,34 @@ ion-button {
   left: 40px; /* Ajusta según tu diseño */
   bottom: 10px; /* Ajusta según tu diseño */
   z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+}
+
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+  --background: #09184D; /* Color del fondo del footer igual al menú */
+  height: 50px; /* Ajusta la altura del footer */
+  padding: 0; /* Elimina cualquier relleno adicional */
+  position: fixed; /* Fija el footer al fondo de la página */
+  bottom: 0; /* Alinea el footer al fondo de la página */
+  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  display: flex; /* Flexbox para alinear el contenido */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  z-index: 10; /* Asegura que el footer esté siempre en la parte superior */
+}
+
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #09184D; /* Asegura que el fondo de la toolbar coincida con el footer */
+  padding: 0; /* Sin relleno */
+  text-align: center; /* Centra el texto */
+  color: var(--ion-color-primary-contrast); /* Color de texto de contraste (blanco) */
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: var(--ion-color-primary-contrast); /* Color del texto del mensaje (blanco) */
+  font-size: 0.9rem; /* Tamaño de la fuente */
+  margin: 0; /* Sin margen adicional */
+  font-family: 'Helvetica', sans-serif; /* Fuente personalizada */
 }

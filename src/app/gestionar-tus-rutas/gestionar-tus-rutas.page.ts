@@ -39,4 +39,9 @@ export class GestionarTusRutasPage {
     // Redirige al usuario a la vista de motivo de cancelación
     this.navCtrl.navigateForward('/motivo-cancelacion');
   }
+  
+  // Método para manejar la navegación
+  navigateTo(page: string) {
+    this.navCtrl.navigateForward(`/${page}`);
+  }
 }

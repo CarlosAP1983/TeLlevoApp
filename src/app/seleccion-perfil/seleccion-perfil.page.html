@@ -1,13 +1,17 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Selección de Perfil</ion-title>
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-toolbar">
+    <!--Retroceder a la vista anterior-->
+    <ion-buttons slot="start">
+      <ion-back-button class="letra" defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo-header">Selección de Perfil</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background ion-padding">
   <h2 class="titulo">¡Bienvenido a TeLlevoApp!</h2><br>
   <h1 class="sub-titulo">Selecciona un tipo de usuario para comenzar:</h1><br><br>
-  <!-- Lista para seleccionar el tipo de usuario -->
+  <!--Lista para seleccionar el tipo de usuario-->
   <ion-list class="fondo">
     <div class="inline-content">
       <ion-icon class="parrafos" name="chevron-forward-circle-outline"></ion-icon>
@@ -28,14 +32,18 @@
       button 
       [ngClass]="{'selected-item': perfil === 'pasajero'}" 
       (click)="seleccionarPerfil('pasajero')">
-
       <ion-label>* Usuario Pasajero *</ion-label>
     </ion-item> <br><br>
   </ion-list>
 
-  <!-- Botón de siguiente para confirmar la selección -->
-  <ion-button expand="block" class="boton-siguiente" (click)="confirmarPerfil()">Siguiente</ion-button>
-
-  <!-- Botón de salir para regresar a la página de inicio -->
-  <ion-button expand="block" class="boton-salir" color="danger" (click)="goHome()" style="margin-top: auto;">Salir</ion-button>
+  <!--Boton para confirmar la seleccion-->
+  <ion-button expand="block" class="boton-azul" (click)="confirmarPerfil()">Siguiente</ion-button>
 </ion-content>
+
+<ion-footer class="custom-footer">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

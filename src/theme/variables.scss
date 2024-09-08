@@ -1,12 +1,35 @@
 :root {
-    --ion-color-primary: #2e06e3; /* Azul por defecto */
-    --ion-color-secondary: #3dc2ff; /* Cian */
-    --ion-color-tertiary: #440072; /* morado Oscuro */
-    --ion-color-success: #2dd36f; /* Verde */
-    --ion-color-warning: #ffc409; /* Amarillo */
-    --ion-color-danger: #eb445a; /* Rojo */
-    --ion-color-dark: #222428; /* Negro */
-    --ion-color-medium: #78797b; /* Gris */
-    --ion-color-light: #f4f5f8; /* Blanco */
-  }
-  
+  --ion-color-primary: #09184D; /* Azul oscuro para el menú */
+  --ion-color-primary-rgb: 9, 24, 77;
+  --ion-color-primary-contrast: #ffffff; /* Color de contraste (blanco) */
+  --ion-color-primary-contrast-rgb: 255, 255, 255;
+  --ion-color-primary-shade: #08163f;
+  --ion-color-primary-tint: #1a295e;
+
+  --ion-color-secondary: #7B5BF2; /* Color de los botones (morado) */
+  --ion-color-secondary-rgb: 123, 91, 242;
+  --ion-color-secondary-contrast: #ffffff; /* Color de contraste (blanco) */
+  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary-shade: #6b4cdb;
+  --ion-color-secondary-tint: #8c6df3;
+
+  --ion-color-tertiary: #2F2E2E; /* Color de los títulos (gris oscuro) */
+  --ion-color-tertiary-rgb: 47, 46, 46;
+  --ion-color-tertiary-contrast: #ffffff; /* Color de contraste (blanco) */
+  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary-shade: #292727;
+  --ion-color-tertiary-tint: #434343;
+
+  --ion-color-success: #2dd36f; /* Verde para éxito */
+  --ion-color-warning: #ffc409; /* Amarillo para advertencia */
+  --ion-color-danger: #eb445a; /* Rojo para peligro */
+  --ion-color-dark: #222428; /* Negro */
+  --ion-color-medium: #808085; /* Color para información (gris medio) */
+  --ion-color-medium-rgb: 128, 128, 133;
+  --ion-color-medium-contrast: #ffffff; /* Color de contraste (blanco) */
+  --ion-color-medium-contrast-rgb: 255, 255, 255;
+  --ion-color-light: #EDF2FA; /* Color de fondo (gris claro) */
+  --ion-color-light-rgb: 237, 242, 250;
+  --ion-color-light-contrast: #2F2E2E; /* Color de contraste para texto sobre fondo claro */
+  --ion-color-light-contrast-rgb: 47, 46, 46;
+}

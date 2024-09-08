@@ -1,22 +1,13 @@
-/* Estilo para el fondo de ion-content */
+/*Estilo para el fondo*/
 ion-content.home-background {
-  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+  --background: #EEF1FB; /* Degradado de color */
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
 }
 
-/* Contenedor flexible para centrar los elementos */
-.flex-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-}
-
-/* Contenedor y estilo del logo */
+/*Estilos del logo*/
 .logo-container {
   margin-top: 20px;
   text-align: center;
@@ -27,8 +18,17 @@ ion-content.home-background {
   max-width: 100vw;
 }
 
-/* Estilo del formulario de login */
-.login-form {
+/*Contenedor para centrar los elementos*/
+.contenedor-principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+
+/*Estilo del formulario del login*/
+.formulario-login {
   width: 100%;
   max-width: 400px;
   padding: 0 20px;
@@ -38,7 +38,7 @@ ion-content.home-background {
   align-items: center; /* Centra los elementos horizontalmente */
 }
 
-/* Estilo de los grupos de entrada */
+/*Estilo de los grupos de entrada */
 .input-group {
   display: flex;
   align-items: center;
@@ -48,7 +48,7 @@ ion-content.home-background {
 
 /* Estilo de etiquetas de entrada */
 .input-label {
-  color: #f7f6f8;
+  color: #2F2E2E;
   font-family: 'Helvetica', sans-serif;
   margin-right: 10px;
   white-space: nowrap;
@@ -75,7 +75,7 @@ ion-input {
   border-radius: 20px;
 }
 
-/* Ajuste del estado de enfoque para asegurar visibilidad */
+/*Ajuste del estado de enfoque para asegurar visibilidad */
 ion-input:focus,
 ion-input:focus-within {
   --border-color: #ffffff;
@@ -85,7 +85,7 @@ ion-input:focus-within {
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Estilo del placeholder para diferentes navegadores */
+/*Compativilidad del placeholder para diferentes navegadores */
 .fixed::-webkit-input-placeholder,
 .fixed::-moz-placeholder,
 .fixed:-ms-input-placeholder,
@@ -94,40 +94,43 @@ ion-input:focus-within {
   opacity: 1;
 }
 
-/* Estilo para los enlaces */
+/*Estilo del link olvidase tu contraseña*/
 .link-container {
   text-align: center; 
   margin-top: 20px;
 }
 .link {
-  color: #ffffff;
+  color: #2F2E2E;
   text-decoration: none; 
-  font-family: 'Helvetica', sans-serif;
+  font-family: system-ui;
   font-weight: bold;
+  font-size: larger;
 }
 
-/* Configuración general para el ion-button */
+/*Estilos para el ion-button, heredar a todos los botones*/
 ion-button {
-  width: 70%; /* Ancho del botón, ajustable según tu preferencia */
+  width: 70%; /* Ancho del boton, ajustable*/
   max-width: 400px;
-  margin: 20px auto; /* Centra el botón horizontalmente */
-  font-family: 'Helvetica', sans-serif;
+  margin: 20px auto; /*Centrar el boton horizontalmente*/
+  font-family: 'Helvetica', sans-serif; /*Tambien podemos usar system-ui de mac*/
   font-size: larger;
   font-weight: bold;
-  height: 50px; /* Mantén el tamaño del botón */
-  display: block; /* Asegura que se centre correctamente */
-  text-align: center; /* Centra el contenido del botón */
-  border-radius: 25px; /* Valor ajustado para redondear extremos */
-  /* Quitar cualquier estilo de fondo o color que pueda interferir */
+  height: 50px; /*Tamaño del boton*/
+  display: block; /*Para asegurar que se centre correctamente*/
+  text-align: center; /*Centra el contenido del boton*/
+  border-radius: 25px; /*Redondear extremos*/
+  /*Quitar cualquier estilos de fondo o colores que puedan interferir*/
   --background: none;
   --color: inherit;
 }
 
+/*Estilos propios del boton:*/
+/*Boton inicar/crea cuenta*/
 .boton-tono-especial {
   background: linear-gradient(145deg, #5d3b93, #6531b9); /* Fondo degradado basado en color cian */
   border-radius: 50px; /* Bordes redondeados igual que los otros botones */
   box-shadow: 0 4px 8px rgba(61, 194, 255, 0.5), 0 -4px 8px rgba(54, 162, 228, 0.5); /* Sombra alrededor del botón */
-  color: white; /* Color del texto */
+  color: #808085; /* Color del texto */
   width: 200px; /* Ancho del botón */
   height: 50px; /* Altura del botón */
   display: flex;
@@ -173,26 +176,4 @@ ion-button {
   z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
 }
 
-/* Estilo para el spinner */
-ion-spinner.white-spinner {
-  width: 100px;
-  height: 100px;
-  color: white; /* Spinner en tono blanco */
-}
 
-.mirror-animation {
-  animation: mirrorEffect 1s forwards;
-}
-
-@keyframes mirrorEffect {
-  0% {
-    transform: scaleX(1);
-  }
-  50% {
-    transform: scaleX(-1);
-  }
-  100% {
-    transform: scaleX(1);
-    opacity: 0;
-  }
-}
