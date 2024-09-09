@@ -8,11 +8,11 @@ import { NavController, ToastController } from '@ionic/angular';
 })
 export class RegistroPage {
   name: string = '';
-  email: string = ''; //Agregar propiedad email
-  phone: string = ''; //Agregar propiedad telefono
+  email: string = ''; 
+  phone: string = ''; 
   username: string = '';
   password: string = '';
-  tieneVehiculo: boolean = false; //Estado del toggle para el vehículo
+  tieneVehiculo: boolean = false; 
   vehiculo = {
     patente: '',
     marca: '',
@@ -43,7 +43,7 @@ export class RegistroPage {
       phone: this.phone,
       username: this.username,
       password: this.password,
-      vehiculo: this.tieneVehiculo ? this.vehiculo : null, //Guardar datos del vehiculo si lo tiene
+      vehiculo: this.tieneVehiculo ? this.vehiculo : null, 
       perfil: ''
     };
 
@@ -85,6 +85,6 @@ export class RegistroPage {
   }
 
   goHome() {
-    this.navCtrl.navigateRoot('/home'); //ir al home
+    this.navCtrl.navigateRoot('/home'); 
   }
 }

@@ -1,7 +1,7 @@
 /* Estilo para el header principal */
 ion-toolbar.custom-toolbar {
   --background: #B5B8BF; /* Fondo del toolbar */
-  color: var(--ion-color-primary-contrast); /* Color del texto en el toolbar */
+  color: var(--ion-color-primary-contrast);
   text-align: center;
 }
 
@@ -15,44 +15,44 @@ ion-title.titulo-header {
   
 /* Estilo para el contenido */
 ion-content.background {
-  --background: #EEF1FB; /* Fondo claro */
+  --background: #EEF1FB; 
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
+  flex-grow: 1; 
 }
 /*Estilos del titulo y subtitulo*/
 .titulo {
-  font-family: system-ui; /* Cambia la fuente */
-  color: #2F2E2E !important; /* Cambia el color del texto */
-  font-size: 2.5rem; /* Tamaño del texto */
-  font-weight: bold; /* Texto en negrita */
-  text-align: center; /* Centra el texto */
-  width: 100%; /* Asegura que el título ocupe todo el ancho */
-  margin: 0; /* Elimina cualquier margen extra */
-  display: block; /* Asegura que el título se comporte como un elemento de bloque */
+  font-family: system-ui; 
+  color: #2F2E2E !important; 
+  font-size: 2.5rem; 
+  font-weight: bold; 
+  text-align: center; 
+  width: 100%; 
+  margin: 0; 
+  display: block; 
 }
 .sub-titulo{
-  font-family: system-ui; /* Cambia la fuente */
-  color: #2F2E2E !important; /* Cambia el color del texto */
-  font-size: 1.2rem; /* Tamaño del texto */
-  font-weight: bold; /* Texto en negrita */
-  text-align: left; /* Texto a la izquierda*/
-  width: 100%; /* Asegura que el título ocupe todo el ancho */
-  margin: 0; /* Elimina cualquier margen extra */
-  display: block; /* Asegura que el título se comporte como un elemento de bloque */
+  font-family: system-ui;
+  color: #2F2E2E !important; 
+  font-size: 1.2rem; 
+  font-weight: bold; 
+  text-align: left; 
+  width: 100%; 
+  margin: 0; 
+  display: block; 
 }
 
 /* Estilo para todos los botones */
 ion-button {
-  width: 70%; /* Ancho del botón, ajustable según tu preferencia */
+  width: 70%; 
   max-width: 400px;
-  margin: 10px auto; /* Ajusta el margen vertical entre botones */
+  margin: 10px auto;
   font-family: 'Helvetica', sans-serif;
   font-size: larger;
   font-weight: bold;
-  height: 50px; /* Mantén el tamaño del botón */
+  height: 50px; 
   display: block;
   text-align: center;
   border-radius: 25px;
@@ -60,12 +60,12 @@ ion-button {
   --color: inherit;
   border: none;
   box-shadow: none;
-  position: relative; /* Asegura que se mantenga en el flujo del documento */
+  position: relative; 
 }
 
 /* Estilos especiales para el botón azul (Siguiente) */
 .boton-azul {
-  background: linear-gradient(145deg, #7B5BF2, #6A4ED9); /* Fondo degradado basado en el tono #7B5BF2 */
+  background: linear-gradient(145deg, #7B5BF2, #6A4ED9); 
   border-radius: 50px;
   box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
   color: white;

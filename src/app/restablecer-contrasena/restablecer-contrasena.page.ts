@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./restablecer-contrasena.page.scss'],
 })
 export class RestablecerContrasenaPage {
-  email: string = ''; // Variable para almacenar el correo electrónico
-  successMessage: string = ''; // Mensaje de éxito
-  errorMessage: string = ''; // Mensaje de error
+  email: string = ''; 
+  successMessage: string = ''; 
+  errorMessage: string = ''; 
 
   constructor() {}
 
@@ -17,10 +17,10 @@ export class RestablecerContrasenaPage {
     if (this.email) {
       // Simula el envío del enlace de restablecimiento de contraseña
       this.successMessage = 'Se ha enviado un enlace de restablecimiento a tu correo electrónico.';
-      this.errorMessage = ''; // Resetea el mensaje de error
+      this.errorMessage = ''; 
     } else {
       this.errorMessage = 'Por favor, ingresa un correo electrónico válido.';
-      this.successMessage = ''; // Resetea el mensaje de éxito
+      this.successMessage = ''; 
     }
   }
 }

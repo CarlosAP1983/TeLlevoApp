@@ -10,7 +10,7 @@ export class HomePage implements OnInit {
   username: string = '';
   password: string = '';
 
-  destination: string = ''; //Variable para almacenar las rutas de destino
+  destination: string = ''; 
 
   constructor(private navCtrl: NavController) {}
 

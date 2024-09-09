@@ -7,9 +7,9 @@ import { NavController, ToastController } from '@ionic/angular';
   styleUrls: ['./registro-exitoso-pasajero.page.scss'],
 })
 export class RegistroExitosoPasajeroPage {
-  username: string = ''; // Variable para almacenar el nombre de usuario
-  rutaSeleccionada: any; // Variable para almacenar la ruta seleccionada
-  mostrarSpinner: boolean = false; // Variable para controlar la visibilidad del spinner
+  username: string = ''; 
+  rutaSeleccionada: any; 
+  mostrarSpinner: boolean = false; 
   rutasDisponibles = [
     { origen: 'Sede', destino: 'Providencia', precio: '$1000', conductor: 'Juan Pedro', hora: '22:30', AsientosDisponibles: 2 },
     { origen: 'Sede', destino: 'Quinta Normal', precio: '$800', conductor: 'Ana Gabriela', hora: '21:20', AsientosDisponibles: 3 },
@@ -18,16 +18,16 @@ export class RegistroExitosoPasajeroPage {
   ];
 
   constructor(private navCtrl: NavController, private toastCtrl: ToastController) {
-    this.username = history.state.username || 'Carlos'; // Obtén el nombre del usuario desde el estado de navegación o usa un valor predeterminado
+    this.username = history.state.username || 'Carlos';  
   }
 
   selectRuta(ruta: any) {
-    this.rutaSeleccionada = ruta; // Almacena la ruta seleccionada
+    this.rutaSeleccionada = ruta; 
   }
 
   verDetallesViaje() {
     if (this.rutaSeleccionada) {
-      // Navega a la página de detalle de viaje pasando los datos de la ruta seleccionada
+      
       this.navCtrl.navigateForward('/detalle-viaje', { state: { ruta: this.rutaSeleccionada } });
     } else {
       this.mostrarToast('Por favor, selecciona un viaje para ver los detalles.', 'danger');
@@ -35,22 +35,22 @@ export class RegistroExitosoPasajeroPage {
   }
 
   goToCuenta() {
-    this.navCtrl.navigateForward('/cuenta'); // Redirige a la página de cuenta
+    this.navCtrl.navigateForward('/cuenta'); 
   }
 
   goToUserProfile() {
-    this.navCtrl.navigateForward('/perfil-usuario'); // Redirige a la página de perfil de usuario
+    this.navCtrl.navigateForward('/perfil-usuario'); 
   }
 
   async recargarRutas() {
-    // Mostrar el spinner
+   
     this.mostrarSpinner = true;
 
-    // Ocultar el spinner después de 3 segundos
+   
     setTimeout(async () => {
       this.mostrarSpinner = false;
 
-      // Mostrar un toast de rutas actualizadas
+      
       const toast = await this.toastCtrl.create({
         message: 'Rutas actualizadas.',
         duration: 2000,
@@ -61,13 +61,13 @@ export class RegistroExitosoPasajeroPage {
     }, 3000);
   }
 
-  // Función para mostrar un Toast personalizado
+  
   async mostrarToast(mensaje: string, color: string) {
     const toast = await this.toastCtrl.create({
       message: mensaje,
       duration: 2000,
       position: 'bottom',
-      color: color // Usa el color pasado como parámetro
+      color: color 
     });
 
     await toast.present();

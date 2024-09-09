@@ -7,8 +7,8 @@ import { NavController, ToastController, LoadingController } from '@ionic/angula
   styleUrls: ['./motivo-cancelacion.page.scss'],
 })
 export class MotivoCancelacionPage {
-  selectedMotivo: string = ''; // Variable para almacenar el motivo seleccionado
-  enviarEmail: boolean = false; // Variable para manejar el checkbox de envío de correo
+  selectedMotivo: string = ''; 
+  enviarEmail: boolean = false; 
 
   constructor(
     private navCtrl: NavController, 
@@ -18,12 +18,12 @@ export class MotivoCancelacionPage {
 
   // Método para seleccionar el motivo de cancelación
   onMotivoSelected(event: any) {
-    this.selectedMotivo = event.detail.value; // Almacena el valor del motivo seleccionado
+    this.selectedMotivo = event.detail.value; 
   }
 
   // Método para manejar el checkbox de envío de correo
   onEmailToggle(event: any) {
-    this.enviarEmail = event.detail.checked; // Actualiza el estado del checkbox
+    this.enviarEmail = event.detail.checked;
   }
 
   // Método para confirmar la cancelación y eliminar el viaje

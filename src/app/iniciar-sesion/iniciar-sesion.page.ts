@@ -7,24 +7,24 @@ import { NavController } from '@ionic/angular'; // Importa NavController para la
   styleUrls: ['./iniciar-sesion.page.scss'],
 })
 export class IniciarSesionPage {
-  username: string = ''; // Variable para el nombre de usuario
-  password: string = ''; // Variable para la contraseña
+  username: string = ''; 
+  password: string = ''; 
 
   constructor(private navCtrl: NavController) {}
 
   // Método de inicio de sesión
   onLogin() {
-    const validUser = 'carlos'; // Usuario válido
-    const validPass = '123'; // Contraseña válida
+    const validUser = 'carlos'; 
+    const validPass = '123'; 
 
     // Verifica si las credenciales coinciden
     if (this.username.toLowerCase() === validUser && this.password === validPass) {
       console.log('Inicio de sesión exitoso');
       // Navega a la página principal o vista deseada
-      this.navCtrl.navigateForward('/programar-viaje'); // Redirige a la página "programar-viaje" o cualquier otra vista principal
+      this.navCtrl.navigateForward('/programar-viaje'); 
     } else {
       console.log('Credenciales incorrectas');
-      alert('Usuario o contraseña incorrectos'); // Muestra una alerta de error
+      alert('Usuario o contraseña incorrectos'); 
     }
   }
 }
