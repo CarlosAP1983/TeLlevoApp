@@ -1,26 +1,53 @@
 <ion-header [translucent]="true" class="custom-header">
   <ion-toolbar class="custom-toolbar">
+    <!--Retroceder a la vista anterior-->
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-      <ion-buttons slot="start">
-        <ion-back-button defaultHref="/home"></ion-back-button>
-      </ion-buttons>
+      <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title class="header-title">Cuenta</ion-title>
-  </ion-toolbar>
+    <ion-title class="titulo-header">Usuarios: </ion-title>
+  </ion-toolbar>  <br>
 </ion-header>
 
 <ion-content class="background ion-padding" [fullscreen]="true">
   <!-- Contenedor horizontal para el texto y el icono -->
   <div class="icon-text-container">
-    <p class="user-text">Cambia de Usuario:</p>
-    <ion-icon name="person-circle-outline" size="large" class="user-icon" (click)="abrirCambioUsuario()"></ion-icon>
+    <h1 class="titulo">Cambia de Usuario</h1><br>
   </div>
+
+  <!-- Lista para seleccionar el tipo de usuario -->
+  <ion-list class="fondo">
+    <div class="inline-content">
+    </div><br>
+    <ion-item class="fondo-2"
+      button 
+      [ngClass]="{'selected-item': perfil === 'conductor'}" 
+      (click)="seleccionarPerfil('conductor')">
+            <ion-label>• Usuario Conductor •</ion-label>
+    </ion-item>
+    <br>
+    <div class="inline-content">
+  </div><br>
+    <ion-item class="fondo-2"
+      button 
+      [ngClass]="{'selected-item': perfil === 'pasajero'}" 
+      (click)="seleccionarPerfil('pasajero')">
+      <ion-label>• Usuario Pasajero •</ion-label>
+    </ion-item> <br>
+  </ion-list>
+<br><br><br><br>
+  <!-- Boton para confirmar la seleccion -->
+  <ion-button expand="block" class="boton-azul" (click)="confirmarPerfil()">Siguiente</ion-button><br>
 
   <!-- Icono para cerrar sesión con texto "Salir" -->
   <ion-button expand="block" color="danger" class="boton-salir" (click)="cerrarSesion()">
-    <ion-icon slot="start" name="log-out-outline" size="large"></ion-icon>
-    Salir
-  </ion-button>
+    <ion-icon slot="start" name="log-out-outline" size="large"></ion-icon>Cerrar Sesion</ion-button>
   
 </ion-content>
+
+<ion-footer class="custom-footer">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

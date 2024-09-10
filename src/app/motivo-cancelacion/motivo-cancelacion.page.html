@@ -1,44 +1,62 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Motivo de Cancelación</ion-title>
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-toolbar">
+    <!--Retroceder a la vista anterior-->
+    <ion-buttons slot="start">
+      <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo-header">Cancelación de viaje</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content fullscreen class="fondo">
-  <ion-header collapse="condense">
-  </ion-header><br>
-
+<ion-content class="background ion-padding">  
+  <h2 class="titulo">Indica el motivo de la cancelacion</h2><br>
   <!-- Grupo de radios para seleccionar el motivo de cancelación -->
   <ion-list>
     <ion-radio-group [(ngModel)]="selectedMotivo" (ionChange)="onMotivoSelected($event)">
       <ion-item [ngClass]="{'selected-item': selectedMotivo === 'Motivo_1'}" button>
-        <ion-label>Imprevisto familiar</ion-label>
-        <ion-radio slot="start" value="Motivo_1"></ion-radio>
+        <ion-label>• Imprevisto familiar</ion-label>
+        <ion-radio slot="start" value="Motivo_1" class="custom-radio"></ion-radio>
       </ion-item>
 
       <ion-item [ngClass]="{'selected-item': selectedMotivo === 'Motivo_2'}" button>
-        <ion-label>Problemas con la autoridad</ion-label>
-        <ion-radio slot="start" value="Motivo_2"></ion-radio>
+        <ion-label>• Problemas con la autoridad</ion-label>
+        <ion-radio slot="start" value="Motivo_2" class="custom-radio"></ion-radio>
       </ion-item>
 
       <ion-item [ngClass]="{'selected-item': selectedMotivo === 'Motivo_3'}" button>
-        <ion-label>Fallas mecánicas</ion-label>
-        <ion-radio slot="start" value="Motivo_3"></ion-radio>
+        <ion-label>• Fallas mecánicas</ion-label>
+        <ion-radio slot="start" value="Motivo_3" class="custom-radio"></ion-radio>
       </ion-item>
 
       <ion-item [ngClass]="{'selected-item': selectedMotivo === 'Motivo_4'}" button>
-        <ion-label>Inseguridad en la ruta</ion-label>
-        <ion-radio slot="start" value="Motivo_4"></ion-radio>
+        <ion-label>• Inseguridad en la ruta</ion-label>
+        <ion-radio slot="start" value="Motivo_4" class="custom-radio"></ion-radio>
       </ion-item>
+      <br><br>
     </ion-radio-group>
   </ion-list>
 
   <!-- Checkbox para enviar correo de cancelación -->
   <ion-item>
-    <ion-label>Enviar mail de cancelación a pasajero</ion-label>
-    <ion-checkbox slot="start" [(ngModel)]="enviarEmail" (ionChange)="onEmailToggle($event)"></ion-checkbox>
-  </ion-item><br><br>
+    <ion-label>Enviar mail de cancelación a pasajero por cancelación de ruta</ion-label>
+    <ion-checkbox 
+      slot="start" 
+      [(ngModel)]="enviarEmail" 
+      (ionChange)="onEmailToggle($event)" 
+      class="custom-checkbox">
+    </ion-checkbox>
+  </ion-item>
+  <br><br>  <br><br>
+  
 
   <!-- Botón para confirmar la cancelación del viaje -->
   <ion-button expand="block" class="boton-confirmar-cancelacion" color="danger" (click)="confirmarCancelacion()">Confirmar Cancelación</ion-button>
 </ion-content>
+
+<ion-footer class="custom-footer">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -21,6 +21,10 @@ const routes: Routes = [
   {
     path: 'seleccion-perfil',
     loadChildren: () => import('./seleccion-perfil/seleccion-perfil.module').then( m => m.SeleccionPerfilPageModule)
+  },
+  {
+    path: 'contacto-chofer',
+    loadChildren: () => import('./contacto-chofer/contacto-chofer.module').then( m => m.ContactoChoferPageModule)
   }
 ];
 

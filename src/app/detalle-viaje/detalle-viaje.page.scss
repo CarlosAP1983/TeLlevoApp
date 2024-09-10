@@ -1,35 +1,168 @@
-ion-header.custom-header {
-  --background: #4e54c8; /* Fondo degradado */
+/* Estilo para el header principal */
+ion-toolbar.custom-toolbar {
+  --background: #B5B8BF; /* Fondo del toolbar */
+  color: var(--ion-color-primary-contrast);
+  text-align: center;
 }
 
+ion-back-button.letra {
+  font-weight: bold;
+}
+
+ion-title.titulo-header {
+  --color: #2F2E2E;
+}
+  
 /* Estilo para el contenido */
 ion-content.background {
-  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+  --background: #EEF1FB; 
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  flex-grow: 1; 
+}
+/*Estilos del titulo y subtitulo*/
+.titulo {
+  font-family: system-ui; 
+  color: #2F2E2E !important; 
+  font-size: 2.5rem; 
+  font-weight: bold; 
+  text-align: center; 
+  width: 100%; 
+  margin: 0; 
+  display: block; 
+}
+.sub-titulo{
+  font-family: system-ui;
+  color: #2F2E2E !important; 
+  font-size: 1.2rem; 
+  font-weight: bold; 
+  text-align: left; 
+  width: 100%; 
+  margin: 0; 
+  display: block; 
 }
 
-ion-header[collapse="condense"] ion-toolbar {
-  --background: transparent; /* Fondo transparente para el toolbar */
-}
-ion-header[collapse="condense"] ion-toolbar {
-  text-align: center; /* Centra el texto dentro del ion-toolbar */
+/* Estilo para todos los botones */
+ion-button {
+  width: 70%; 
+  max-width: 400px;
+  margin: 10px auto;
+  font-family: 'Helvetica', sans-serif;
+  font-size: larger;
+  font-weight: bold;
+  height: 50px; 
+  display: block;
+  text-align: center;
+  border-radius: 25px;
+  --background: none;
+  --color: inherit;
+  border: none;
+  box-shadow: none;
+  position: relative; 
 }
 
-  ion-content.background {
-    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-  } 
+/* Estilos especiales para el botón azul (Siguiente) */
+.boton-azul {
+  background: linear-gradient(145deg, #7B5BF2, #6A4ED9); 
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
+  color: white;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
 
-.color-letter {
-    color: white;
-    font-size: 18px;
-    margin: 20px 0;
-    font-family: 'Helvetica', sans-serif;
-  }
-  
+.boton-azul:hover {
+  background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+  transform: scale(1.05);
+}
+
+.boton-azul:active,
+.boton-azul:focus {
+  background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+}
+
+.boton-azul::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border: 2px solid rgb(90, 89, 89);
+  border-radius: 45px;
+  z-index: 1;
+  background: transparent;
+}
+
+.boton-azul::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  position: absolute;
+  left: 40px;
+  bottom: 10px;
+  z-index: 2;
+}
+
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+  --background: #09184D; /* Color del fondo del footer igual al menú */
+  padding: 0; /* Elimina cualquier relleno adicional */
+  position: fixed; /* Fija el footer al fondo de la página */
+  bottom: 0; /* Alinea el footer al fondo de la página */
+  width: 100%; /* Asegura que el footer ocupe todo el ancho */
+  display: flex; /* Flexbox para alinear el contenido */
+  align-items: center; /* Centra el contenido verticalmente */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  z-index: 10; /* Asegura que el footer esté siempre en la parte superior */
+}
+
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #09184D; /* Asegura que el fondo de la toolbar coincida con el footer */
+  padding: 0; /* Sin relleno */
+  text-align: center; /* Centra el texto */
+  color: var(--ion-color-primary-contrast); /* Color de texto de contraste (blanco) */
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: var(--ion-color-primary-contrast); /* Color del texto del mensaje (blanco) */
+  font-size: 0.9rem; /* Tamaño de la fuente */
+  margin: 0; /* Sin margen adicional */
+  font-family: 'Helvetica', sans-serif; /* Fuente personalizada */
+}
+
+/* Estilo para el contenedor del spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  position: fixed; /* Posiciona el contenedor de forma fija en la pantalla */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100; /* Asegura que el spinner esté por encima de otros elementos */
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para resaltar el spinner */
+}
+
+/* Estilo para el spinner */
+.spinner-grande {
+  width: 100px;
+  height: 100px;
+  --spinner-size: 100px; /* Ajusta el tamaño del spinner */
+}

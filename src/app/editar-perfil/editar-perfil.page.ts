@@ -7,10 +7,10 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./editar-perfil.page.scss'],
 })
 export class EditarPerfilPage {
-  nombre: string = 'Carlos Araya';
+  nombre: string = 'Jake Sully';
   telefono: string = '+56954030670';
-  usuario: string = 'carlos.araya';
-  email: string = 'carlos.araya@duocuc.cl';
+  usuario: string = 'jake';
+  email: string = 'jakesullya@duocuc.cl';
 
   constructor(private navCtrl: NavController) {}
 

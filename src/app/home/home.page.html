@@ -1,39 +1,31 @@
 <ion-content class="home-background ion-padding" fullscreen="true" force-overscroll="false">
-  <div class="flex-container">
-    <!-- Logo -->
+  <div class="contenedor-principal">
+    <!--Logo corporativo-->
     <div class="logo-container">
-      <img src="assets/inicio.png" alt="Logo TeLlevoAPP" class="logo" />
+      <img src="assets/images/fondo_logo(2).png" alt="Logo TeLlevoAPP" class="logo" />
     </div>
     <br><br><br>
 
-    <!-- Formulario de Login -->
-    <div class="login-form" *ngIf="!showSpinner">
+    <!--Formulario de Login-->
+    <div class="formulario-login">
       <br>
-      <!-- Campo para el Usuario -->
       <div class="input-group">
         <label class="input-label"> Usuario:</label>
         <ion-input type="text" class="fixed" [(ngModel)]="username"></ion-input>
       </div>
-
-      <!-- Campo para la Contraseña -->
       <div class="input-group">
         <label class="input-label"> Contraseña:</label>
         <ion-input type="password" class="fixed" [(ngModel)]="password"></ion-input>
       </div>
 
-      <!-- Botones para iniciar y crear cuenta con la clase personalizada -->
+      <!--Botones para iniciar y crear cuenta-->
       <ion-button expand="block" class="boton-tono-especial" (click)="login()">Iniciar Sesión</ion-button>
       <ion-button expand="block" class="boton-tono-especial" (click)="goToRegister()">Crea una cuenta</ion-button>
 
-      <!-- Enlaces -->
+      <!--Enlace reestablecer contraseña-->
       <div class="link-container">
         <a [routerLink]="'/restablecer-contrasena'" class="link">¿Olvidaste tu contraseña?</a>
       </div>
-    </div>
-
-    <!-- Spinner centrado -->
-    <div class="spinner-container" *ngIf="showSpinner">
-      <ion-spinner class="white-spinner mirror-animation"></ion-spinner>
     </div>
   </div>
 </ion-content>

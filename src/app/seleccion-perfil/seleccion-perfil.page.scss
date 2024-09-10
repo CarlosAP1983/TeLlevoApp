@@ -1,206 +1,181 @@
+/* Estilo para el header principal */
+ion-toolbar.custom-toolbar {
+  --background: #B5B8BF; 
+  color: var(--ion-color-primary-contrast); 
+  text-align: center;
+}
+ion-back-button.letra {
+  font-weight: bold;
+}
+ion-title.titulo-header {
+  --color: #2F2E2E;
+}
+  
+/* Estilo para el contenido */
 ion-content.background {
-    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
+  --background: #EEF1FB; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  flex-grow: 1; 
 }
-
-ion-list.fondo {
-    background: transparent; /* Fondo transparente para la lista */
-}
-
-ion-item.fondo-2, 
-ion-item.fondo-2.button {
-    --background: transparent; /* Fondo transparente para los elementos inicialmente */
-    color: white;
-    font-size: medium;
-    font-weight: bold;
-}
-
-/* Estilo para el item seleccionado */
-.selected-item {
-    --background: #81a9ee !important; /* Color de fondo para el item seleccionado */
-    color: white !important; /* Color del texto para el item seleccionado */
-    font-weight: bold; /* Texto en negrita */
-    border-radius: 10px; /* Bordes redondeados para el item */
-    transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
-}
-
-/* Estilo para los botones */
-ion-button {
-    margin-top: 10px; /* Espacio superior */
-}
-/* Envía el botón de salir al fondo de la página */
-ion-button[color="danger"] {
-    position: absolute;
-    bottom: 20px;
-    left: 40%;
-
-}
-
-ion-button {
-    width: 70%; /* Ancho del botón, ajustable según tu preferencia */
-    max-width: 400px;
-    margin: 20px auto; /* Centra el botón horizontalmente */
-    font-family: 'Helvetica', sans-serif;
-    font-size: larger;
-    font-weight: bold;
-    height: 50px; /* Mantén el tamaño del botón */
-    display: block; /* Asegura que se centre correctamente */
-    text-align: center; /* Centra el contenido del botón */
-    border-radius: 25px; /* Valor ajustado para redondear extremos */
-    /* Quitar cualquier estilo de fondo o color que pueda interferir */
-    --background: none;
-    --color: inherit;
-}
-
-/* Estilos especiales para el boton salir */
-
-.boton-salir {
-    background: linear-gradient(145deg, #ff4c4c, #e60000); /* Fondo degradado basado en rojo vibrante */
-    border-radius: 50px; /* Bordes redondeados igual que el botón "Salir" */
-    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5); /* Sombra alrededor del botón */
-    color: white; /* Color del texto */
-    width: 200px; /* Ancho del botón */
-    height: 50px; /* Altura del botón */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    position: relative; /* Necesario para los detalles adicionales */
-    border: none; /* Quita cualquier borde por defecto */
-    padding: 0; /* Quita el padding por defecto */
-    overflow: hidden; /* Esconde cualquier desbordamiento */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
-}
-.boton-salir:hover {
-    background: linear-gradient(145deg, #e60000, #cc0000); /* Fondo más oscuro en hover */
-    transform: scale(1.05); /* Efecto de agrandamiento en hover */
-}
-.boton-salir:active,
-.boton-salir:focus {
-    background: linear-gradient(145deg, #e60000, #cc0000); /* Mantiene el color en hover cuando está activo */
-}
-.boton-salir::before {
-    content: '';
-    position: absolute;
-    top: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    left: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    right: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
-    border-radius: 45px; /* Ajusta el radio del borde interno */
-    z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
-    background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
-}
-.boton-salir::after {
-    content: '';
-    width: 40px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
-    border-radius: 5px;
-    position: absolute;
-    left: 40px; /* Ajusta según tu diseño */
-    bottom: 10px; /* Ajusta según tu diseño */
-    z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
-}
-
-/* Estilos especiales para el boton siguiente */
-.boton-siguiente {
-    background: linear-gradient(145deg, #3dc2ff, #36a2e4); /* Fondo degradado basado en color cian */
-    border-radius: 50px; /* Bordes redondeados igual que los otros botones */
-    box-shadow: 0 4px 8px rgba(61, 194, 255, 0.5), 0 -4px 8px rgba(54, 162, 228, 0.5); /* Sombra alrededor del botón */
-    color: white; /* Color del texto */
-    width: 200px; /* Ancho del botón */
-    height: 50px; /* Altura del botón */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    position: relative; /* Necesario para los detalles adicionales */
-    border: none; /* Quita cualquier borde por defecto */
-    padding: 0; /* Quita el padding por defecto */
-    overflow: hidden; /* Esconde cualquier desbordamiento */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
-}
-.boton-siguiente:hover {
-    background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Fondo más oscuro en hover */
-    transform: scale(1.05); /* Efecto de agrandamiento en hover */
-}
-.boton-siguiente:active,
-.boton-siguiente:focus {
-    background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Mantiene el color en hover cuando está activo */
-}
-.boton-siguiente::before {
-    content: '';
-    position: absolute;
-    top: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    left: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    right: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
-    border-radius: 45px; /* Ajusta el radio del borde interno */
-    z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
-    background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
-}
-.boton-siguiente::after {
-    content: '';
-    width: 40px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
-    border-radius: 5px;
-    position: absolute;
-    left: 40px; /* Ajusta según tu diseño */
-    bottom: 10px; /* Ajusta según tu diseño */
-    z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+  
+/* Aplica un color de fondo al header cuando se colapsa */
+ion-header[collapse="fade"] ion-toolbar {
+  --background: var(--ion-color-primary); 
+  color: var(--ion-color-primary-contrast); 
 }
 
 /*Estilos del titulo y subtitulo*/
 .titulo {
-    font-family: system-ui; /* Cambia la fuente */
-    color: #ffffff !important; /* Cambia el color del texto */
-    font-size: 2.5rem; /* Tamaño del texto */
-    font-weight: bold; /* Texto en negrita */
-    text-align: center; /* Centra el texto */
-    width: 100%; /* Asegura que el título ocupe todo el ancho */
-    margin: 0; /* Elimina cualquier margen extra */
-    display: block; /* Asegura que el título se comporte como un elemento de bloque */
+  font-family: system-ui; 
+  color: #2F2E2E !important; 
+  font-size: 2.5rem; 
+  font-weight: bold; 
+  text-align: center; 
+  width: 100%; 
+  margin: 0; 
+  display: block; 
 }
 .sub-titulo{
-    font-family: system-ui; /* Cambia la fuente */
-    color: #ffffff !important; /* Cambia el color del texto */
-    font-size: 1.2rem; /* Tamaño del texto */
-    font-weight: bold; /* Texto en negrita */
-    text-align: left; /* Texto a la izquierda*/
-    width: 100%; /* Asegura que el título ocupe todo el ancho */
-    margin: 0; /* Elimina cualquier margen extra */
-    display: block; /* Asegura que el título se comporte como un elemento de bloque */
+  font-family: system-ui; 
+  color: #2F2E2E !important; 
+  font-size: 1.2rem; 
+  font-weight: bold; 
+  text-align: left;
+  width: 100%;
+  margin: 0; 
+  display: block;
+}
+
+/* Estilo para el item seleccionado */
+.selected-item {
+    --background: #81a9ee !important; 
+    color: white !important; 
+    font-weight: bold; 
+    border-radius: 10px; 
+    transition: background-color 0.3s ease;
+}
+
+/* Estilos del botón genéricos */
+ion-button {
+    width: 70%; 
+    max-width: 400px;
+    margin: 20px auto; 
+    font-family: 'Helvetica', sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    height: 50px; 
+    display: block; 
+    text-align: center; 
+    border-radius: 25px; 
+    --background: none;
+    --color: inherit;
+    border: none;
+    box-shadow: none;
+}
+
+/* Estilos especiales para el botón azul (Siguiente) */
+.boton-azul {
+    background: linear-gradient(145deg, #7B5BF2, #6A4ED9); 
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
+    color: white;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: relative;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.boton-azul:hover {
+    background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+    transform: scale(1.05);
+}
+.boton-azul:active,
+.boton-azul:focus {
+    background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+}
+.boton-azul::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 2px solid rgb(90, 89, 89);
+    border-radius: 45px;
+    z-index: 1;
+    background: transparent;
+}
+.boton-azul::after {
+    content: '';
+    width: 40px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    position: absolute;
+    left: 40px;
+    bottom: 10px;
+    z-index: 2;
 }
 
 /* Contenedor para alinear los elementos en la misma línea */
 .inline-content {
-    display: flex; /* Utiliza flexbox para alinear los elementos en la misma línea */
-    align-items: center; /* Centra verticalmente los elementos */
-    justify-content: flex-start; /* Alinea todos los elementos a la izquierda */
-    gap: 10px; /* Espacio entre el ícono y el párrafo */
-    width: 100%; /* Asegura que el contenedor ocupe todo el ancho */
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; 
+    gap: 10px;
+    width: 100%;
 }
   
 /* Estilo para los párrafos */
 .parrafos {
-    font-family: system-ui; /* Cambia la fuente */
-    color: #969696 !important; /* Cambia el color del texto */
-    font-size: 1rem; /* Tamaño del texto */
-    font-weight: bold; /* Texto en negrita */
-    text-align: left; /* Alinea el texto a la izquierda */
-    margin: 0; /* Elimina cualquier margen extra */
+    font-family: system-ui;
+    color: #969696 !important;
+    font-size: 1rem;
+    font-weight: bold; 
+    text-align: left; 
+    margin: 0;
   }
   
 /* Estilo para los íconos */
 ion-icon.parrafos {
-    color: #969696 !important; /* Color del ícono igual al del texto */
-    font-size: 1.5rem; /* Ajusta el tamaño del ícono para que coincida visualmente con el texto */
+    color: #969696 !important;
+    font-size: 1.5rem; 
 }
+
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+    --background: #09184D; 
+    padding: 0; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 10; 
+  }
   
+  /* Estilo para la toolbar del footer */
+  .footer-toolbar {
+    --background: #09184D; 
+    padding: 0; 
+    text-align: center; 
+    color: var(--ion-color-primary-contrast);
+  }
   
+  /* Estilo para el mensaje del footer */
+  .footer-message p {
+    color: var(--ion-color-primary-contrast); 
+    font-size: 0.9rem;
+    margin: 0; 
+    font-family: 'Helvetica', sans-serif; 
+  }

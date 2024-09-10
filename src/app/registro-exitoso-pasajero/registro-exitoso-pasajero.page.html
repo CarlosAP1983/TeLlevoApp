@@ -1,36 +1,31 @@
-<ion-header [translucent]="true" collapse="fade" class="custom-header">
+<ion-header [translucent]="true" class="custom-header">
   <ion-toolbar class="custom-toolbar">
-    <!-- Menú de hamburguesa en la parte superior izquierda -->
     <ion-buttons slot="start">
       <ion-menu-button></ion-menu-button>
-      <ion-button (click)="goToCuenta()">
+      <ion-button class="letra" (click)="goToCuenta()">
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-
-    <!-- Menú de hamburguesa en la parte superior derecha -->
+    <ion-title class="titulo-header">Pasajero</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="goToUserProfile()">
+      <ion-button class="letra" (click)="goToUserProfile()">
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="background" [fullscreen]="true">
-  <ion-header collapse="fade">
-    <ion-toolbar>
-      <ion-title class="condensed-title" size="large">Bienvenido a <br>TeLlevoApp</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="background ion-padding">
+  <h2 class="titulo">¡Bienvenido a TeLlevoApp!</h2><br>
+  <h1 class="sub-titulo">¡Vamos! Revisa si hay viajes disponibles</h1>
 
-  <!-- Mensaje de bienvenida -->
-  <p class="welcome-message">
-    ¡Vamos! Revisa si hay viajes disponibles
-  </p>
+  <!-- Contenedor para centrar el spinner -->
+  <div class="spinner-container" *ngIf="mostrarSpinner">
+    <ion-spinner name="lines" class="spinner-grande"></ion-spinner>
+  </div>
 
   <!-- Cuadro de rutas disponibles -->
-  <ion-list>
+  <ion-list *ngIf="!mostrarSpinner">
     <ion-item *ngFor="let ruta of rutasDisponibles" (click)="selectRuta(ruta)" [color]="rutaSeleccionada === ruta ? 'secondary' : ''">
       <ion-label>
         <h2><strong>ORIGEN:</strong> {{ ruta.origen }} <strong>DESTINO:</strong> {{ ruta.destino }}</h2>
@@ -40,9 +35,19 @@
         <p><strong>Asientos Disponibles:</strong> {{ ruta.AsientosDisponibles }}</p>
       </ion-label>
     </ion-item>
+    
   </ion-list>
 
   <!-- Botón para ver detalles del viaje seleccionado -->
-  <ion-button expand="block" class="boton-datos-viaje" (click)="verDetallesViaje()">Ver datos del viaje</ion-button>
-  <ion-button expand="block" color="success" class="boton-recargar" [routerLink]="'/no-hay-viajes'">Recargar</ion-button>
+  <ion-button expand="block" class="boton-azul" (click)="verDetallesViaje()">Ver datos del viaje</ion-button>
+  <ion-button expand="block" color="success" class="boton-recargar" (click)="recargarRutas()">Recargar</ion-button>
+<br>
 </ion-content>
+
+<ion-footer class="custom-footer">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

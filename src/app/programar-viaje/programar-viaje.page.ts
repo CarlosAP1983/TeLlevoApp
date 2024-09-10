@@ -34,7 +34,7 @@ export class ProgramarViajePage {
   async guardarViaje() {
     const loading = await this.loadingCtrl.create({
       message: 'Guardando datos...',
-      duration: 2000  // Duración de 2 segundos para la animación de carga
+      duration: 2000  
     });
 
     await loading.present();
@@ -48,10 +48,10 @@ export class ProgramarViajePage {
     loading.onDidDismiss().then(async () => {
       const toast = await this.toastCtrl.create({
         message: 'Viaje guardado exitosamente.',
-        duration: 2000,  // Duración del mensaje de éxito
+        duration: 2000,  
         color: 'dark',
         position: 'middle',
-        cssClass: 'custom-toast' // Clase personalizada para el estilo
+        cssClass: 'custom-toast' 
       });
       await toast.present();
       

@@ -7,12 +7,12 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['./perfil-usuario.page.scss'],
 })
 export class PerfilUsuarioPage implements OnInit {
-  avatar: string = 'assets/images/sebastian.jpeg'; // Ruta del avatar por defecto
-  nombre: string = 'Carlos Araya'; // Nombre del usuario
-  telefono: string = '+56954030670'; // Teléfono del usuario
-  usuario: string = 'carlos.araya'; // Nombre de usuario
-  email: string = 'carlos.araya@duocuc.cl'; // Correo electrónico del usuario
-  tipoUsuario: string = 'Conductor'; // Tipo de usuario (Conductor o Pasajero)
+  avatar: string = 'assets/images/avatar.jpg'; 
+  nombre: string = 'Jake Sully'; 
+  telefono: string = '+56954030670'; 
+  usuario: string = 'jake'; 
+  email: string = 'jakesullya@duocuc.cl'; 
+  tipoUsuario: string = 'Conductor'; 
 
   constructor(private navCtrl: NavController) {}
 
@@ -26,6 +26,6 @@ export class PerfilUsuarioPage implements OnInit {
 
   // Función para redirigir a la página de edición del perfil
   editarPerfil() {
-    this.navCtrl.navigateForward('/editarPerfil'); // Redirige a la página de edición del perfil
+    this.navCtrl.navigateForward('/editarPerfil'); 
   }
 }

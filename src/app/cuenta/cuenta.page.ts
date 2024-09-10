@@ -1,66 +1,57 @@
 import { Component } from '@angular/core';
-import { NavController, AlertController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular'; // Importa ToastController
 
 @Component({
   selector: 'app-cuenta',
-  templateUrl: './cuenta.page.html',
+  templateUrl: './cuenta.page.html',  // Cambia a cuenta.page.html
   styleUrls: ['./cuenta.page.scss'],
 })
-export class CuentaPage {
-  currentUser: any = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
+export class CuentaPage {  // Asegúrate de que el nombre de la clase sea CuentaPage
+  perfil: string = ''; // Variable para almacenar el perfil seleccionado
 
-  constructor(private navCtrl: NavController, private alertCtrl: AlertController) {}
+  constructor(private navCtrl: NavController, private toastController: ToastController) {} // Añade ToastController al constructor
 
-  // Función para abrir el alert de cambio de usuario
-  async abrirCambioUsuario() {
-    const alert = await this.alertCtrl.create({
-      header: 'Selecciona el tipo de usuario:',
-      cssClass: 'custom-alert', // Clase personalizada para el alert
-      buttons: [
-        {
-          text: 'Usuario Conductor',
-          cssClass: this.currentUser.perfil === 'conductor' ? 'selected-button' : '',
-          handler: () => {
-            this.currentUser.perfil = 'conductor';
-            this.guardarCambios();
-          }
-        },
-        {
-          text: 'Usuario Pasajero',
-          cssClass: this.currentUser.perfil === 'pasajero' ? 'selected-button' : '',
-          handler: () => {
-            this.currentUser.perfil = 'pasajero';
-            this.guardarCambios();
-          }
-        },
-        {
-          text: 'Cancelar',
-          role: 'cancel',
-          cssClass: 'dark'
-        }
-      ]
-    });
-
-    await alert.present();
+  // Función para seleccionar el perfil
+  seleccionarPerfil(tipo: string) {
+    this.perfil = tipo;
   }
 
-  // Función para guardar los cambios y redirigir
-  guardarCambios() {
-    // Guardar cambios en localStorage
-    localStorage.setItem('loggedInUser', JSON.stringify(this.currentUser));
-
-    // Redirigir a la vista correspondiente
-    if (this.currentUser.perfil === 'conductor') {
-      this.navCtrl.navigateRoot('/registro-exitoso'); // Redirige a la vista del conductor
-    } else if (this.currentUser.perfil === 'pasajero') {
-      this.navCtrl.navigateRoot('/registro-exitoso-pasajero'); // Redirige a la vista del pasajero
+  // Función para confirmar el perfil y redirigir a la vista correspondiente
+  confirmarPerfil() {
+    if (this.perfil === 'conductor') {
+      this.navCtrl.navigateForward('/registro-exitoso');
+    } else if (this.perfil === 'pasajero') {
+      this.navCtrl.navigateForward('/registro-exitoso-pasajero');
+    } else {
+      this.mostrarToast('Por favor, selecciona un perfil.');
     }
   }
 
+  // Función para abrir el cambio de usuario
+  abrirCambioUsuario() {
+    this.navCtrl.navigateForward('/cambiar-usuario');
+  }
+
   // Función para cerrar sesión
-  cerrarSesion() {
-    console.log('Cerrando sesión');
-    localStorage.removeItem('loggedInUser'); // Elimina el usuario logueado del localStorage
-    this.navCtrl.navigateRoot('/home'); // Redirige al inicio
+  async cerrarSesion() {
+    const toast = await this.toastController.create({
+      message: 'Sesión cerrada',
+      duration: 2000, // Duración del Toast en milisegundos
+      position: 'bottom' // Posición del Toast en la pantalla (puede ser 'top', 'middle' o 'bottom')
+    });
+
+    await toast.present();
+    this.navCtrl.navigateRoot('/home'); // Redirigir al inicio después de mostrar el Toast
+  }
+
+  // Función para mostrar un Toast personalizado
+  async mostrarToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 2000,
+      position: 'bottom'
+    });
+
+    await toast.present();
   }
 }

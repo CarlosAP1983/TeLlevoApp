@@ -1,176 +1,214 @@
 /* Estilo para el header principal */
-ion-header.custom-header {
-  --background: transparent; /* Fondo transparente para que coincida con el fondo del contenido */
-  color: white; /* Asegura que el texto del header sea blanco */
-}
 ion-toolbar.custom-toolbar {
-  --background: none; /* Sin fondo para el toolbar */
-  color: white; /* Color del texto en el toolbar */
+  --background: #B5B8BF; 
+  color: var(--ion-color-primary-contrast); 
   text-align: center;
+  padding: 0 10px; 
+  height: 44px; 
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
 }
 
-/* Estilo específico para botones dentro del toolbar */
-ion-header.custom-header ion-button {
-  --color: white; /* Asegura que los botones dentro del toolbar sean blancos */
-  --background: transparent; /* Fondo transparente para los botones del toolbar */
+ion-back-button.letra {
+  font-weight: bold;
+}
+
+ion-title.titulo-header {
+  --color: #2F2E2E;
+  font-size: 1rem; 
+  flex-grow: 1; 
+  text-align: center;
 }
 
 /* Estilo para el contenido */
 ion-content.background {
-  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+  --background: #EEF1FB; 
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  flex-grow: 1; 
+  margin: 0; 
+  overflow-y: auto; 
+  height: calc(100vh - 50px); 
+  box-sizing: border-box; 
 }
 
-/* Aplica un color de fondo al header cuando se colapsa */
-ion-header[collapse="fade"] ion-toolbar {
-  --background: #403F51;
-  color: white;
+/* Estilo para los títulos */
+.titulo, .sub-titulo {
+  font-family: system-ui; 
+  color: #2F2E2E !important; 
+  font-weight: bold; 
+  margin: 0; 
+  display: block; 
 }
 
-/* Estilo para el título grande cuando el header colapsa */
-.condensed-title {
-  font-family: system-ui;
-  color: #ffffff;
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin: 0;
-  display: block;
+.titulo {
+  font-size: 2.5rem; 
+  text-align: center; 
+  width: 100%; 
 }
 
-/* Estilo para el mensaje de bienvenida */
-.welcome-message {
-  color: white;
-  text-align: center;
-  font-size: 18px;
-  margin: 20px 0;
-  font-family: 'Helvetica', sans-serif;
+.sub-titulo {
+  font-size: 1.2rem; 
+  text-align: left; 
+  width: 100%; 
 }
 
-/* Estilo para los botones en el contenido */
-ion-content.background {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra horizontalmente los elementos dentro del ion-content */
-  padding: 20px;
-}
-
-/* Estilo específico para los botones dentro del ion-content */
-ion-content.background ion-button {
-  width: 70%; /* Ancho del botón, ajustable según tu preferencia */
+/* Estilo para los botones */
+ion-button {
+  width: 70%; 
   max-width: 400px;
-  margin: 20px auto; /* Centra el botón horizontalmente */
+  margin: 10px auto;
   font-family: 'Helvetica', sans-serif;
   font-size: larger;
   font-weight: bold;
-  height: 50px; /* Mantén el tamaño del botón */
-  display: block; /* Asegura que se centre correctamente */
-  text-align: center; /* Centra el contenido del botón */
-  border-radius: 25px; /* Valor ajustado para redondear extremos */
-  /* Quitar cualquier estilo de fondo o color que pueda interferir */
+  height: 50px; 
+  display: block; 
+  text-align: center; 
+  border-radius: 25px; 
   --background: none;
   --color: inherit;
 }
 
-/* Estilos especiales para el boton guardar boton-datos-viaje */
-.boton-datos-viaje {
-  background: linear-gradient(145deg, #3dc2ff, #36a2e4); /* Fondo degradado basado en color cian */
-  border-radius: 50px; /* Bordes redondeados igual que los otros botones */
-  box-shadow: 0 4px 8px rgba(61, 194, 255, 0.5), 0 -4px 8px rgba(54, 162, 228, 0.5); /* Sombra alrededor del botón */
-  color: white; /* Color del texto */
-  width: 200px; /* Ancho del botón */
-  height: 50px; /* Altura del botón */
+/* Estilos especiales para los botones */
+.boton-azul, .boton-recargar {
+  border-radius: 50px;
+  width: 200px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  position: relative; /* Necesario para los detalles adicionales */
-  border: none; /* Quita cualquier borde por defecto */
-  padding: 0; /* Quita el padding por defecto */
-  overflow: hidden; /* Esconde cualquier desbordamiento */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+  position: relative;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.boton-datos-viaje:hover {
-  background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Fondo más oscuro en hover */
-  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+
+/*Estilos del botón: Siguiente*/
+.boton-azul {
+  background: linear-gradient(145deg, #7B5BF2, #6A4ED9); 
+  box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5); 
+  color: white;
 }
-.boton-datos-viaje:active,
-.boton-datos-viaje:focus {
-  background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Mantiene el color en hover cuando está activo */
+.boton-azul:hover {
+  background: linear-gradient(145deg, #6A4ED9, #5C3EB8); 
+  transform: scale(1.05); 
 }
-.boton-datos-viaje::before {
+.boton-azul:active,
+.boton-azul:focus {
+  background: linear-gradient(145deg, #6A4ED9, #5C3EB8); 
+}
+.boton-azul::before {
   content: '';
   position: absolute;
-  top: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  left: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  right: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
-  border-radius: 45px; /* Ajusta el radio del borde interno */
-  z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
-  background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+  top: 3px; 
+  left: 3px; 
+  right: 3px; 
+  bottom: 3px; 
+  border: 2px solid rgb(90, 89, 89);
+  border-radius: 45px; 
+  z-index: 1; 
+  background: transparent;
 }
-.boton-datos-viaje::after {
+.boton-azul::after {
   content: '';
   width: 40px;
   height: 5px;
-  background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+  background: rgba(255, 255, 255, 0.5); 
   border-radius: 5px;
   position: absolute;
-  left: 40px; /* Ajusta según tu diseño */
-  bottom: 10px; /* Ajusta según tu diseño */
-  z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+  left: 40px; 
+  bottom: 10px; 
+  z-index: 2; 
 }
 
-/* Estilos especiales para el boton recargar */
 .boton-recargar {
-  background: linear-gradient(145deg, #00ff00, #00cc00); /* Fondo degradado */
-  border-radius: 50px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5); /* Sombra alrededor del botón */
-  color: white; /* Color del texto */
-  width: 200px; /* Ancho del botón */
-  height: 50px; /* Altura del botón */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  position: relative; /* Necesario para los detalles adicionales */
-  border: none; /* Quita cualquier borde por defecto */
-  padding: 0; /* Quita el padding por defecto */
-  overflow: hidden; /* Esconde cualquier desbordamiento */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+  background: linear-gradient(145deg, #00ff00, #00cc00);
+  box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5);
+  color: white;
 }
 .boton-recargar:hover {
-  background: linear-gradient(145deg, #00cc00, #009900); /* Fondo más oscuro en hover */
-  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+  background: linear-gradient(145deg, #00cc00, #009900);
+  transform: scale(1.05);
 }
 .boton-recargar:active,
 .boton-recargar:focus {
-  background: linear-gradient(145deg, #00cc00, #009900); /* Mantiene el color en hover cuando está activo */
+  background: linear-gradient(145deg, #00cc00, #009900); 
 }
 .boton-recargar::before {
   content: '';
   position: absolute;
-  top: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  left: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  right: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
-  border-radius: 45px; /* Ajusta el radio del borde interno */
-  z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
-  background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+  top: 3px; 
+  left: 3px;
+  right: 3px;
+  bottom: 3px; 
+  border: 2px solid rgb(90, 89, 89); 
+  border-radius: 45px; 
+  z-index: 1; 
+  background: transparent; 
 }
 .boton-recargar::after {
   content: '';
   width: 40px;
   height: 5px;
-  background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+  background: rgba(255, 255, 255, 0.5); 
   border-radius: 5px;
   position: absolute;
-  left: 40px; /* Ajusta según tu diseño */
-  bottom: 10px; /* Ajusta según tu diseño */
-  z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+  left: 40px; 
+  bottom: 10px; 
+  z-index: 2; 
+}
+
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+  --background: #09184D; 
+  padding: 0; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 10; 
+}
+
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #09184D;
+  padding: 0; 
+  text-align: center; 
+  color: var(--ion-color-primary-contrast); 
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: var(--ion-color-primary-contrast); 
+  font-size: 0.9rem; 
+  margin: 0; 
+  font-family: 'Helvetica', sans-serif; 
+}
+
+/* Estilo para el contenedor del spinner */
+.spinner-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  position: fixed; 
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100; 
+  background-color: rgba(255, 255, 255, 0.8); 
+}
+
+/* Estilo para el spinner */
+.spinner-grande {
+  width: 100px;
+  height: 100px;
+  --spinner-size: 100px; 
 }

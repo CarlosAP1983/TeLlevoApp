@@ -1,46 +1,51 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <!-- Botón de regreso en la parte izquierda -->
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-toolbar">
+    <!--Retroceder a la vista anterior-->
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button> <!-- Vuelve a la página de inicio si no hay historial -->
+      <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title>Perfil Usuario</ion-title>
+    <ion-title class="titulo-header">Perfil Usuario</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background ion-padding" [fullscreen]="true">
-
   <!-- Card para el Perfil del Usuario -->
   <ion-card class="card-background">
     <!-- Avatar con opción para cambiar -->
     <ion-card-header>
       <div class="avatar-container">
         <img [src]="avatar" alt="Avatar del usuario" class="avatar" />
-        <ion-button fill="clear" (click)="uploadPhoto()">Cambiar Foto</ion-button>
+        <ion-button class="sub-titulo" fill="clear" (click)="uploadPhoto()">Cambiar Avatar</ion-button>
       </div>
     </ion-card-header>
 
     <!-- Información del Usuario -->
     <ion-card-content>
         <ion-item>
-          <ion-label><strong>Nombre:</strong> {{nombre}}</ion-label>
+          <ion-label><strong>• Nombre:</strong> {{nombre}}</ion-label>
         </ion-item>
         <ion-item>
-          <ion-label><strong>Teléfono:</strong> {{telefono}}</ion-label>
+          <ion-label><strong>• Teléfono:</strong> {{telefono}}</ion-label>
         </ion-item>
         <ion-item>
-          <ion-label><strong>Usuario:</strong> {{usuario}}</ion-label>
+          <ion-label><strong>• Usuario:</strong> {{usuario}}</ion-label>
         </ion-item>
         <ion-item>
-          <ion-label><strong>Email:</strong> {{email}}</ion-label>
+          <ion-label><strong>• Email:</strong> {{email}}</ion-label>
         </ion-item>
         <ion-item>
-          <ion-label><strong>Tipo de Usuario:</strong> {{tipoUsuario}}</ion-label>
+          <ion-label><strong>• Tipo de Usuario:</strong> {{tipoUsuario}}</ion-label>
         </ion-item>
     </ion-card-content>
-
-    <!-- Botones de Acción -->
-    <ion-button expand="block" class="boton-editar-perfil" routerLink="/editar-perfil">Editar Perfil</ion-button>
-    <ion-button expand="block" class="boton-cerrar-sesion" color="danger" routerLink="/home">Cerrar Sesión</ion-button>
   </ion-card>
+    <!-- Botones de Acción -->
+    <ion-button expand="block" class="boton-azul" routerLink="/editar-perfil">Editar Perfil</ion-button>
 </ion-content>
+
+<ion-footer class="custom-footer">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

@@ -8,12 +8,11 @@ import { NavController, ToastController } from '@ionic/angular';
 })
 export class RegistroPage {
   name: string = '';
-  email: string = '';  // Agregar propiedad email
-  phone: string = '';  // Agregar propiedad phone
+  email: string = ''; 
+  phone: string = ''; 
   username: string = '';
   password: string = '';
-  errorMessage: string = '';
-  tieneVehiculo: boolean = false; // Estado del toggle para el vehículo
+  tieneVehiculo: boolean = false; 
   vehiculo = {
     patente: '',
     marca: '',
@@ -24,7 +23,7 @@ export class RegistroPage {
 
   toggleVehiculo() {
     if (!this.tieneVehiculo) {
-      // Si no tiene vehículo, limpiar los campos
+      //Si no tiene vehiculo, limpiaremos los campos para oscurecerlos en el scss
       this.vehiculo.patente = '';
       this.vehiculo.marca = '';
       this.vehiculo.color = '';
@@ -32,9 +31,9 @@ export class RegistroPage {
   }
 
   async onRegister() {
-    // Validar que los campos no estén vacíos
+    //Validar que los campos no esten vacios
     if (!this.name || !this.email || !this.phone || !this.username || !this.password) {
-      this.errorMessage = 'Todos los campos son obligatorios';
+      this.showToast('Todos los campos son obligatorios', 'danger');
       return;
     }
 
@@ -44,42 +43,48 @@ export class RegistroPage {
       phone: this.phone,
       username: this.username,
       password: this.password,
-      vehiculo: this.tieneVehiculo ? this.vehiculo : null, // Guardar datos del vehículo si lo tiene
+      vehiculo: this.tieneVehiculo ? this.vehiculo : null, 
       perfil: ''
     };
 
-    // Obtener usuarios existentes de localStorage
+    //Obtener usuarios existentes de localStorage
     const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
 
-    // Verificar si el usuario ya existe
+    //Verificar si el usuario ya existe
     const userExists = storedUsers.some(
       (user: any) => user.username === this.username
     );
 
     if (userExists) {
-      this.errorMessage = 'El nombre de usuario ya está en uso';
+      this.showToast('El nombre de usuario ya esta en uso', 'danger');
       return;
     }
 
-    // Añadir el nuevo usuario al array de usuarios
+    //Añadir los nuevos usuarios al array de usuarios
     storedUsers.push(newUser);
 
-    // Guardar los usuarios actualizados en localStorage
+    //Guardar los usuarios actualizados en localStorage
     localStorage.setItem('users', JSON.stringify(storedUsers));
 
-    // Mostrar mensaje de éxito tipo toast
-    const toast = await this.toastCtrl.create({
-      message: 'Registro exitoso. Redirigiendo...',
-      duration: 2000,
-      position: 'middle'
-    });
-    await toast.present();
+    //Mostrar mensaje de exito tipo toast
+    this.showToast('Registro exitoso. Redirigiendo...', 'success');
 
-    // Redirigir al usuario a la página de selección de perfil
+    //Redirigir al usuario a la pagina de selección de perfil
     this.navCtrl.navigateForward('/seleccion-perfil');
   }
 
+  //Metodo para mostrar un toast
+  async showToast(message: string, color: 'success' | 'danger') {
+    const toast = await this.toastCtrl.create({
+      message: message,
+      duration: 2000,
+      position: 'middle',
+      color: color
+    });
+    await toast.present();
+  }
+
   goHome() {
-    this.navCtrl.navigateRoot('/home'); // Navega a la página de inicio
+    this.navCtrl.navigateRoot('/home'); 
   }
 }

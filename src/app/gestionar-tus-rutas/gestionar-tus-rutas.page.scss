@@ -1,175 +1,196 @@
 /* Estilo para el header principal */
-ion-header.custom-header {
-  --background: transparent; /* Fondo transparente para que coincida con el fondo del contenido */
-  color: white; /* Asegura que el texto del header sea blanco */
-}  
 ion-toolbar.custom-toolbar {
-  --background: none; /* Sin fondo para el toolbar */
-  color: white; /* Color del texto en el toolbar */
+  --background: #B5B8BF; 
+  color: var(--ion-color-primary-contrast); 
   text-align: center;
+}
+
+ion-title.titulo {
+  --color: #2F2E2E;
 }
   
 /* Estilo para el contenido */
 ion-content.background {
-  --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab); /* Degradado de color */
+  --background: #EEF1FB; 
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  flex-grow: 1; 
 }
   
 /* Aplica un color de fondo al header cuando se colapsa */
 ion-header[collapse="fade"] ion-toolbar {
-  --background: #403F51;
-  color: white;
+  --background: var(--ion-color-primary);
+  color: var(--ion-color-primary-contrast); 
 }
 
 /* Estilo para el título grande cuando el header colapsa */
 .condensed-title {
   font-family: system-ui;
-  color: #ffffff;
+  color: var(--ion-color-primary-contrast); 
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
   margin: 0;
   display: block;
 }
-
-/* Estilo para el mensaje de bienvenida */
-.welcome-message {
-  color: white;
-  text-align: center;
-  font-size: 18px;
-  margin: 20px 0;
-  font-family: 'Helvetica', sans-serif;
-}
   
-/* configuracion general para el ion-button */
+/* Configuración general para los botones */
 ion-button {
-  width: 70%; /* Ancho del botón, ajustable según tu preferencia */
+  width: 70%; 
   max-width: 400px;
-  margin: 20px auto; /* Centra el botón horizontalmente */
+  margin: 20px auto; 
   font-family: 'Helvetica', sans-serif;
   font-size: larger;
   font-weight: bold;
-  height: 50px; /* Mantén el tamaño del botón */
-  display: block; /* Asegura que se centre correctamente */
-  text-align: center; /* Centra el contenido del botón */
-  border-radius: 25px; /* Valor ajustado para redondear extremos */
-  /* Quitar cualquier estilo de fondo o color que pueda interferir */
-  --background: none;
-  --color: inherit;
+  height: 50px; 
+  display: block; 
+  text-align: center; 
+  border-radius: 25px; 
+  --background: none; 
+  --color: inherit; 
+  border: none; 
+  box-shadow: none; 
 }
 
-/* Estilos especiales para el boton editar viaje */
+/* Estilos especiales para el botón editar viaje */
 .boton-editar-viaje {
-  background: linear-gradient(145deg, #00ff00, #00cc00); /* Fondo degradado */
+  background: linear-gradient(145deg, #7B5BF2, #6A4EE0); 
+  color: var(--ion-color-primary-contrast); /* Color del texto (blanco) */
   border-radius: 50px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5); /* Sombra alrededor del botón */
-  color: white; /* Color del texto */
-  width: 200px; /* Ancho del botón */
-  height: 50px; /* Altura del botón */
+  box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 224, 0.5); 
+  width: 200px; 
+  height: 50px; 
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  position: relative; /* Necesario para los detalles adicionales */
-  border: none; /* Quita cualquier borde por defecto */
-  padding: 0; /* Quita el padding por defecto */
-  overflow: hidden; /* Esconde cualquier desbordamiento */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+  position: relative;
+  border: none; 
+  padding: 0; 
+  overflow: hidden; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 .boton-editar-viaje:hover {
-  background: linear-gradient(145deg, #00cc00, #009900); /* Fondo más oscuro en hover */
-  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+  background: linear-gradient(145deg, #6A4EE0, #5A41CC); 
+  transform: scale(1.05); 
 }
 .boton-editar-viaje:active,
 .boton-editar-viaje:focus {
-  background: linear-gradient(145deg, #00cc00, #009900); /* Mantiene el color en hover cuando está activo */
+  background: linear-gradient(145deg, #6A4EE0, #5A41CC); 
 }
 .boton-editar-viaje::before {
   content: '';
   position: absolute;
-  top: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  left: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  right: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
-  border-radius: 45px; /* Ajusta el radio del borde interno */
-  z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
-  background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+  top: 3px; 
+  left: 3px; 
+  right: 3px; 
+  bottom: 3px; 
+  border: 2px solid rgb(90, 89, 89); 
+  border-radius: 45px; 
+  z-index: 1; 
+  background: transparent; 
 }
 .boton-editar-viaje::after {
   content: '';
   width: 40px;
   height: 5px;
-  background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   position: absolute;
-  left: 40px; /* Ajusta según tu diseño */
-  bottom: 10px; /* Ajusta según tu diseño */
-  z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+  left: 40px; 
+  bottom: 10px; 
+  z-index: 2;
 }
 
-/* Estilos especiales para el boton boton-cancelar-viaje */
+/* Estilos especiales para el botón cancelar viaje */
 .boton-cancelar-viaje {
-  background: linear-gradient(145deg, #ff4c4c, #e60000); /* Fondo degradado basado en rojo vibrante */
-  border-radius: 50px; /* Bordes redondeados igual que el botón "Salir" */
-  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5); /* Sombra alrededor del botón */
-  color: white; /* Color del texto */
-  width: 200px; /* Ancho del botón */
-  height: 50px; /* Altura del botón */
+  background: linear-gradient(145deg, #ff4c4c, #e60000); 
+  color: var(--ion-color-primary-contrast); 
+  border-radius: 50px; 
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5);
+  width: 200px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  position: relative; /* Necesario para los detalles adicionales */
-  border: none; /* Quita cualquier borde por defecto */
-  padding: 0; /* Quita el padding por defecto */
-  overflow: hidden; /* Esconde cualquier desbordamiento */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+  position: relative; 
+  border: none; 
+  padding: 0;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .boton-cancelar-viaje:hover {
-  background: linear-gradient(145deg, #e60000, #cc0000); /* Fondo más oscuro en hover */
-  transform: scale(1.05); /* Efecto de agrandamiento en hover */
+  background: linear-gradient(145deg, #e60000, #cc0000); 
+  transform: scale(1.05); 
 }
 .boton-cancelar-viaje:active,
 .boton-cancelar-viaje:focus {
-  background: linear-gradient(145deg, #e60000, #cc0000); /* Mantiene el color en hover cuando está activo */
+  background: linear-gradient(145deg, #e60000, #cc0000); 
 }
 .boton-cancelar-viaje::before {
   content: '';
   position: absolute;
-  top: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  left: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  right: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-  border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
-  border-radius: 45px; /* Ajusta el radio del borde interno */
-  z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
-  background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+  top: 3px; 
+  left: 3px; 
+  right: 3px; 
+  bottom: 3px; 
+  border: 2px solid rgb(90, 89, 89);
+  border-radius: 45px; 
+  z-index: 1; 
+  background: transparent; 
 }
 .boton-cancelar-viaje::after {
   content: '';
   width: 40px;
   height: 5px;
-  background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   position: absolute;
-  left: 40px; /* Ajusta según tu diseño */
-  bottom: 10px; /* Ajusta según tu diseño */
-  z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+  left: 40px;
+  bottom: 10px; 
+  z-index: 2;
 }
 
 /* Estilo para la imagen con bordes circulares, degradado y sombreado */
 .imagen-rutas {
-  width: 90%; /* Ajusta la imagen al ancho completo del contenedor */
-  height: auto; /* Mantiene la proporción original de la imagen */
-  border-radius: 50%; /* Aplica bordes circulares a la imagen */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19); /* Sombra alrededor de los bordes */
-  background: linear-gradient(145deg, #3dc2ff, #36a2e4); /* Degradado de fondo */
-  padding: 5px; /* Añade un poco de espacio alrededor de la imagen para el degradado */
-  display: block; /* Asegura que la imagen se muestre como un bloque */
-  margin: 20px auto; /* Centra la imagen horizontalmente con margen superior e inferior */
+  width: 90%; 
+  height: auto; 
+  border-radius: 50%; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+  background: linear-gradient(145deg, var(--ion-color-secondary), var(--ion-color-secondary-tint)); 
+  padding: 5px; 
+  display: block; 
+  margin: 20px auto;
 }
 
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+  --background: #09184D; 
+  padding: 0; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 10; 
+}
+
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #09184D; 
+  padding: 0; 
+  text-align: center;
+  color: var(--ion-color-primary-contrast); 
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: var(--ion-color-primary-contrast); 
+  font-size: 0.9rem; 
+  margin: 0; 
+  font-family: 'Helvetica', sans-serif; 
+}

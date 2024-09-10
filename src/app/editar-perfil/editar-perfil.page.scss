@@ -1,174 +1,230 @@
-ion-content.background {
-    --background: linear-gradient(180deg, #403F51, #403F51 40%, #714dab);
+/* Estilo para el header principal */
+ion-toolbar.custom-toolbar {
+    --background: #B5B8BF; 
+    color: var(--ion-color-primary-contrast); 
+    text-align: center;
+  }  
+  ion-back-button.letra {
+    font-weight: bold;
+  }  
+  ion-title.titulo-header {
+    --color: #2F2E2E;
+  }
+    
+  /* Estilo para el contenido */
+  ion-content.background {
+    --background: #EEF1FB; 
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-}
+    flex-grow: 1;
+  }
+ 
+/*Estilos del titulo y subtitulo*/
+.titulo {
+    font-family: system-ui; 
+    color: #2F2E2E !important; 
+    font-size: 2.5rem; 
+    font-weight: bold; 
+    text-align: center; 
+    width: 100%; 
+    margin: 0; 
+    display: block; 
+  }  
 
 /* configuracion general para el ion-button */
 ion-button {
-    width: 70%; /* Ancho del botón, ajustable según tu preferencia */
+    width: 70%; 
     max-width: 400px;
-    margin: 20px auto; /* Centra el botón horizontalmente */
+    margin: 20px auto; 
     font-family: 'Helvetica', sans-serif;
     font-size: larger;
     font-weight: bold;
-    height: 50px; /* Mantén el tamaño del botón */
-    display: block; /* Asegura que se centre correctamente */
-    text-align: center; /* Centra el contenido del botón */
-    border-radius: 25px; /* Valor ajustado para redondear extremos */
+    height: 50px; 
+    display: block; 
+    text-align: center;
+    border-radius: 25px;
     /* Quitar cualquier estilo de fondo o color que pueda interferir */
     --background: none;
     --color: inherit;
 }
 
-/* Estilos especiales para el boton guardar cambios */
-.guardar-button {
-    background: linear-gradient(145deg, #3dc2ff, #36a2e4); /* Fondo degradado basado en color cian */
-    border-radius: 50px; /* Bordes redondeados igual que los otros botones */
-    box-shadow: 0 4px 8px rgba(61, 194, 255, 0.5), 0 -4px 8px rgba(54, 162, 228, 0.5); /* Sombra alrededor del botón */
-    color: white; /* Color del texto */
-    width: 200px; /* Ancho del botón */
-    height: 50px; /* Altura del botón */
+/* Estilos especiales para el botón azul (Siguiente) */
+.boton-azul {
+    background: linear-gradient(145deg, #7B5BF2, #6A4ED9);
+    border-radius: 50px;
+    box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
+    color: white;
+    width: 200px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    position: relative; /* Necesario para los detalles adicionales */
-    border: none; /* Quita cualquier borde por defecto */
-    padding: 0; /* Quita el padding por defecto */
-    overflow: hidden; /* Esconde cualquier desbordamiento */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+    position: relative;
+    border: none;
+    padding: 0;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
-.guardar-button:hover {
-    background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Fondo más oscuro en hover */
-    transform: scale(1.05); /* Efecto de agrandamiento en hover */
+.boton-azul:hover {
+    background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+    transform: scale(1.05);
 }
-.guardar-button:active,
-.guardar-button:focus {
-    background: linear-gradient(145deg, #36a2e4, #2b89c7); /* Mantiene el color en hover cuando está activo */
+.boton-azul:active,
+.boton-azul:focus {
+    background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
 }
-.guardar-button::before {
+.boton-azul::before {
     content: '';
     position: absolute;
-    top: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    left: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    right: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
-    border-radius: 45px; /* Ajusta el radio del borde interno */
-    z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
-    background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+    top: 3px;
+    left: 3px;
+    right: 3px;
+    bottom: 3px;
+    border: 2px solid rgb(90, 89, 89);
+    border-radius: 45px;
+    z-index: 1;
+    background: transparent;
 }
-.guardar-button::after {
+.boton-azul::after {
     content: '';
     width: 40px;
     height: 5px;
-    background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 5px;
     position: absolute;
-    left: 40px; /* Ajusta según tu diseño */
-    bottom: 10px; /* Ajusta según tu diseño */
-    z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+    left: 40px;
+    bottom: 10px;
+    z-index: 2;
 }
 
 /* Estilos especiales para el boton eliminar */
 .delete-button {
-    background: linear-gradient(145deg, #ff4c4c, #e60000); /* Fondo degradado basado en rojo vibrante */
-    border-radius: 50px; /* Bordes redondeados igual que el botón "Salir" */
-    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5); /* Sombra alrededor del botón */
-    color: white; /* Color del texto */
-    width: 200px; /* Ancho del botón */
-    height: 50px; /* Altura del botón */
+    background: linear-gradient(145deg, #ff4c4c, #e60000); 
+    border-radius: 50px; 
+    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5); 
+    color: white; 
+    width: 200px; 
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    position: relative; /* Necesario para los detalles adicionales */
-    border: none; /* Quita cualquier borde por defecto */
-    padding: 0; /* Quita el padding por defecto */
-    overflow: hidden; /* Esconde cualquier desbordamiento */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+    position: relative; 
+    border: none;
+    padding: 0; 
+    overflow: hidden; 
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 .delete-button:hover {
-    background: linear-gradient(145deg, #e60000, #cc0000); /* Fondo más oscuro en hover */
-    transform: scale(1.05); /* Efecto de agrandamiento en hover */
+    background: linear-gradient(145deg, #e60000, #cc0000); 
+    transform: scale(1.05); 
 }
 .delete-button:active,
 .delete-button:focus {
-    background: linear-gradient(145deg, #e60000, #cc0000); /* Mantiene el color en hover cuando está activo */
+    background: linear-gradient(145deg, #e60000, #cc0000); 
 }
 .delete-button::before {
     content: '';
     position: absolute;
-    top: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    left: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    right: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
-    border-radius: 45px; /* Ajusta el radio del borde interno */
-    z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
-    background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+    top: 3px; 
+    left: 3px; 
+    right: 3px;
+    bottom: 3px; 
+    border: 2px solid rgb(90, 89, 89); 
+    border-radius: 45px;
+    z-index: 1; 
+    background: transparent; 
 }
 .delete-button::after {
     content: '';
     width: 40px;
     height: 5px;
-    background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+    background: rgba(255, 255, 255, 0.5); 
     border-radius: 5px;
     position: absolute;
-    left: 40px; /* Ajusta según tu diseño */
-    bottom: 10px; /* Ajusta según tu diseño */
-    z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+    left: 40px; 
+    bottom: 10px; 
+    z-index: 2; 
 }
 
 /* Estilos especiales para el boton salir */
 .salir-button {
-    background: linear-gradient(145deg, #00ff00, #00cc00); /* Fondo degradado */
+    background: linear-gradient(145deg, #00ff00, #00cc00);
     border-radius: 50px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5); /* Sombra alrededor del botón */
-    color: white; /* Color del texto */
-    width: 200px; /* Ancho del botón */
-    height: 50px; /* Altura del botón */
+    box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5); 
+    color: white;
+    width: 200px; 
+    height: 50px; 
     display: flex;
     justify-content: center;
     align-items: center;
     font-weight: bold;
-    position: relative; /* Necesario para los detalles adicionales */
-    border: none; /* Quita cualquier borde por defecto */
-    padding: 0; /* Quita el padding por defecto */
-    overflow: hidden; /* Esconde cualquier desbordamiento */
-    transition: background-color 0.3s ease, transform 0.2s ease; /* Transición para el hover */
+    position: relative; 
+    border: none; 
+    padding: 0; 
+    overflow: hidden; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 .salir-button:hover {
-    background: linear-gradient(145deg, #00cc00, #009900); /* Fondo más oscuro en hover */
-    transform: scale(1.05); /* Efecto de agrandamiento en hover */
+    background: linear-gradient(145deg, #00cc00, #009900); 
+    transform: scale(1.05);
 }
 .salir-button:active,
 .salir-button:focus {
-    background: linear-gradient(145deg, #00cc00, #009900); /* Mantiene el color en hover cuando está activo */
+    background: linear-gradient(145deg, #00cc00, #009900);
 }
 .salir-button::before {
     content: '';
     position: absolute;
-    top: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    left: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    right: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    bottom: 3px; /* Ajusta para controlar el grosor de la línea negra */
-    border: 2px solid rgb(90, 89, 89); /* Línea negra interna */
-    border-radius: 45px; /* Ajusta el radio del borde interno */
-    z-index: 1; /* Coloca el borde interno detrás del contenido del botón */
-    background: transparent; /* Fondo transparente para evitar cualquier efecto visual no deseado */
+    top: 3px;
+    left: 3px;
+    right: 3px; 
+    bottom: 3px; 
+    border: 2px solid rgb(90, 89, 89); 
+    border-radius: 45px; 
+    z-index: 1; 
+    background: transparent; 
 }
 .salir-button::after {
     content: '';
     width: 40px;
     height: 5px;
-    background: rgba(255, 255, 255, 0.5); /* Color de la barra de progreso */
+    background: rgba(255, 255, 255, 0.5); 
     border-radius: 5px;
     position: absolute;
-    left: 40px; /* Ajusta según tu diseño */
-    bottom: 10px; /* Ajusta según tu diseño */
-    z-index: 2; /* Coloca la barra de progreso por encima del borde interno */
+    left: 40px; 
+    bottom: 10px; 
+    z-index: 2;
 }
+
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+    --background: #09184D; 
+    padding: 0; 
+    position: fixed;
+    bottom: 0; 
+    width: 100%; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    z-index: 10;
+  }
+  
+  /* Estilo para la toolbar del footer */
+  .footer-toolbar {
+    --background: #09184D; 
+    padding: 0; 
+    text-align: center; 
+    color: var(--ion-color-primary-contrast); 
+  }
+  
+  /* Estilo para el mensaje del footer */
+  .footer-message p {
+    color: var(--ion-color-primary-contrast); 
+    font-size: 0.9rem; 
+    margin: 0;
+    font-family: 'Helvetica', sans-serif; 
+  }
