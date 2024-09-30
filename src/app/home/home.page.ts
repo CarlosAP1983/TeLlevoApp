@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { LoginService } from 'src/app/services/login.service';
+
 
 @Component({
   selector: 'app-home',
@@ -11,6 +13,9 @@ export class HomePage implements OnInit {
   password: string = '';
 
   destination: string = ''; 
+  loginSrv = inject(LoginService);
+  
+  
 
   constructor(private navCtrl: NavController) {}
 
@@ -19,22 +24,16 @@ export class HomePage implements OnInit {
 
   //Metodo para manejar el inicio de sesion
   login() {
-    const storedUsers = JSON.parse(localStorage.getItem('users') || '[]'); 
-    const user = storedUsers.find(
-      (u: { username: string; password: string }) =>
-        u.username === this.username && u.password === this.password
-    );
-
-    if (user) {
-      localStorage.setItem('loggedInUser', JSON.stringify(user));
+   
+      this.loginSrv.login(this.username,this.password);
       this.navCtrl.navigateForward('/seleccion-perfil'); //Si tiene cuenta pasa a la vista seleccion-perfil
-    } else {
-      alert('Usuario o contraseña incorrectos.');
-    }
-  }
+      
+    } 
+  
 
   //Metodo para pasar a la pagina registro
   goToRegister() {
     this.navCtrl.navigateForward('/registro'); //Pasa a la vista registro
   }
+  
 }

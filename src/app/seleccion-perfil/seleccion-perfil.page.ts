@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from '@ionic/angular';
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-seleccion-perfil',
@@ -8,10 +9,16 @@ import { NavController } from '@ionic/angular';
 })
 export class SeleccionPerfilPage {
   perfil: string = ''; 
+  nombreUsuario: string = '';
 
-  constructor(private navCtrl: NavController) {}
+  constructor(
+    private navCtrl: NavController,
+    public loginSrv: LoginService) {
 
-  //Funcion para seleccionar el perfil
+    this.nombreUsuario = this.loginSrv.NombreUsuario;
+  }
+
+  //perfil
   seleccionarPerfil(tipo: string) {
     this.perfil = tipo;
   }

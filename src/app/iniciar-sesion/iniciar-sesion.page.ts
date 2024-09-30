@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular'; // Importa NavController para la navegación
 
 @Component({
