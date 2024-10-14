@@ -11,16 +11,16 @@
       <br>
       <div class="input-group">
         <label class="input-label"> Usuario:</label>
-        <ion-input type="text" class="fixed" [(ngModel)]="username"></ion-input>
+        <ion-input type="text" class="fixed" [(ngModel)]="nombreUsuario"></ion-input>
       </div>
       <div class="input-group">
         <label class="input-label"> Contraseña:</label>
-        <ion-input type="password" class="fixed" [(ngModel)]="password"></ion-input>
+        <ion-input type="password" class="fixed" [(ngModel)]="contrasena"></ion-input>
       </div>
 
       <!--Botones para iniciar y crear cuenta-->
-      <ion-button expand="block" class="boton-tono-especial" (click)="login()">Iniciar Sesión</ion-button>
-      <ion-button expand="block" class="boton-tono-especial" (click)="goToRegister()">Crea una cuenta</ion-button>
+      <ion-button expand="block" class="boton-tono-especial" (click)="iniciarSesion()">Iniciar Sesión</ion-button>
+      <ion-button expand="block" class="boton-tono-especial" (click)="irARegistro()">Crea una cuenta</ion-button>
 
       <!--Enlace reestablecer contraseña-->
       <div class="link-container">
