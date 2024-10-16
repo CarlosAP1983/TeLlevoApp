@@ -1,5 +1,6 @@
 import { Component, Injectable } from '@angular/core';
 import { NavController } from '@ionic/angular'; // Importa NavController para la navegación
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 
 @Component({
   selector: 'app-iniciar-sesion',
@@ -13,18 +14,21 @@ export class IniciarSesionPage {
   constructor(private navCtrl: NavController) {}
 
   // Método de inicio de sesión
-  onLogin() {
-    const validUser = 'carlos'; 
-    const validPass = '123'; 
+  async onLogin() {
+    const auth = getAuth(); 
+    try{
+      const userCredential = await signInWithEmailAndPassword(auth, this.username, this.password);
+      console.log('Sesión iniciada:',userCredential);
+      
+      
+      //A QUE PÁGINA LLEVAREMOS? NO RECUERDO, REVISAR ESTO
+      
 
-    // Verifica si las credenciales coinciden
-    if (this.username.toLowerCase() === validUser && this.password === validPass) {
-      console.log('Inicio de sesión exitoso');
-      // Navega a la página principal o vista deseada
-      this.navCtrl.navigateForward('/programar-viaje'); 
-    } else {
-      console.log('Credenciales incorrectas');
-      alert('Usuario o contraseña incorrectos'); 
-    }
-  }
+    }catch (error){
+      console.error('error al inicar sesión',error);
+      alert('usuario o contraseña incorrecta');
+    } 
+
+    
+}
 }

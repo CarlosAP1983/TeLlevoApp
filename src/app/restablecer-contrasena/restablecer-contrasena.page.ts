@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { getAuth,sendPasswordResetEmail } from 'firebase/auth';
 
 @Component({
   selector: 'app-restablecer-contrasena',
@@ -13,14 +14,19 @@ export class RestablecerContrasenaPage {
   constructor() {}
 
   // Función para enviar el enlace de restablecimiento
-  enviarEnlace() {
-    if (this.email) {
-      // Simula el envío del enlace de restablecimiento de contraseña
-      this.successMessage = 'Se ha enviado un enlace de restablecimiento a tu correo electrónico.';
-      this.errorMessage = ''; 
-    } else {
-      this.errorMessage = 'Por favor, ingresa un correo electrónico válido.';
-      this.successMessage = ''; 
+  async enviarEnlace() {
+    
+    const auth = getAuth();
+
+    if (this.email){
+       
+      try{
+        await sendPasswordResetEmail(auth,this.email);
+        this.successMessage = 'Se ha enviado correo para restablecer contraseña';
+        this.errorMessage = '';
+      } catch (error){
+        
+      }
     }
   }
 }
