@@ -23,10 +23,9 @@ export class RegistroPage {
 
   constructor(private navCtrl: NavController, private toastCtrl: ToastController) {}
 
-  
   toggleVehiculo() {
     if (!this.tieneVehiculo) {
-      
+      //Si no tiene vehiculo, limpiaremos los campos para oscurecerlos en el scss
       this.vehiculo.patente = '';
       this.vehiculo.marca = '';
       this.vehiculo.color = '';
