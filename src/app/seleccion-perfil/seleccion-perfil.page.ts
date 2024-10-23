@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Component, OnInit } from '@angular/core';
+import { NavController, ToastController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
 
 @Component({
@@ -8,29 +8,46 @@ import { LoginService } from 'src/app/services/login.service';
   styleUrls: ['./seleccion-perfil.page.scss'],
 })
 export class SeleccionPerfilPage {
-  perfil: string = ''; 
-  nombreUsuario: string = '';
+  
+  nombreUsuario: string | null = null;
+  perfil: string | null = null;
 
   constructor(
     private navCtrl: NavController,
-    public loginSrv: LoginService) {
+    public loginSrv: LoginService,
+    private toastController: ToastController  // Inyecta el controlador de Toast
+  ) {}
 
-    this.nombreUsuario = this.loginSrv.NombreUsuario;
+  ngOnInit() {
+    this.nombreUsuario = this.loginSrv.getNombreUsuario();  // Obtiene el nombre del usuario desde el servicio
   }
 
-  //perfil
+  // Seleccionar perfil
   seleccionarPerfil(tipo: string) {
     this.perfil = tipo;
   }
 
-  //Funcion para confirmar el perfil y redirigir a la vista correspondiente
+  // Confirmar perfil y redirigir
   confirmarPerfil() {
     if (this.perfil === 'conductor') {
       this.navCtrl.navigateForward('/registro-exitoso');
     } else if (this.perfil === 'pasajero') {
       this.navCtrl.navigateForward('/registro-exitoso-pasajero');
     } else {
-      alert('Por favor, selecciona un perfil.');
+      // Mostrar Toast si no se selecciona un perfil
+      this.mostrarToast('Por favor, selecciona un perfil.');
     }
+  }
+
+  //Mostrar Toast
+  async mostrarToast(mensaje: string) {
+    const toast = await this.toastController.create({
+      message: mensaje,
+      duration: 3000,  // Duración en milisegundos
+      position: 'middle',  // Posicionarlo en el centro
+      cssClass: 'custom-toast',  // Añadir clase personalizada
+      translucent: true
+    });
+    toast.present();
   }
 }

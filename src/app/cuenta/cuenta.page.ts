@@ -1,15 +1,22 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController } from '@ionic/angular'; // Importa ToastController
+import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-cuenta',
   templateUrl: './cuenta.page.html',  // Cambia a cuenta.page.html
   styleUrls: ['./cuenta.page.scss'],
 })
+
 export class CuentaPage {  // Asegúrate de que el nombre de la clase sea CuentaPage
+  
   perfil: string = ''; // Variable para almacenar el perfil seleccionado
 
-  constructor(private navCtrl: NavController, private toastController: ToastController) {} // Añade ToastController al constructor
+  constructor(
+    private navCtrl: NavController, 
+    private toastController: ToastController,
+    private loginService: LoginService
+  ) {} // Añade ToastController al constructor
 
   // Función para seleccionar el perfil
   seleccionarPerfil(tipo: string) {
@@ -34,14 +41,19 @@ export class CuentaPage {  // Asegúrate de que el nombre de la clase sea Cuenta
 
   // Función para cerrar sesión
   async cerrarSesion() {
-    const toast = await this.toastController.create({
-      message: 'Sesión cerrada',
-      duration: 2000, // Duración del Toast en milisegundos
-      position: 'bottom' // Posición del Toast en la pantalla (puede ser 'top', 'middle' o 'bottom')
-    });
-
-    await toast.present();
-    this.navCtrl.navigateRoot('/home'); // Redirigir al inicio después de mostrar el Toast
+    try {
+      await this.loginService.logout();  // Llamamos al método logout del LoginService para cerrar sesión correctamente
+      const toast = await this.toastController.create({
+        message: 'Sesión cerrada correctamente.',
+        duration: 2000, // Duración del Toast en milisegundos
+        position: 'bottom'
+      });
+      await toast.present();
+      this.navCtrl.navigateRoot('/home');  // Redirigir al inicio después de cerrar sesión
+    } catch (error) {
+      // Mostrar mensaje de error si no se puede cerrar sesión
+      await this.mostrarToast('Error al cerrar sesión. Intenta nuevamente.');
+    }
   }
 
   // Función para mostrar un Toast personalizado
