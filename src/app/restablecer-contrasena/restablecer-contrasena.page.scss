@@ -169,3 +169,14 @@ ion-footer.custom-footer {
     margin: 0; /* Sin margen adicional */
     font-family: 'Helvetica', sans-serif; /* Fuente personalizada */
   }  
+
+ion-item ion-label {
+  --color: #000000; /* Cambia el color del texto a negro */
+  font-weight: bold;
+}
+
+ion-input.underline-input {
+  --color: #000000; /* Cambia el color del texto dentro del input a negro */
+  border-bottom: 1px solid #000000; /* Línea inferior en negro */
+  padding-bottom: 5px; /* Espacio entre el texto y la línea */
+}
