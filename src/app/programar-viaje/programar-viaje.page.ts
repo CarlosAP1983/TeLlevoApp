@@ -1,14 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, LoadingController, ToastController } from '@ionic/angular';
-
-interface Viaje {
-  origen: string;
-  destino: string;
-  hora: string;
-  fecha: string;
-  precio: string;
-  asientos: number;
-}
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 @Component({
   selector: 'app-programar-viaje',
@@ -16,11 +8,11 @@ interface Viaje {
   styleUrls: ['./programar-viaje.page.scss'],
 })
 export class ProgramarViajePage {
-  nuevoViaje: Viaje = {
+  nuevoViaje = {
     origen: '',
     destino: '',
-    hora: '',
     fecha: '',
+    hora: '',
     precio: '',
     asientos: 1
   };
@@ -34,29 +26,35 @@ export class ProgramarViajePage {
   async guardarViaje() {
     const loading = await this.loadingCtrl.create({
       message: 'Guardando datos...',
-      duration: 2000  
+      duration: 2000
     });
 
     await loading.present();
 
-    // Guardar los detalles del viaje en localStorage
-    const viajesGuardados = JSON.parse(localStorage.getItem('viajes') || '[]');
-    viajesGuardados.push(this.nuevoViaje);
-    localStorage.setItem('viajes', JSON.stringify(viajesGuardados));
+    try {
+      const db = getFirestore();
+      await addDoc(collection(db, 'viajes'), this.nuevoViaje); // Guardar viaje en Firestore
 
-    // Espera hasta que termine el loading
-    loading.onDidDismiss().then(async () => {
+      loading.dismiss();
       const toast = await this.toastCtrl.create({
         message: 'Viaje guardado exitosamente.',
-        duration: 2000,  
+        duration: 2000,
         color: 'dark',
         position: 'middle',
-        cssClass: 'custom-toast' 
+        cssClass: 'custom-toast'
       });
       await toast.present();
-      
-      // Redirigir a la vista de registro-exitoso
+
       this.navCtrl.navigateBack('/registro-exitoso');
-    });
+    } catch (error) {
+      loading.dismiss();
+      const toast = await this.toastCtrl.create({
+        message: 'Error al guardar el viaje.',
+        duration: 2000,
+        color: 'danger',
+        position: 'middle'
+      });
+      await toast.present();
+    }
   }
 }

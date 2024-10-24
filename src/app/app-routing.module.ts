@@ -21,7 +21,9 @@ const routes: Routes = [
   { path: 'cuenta', loadChildren: () => import('./cuenta/cuenta.module').then(m => m.CuentaPageModule), canActivate: [authGuard] },
   { path: 'seleccion-perfil', loadChildren: () => import('./seleccion-perfil/seleccion-perfil.module').then(m => m.SeleccionPerfilPageModule), canActivate: [authGuard] },
   { path: 'editar-perfil', loadChildren: () => import('./editar-perfil/editar-perfil.module').then(m => m.EditarPerfilPageModule), canActivate: [authGuard] },
-  
+  { path: 'gestionar-tus-rutas', loadChildren: () => import('./gestionar-tus-rutas/gestionar-tus-rutas.module').then(m => m.GestionarTusRutasPageModule), canActivate: [authGuard] },
+
+
   // Agregar más rutas según sea necesario...
 ];
 

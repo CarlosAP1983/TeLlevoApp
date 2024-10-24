@@ -4,15 +4,15 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title class="titulo" >Gestionar tus Rutas</ion-title>
+    <ion-title class="titulo">Gestionar tus Rutas</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background" [fullscreen]="true">
   <img class="imagen-rutas" src="assets/images/tus_rutas.jpg" alt="Tus Rutas" class="imagen-rutas">
 
-  <!-- Mostrar rutas guardadas -->
-  <div *ngIf="rutas.length > 0" class="rutas-container">
+  <!-- Mostrar rutas guardadas si existen -->
+  <div *ngIf="rutas.length > 0; else noRutas" class="rutas-container">
     <ion-card *ngFor="let ruta of rutas; let i = index">
       <ion-card-header>
         <ion-card-title>{{ ruta.origen }} - {{ ruta.destino }}</ion-card-title>
@@ -26,6 +26,14 @@
       </ion-card-content>
     </ion-card>
   </div>
+
+  <!-- Plantilla para mostrar mensaje cuando no hay rutas -->
+  <ng-template #noRutas>
+    <div class="no-rutas-container">
+      <p>No tienes rutas registradas en este momento.</p>
+      <ion-button expand="block" type="submit" color="success" class="boton-crear-viaje" (click)="crearNuevaRuta()">Crear Nueva Ruta</ion-button>
+    </div>
+  </ng-template>
 </ion-content>
 
 <ion-footer class="footer-estilo">
