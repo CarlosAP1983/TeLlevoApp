@@ -25,7 +25,7 @@ export class HomePage {
         await this.loginService.login(this.nombreUsuario, this.contrasena);
         this.navCtrl.navigateForward('/seleccion-perfil');
       } catch (error) {
-        // Mostrar el toast aquí en el componente
+        // Mostrar el toast en el componente
         await this.toastService.mostrarToast('Error: Usuario o contraseña incorrecta. Intenta nuevamente.');
       }
     } else {

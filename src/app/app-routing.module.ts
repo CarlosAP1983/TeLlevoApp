@@ -20,6 +20,8 @@ const routes: Routes = [
   { path: 'perfil-usuario', loadChildren: () => import('./perfil-usuario/perfil-usuario.module').then(m => m.PerfilUsuarioPageModule), canActivate: [authGuard] },
   { path: 'cuenta', loadChildren: () => import('./cuenta/cuenta.module').then(m => m.CuentaPageModule), canActivate: [authGuard] },
   { path: 'seleccion-perfil', loadChildren: () => import('./seleccion-perfil/seleccion-perfil.module').then(m => m.SeleccionPerfilPageModule), canActivate: [authGuard] },
+  { path: 'editar-perfil', loadChildren: () => import('./editar-perfil/editar-perfil.module').then(m => m.EditarPerfilPageModule), canActivate: [authGuard] },
+  
   // Agregar más rutas según sea necesario...
 ];
 

@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
+import { ToastService } from 'src/app/services/toast.service';  // Importar el servicio de Toast
 
 @Component({
   selector: 'app-registro',
@@ -10,10 +11,9 @@ import { getFirestore, doc, setDoc } from 'firebase/firestore';
 })
 export class RegistroPage {
   name: string = '';
-  email: string = ''; 
-  phone: string = ''; 
-  username: string = '';
-  password: string = '';
+  emailPrefix: string = '';  // El usuario ingresa solo el prefijo del correo
+  phoneSuffix: string = '';  // El usuario ingresa solo el número sin el prefijo
+  password: string = ''; 
   tieneVehiculo: boolean = false; 
   vehiculo = {
     patente: '',
@@ -21,11 +21,13 @@ export class RegistroPage {
     color: ''
   };
 
-  constructor(private navCtrl: NavController, private toastCtrl: ToastController) {}
+  constructor(
+    private navCtrl: NavController, 
+    private toastService: ToastService  // Inyectar el servicio de Toast
+  ) {}
 
   toggleVehiculo() {
     if (!this.tieneVehiculo) {
-      //Si no tiene vehiculo, limpiaremos los campos para oscurecerlos en el scss
       this.vehiculo.patente = '';
       this.vehiculo.marca = '';
       this.vehiculo.color = '';
@@ -33,50 +35,54 @@ export class RegistroPage {
   }
 
   async onRegister() {
-    // Validar que los campos no estén vacíos
-    if (!this.name || !this.email || !this.phone || !this.username || !this.password) {
-      this.showToast('Todos los campos son obligatorios', 'danger');
+    if (!this.name || !this.emailPrefix || !this.phoneSuffix || !this.password) {
+      this.toastService.mostrarToast('Todos los campos son obligatorios');
+      return;
+    }
+  
+    if (this.phoneSuffix.length !== 8) {
+      this.toastService.mostrarToast('El número de teléfono debe tener 8 dígitos');
+      return;
+    }
+  
+    if (this.password.length !== 6 || !/[A-Za-z]/.test(this.password[0])) {
+      this.toastService.mostrarToast('La contraseña debe tener 6 caracteres y comenzar con una letra');
       return;
     }
 
+    const email = `${this.emailPrefix}@duocuc.cl`; // Concatenar el dominio con el prefijo
+  
     try {
-      // Registrar al usuario en Firebase Authentication
       const auth = getAuth();
-      const userCredential = await createUserWithEmailAndPassword(auth, this.email, this.password);
+      const userCredential = await createUserWithEmailAndPassword(auth, email, this.password);
       const user = userCredential.user;
-
-      // Guardar los datos del usuario en Firestore
+  
       const db = getFirestore();
-      await setDoc(doc(db, 'users', user.uid), {
+      
+      // Construir los datos del usuario con los datos del vehículo solo si tiene vehículo
+      const userData: any = {
         name: this.name,
-        email: this.email,
-        phone: this.phone,
-        username: this.username,
-        vehiculo: this.tieneVehiculo ? this.vehiculo : null,
-        perfil: ''
-      });
-
-      this.showToast('Registro exitoso. Redirigiendo...', 'success');
+        email: email,
+        phone: `+56 9 ${this.phoneSuffix}`,
+        vehiculo: this.tieneVehiculo ? {
+          patente: this.vehiculo.patente,
+          marca: this.vehiculo.marca,
+          color: this.vehiculo.color
+        } : null
+      };
+  
+      // Guardar los datos del usuario en Firestore
+      await setDoc(doc(db, 'users', user.uid), userData);
+  
+      this.toastService.mostrarToast('Registro exitoso. Redirigiendo...');
       this.navCtrl.navigateForward('/seleccion-perfil');
-
+  
     } catch (error) {
-      console.error('Error en el registro:', error);
-      this.showToast('Error en el registro', 'danger');
+      this.toastService.mostrarToast('Error en el registro');
     }
   }
 
-  // Método para mostrar un toast
-  async showToast(message: string, color: 'success' | 'danger') {
-    const toast = await this.toastCtrl.create({
-      message: message,
-      duration: 2000,
-      position: 'middle',
-      color: color
-    });
-    await toast.present();
-  }
-
   goHome() {
-    this.navCtrl.navigateRoot('/home'); 
+    this.navCtrl.navigateRoot('/home');
   }
 }

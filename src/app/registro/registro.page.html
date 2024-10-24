@@ -18,19 +18,19 @@
       </ion-item>
       <ion-item lines="full" class="form-item">
         <ion-label position="fixed">• Correo Electrónico:</ion-label>
-        <ion-input type="email" required [(ngModel)]="email" name="email"></ion-input>
+        <ion-input type="text" required [(ngModel)]="emailPrefix" name="emailPrefix" ></ion-input>
+        <ion-label class="email-dominio" readonly>&#64;duocuc.cl</ion-label> <!-- Usar &#64; para el símbolo @ -->
       </ion-item>
+      
     </div>
 
     <!--Campo Numero de Telefono y Usuario-->
     <div class="form-group">
       <ion-item lines="full" class="form-item">
         <ion-label position="fixed">• Número de Teléfono:</ion-label>
-        <ion-input type="tel" required [(ngModel)]="phone" name="phone"></ion-input>
-      </ion-item>
-      <ion-item lines="full" class="form-item">
-        <ion-label position="fixed">• Usuario:</ion-label>
-        <ion-input type="text" required [(ngModel)]="username" name="username"></ion-input>
+        <ion-input type="tel" required [(ngModel)]="phoneSuffix" name="phoneSuffix" inputmode="tel">
+          <div  class="fono-tipo" slot="start">+56 9</div> <!-- Mostrar el prefijo de teléfono fijo -->
+        </ion-input>
       </ion-item>
     </div>
 
@@ -47,7 +47,7 @@
     <div class="form-group">
       <ion-item lines="full" class="form-item" [ngClass]="{'disabled-item': !tieneVehiculo}">
         <ion-label position="fixed">• Patente:</ion-label>
-        <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.patente" name="patente"></ion-input>
+        <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.patente" name="patente" placeholder="Ejemplo: (BB•BB•12)"></ion-input>
       </ion-item>
       <ion-item lines="full" class="form-item" [ngClass]="{'disabled-item': !tieneVehiculo}">
         <ion-label position="fixed">• Marca:</ion-label>

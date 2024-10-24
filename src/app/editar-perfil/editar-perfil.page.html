@@ -1,6 +1,5 @@
 <ion-header [translucent]="true" class="custom-header">
   <ion-toolbar class="custom-toolbar">
-    <!--Retroceder a la vista anterior-->
     <ion-buttons slot="start">
       <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
@@ -21,24 +20,25 @@
       <ion-input [(ngModel)]="telefono" type="tel"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-label position="floating">• Usuario:</ion-label>
-      <ion-input [(ngModel)]="usuario" type="text"></ion-input>
-    </ion-item>
-    <ion-item>
       <ion-label position="floating">• Email:</ion-label>
       <ion-input [(ngModel)]="email" type="email"></ion-input>
+    </ion-item>
+
+    <!-- Sección para los datos del vehículo si el usuario tiene uno -->
+    <ion-item *ngIf="tieneVehiculo">
+      <ion-label position="floating">• Patente del Vehículo:</ion-label>
+      <ion-input [(ngModel)]="vehiculo.patente" type="text"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="tieneVehiculo">
+      <ion-label position="floating">• Marca del Vehículo:</ion-label>
+      <ion-input [(ngModel)]="vehiculo.marca" type="text"></ion-input>
+    </ion-item>
+    <ion-item *ngIf="tieneVehiculo">
+      <ion-label position="floating">• Color del Vehículo:</ion-label>
+      <ion-input [(ngModel)]="vehiculo.color" type="text"></ion-input>
     </ion-item>
   </ion-list>
   
   <!--Botonera-->
   <ion-button expand="block" class="boton-azul" (click)="guardarCambios()">Guardar Cambios</ion-button>
-  <ion-button expand="block" color="danger" class="delete-button" (click)="eliminarCuenta()">Elimina tu Cuenta</ion-button>
 </ion-content>
-
-<ion-footer class="custom-footer">
-  <ion-toolbar class="footer-toolbar">
-    <div class="footer-message">
-      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
-    </div>
-  </ion-toolbar>
-</ion-footer>
