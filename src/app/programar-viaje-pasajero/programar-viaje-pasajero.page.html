@@ -13,7 +13,10 @@
   <!-- Input para ingresar dirección de destino -->
   <ion-item>
     <ion-icon slot="start" name="location-outline"></ion-icon>
-    <ion-input placeholder="Ingresa tu destino" clearInput></ion-input>
+    <ion-input [(ngModel)]="direccionDestino" placeholder="Ingresa tu destino" clearInput></ion-input>
+    <ion-button slot="end" fill="clear" (click)="buscarDireccionDestino()">
+      <ion-icon slot="icon-only" name="search-outline"></ion-icon>
+    </ion-button>
   </ion-item>
 
   <h2 class="sub-titulo">¿Dónde vas a tomarlo?</h2>
@@ -21,8 +24,8 @@
   <!-- Input para ingresar dirección de origen con opción de GPS -->
   <ion-item>
     <ion-icon slot="start" name="navigate-outline"></ion-icon>
-    <ion-input placeholder="Ingresa tu ubicación" clearInput style="padding-right: 40px;"></ion-input>
-    <ion-button slot="end" fill="clear" style="margin-left: -40px;">
+    <ion-input [(ngModel)]="direccionOrigen" placeholder="Ingresa tu ubicación" clearInput style="padding-right: 40px;"></ion-input>
+    <ion-button slot="end" fill="clear" (click)="obtenerUbicacionActual()" style="margin-left: -40px;">
       <ion-icon slot="icon-only" name="locate-outline"></ion-icon>
     </ion-button>
   </ion-item>
@@ -31,7 +34,7 @@
   <div id="map" style="height: 300px; margin-top: 20px;"></div>
 
   <!-- Botón para crear ruta -->
-  <ion-button expand="block" color="success" class="boton-crear">Crear Ruta</ion-button>
+  <ion-button expand="block" color="success" class="boton-crear" (click)="guardarDatos()">Crear Ruta</ion-button>
 </ion-content>
 
 <ion-footer class="custom-footer">
