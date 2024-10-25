@@ -1,4 +1,4 @@
-<ion-header [translucent]="true" class="custom-header">
+<ion-header [translucent]="true" class="custom-header"> 
   <ion-toolbar class="custom-toolbar">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
@@ -9,28 +9,26 @@
 
 <ion-content class="background ion-padding">
   <h2 class="titulo">Crea una solicitud de viaje</h2>
-  <form (ngSubmit)="guardarViaje()">
-    <!-- Campos de la ruta -->
-    <ion-item>
-      <ion-label position="stacked">• Origen</ion-label>
-      <ion-input [(ngModel)]="nuevoViaje.origen" name="origen"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">• Destino</ion-label>
-      <ion-input [(ngModel)]="nuevoViaje.destino" name="destino"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">• Fecha de Salida</ion-label>
-      <ion-input type="date" [(ngModel)]="nuevoViaje.fecha" name="fecha" placeholder="DD/MM/YYYY"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label position="stacked">• Hora de Salida</ion-label>
-      <ion-input type="time" [(ngModel)]="nuevoViaje.hora" name="hora" placeholder="HH:mm"></ion-input>
-    </ion-item>
+  
+  <ion-item>
+    <ion-label position="stacked">• Origen</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">• Destino</ion-label>
+    <ion-input></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">• Fecha de Salida</ion-label>
+    <ion-input type="date" placeholder="DD/MM/YYYY"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label position="stacked">• Hora de Salida</ion-label>
+    <ion-input type="time" placeholder="HH:mm"></ion-input>
+  </ion-item>
 
-    <!-- Botón para guardar viaje -->
-    <ion-button expand="block" type="submit" color="success" class="guardar-viaje">Crear Solicitud</ion-button>
-  </form>
+  <!-- Botón para crear solicitud de viaje sin funcionalidad-->
+  <ion-button expand="block" color="success" class="guardar-viaje">Crear Solicitud</ion-button>
 </ion-content>
 
 <ion-footer class="custom-footer">

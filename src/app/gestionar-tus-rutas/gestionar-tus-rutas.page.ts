@@ -57,5 +57,7 @@ export class GestionarTusRutasPage {
 
   // Método para cancelar un viaje
   async cancelTrip(index: number) {
-  }
+    const rutaParaCancelar = this.rutas[index];
+    this.navCtrl.navigateForward('/motivo-cancelacion', { state: { ruta: rutaParaCancelar } });
+}
 }
