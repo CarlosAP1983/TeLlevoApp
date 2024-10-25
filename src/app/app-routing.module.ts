@@ -22,9 +22,9 @@ const routes: Routes = [
   { path: 'seleccion-perfil', loadChildren: () => import('./seleccion-perfil/seleccion-perfil.module').then(m => m.SeleccionPerfilPageModule), canActivate: [authGuard] },
   { path: 'editar-perfil', loadChildren: () => import('./editar-perfil/editar-perfil.module').then(m => m.EditarPerfilPageModule), canActivate: [authGuard] },
   { path: 'gestionar-tus-rutas', loadChildren: () => import('./gestionar-tus-rutas/gestionar-tus-rutas.module').then(m => m.GestionarTusRutasPageModule), canActivate: [authGuard] },
+  { path: 'detalle-viaje', loadChildren: () => import('./detalle-viaje/detalle-viaje.module').then(m => m.DetalleViajePageModule), canActivate: [authGuard] },
+  { path: 'programar-viaje-pasajero', loadChildren: () => import('./programar-viaje-pasajero/programar-viaje-pasajero.module').then(m => m.ProgramarViajePasajeroPageModule), canActivate: [authGuard] },
 
-
-  // Agregar más rutas según sea necesario...
 ];
 
 @NgModule({

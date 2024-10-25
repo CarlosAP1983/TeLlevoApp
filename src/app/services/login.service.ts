@@ -1,39 +1,39 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { NavController } from '@ionic/angular';  // Inyectar NavController
-import { ToastService } from './toast.service';  // Inyectar el servicio de Toast
+import { getAuth, setPersistence, browserLocalPersistence } from "firebase/auth";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-
   usuarioActual: any = null;
 
-  constructor(
-    private afAuth: AngularFireAuth, 
-    private navCtrl: NavController,  // Inyectar NavController
-    private toastService: ToastService  // Inyectar el servicio de Toast
-  ) {
-    // Observa el estado de autenticación
+  constructor(private afAuth: AngularFireAuth) {
     this.afAuth.authState.subscribe(user => {
-      this.usuarioActual = user; 
+      this.usuarioActual = user;
     });
+  }
+
+  // Observable público para el estado de autenticación
+  get authState() {
+    return this.afAuth.authState;
+  }
+
+  // Configura la persistencia de sesión en localStorage
+  async setPersistence() {
+    const auth = getAuth();
+    await setPersistence(auth, browserLocalPersistence);
   }
 
   // Método para el login
   async login(email: string, password: string) {
-    try {
-      const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
-      return userCredential;
-    } catch (error: any) {
-      throw error;  // Lanzar el error para que se capture en el componente
-    }
+    await this.setPersistence();
+    return this.afAuth.signInWithEmailAndPassword(email, password);
   }
 
-  // Obtener el nombre del usuario autenticado
+  // Método para obtener el nombre del usuario autenticado
   getNombreUsuario(): string | null {
-    return this.usuarioActual ? this.usuarioActual.email : null;
+    return this.usuarioActual ? this.usuarioActual.email : null;  // Devuelve el email como nombre de usuario
   }
 
   // Verificar si el usuario está logueado
@@ -41,14 +41,8 @@ export class LoginService {
     return this.usuarioActual !== null;
   }
 
-  // Método para cerrar sesión
+  // Cerrar sesión
   async logout() {
-    try {
-      await this.afAuth.signOut();
-      this.usuarioActual = null;
-      this.navCtrl.navigateRoot('/home', { replaceUrl: true });  // Redirigir al inicio
-    } catch (error) {
-      throw error;  // Lanza el error para que el componente lo maneje
-    }
+    return this.afAuth.signOut();
   }
 }

@@ -6,7 +6,7 @@
         <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
       </ion-button>
     </ion-buttons>
-    <ion-title class="titulo-header">Pasajero</ion-title>
+    <ion-title class="titulo-header">Ingresaste como Pasajero</ion-title>
     <ion-buttons slot="end">
       <ion-button class="letra" (click)="goToUserProfile()">
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
@@ -16,8 +16,8 @@
 </ion-header>
 
 <ion-content class="background ion-padding">
-  <h2 class="titulo">¡Bienvenido a TeLlevoApp!</h2><br>
-  <h1 class="sub-titulo">¡Vamos! Revisa si hay viajes disponibles</h1>
+
+  <h2 class="sub-titulo">¡Vamos! Revisa si hay viajes disponibles o crea tu propia solicitud</h2><br>
 
   <!-- Contenedor para centrar el spinner -->
   <div class="spinner-container" *ngIf="mostrarSpinner">
@@ -26,6 +26,7 @@
 
   <!-- Cuadro de rutas disponibles -->
   <ion-list *ngIf="!mostrarSpinner">
+    <p><strong>VIAJES DISPONIBLES:</strong></p>
     <ion-item *ngFor="let ruta of rutasDisponibles" (click)="selectRuta(ruta)" [color]="rutaSeleccionada === ruta ? 'secondary' : ''">
       <ion-label>
         <h2><strong>ORIGEN:</strong> {{ ruta.origen }} <strong>DESTINO:</strong> {{ ruta.destino }}</h2>
@@ -35,13 +36,15 @@
         <p><strong>Asientos Disponibles:</strong> {{ ruta.AsientosDisponibles }}</p>
       </ion-label>
     </ion-item>
-    
-  </ion-list>
+  </ion-list><br>
 
   <!-- Botón para ver detalles del viaje seleccionado -->
   <ion-button expand="block" class="boton-azul" (click)="verDetallesViaje()">Ver datos del viaje</ion-button>
   <ion-button expand="block" color="success" class="boton-recargar" (click)="recargarRutas()">Recargar</ion-button>
-<br>
+  <br>
+  <!-- Botón para crear una nueva solicitud de viaje -->
+  <ion-button expand="block" class="boton-azul" (click)="crearSolicitud()">Crear Solicitud de Viaje</ion-button>
+  <br>
 </ion-content>
 
 <ion-footer class="custom-footer">

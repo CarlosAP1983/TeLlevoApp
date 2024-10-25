@@ -1,0 +1,43 @@
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo-header">Crear Solicitud de Viaje</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background ion-padding">
+  <h2 class="sub-titulo">¿A dónde vamos?</h2>
+
+  <!-- Input para ingresar dirección de destino -->
+  <ion-item>
+    <ion-icon slot="start" name="location-outline"></ion-icon>
+    <ion-input placeholder="Ingresa tu destino" clearInput></ion-input>
+  </ion-item>
+
+  <h2 class="sub-titulo">¿Dónde vas a tomarlo?</h2>
+
+  <!-- Input para ingresar dirección de origen con opción de GPS -->
+  <ion-item>
+    <ion-icon slot="start" name="navigate-outline"></ion-icon>
+    <ion-input placeholder="Ingresa tu ubicación" clearInput style="padding-right: 40px;"></ion-input>
+    <ion-button slot="end" fill="clear" style="margin-left: -40px;">
+      <ion-icon slot="icon-only" name="locate-outline"></ion-icon>
+    </ion-button>
+  </ion-item>
+
+  <!-- Mapa con la ruta -->
+  <div id="map" style="height: 300px; margin-top: 20px;"></div>
+
+  <!-- Botón para crear ruta -->
+  <ion-button expand="block" color="success" class="boton-crear">Crear Ruta</ion-button>
+</ion-content>
+
+<ion-footer class="custom-footer">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

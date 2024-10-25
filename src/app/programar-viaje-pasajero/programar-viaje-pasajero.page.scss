@@ -1,0 +1,137 @@
+/* Estilo para los botones */
+ion-button {
+  width: 70%; 
+  max-width: 400px;
+  margin: 10px auto;
+  font-family: 'Helvetica', sans-serif;
+  font-size: larger;
+  font-weight: bold;
+  height: 50px; 
+  display: block; 
+  text-align: center; 
+  border-radius: 25px; 
+  --background: none;
+  --color: inherit;
+}
+
+/* Estilos especiales para el botón de Crear Ruta */
+.boton-crear {
+  width: 70%;
+  max-width: 300px;
+  margin: 20px auto;
+  font-size: 1.2rem;
+  font-weight: bold;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  background: linear-gradient(145deg, #00ff00, #00cc00);
+  box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5);
+  color: white;
+}
+
+.boton-crear:hover {
+  background: linear-gradient(145deg, #00cc00, #009900);
+  transform: scale(1.05);
+}
+
+.boton-crear:active, .boton-crear:focus {
+  background: linear-gradient(145deg, #00cc00, #009900);
+}
+
+/* Alinear el botón de ubicación a la derecha */
+ion-item {
+  display: flex;
+  align-items: center;
+
+  ion-input {
+      flex-grow: 1; /* Hacer que el input ocupe el mayor espacio posible */
+  }
+
+  ion-button {
+      margin-left: auto; /* Alinear el botón a la derecha */
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+
+  ion-icon {
+      font-size: 20px; /* Ajusta el tamaño del ícono si es necesario */
+  }
+}
+
+/* Estilo para el header principal */
+ion-toolbar.custom-toolbar {
+  --background: #B5B8BF; 
+  color: var(--ion-color-primary-contrast); 
+  text-align: center;
+  padding: 0 10px; 
+  height: 44px; 
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+}
+
+ion-back-button.letra {
+  font-weight: bold;
+}
+
+ion-title.titulo-header {
+  --color: #2F2E2E;
+  font-size: 1rem; 
+  flex-grow: 1; 
+  text-align: center;
+}
+
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+  --background: #09184D; 
+  padding: 0; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 10; 
+}
+
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #09184D;
+  padding: 0; 
+  text-align: center; 
+  color: var(--ion-color-primary-contrast); 
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: var(--ion-color-primary-contrast); 
+  font-size: 0.9rem; 
+  margin: 0; 
+  font-family: 'Helvetica', sans-serif; 
+}
+
+/* Estilo para el contenido */
+ion-content.background {
+  --background: #EEF1FB; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  flex-grow: 1; 
+  margin: 0; 
+  overflow-y: auto; 
+  height: calc(100vh - 50px); 
+  box-sizing: border-box; 
+}
+/* Ajuste del botón flotante */
+ion-item ion-button[slot="end"] {
+  margin-left: -40px; /* Ajustar la posición del botón */
+}
+/* Ajuste para que el input tenga espacio para el botón flotante */
+ion-item ion-input {
+  padding-right: 40px; /* Añadir espacio para el botón a la derecha */
+}
