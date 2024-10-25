@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { NavController } from '@ionic/angular';  // Inyectar NavController
-import { ToastService } from './toast.service';  // Inyectar el servicio de Toast
+import { NavController } from '@ionic/angular';
+import { ToastService } from './toast.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class LoginService {
 
   constructor(
     private afAuth: AngularFireAuth, 
-    private navCtrl: NavController,  // Inyectar NavController
-    private toastService: ToastService  // Inyectar el servicio de Toast
+    private navCtrl: NavController,  
+    private toastService: ToastService  
   ) {
     // Observa el estado de autenticación
     this.afAuth.authState.subscribe(user => {
@@ -27,7 +27,7 @@ export class LoginService {
       const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
       return userCredential;
     } catch (error: any) {
-      throw error;  // Lanzar el error para que se capture en el componente
+      throw error;
     }
   }
 
@@ -36,19 +36,14 @@ export class LoginService {
     return this.usuarioActual ? this.usuarioActual.email : null;
   }
 
-  // Verificar si el usuario está logueado
-  isLoggedIn(): boolean {
-    return this.usuarioActual !== null;
-  }
-
   // Método para cerrar sesión
   async logout() {
     try {
       await this.afAuth.signOut();
       this.usuarioActual = null;
-      this.navCtrl.navigateRoot('/home', { replaceUrl: true });  // Redirigir al inicio
+      this.navCtrl.navigateRoot('/home', { replaceUrl: true });
     } catch (error) {
-      throw error;  // Lanza el error para que el componente lo maneje
+      throw error;
     }
   }
 }
