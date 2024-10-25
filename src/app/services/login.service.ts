@@ -1,29 +1,37 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { NavController } from '@ionic/angular';  // Inyectar NavController
+import { ToastService } from './toast.service';  // Inyectar el servicio de Toast
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
+
   usuarioActual: any = null;
 
-  constructor(private afAuth: AngularFireAuth) {
+  constructor(
+    private afAuth: AngularFireAuth, 
+    private navCtrl: NavController,  // Inyectar NavController
+    private toastService: ToastService  // Inyectar el servicio de Toast
+  ) {
+    // Observa el estado de autenticación
     this.afAuth.authState.subscribe(user => {
-      this.usuarioActual = user;
+      this.usuarioActual = user; 
     });
   }
 
-  // Observable público para el estado de autenticación
-  get authState() {
-    return this.afAuth.authState;
-  }
-
-  // Método para el login sin configurar persistencia
+  // Método para el login
   async login(email: string, password: string) {
-    return this.afAuth.signInWithEmailAndPassword(email, password);
+    try {
+      const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
+      return userCredential;
+    } catch (error: any) {
+      throw error;  // Lanzar el error para que se capture en el componente
+    }
   }
 
-  // Método para obtener el nombre del usuario autenticado
+  // Obtener el nombre del usuario autenticado
   getNombreUsuario(): string | null {
     return this.usuarioActual ? this.usuarioActual.email : null;
   }
@@ -33,8 +41,14 @@ export class LoginService {
     return this.usuarioActual !== null;
   }
 
-  //Cerrar sesión
+  // Método para cerrar sesión
   async logout() {
-    return this.afAuth.signOut();
+    try {
+      await this.afAuth.signOut();
+      this.usuarioActual = null;
+      this.navCtrl.navigateRoot('/home', { replaceUrl: true });  // Redirigir al inicio
+    } catch (error) {
+      throw error;  // Lanza el error para que el componente lo maneje
+    }
   }
 }

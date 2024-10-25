@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ToastController, LoadingController } from '@ionic/angular';
+import { Component } from '@angular/core';
+import { NavController, LoadingController, ToastController } from '@ionic/angular';
 import { Firestore, collection, addDoc } from '@angular/fire/firestore';
 
 @Component({
@@ -7,60 +7,52 @@ import { Firestore, collection, addDoc } from '@angular/fire/firestore';
   templateUrl: './programar-viaje-pasajero.page.html',
   styleUrls: ['./programar-viaje-pasajero.page.scss'],
 })
-export class ProgramarViajePasajeroPage implements OnInit {
-
-  direccionDestino: string = '';
-  direccionOrigen: string = '';
+export class ProgramarViajePasajeroPage {
+  nuevoViaje: any = {
+    origen: '',
+    destino: '',
+    hora: '',
+    fecha: ''
+  };
 
   constructor(
-    private toastController: ToastController,
-    private firestore: Firestore,
-    private loadingCtrl: LoadingController
+    private navCtrl: NavController,
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController,
+    private firestore: Firestore  // Conexión a Firestore
   ) {}
 
-  ngOnInit() {}
-
-  // Método para obtener la ubicación actual del usuario (placeholder)
-  async obtenerUbicacionActual() {
-    this.mostrarToast('Función de GPS aún no implementada', 'primary');
-  }
-
-  // Método para guardar los datos en Firestore
-  async guardarDatos() {
-    if (!this.direccionDestino || !this.direccionOrigen) {
-      this.mostrarToast('Por favor, completa ambas direcciones', 'warning');
-      return;
-    }
-
+  async guardarViaje() {
     const loading = await this.loadingCtrl.create({
-      message: 'Guardando ruta...',
+      message: 'Guardando solicitud...',
+      duration: 2000  
     });
+
     await loading.present();
 
     try {
-      const viajesCollection = collection(this.firestore, 'rutasPasajeros');
-      await addDoc(viajesCollection, {
-        destino: this.direccionDestino,
-        origen: this.direccionOrigen,
-        fecha: new Date().toISOString(),
-      });
+      const viajesCollection = collection(this.firestore, 'solicitudesViajes');
+      await addDoc(viajesCollection, this.nuevoViaje);
 
-      this.mostrarToast('Ruta guardada con éxito', 'success');
-    } catch (error) {
-      this.mostrarToast('Error al guardar la ruta', 'danger');
-    } finally {
       await loading.dismiss();
+      const toast = await this.toastCtrl.create({
+        message: 'Solicitud creada exitosamente.',
+        duration: 2000,
+        color: 'success',
+        position: 'middle'
+      });
+      await toast.present();
+      
+      this.navCtrl.navigateBack('/registro-exitoso-pasajero');
+    } catch (error) {
+      await loading.dismiss();
+      const toast = await this.toastCtrl.create({
+        message: 'Error al crear la solicitud.',
+        duration: 2000,
+        color: 'danger',
+        position: 'middle'
+      });
+      await toast.present();
     }
-  }
-
-  // Método para mostrar toasts (notificaciones)
-  async mostrarToast(message: string, color: string) {
-    const toast = await this.toastController.create({
-      message: message,
-      duration: 2000,
-      color: color,
-      position: 'top',
-    });
-    await toast.present();
   }
 }
