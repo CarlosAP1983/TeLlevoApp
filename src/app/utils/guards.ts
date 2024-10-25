@@ -4,7 +4,6 @@ import { Router } from "@angular/router";
 import { map } from 'rxjs/operators';
 import { ToastController } from '@ionic/angular';
 
-
 // authGuard para proteger rutas de usuarios autenticados
 export const authGuard = () => {
   const loginService = inject(LoginService);

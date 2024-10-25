@@ -135,3 +135,25 @@ ion-item ion-button[slot="end"] {
 ion-item ion-input {
   padding-right: 40px; /* Añadir espacio para el botón a la derecha */
 }
+
+#map {
+  height: 100%;
+  min-height: 500px; // Asegura que el mapa tenga al menos 500px de alto
+  width: 100%;
+}
+
+ion-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  height: 100%;
+}
+
+ion-header, ion-footer {
+  flex-shrink: 0;
+}
+
+ion-content {
+  flex-grow: 1;
+}
+

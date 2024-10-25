@@ -16,3 +16,4 @@ Dependencias para Api:
 # para el manejo de los mapas
 npm install leaflet
 npm install --save @types/leaflet
+npm install axios

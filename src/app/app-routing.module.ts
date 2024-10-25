@@ -15,7 +15,7 @@ const routes: Routes = [
   // Rutas protegidas con authGuard (solo accesibles para usuarios autenticados)
   { path: 'programar-viaje', loadChildren: () => import('./programar-viaje/programar-viaje.module').then(m => m.ProgramarViajePageModule), canActivate: [authGuard] },
   { path: 'registro-exitoso', loadChildren: () => import('./registro-exitoso/registro-exitoso.module').then(m => m.RegistroExitosoPageModule), canActivate: [authGuard] },
-  { path: 'registro-exitoso-pasajero', loadChildren: () => import('./registro-exitoso-pasajero/registro-exitoso-pasajero.module').then(m => m.RegistroExitosoPasajeroPageModule), canActivate: [authGuard] },
+  { path: 'registro-exitoso-pasajero', loadChildren: () => import('./registro-exitoso-pasajero/registro-exitoso-pasajero.module').then(m => m.RegistroExitosoPasajeroPageModule) },
   { path: 'esperando-pasajeros', loadChildren: () => import('./esperando-pasajeros/esperando-pasajeros.module').then(m => m.EsperandoPasajerosPageModule), canActivate: [authGuard] },
   { path: 'perfil-usuario', loadChildren: () => import('./perfil-usuario/perfil-usuario.module').then(m => m.PerfilUsuarioPageModule), canActivate: [authGuard] },
   { path: 'cuenta', loadChildren: () => import('./cuenta/cuenta.module').then(m => m.CuentaPageModule), canActivate: [authGuard] },
@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'editar-perfil', loadChildren: () => import('./editar-perfil/editar-perfil.module').then(m => m.EditarPerfilPageModule), canActivate: [authGuard] },
   { path: 'gestionar-tus-rutas', loadChildren: () => import('./gestionar-tus-rutas/gestionar-tus-rutas.module').then(m => m.GestionarTusRutasPageModule), canActivate: [authGuard] },
   { path: 'detalle-viaje', loadChildren: () => import('./detalle-viaje/detalle-viaje.module').then(m => m.DetalleViajePageModule), canActivate: [authGuard] },
-  { path: 'programar-viaje-pasajero', loadChildren: () => import('./programar-viaje-pasajero/programar-viaje-pasajero.module').then(m => m.ProgramarViajePasajeroPageModule), canActivate: [authGuard] },
+  { path: 'programar-viaje-pasajero', loadChildren: () => import('./programar-viaje-pasajero/programar-viaje-pasajero.module').then(m => m.ProgramarViajePasajeroPageModule) },
 
 ];
 
