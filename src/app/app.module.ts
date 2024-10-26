@@ -11,8 +11,9 @@ import { Capacitor } from '@capacitor/core';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; // Importa el módulo de Firestore
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage'; 
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -38,7 +39,8 @@ if (!Capacitor.isNativePlatform()) {
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
-    AngularFirestoreModule // Añade Firestore aquí
+    AngularFirestoreModule,
+    AngularFireStorageModule 
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
