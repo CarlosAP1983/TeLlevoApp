@@ -60,8 +60,14 @@ export class GestionarTusRutasPage {
     }
   }
 
-  selectRoute(index: number) {
-    this.selectedIndex = index;
+  toggleRoute(index: number) {
+    if (this.selectedIndex === index) {
+      // Cierra la ruta si está abierta
+      this.selectedIndex = null;
+    } else {
+      // Abre la ruta seleccionada y cierra cualquier otra
+      this.selectedIndex = index;
+    }
   }
 
   crearNuevaRuta() {

@@ -212,39 +212,22 @@ ion-button {
   box-shadow: none;
 }
 
-/* Asegura que los botones estén en una fila separada */
 .boton-container {
-  margin-top: 10px;
+  display: flex; /* Coloca los botones en fila */
+  justify-content: space-between; /* Espacio entre los botones */
+  gap: 10px; /* Espacio entre botones */
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
 }
 
-/* Botones centrados y ocupando el ancho completo */
-.boton-editar-viaje,
-.boton-cancelar-viaje {
-  width: 100%;
-  max-width: none;
-  margin-bottom: 10px;
+ion-item.selected .boton-container {
+  max-height: 60px; /* Ajusta la altura para mostrar los botones */
 }
 
-.scroll-container {
-  max-height: 120px; /* Limita la altura visible */
-  overflow-y: auto; /* Activa el desplazamiento vertical */
-  margin-bottom: 10px;
-}
-
-/* Personalización de la barra de desplazamiento */
-.scroll-container::-webkit-scrollbar {
-  width: 8px;
-}
-
-.scroll-container::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.scroll-container::-webkit-scrollbar-thumb {
-  background: #c71c1c;
-  border-radius: 4px;
-}
-
-.scroll-container::-webkit-scrollbar-thumb:hover {
-  background: #a30e0e;
+.boton-editar-viaje, .boton-cancelar-viaje {
+  flex: 1; /* Ambos botones ocupan la misma cantidad de espacio */
+  text-align: center;
+  height: 40px; /* Ajusta la altura de los botones */
+  border-radius: 20px;
 }
