@@ -18,3 +18,4 @@ import { ContactoChoferPage } from './contacto-chofer.page';
   declarations: [ContactoChoferPage]
 })
 export class ContactoChoferPageModule {}
+

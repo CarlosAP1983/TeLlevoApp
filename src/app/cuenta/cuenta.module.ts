@@ -16,3 +16,4 @@ import { CuentaPage } from './cuenta.page';
   declarations: [CuentaPage]
 })
 export class CuentaPageModule {}
+

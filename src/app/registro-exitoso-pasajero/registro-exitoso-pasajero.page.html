@@ -18,31 +18,63 @@
 <ion-content class="background ion-padding">
   <h2 class="titulo">¡Bienvenido a TeLlevoApp!</h2><br>
   <h1 class="sub-titulo">¡Vamos! Revisa si hay viajes disponibles o crea tu propia solicitud</h1>
+  <br>
 
-  <!-- Contenedor para centrar el spinner -->
+  <!-- Contenedor para el spinner -->
   <div class="spinner-container" *ngIf="mostrarSpinner">
     <ion-spinner name="lines" class="spinner-grande"></ion-spinner>
   </div>
 
-  <!-- Cuadro de rutas disponibles -->
-  <ion-list *ngIf="!mostrarSpinner">
-    <ion-item *ngFor="let ruta of rutasDisponibles" (click)="selectRuta(ruta)" [color]="rutaSeleccionada === ruta ? 'secondary' : ''">
-      <ion-label>
-        <h2><strong>ORIGEN:</strong> {{ ruta.origen }} <strong>DESTINO:</strong> {{ ruta.destino }}</h2>
-        <p><strong>Precio:</strong> {{ ruta.precio }}</p>
-        <p><strong>Conductor:</strong> {{ ruta.conductor }}</p>
-        <p><strong>Hora:</strong> {{ ruta.hora }}</p>
-        <p><strong>Asientos Disponibles:</strong> {{ ruta.AsientosDisponibles }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+  <h4><strong>Viajes Disponibles</strong></h4>
+  <!-- Lista de rutas disponibles con scroll -->
+  <div class="scroll-container">
+    <ion-list *ngIf="!mostrarSpinner">
+      <ion-item *ngFor="let ruta of rutasDisponibles" (click)="selectRuta(ruta)" [color]="rutaSeleccionada === ruta ? 'secondary' : ''">
+        <ion-label>
+          <div class="origen-destino">
+            <h2><strong>ORIGEN:</strong> {{ ruta.origen }} &nbsp;&nbsp; <strong>DESTINO:</strong> {{ ruta.destino }}</h2>
+          </div>
+          <p><strong>Precio:</strong> {{ ruta.precio }}</p>
+          <p><strong>Hora:</strong> {{ ruta.hora }}</p>
+          <p><strong>Asientos Disponibles:</strong> {{ ruta.AsientosDisponibles }}</p>
+        </ion-label>
+        
+        <!-- Icono flotante en la esquina inferior derecha -->
+        <ion-button fill="clear" size="small" class="icono-flotante" (click)="verDetallesViaje(ruta)">
+          <ion-icon name="information-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
 
-  <!-- Botón para ver detalles del viaje seleccionado -->
-  <ion-button expand="block" class="boton-azul" (click)="verDetallesViaje()">Ver datos del viaje</ion-button>
-  <ion-button expand="block" color="success" class="boton-recargar" (click)="recargarRutas()">Recargar</ion-button>
-  <!-- Botón para crear una nueva solicitud de viaje -->
-  <ion-button expand="block" class="boton-azul" (click)="crearSolicitud()">Crear Solicitud de Viaje</ion-button>
-  <br>
+  <h4><strong>Mis Viajes Creados</strong></h4>
+  <div class="scroll-container">
+    <ion-list *ngIf="misViajesCreados.length > 0">
+      <ion-item *ngFor="let ruta of misViajesCreados" (click)="selectRuta(ruta)" [color]="rutaSeleccionada === ruta ? 'secondary' : ''">
+        <ion-label>
+          <div class="origen-destino">
+            <h2><strong>ORIGEN:</strong> {{ ruta.origen }} &nbsp;&nbsp; <strong>DESTINO:</strong> {{ ruta.destino }}</h2>
+          </div>
+          <p><strong>Fecha:</strong> {{ ruta.fecha }}</p>
+          <p><strong>Hora:</strong> {{ ruta.hora }}</p>
+          <p><strong>Asientos Disponibles:</strong> {{ ruta.AsientosDisponibles }}</p>
+        </ion-label>
+    
+        <!-- Icono flotante para detalles del viaje creado -->
+        <ion-button fill="clear" size="small" class="icono-flotante" (click)="verDetallesViaje(ruta)">
+          <ion-icon name="information-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
+  
+  <!-- Botones de acción -->
+  <div class="botones-accion">
+    <ion-button expand="block" class="boton-azul" (click)="crearSolicitud()">Crear Viaje</ion-button>
+    <ion-button fill="clear" (click)="recargarRutas()">
+      <ion-icon name="reload-outline"></ion-icon>
+    </ion-button>
+  </div>
 </ion-content>
 
 <ion-footer class="custom-footer">

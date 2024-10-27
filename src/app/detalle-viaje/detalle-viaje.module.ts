@@ -18,3 +18,4 @@ import { DetalleViajePage } from './detalle-viaje.page';
   declarations: [DetalleViajePage]
 })
 export class DetalleViajePageModule {}
+

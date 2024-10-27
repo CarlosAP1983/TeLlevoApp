@@ -1,6 +1,5 @@
 <ion-header [translucent]="true" class="custom-header">
   <ion-toolbar class="custom-toolbar">
-    <!--Retroceder a la vista anterior-->
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
@@ -11,27 +10,55 @@
 <ion-content class="background" [fullscreen]="true">
   <img class="imagen-rutas" src="assets/images/tus_rutas.jpg" alt="Tus Rutas" class="imagen-rutas">
 
-  <!-- Mostrar rutas guardadas si existen -->
   <div *ngIf="rutas.length > 0; else noRutas" class="rutas-container">
-    <ion-card *ngFor="let ruta of rutas; let i = index">
-      <ion-card-header>
-        <ion-card-title>{{ ruta.origen }} - {{ ruta.destino }}</ion-card-title>
-        <ion-card-subtitle>{{ ruta.fecha }} a las {{ ruta.hora }}</ion-card-subtitle>
-      </ion-card-header>
-      <ion-card-content>
-        <p>Precio: {{ ruta.precio }} - Asientos: {{ ruta.asientos }}</p>
-        <!-- Botones grandes para editar o cancelar el viaje -->
-        <ion-button expand="block" class="boton-editar-viaje" (click)="editTrip(i)">Editar Viaje</ion-button>
-        <ion-button expand="block" color="danger" class="boton-cancelar-viaje" (click)="cancelTrip(i)">Cancelar Viaje</ion-button>
-      </ion-card-content>
-    </ion-card>
+    <ion-list>
+      <ion-item 
+        *ngFor="let ruta of rutas; let i = index" 
+        (click)="selectRoute(i)" 
+        [class.selected]="i === selectedIndex">
+        
+        <!-- Estructura de ion-grid para organizar el contenido en filas -->
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <ion-label>
+                <h2>{{ ruta.origen }} - {{ ruta.destino }}</h2>
+                <p>{{ ruta.fecha }} a las {{ ruta.hora }} | Precio: {{ ruta.precio }} | Asientos: {{ ruta.asientos }}</p>
+              </ion-label>
+            </ion-col>
+          </ion-row>
+          
+          <!-- Fila separada para los botones -->
+          <ion-row *ngIf="i === selectedIndex" class="boton-container">
+            <ion-col>
+              <ion-button 
+                expand="block" 
+                class="boton-editar-viaje" 
+                (click)="editTrip(i)">
+                Gestionar
+              </ion-button>
+            </ion-col>
+            <ion-col>
+              <ion-button 
+                expand="block" 
+                color="danger" 
+                class="boton-cancelar-viaje" 
+                (click)="cancelTrip(i)">
+                Cancelar
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-item>
+    </ion-list>
+    
+    
   </div>
 
-  <!-- Plantilla para mostrar mensaje cuando no hay rutas -->
   <ng-template #noRutas>
     <div class="no-rutas-container">
       <p>No tienes rutas registradas en este momento.</p>
-      <ion-button expand="block" type="submit" color="success" class="boton-crear-viaje" (click)="crearNuevaRuta()">Crear Nueva Ruta</ion-button>
+      <ion-button expand="block" type="submit" color="success" (click)="crearNuevaRuta()">Crear Nueva Ruta</ion-button>
     </div>
   </ng-template>
 </ion-content>

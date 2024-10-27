@@ -15,3 +15,4 @@ describe('DetalleViajePage', () => {
     expect(component).toBeTruthy();
   });
 });
+

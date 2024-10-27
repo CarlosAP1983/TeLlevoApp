@@ -1,4 +1,4 @@
-<ion-header [translucent]="true" class="custom-header"> 
+<ion-header [translucent]="true" class="custom-header">
   <ion-toolbar class="custom-toolbar">
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/home" text="Volver"></ion-back-button>
@@ -11,24 +11,24 @@
   <h2 class="titulo">Crea una solicitud de viaje</h2>
   
   <ion-item>
-    <ion-label position="stacked">• Origen</ion-label>
-    <ion-input></ion-input>
+    <ion-label position="stacked">• Comuna Origen / Sede:</ion-label>
+    <ion-input [(ngModel)]="nuevoViaje.origen"></ion-input>
   </ion-item>
   <ion-item>
-    <ion-label position="stacked">• Destino</ion-label>
-    <ion-input></ion-input>
+    <ion-label position="stacked">• Comuna Destino:</ion-label>
+    <ion-input [(ngModel)]="nuevoViaje.destino"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="stacked">• Fecha de Salida</ion-label>
-    <ion-input type="date" placeholder="DD/MM/YYYY"></ion-input>
+    <ion-input type="date" [(ngModel)]="nuevoViaje.fecha" placeholder="DD/MM/YYYY"></ion-input>
   </ion-item>
   <ion-item>
     <ion-label position="stacked">• Hora de Salida</ion-label>
-    <ion-input type="time" placeholder="HH:mm"></ion-input>
+    <ion-input type="time" [(ngModel)]="nuevoViaje.hora" placeholder="HH:mm"></ion-input>
   </ion-item>
 
-  <!-- Botón para crear solicitud de viaje sin funcionalidad-->
-  <ion-button expand="block" color="success" class="guardar-viaje">Crear Solicitud</ion-button>
+  <!-- Botón para crear solicitud de viaje con el evento click -->
+  <ion-button expand="block" color="success" class="guardar-viaje" (click)="crearSolicitud()">Crear Solicitud</ion-button>
 </ion-content>
 
 <ion-footer class="custom-footer">

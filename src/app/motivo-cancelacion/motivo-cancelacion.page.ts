@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController, LoadingController } from '@ionic/angular';
+import { AngularFirestore } from '@angular/fire/compat/firestore'; // Usar AngularFirestore en lugar de Firestore
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-motivo-cancelacion',
@@ -9,12 +11,23 @@ import { NavController, ToastController, LoadingController } from '@ionic/angula
 export class MotivoCancelacionPage {
   selectedMotivo: string = ''; 
   enviarEmail: boolean = false; 
+  rutaId: string = ''; // Almacenar el ID de la ruta
 
   constructor(
     private navCtrl: NavController, 
     private toastCtrl: ToastController,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private firestore: AngularFirestore, // Inyección de AngularFirestore
+    private route: ActivatedRoute // Usar ActivatedRoute para recibir el estado de navegación
   ) {}
+
+  ionViewWillEnter() {
+    // Recibir la ID de la ruta a cancelar usando el estado de navegación
+    const state = history.state;
+    if (state && state.rutaId) {
+      this.rutaId = state.rutaId;
+    }
+  }
 
   // Método para seleccionar el motivo de cancelación
   onMotivoSelected(event: any) {
@@ -28,47 +41,45 @@ export class MotivoCancelacionPage {
 
   // Método para confirmar la cancelación y eliminar el viaje
   async confirmarCancelacion() {
-    if (this.selectedMotivo) {
-      // Obtener la lista de viajes del localStorage
-      let viajes = JSON.parse(localStorage.getItem('viajes') || '[]');
-      
-      // Eliminar el viaje que se está editando (guardado como 'rutaParaEditar')
-      const rutaParaEditar = JSON.parse(localStorage.getItem('rutaParaEditar') || '{}');
-      viajes = viajes.filter((viaje: any) => viaje.origen !== rutaParaEditar.origen || viaje.destino !== rutaParaEditar.destino);
+    if (this.selectedMotivo && this.rutaId) {
+      try {
+        // Mostrar un loading si se seleccionó enviar correo
+        if (this.enviarEmail) {
+          const loading = await this.loadingCtrl.create({
+            message: 'Enviando correo...',
+            duration: 2000
+          });
+          await loading.present();
+          await loading.onDidDismiss();
+        }
 
-      // Guardar la lista actualizada de viajes en el localStorage
-      localStorage.setItem('viajes', JSON.stringify(viajes));
+        // Eliminar el viaje desde Firestore usando AngularFirestore y el ID
+        await this.firestore.collection('viajes').doc(this.rutaId).delete();
 
-      // Eliminar la ruta temporal para editar
-      localStorage.removeItem('rutaParaEditar');
-
-      // Mostrar un loading si se seleccionó enviar correo
-      if (this.enviarEmail) {
-        const loading = await this.loadingCtrl.create({
-          message: 'Enviando correo...',
-          duration: 2000 // Duración del spinner de 2 segundos
+        // Mensaje combinado de éxito
+        const combinedMessage = this.enviarEmail 
+          ? 'Correo enviado al pasajero. Ruta borrada exitosamente.'
+          : 'Ruta borrada exitosamente.';
+          
+        const toast = await this.toastCtrl.create({
+          message: combinedMessage,
+          duration: 2000,
+          color: 'success',
+          position: 'middle'
         });
-        await loading.present();
-        
-        // Espera a que el loading termine
-        await loading.onDidDismiss();
+        await toast.present();
+
+        // Redirigir al usuario de nuevo a la página de gestión de rutas
+        this.navCtrl.navigateBack('/gestionar-tus-rutas');
+      } catch (error) {
+        const toast = await this.toastCtrl.create({
+          message: 'Error al cancelar la ruta. Inténtalo de nuevo.',
+          duration: 2000,
+          color: 'danger'
+        });
+        await toast.present();
       }
-
-      // Mensaje combinado de éxito
-      const combinedMessage = this.enviarEmail 
-        ? 'Correo enviado al pasajero. Ruta borrada exitosamente.'
-        : 'Ruta borrada exitosamente.';
-
-      const toast = await this.toastCtrl.create({
-        message: combinedMessage,
-        duration: 2000,  // Duración del mensaje de éxito
-        color: 'success',
-        position: 'middle'
-      });
-      await toast.present();
-
-      // Redirigir al usuario de nuevo a la página "registro-exitoso"
-      this.navCtrl.navigateBack('/registro-exitoso');
+      
     } else {
       // Mostrar un mensaje si no se ha seleccionado un motivo
       const toast = await this.toastCtrl.create({

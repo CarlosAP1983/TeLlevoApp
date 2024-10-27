@@ -211,3 +211,16 @@ ion-button {
   border: none;
   box-shadow: none;
 }
+
+/* Asegura que los botones estén en una fila separada */
+.boton-container {
+  margin-top: 10px;
+}
+
+/* Botones centrados y ocupando el ancho completo */
+.boton-editar-viaje,
+.boton-cancelar-viaje {
+  width: 100%;
+  max-width: none;
+  margin-bottom: 10px;
+}
