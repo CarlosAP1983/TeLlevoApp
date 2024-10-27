@@ -1,14 +1,14 @@
 <ion-header [translucent]="true" class="custom-header">
   <ion-toolbar class="custom-toolbar">
     <ion-buttons slot="start">
-      <ion-back-button class="letra" defaultHref="/detalle-viaje" text="Volver" ></ion-back-button>
+      <ion-back-button defaultHref="/detalle-viaje" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title class="titulo-header">Tomar viaje</ion-title>
+    <ion-title class="titulo-header">Viaje en curso</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background ion-padding">
-  <h2 class="titulo">Ponte de acuerdo con el chofer</h2><br>
+  <h2 class="titulo">VIAJE INICIADO</h2><br>
   <div class="color-letter" *ngIf="ruta">
     <h3 class="sub-titulo">Detalles del viaje:</h3>
     <p><strong> • Origen:</strong> {{ ruta.origen }}</p>
@@ -18,9 +18,23 @@
     <p><strong> • Hora Salida:</strong> {{ ruta.hora }}</p>
   </div>
 
-  <!-- Botón para contactar al chofer -->
-  <ion-button expand="block" class="boton-azul" (click)="contactarChofer()">Contactar al Chofer</ion-button>
+  <!-- Animación de auto hacia el destino -->
+  <div class="animation-container">
+    <div class="car-icon-container">
+      <img src="assets/icon/car-icon.png" alt="Auto" class="car-icon">
+    </div>
+    <ion-icon name="caret-forward-outline" class="arrow-icon"></ion-icon>
+    <ion-icon name="caret-forward-outline" class="arrow-icon"></ion-icon>
+    <ion-icon name="caret-forward-outline" class="arrow-icon"></ion-icon>
+    <ion-icon name="caret-forward-outline" class="arrow-icon"></ion-icon>
+    <ion-icon name="caret-forward-outline" class="arrow-icon"></ion-icon>
+    <div class="home-icon-container">
+      <ion-icon name="home-outline" class="home-icon"></ion-icon>
+    </div>
+  </div>
 
+  <!-- Botón para finalizar viaje y calificar servicio -->
+  <ion-button expand="block" class="boton-azul" (click)="finalizarViaje()">Finalizar Viaje</ion-button>
 </ion-content>
 
 <ion-footer class="custom-footer">

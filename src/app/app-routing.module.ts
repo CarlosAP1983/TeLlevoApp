@@ -26,6 +26,7 @@ const routes: Routes = [
   { path: 'programar-viaje-pasajero',loadChildren: () => import('./programar-viaje-pasajero/programar-viaje-pasajero.module').then(m => m.ProgramarViajePasajeroPageModule), canActivate: [authGuard] },
   { path: 'motivo-cancelacion',loadChildren: () => import('./motivo-cancelacion/motivo-cancelacion.module').then(m => m.MotivoCancelacionPageModule), canActivate: [authGuard] },
   { path: 'esperando-pasajeros', loadChildren: () => import('./esperando-pasajeros/esperando-pasajeros.module').then(m => m.EsperandoPasajerosPageModule), canActivate: [authGuard] },
+  { path: 'contacto-chofer', loadChildren: () => import('./contacto-chofer/contacto-chofer.module').then(m => m.ContactoChoferPageModule), canActivate: [authGuard] },
  
 ];
 

@@ -10,19 +10,20 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class GestionarTusRutasPage {
   rutas: any[] = [];
-  selectedIndex: number | null = null; // Índice del elemento seleccionado
+  solicitudesViaje: any[] = []; // Array para almacenar las solicitudes de viaje
+  selectedIndex: number | null = null;
 
   constructor(
     private navCtrl: NavController, 
     private toastService: ToastService,
-    private firestore: AngularFirestore // Confirma que Firestore está correctamente inyectado
+    private firestore: AngularFirestore
   ) {}
 
   async ionViewWillEnter() {
     await this.cargarRutas();
+    await this.cargarSolicitudesViaje(); // Cargar solicitudes de viaje al iniciar
   }
 
-  // Método para cargar rutas desde Firestore
   async cargarRutas() {
     try {
       const rutasRef = this.firestore.collection('viajes');
@@ -31,9 +32,8 @@ export class GestionarTusRutasPage {
       if (snapshot && !snapshot.empty) {
         this.rutas = snapshot.docs.map(doc => {
           const data = doc.data();
-          return { id: doc.id, ...(data ? data : {}) }; // Si data es null, usa un objeto vacío
+          return { id: doc.id, ...(data ? data : {}) };
         });
-        
         this.toastService.mostrarToast('Rutas cargadas correctamente.');
       } else {
         this.toastService.mostrarToast('No tienes rutas registradas.');
@@ -42,28 +42,43 @@ export class GestionarTusRutasPage {
       this.toastService.mostrarToast('Error al cargar las rutas.');
     }
   }
-  
-  
 
-  // Método para seleccionar una ruta
+  // Método para cargar las solicitudes de viaje desde Firestore
+  async cargarSolicitudesViaje() {
+    try {
+      const solicitudesRef = this.firestore.collection('solicitudesPasajeros');
+      const snapshot = await solicitudesRef.get().toPromise();
+  
+      if (snapshot && !snapshot.empty) {
+        this.solicitudesViaje = snapshot.docs.map(doc => doc.data());
+        this.toastService.mostrarToast('Solicitudes cargadas correctamente.');
+      } else {
+        this.toastService.mostrarToast('No hay solicitudes de viaje.');
+      }
+    } catch (error) {
+      this.toastService.mostrarToast('Error al cargar las solicitudes de viaje.');
+    }
+  }
+
   selectRoute(index: number) {
     this.selectedIndex = index;
   }
 
-  // Método para redirigir a la página de creación de una nueva ruta
   crearNuevaRuta() {
     this.navCtrl.navigateForward('/programar-viaje');
   }
 
-  // Método para editar una ruta existente
   editTrip(index: number) {
     const rutaParaEditar = this.rutas[index];
     this.navCtrl.navigateForward('/programar-viaje', { state: { ruta: rutaParaEditar } });
   }
 
-  // Método para cancelar un viaje
   async cancelTrip(index: number) {
     const rutaParaCancelar = this.rutas[index];
     this.navCtrl.navigateForward('/motivo-cancelacion', { state: { rutaId: rutaParaCancelar.id } });
+  }
+
+  verDetallesSolicitud(solicitud: any) {
+    this.navCtrl.navigateForward('/detalle-solicitud', { state: { solicitud } });
   }
 }

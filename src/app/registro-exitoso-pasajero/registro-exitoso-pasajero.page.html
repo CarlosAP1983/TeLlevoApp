@@ -47,7 +47,7 @@
     </ion-list>
   </div>
 
-  <h4><strong>Mis Viajes Creados</strong></h4>
+  <h2><strong>Mis Viajes Creados</strong></h2>
   <div class="scroll-container">
     <ion-list *ngIf="misViajesCreados.length > 0">
       <ion-item *ngFor="let ruta of misViajesCreados" (click)="selectRuta(ruta)" [color]="rutaSeleccionada === ruta ? 'secondary' : ''">
