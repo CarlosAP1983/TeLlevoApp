@@ -1,78 +1,58 @@
 /* Estilo para el header principal */
 ion-toolbar.custom-toolbar {
-  --background: #B5B8BF; 
-  color: var(--ion-color-primary-contrast); 
+  --background: #B5B8BF;
+  color: var(--ion-color-primary-contrast);
   text-align: center;
-  padding: 0 10px; 
-  height: 44px; 
+  padding: 0 10px;
+  height: 44px;
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: space-between;
-}
-
-ion-back-button.letra {
-  font-weight: bold;
 }
 
 ion-title.titulo-header {
   --color: #2F2E2E;
-  font-size: 1rem; 
-  flex-grow: 1; 
+  font-size: 1rem;
+  flex-grow: 1;
   text-align: center;
 }
 
 /* Estilo para el contenido */
 ion-content.background {
-  --background: #EEF1FB; 
+  --background: #EEF1FB;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  flex-grow: 1; 
-  margin: 0; 
-  overflow-y: auto; 
-  height: calc(100vh - 50px); 
-  box-sizing: border-box; 
+  flex-grow: 1;
+  margin: 0;
+  overflow-y: auto;
+  height: calc(100vh - 50px);
+  box-sizing: border-box;
 }
 
 /* Estilo para los títulos */
 .titulo, .sub-titulo {
-  font-family: system-ui; 
-  color: #2F2E2E !important; 
-  font-weight: bold; 
-  margin: 0; 
-  display: block; 
+  font-family: system-ui;
+  color: #2F2E2E !important;
+  font-weight: bold;
+  margin: 0;
+  display: block;
 }
 
 .titulo {
-  font-size: 2.5rem; 
-  text-align: center; 
-  width: 100%; 
+  font-size: 2.5rem;
+  text-align: center;
+  width: 100%;
 }
 
 .sub-titulo {
-  font-size: 1.2rem; 
-  text-align: left; 
-  width: 100%; 
+  font-size: 1.2rem;
+  text-align: left;
+  width: 100%;
 }
 
-/* Estilo para los botones */
-ion-button {
-  width: 70%; 
-  max-width: 400px;
-  margin: 10px auto;
-  font-family: 'Helvetica', sans-serif;
-  font-size: larger;
-  font-weight: bold;
-  height: 50px; 
-  display: block; 
-  text-align: center; 
-  border-radius: 25px; 
-  --background: none;
-  --color: inherit;
-}
-
-/* Estilos especiales para los botones */
+/* Estilos para los botones Crear Viaje y Recargar */
 .boton-azul, .boton-recargar {
   border-radius: 50px;
   width: 200px;
@@ -88,21 +68,126 @@ ion-button {
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/*Estilos del botón: Siguiente*/
 .boton-azul {
-  background: linear-gradient(145deg, #7B5BF2, #6A4ED9); 
-  box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5); 
+  background: linear-gradient(145deg, #7B5BF2, #6A4ED9);
+  box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
   color: white;
 }
+
 .boton-azul:hover {
-  background: linear-gradient(145deg, #6A4ED9, #5C3EB8); 
+  background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+  transform: scale(1.05);
+}
+
+.boton-recargar {
+  background: linear-gradient(145deg, #00ff00, #00cc00);
+  box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5);
+  color: white;
+}
+
+.boton-recargar:hover {
+  background: linear-gradient(145deg, #00cc00, #009900);
+  transform: scale(1.05);
+}
+
+/* Contenedor de los botones "Gestionar" y "Cancelar" en una misma línea */
+.boton-container {
+  display: flex; /* Coloca los botones en fila */
+  justify-content: space-between; /* Agrega espacio entre los botones */
+  gap: 10px; /* Espacio entre los botones */
+  overflow: hidden;
+  max-height: 60px; /* Altura para mostrar los botones */
+  transition: max-height 0.3s ease; /* Animación para la apertura */
+}
+
+.boton-editar-viaje, .boton-cancelar-viaje {
+  flex: 1; /* Ambos botones ocupan la misma cantidad de espacio */
+  text-align: center;
+  height: 40px; /* Altura de los botones */
+  border-radius: 20px; /* Bordes redondeados */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos especiales para el botón editar viaje */
+.boton-editar-viaje {
+  background: linear-gradient(145deg, #7B5BF2, #6A4EE0); 
+  color: var(--ion-color-primary-contrast); /* Color del texto (blanco) */
+  border-radius: 50px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 224, 0.5); 
+  width: 200px; 
+  height: 50px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative;
+  border: none; 
+  padding: 0; 
+  overflow: hidden; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+.boton-editar-viaje:hover {
+  background: linear-gradient(145deg, #6A4EE0, #5A41CC); 
   transform: scale(1.05); 
 }
-.boton-azul:active,
-.boton-azul:focus {
-  background: linear-gradient(145deg, #6A4ED9, #5C3EB8); 
+.boton-editar-viaje:active,
+.boton-editar-viaje:focus {
+  background: linear-gradient(145deg, #6A4EE0, #5A41CC); 
 }
-.boton-azul::before {
+.boton-editar-viaje::before {
+  content: '';
+  position: absolute;
+  top: 3px; 
+  left: 3px; 
+  right: 3px; 
+  bottom: 3px; 
+  border: 2px solid rgb(90, 89, 89); 
+  border-radius: 45px; 
+  z-index: 1; 
+  background: transparent; 
+}
+.boton-editar-viaje::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  position: absolute;
+  left: 40px; 
+  bottom: 10px; 
+  z-index: 2;
+}
+
+/* Estilos especiales para el botón cancelar viaje */
+.boton-cancelar-viaje {
+  background: linear-gradient(145deg, #ff4c4c, #e60000); 
+  color: var(--ion-color-primary-contrast); 
+  border-radius: 50px; 
+  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5);
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative; 
+  border: none; 
+  padding: 0;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.boton-cancelar-viaje:hover {
+  background: linear-gradient(145deg, #e60000, #cc0000); 
+  transform: scale(1.05); 
+}
+.boton-cancelar-viaje:active,
+.boton-cancelar-viaje:focus {
+  background: linear-gradient(145deg, #e60000, #cc0000); 
+}
+.boton-cancelar-viaje::before {
   content: '';
   position: absolute;
   top: 3px; 
@@ -112,168 +197,141 @@ ion-button {
   border: 2px solid rgb(90, 89, 89);
   border-radius: 45px; 
   z-index: 1; 
+  background: transparent; 
+}
+.boton-cancelar-viaje::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 5px;
+  position: absolute;
+  left: 40px;
+  bottom: 10px; 
+  z-index: 2;
+}
+
+/* Estilos para los botones "Crear Viaje" y "Recargar" */
+.boton-azul, .boton-recargar {
+  border-radius: 50px;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin-top: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.boton-azul {
+  background: linear-gradient(145deg, #7B5BF2, #6A4EE0);
+  color: white;
+}
+
+.boton-recargar {
+  background: linear-gradient(145deg, #00ff00, #00cc00);
+  color: white;
+}
+
+/* Contenedor de los botones en fila */
+.boton-container {
+  display: flex; /* Coloca los botones en fila */
+  justify-content: space-around; /* Espacio entre los botones */
+  gap: 10px; /* Espacio entre los botones */
+  width: 100%; /* Ocupa todo el ancho de ion-item */
+  margin-top: 10px;
+}
+
+/* Estilos para los botones */
+.boton-editar-viaje, .boton-cancelar-viaje {
+  flex: 1; /* Ambos botones ocupan la misma cantidad de espacio */
+  text-align: center;
+  height: 40px; /* Altura de los botones */
+  border-radius: 20px; /* Bordes redondeados */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100px; /* Evita que los botones se extiendan */
+}
+
+/* Estilo específico para el botón "Gestionar" */
+.boton-editar-viaje {
+  background: linear-gradient(145deg, #7B5BF2, #6A4EE0);
+  color: white;
+}
+
+/* Estilo específico para el botón "Cancelar" */
+.boton-cancelar-viaje {
+  background: linear-gradient(145deg, #ff4c4c, #e60000);
+  color: white;
+}
+
+/* Estilos del botón genéricos */
+ion-button {
+  width: 70%; 
+  max-width: 400px;
+  margin: 20px auto; 
+  font-family: 'Helvetica', sans-serif;
+  font-size: larger;
+  font-weight: bold;
+  height: 50px; 
+  display: block; 
+  text-align: center; 
+  border-radius: 25px; 
+  --background: none;
+  --color: inherit;
+  border: none;
+  box-shadow: none;
+}
+
+/* Estilos especiales para el botón azul (Siguiente) */
+.boton-azul {
+  background: linear-gradient(145deg, #7B5BF2, #6A4ED9); 
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
+  color: white;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  position: relative;
+  border: none;
+  padding: 0;
+  overflow: hidden;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.boton-azul:hover {
+  background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+  transform: scale(1.05);
+}
+.boton-azul:active,
+.boton-azul:focus {
+  background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
+}
+.boton-azul::before {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  border: 2px solid rgb(90, 89, 89);
+  border-radius: 45px;
+  z-index: 1;
   background: transparent;
 }
 .boton-azul::after {
   content: '';
   width: 40px;
   height: 5px;
-  background: rgba(255, 255, 255, 0.5); 
+  background: rgba(255, 255, 255, 0.5);
   border-radius: 5px;
   position: absolute;
-  left: 40px; 
-  bottom: 10px; 
-  z-index: 2; 
-}
-
-.boton-recargar {
-  background: linear-gradient(145deg, #00ff00, #00cc00);
-  box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5);
-  color: white;
-}
-.boton-recargar:hover {
-  background: linear-gradient(145deg, #00cc00, #009900);
-  transform: scale(1.05);
-}
-.boton-recargar:active,
-.boton-recargar:focus {
-  background: linear-gradient(145deg, #00cc00, #009900); 
-}
-.boton-recargar::before {
-  content: '';
-  position: absolute;
-  top: 3px; 
-  left: 3px;
-  right: 3px;
-  bottom: 3px; 
-  border: 2px solid rgb(90, 89, 89); 
-  border-radius: 45px; 
-  z-index: 1; 
-  background: transparent; 
-}
-.boton-recargar::after {
-  content: '';
-  width: 40px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5); 
-  border-radius: 5px;
-  position: absolute;
-  left: 40px; 
-  bottom: 10px; 
-  z-index: 2; 
-}
-
-/* Estilo para el footer con color del menú */
-ion-footer.custom-footer {
-  --background: #09184D; 
-  padding: 0; 
-  position: fixed; 
-  bottom: 0; 
-  width: 100%; 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  z-index: 10; 
-}
-
-/* Estilo para la toolbar del footer */
-.footer-toolbar {
-  --background: #09184D;
-  padding: 0; 
-  text-align: center; 
-  color: var(--ion-color-primary-contrast); 
-}
-
-/* Estilo para el mensaje del footer */
-.footer-message p {
-  color: var(--ion-color-primary-contrast); 
-  font-size: 0.9rem; 
-  margin: 0; 
-  font-family: 'Helvetica', sans-serif; 
-}
-
-/* Estilo para el contenedor del spinner */
-.spinner-container {
-  display: flex;
-  justify-content: center; 
-  align-items: center; 
-  position: fixed; 
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 100; 
-  background-color: rgba(255, 255, 255, 0.8); 
-}
-
-/* Estilo para el spinner */
-.spinner-grande {
-  width: 100px;
-  height: 100px;
-  --spinner-size: 100px; 
-}
-
-.ruta-info-linea {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.origen-destino {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.icono-flotante {
-  position: absolute;
+  left: 40px;
   bottom: 10px;
-  right: 10px;
-  z-index: 1;
-}
-
-.botones-accion {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-}
-
-.boton-azul {
-  flex-grow: 1;
-  margin-right: 10px;
-}
-
-ion-button[fill="clear"] {
-  margin-left: auto;
-  padding: 0;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.scroll-container {
-  max-height: 120px; /* Limita la altura a una ruta visible */
-  overflow-y: auto; /* Activa el desplazamiento vertical */
-  margin-bottom: 10px;
-}
-
-/* Personalización de la barra de desplazamiento */
-.scroll-container::-webkit-scrollbar {
-  width: 8px; /* Ancho de la barra de desplazamiento */
-}
-
-.scroll-container::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color de fondo de la barra */
-}
-
-.scroll-container::-webkit-scrollbar-thumb {
-  background: #c71c1c; /* Color de la barra (rojo en tu ejemplo) */
-  border-radius: 4px; /* Bordes redondeados para la barra */
-}
-
-.scroll-container::-webkit-scrollbar-thumb:hover {
-  background: #a30e0e; /* Color de la barra al pasar el ratón */
+  z-index: 2;
 }

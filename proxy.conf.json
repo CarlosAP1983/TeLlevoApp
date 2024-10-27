@@ -1,0 +1,10 @@
+{
+  "/api": {
+    "target": "https://apis.digital.gob.cl/dpa/comunas",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

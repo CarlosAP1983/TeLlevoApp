@@ -11,6 +11,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; // Impo
 import { environment } from 'src/environments/environment';
 import { initializeApp } from 'firebase/app'; // Importa initializeApp de Firebase
 import { Capacitor } from '@capacitor/core'; // Importa Capacitor
+import { provideHttpClient } from '@angular/common/http';
 
 // Inicialización para la plataforma web
 if (!Capacitor.isNativePlatform()) {
@@ -23,12 +24,15 @@ if (!Capacitor.isNativePlatform()) {
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule,
+    AppRoutingModule,    
     AngularFireModule.initializeApp(environment.firebaseConfig), // Inicialización de Firebase
     AngularFireAuthModule,
     AngularFirestoreModule // Habilita Firestore
   ],
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [
+    provideHttpClient(),
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

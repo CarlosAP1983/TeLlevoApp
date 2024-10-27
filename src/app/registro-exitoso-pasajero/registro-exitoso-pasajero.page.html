@@ -50,23 +50,27 @@
   <h2><strong>Mis Viajes Creados</strong></h2>
   <div class="scroll-container">
     <ion-list *ngIf="misViajesCreados.length > 0">
-      <ion-item *ngFor="let ruta of misViajesCreados" (click)="selectRuta(ruta)" [color]="rutaSeleccionada === ruta ? 'secondary' : ''">
+      <ion-item *ngFor="let ruta of misViajesCreados; let i = index" (click)="toggleRoute(i)" [class.selected]="i === selectedIndex">
         <ion-label>
-          <div class="origen-destino">
-            <h2><strong>ORIGEN:</strong> {{ ruta.origen }} &nbsp;&nbsp; <strong>DESTINO:</strong> {{ ruta.destino }}</h2>
-          </div>
-          <p><strong>Fecha:</strong> {{ ruta.fecha }}</p>
-          <p><strong>Hora:</strong> {{ ruta.hora }}</p>
-          <p><strong>Asientos Disponibles:</strong> {{ ruta.AsientosDisponibles }}</p>
+          <h2>{{ ruta.origen }} - {{ ruta.destino }}</h2>
+          <p>{{ ruta.fecha }} a las {{ ruta.hora }} | Precio: {{ ruta.precio }} | Asientos: {{ ruta.AsientosDisponibles }}</p>
         </ion-label>
-    
-        <!-- Icono flotante para detalles del viaje creado -->
-        <ion-button fill="clear" size="small" class="icono-flotante" (click)="verDetallesViaje(ruta)">
-          <ion-icon name="information-circle-outline"></ion-icon>
-        </ion-button>
+        
+        <!-- Contenedor de los botones "Gestionar" y "Cancelar" en una fila -->
+        <div class="boton-container" *ngIf="i === selectedIndex">
+          <ion-button class="boton-editar-viaje" (click)="gestionarViaje(i)">
+            Gestionar
+          </ion-button>
+          <ion-button color="danger" class="boton-cancelar-viaje" (click)="cancelarViaje(i)">
+            Cancelar
+          </ion-button>
+        </div>
       </ion-item>
+      
+      
     </ion-list>
   </div>
+  
   
   <!-- Botones de acción -->
   <div class="botones-accion">

@@ -9,26 +9,42 @@
 
 <ion-content class="background ion-padding">
   <h2 class="titulo">Crea una solicitud de viaje</h2>
-  
-  <ion-item>
-    <ion-label position="stacked">• Comuna Origen / Sede:</ion-label>
-    <ion-input [(ngModel)]="nuevoViaje.origen"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">• Comuna Destino:</ion-label>
-    <ion-input [(ngModel)]="nuevoViaje.destino"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">• Fecha de Salida</ion-label>
-    <ion-input type="date" [(ngModel)]="nuevoViaje.fecha" placeholder="DD/MM/YYYY"></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="stacked">• Hora de Salida</ion-label>
-    <ion-input type="time" [(ngModel)]="nuevoViaje.hora" placeholder="HH:mm"></ion-input>
-  </ion-item>
+  <form (ngSubmit)="crearSolicitud()">
+    <!-- Selección de Comuna Origen -->
+    <ion-item>
+      <ion-label position="stacked">• Comuna Origen / Sede:</ion-label>
+      <ion-select [(ngModel)]="nuevoViaje.origen" name="origen">
+        <ion-select-option *ngFor="let comuna of comunas" [value]="comuna.nombre">
+          {{ comuna.nombre }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
 
-  <!-- Botón para crear solicitud de viaje con el evento click -->
-  <ion-button expand="block" color="success" class="guardar-viaje" (click)="crearSolicitud()">Crear Solicitud</ion-button>
+    <!-- Selección de Comuna Destino -->
+    <ion-item>
+      <ion-label position="stacked">• Comuna Destino:</ion-label>
+      <ion-select [(ngModel)]="nuevoViaje.destino" name="destino">
+        <ion-select-option *ngFor="let comuna of comunas" [value]="comuna.nombre">
+          {{ comuna.nombre }}
+        </ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <!-- Fecha de Salida -->
+    <ion-item>
+      <ion-label position="stacked">• Fecha de Salida</ion-label>
+      <ion-input type="date" [(ngModel)]="nuevoViaje.fecha" name="fecha" placeholder="DD/MM/YYYY"></ion-input>
+    </ion-item>
+
+    <!-- Hora de Salida -->
+    <ion-item>
+      <ion-label position="stacked">• Hora de Salida</ion-label>
+      <ion-input type="time" [(ngModel)]="nuevoViaje.hora" name="hora" placeholder="HH:mm"></ion-input>
+    </ion-item>
+
+    <!-- Botón para crear solicitud de viaje -->
+    <ion-button expand="block" type="submit" color="success" class="guardar-viaje">Crear Solicitud</ion-button>
+  </form>
 </ion-content>
 
 <ion-footer class="custom-footer">

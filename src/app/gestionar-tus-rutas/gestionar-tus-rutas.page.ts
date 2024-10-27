@@ -50,7 +50,10 @@ export class GestionarTusRutasPage {
       const snapshot = await solicitudesRef.get().toPromise();
   
       if (snapshot && !snapshot.empty) {
-        this.solicitudesViaje = snapshot.docs.map(doc => doc.data());
+        this.solicitudesViaje = snapshot.docs.map(doc => {
+          const data = doc.data();
+          return { id: doc.id, ...(data ? data : {}) };
+        });
         this.toastService.mostrarToast('Solicitudes cargadas correctamente.');
       } else {
         this.toastService.mostrarToast('No hay solicitudes de viaje.');
@@ -85,6 +88,16 @@ export class GestionarTusRutasPage {
   }
 
   verDetallesSolicitud(solicitud: any) {
-    this.navCtrl.navigateForward('/detalle-solicitud', { state: { solicitud } });
+    this.navCtrl.navigateForward('/detalle-viaje', { state: { ruta: solicitud, esSolicitudPasajero: true } });
+  }
+
+  verDetallesViaje(ruta: any) {
+    this.navCtrl.navigateForward('/detalle-viaje', { state: { ruta, esSolicitudPasajero: false } });
+  }
+  
+  // Añadir el método tomarSolicitud
+  tomarSolicitud(solicitud: any) {
+    // Navega a detalle-viaje con los detalles de la solicitud del pasajero
+    this.navCtrl.navigateForward('/detalle-viaje', { state: { ruta: solicitud, esSolicitudPasajero: true } });
   }
 }

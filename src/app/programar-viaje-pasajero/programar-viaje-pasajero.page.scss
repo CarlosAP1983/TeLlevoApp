@@ -1,0 +1,108 @@
+ion-toolbar.custom-toolbar {
+    --background: #B5B8BF; 
+    color: var(--ion-color-primary-contrast); 
+    text-align: center;
+  }
+  ion-back-button.letra {
+    font-weight: bold;
+  }
+  ion-title.titulo-header {
+    --color: #2F2E2E;
+  }
+    
+  /* Estilo para el contenido */
+  ion-content.background {
+    --background: #EEF1FB;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    flex-grow: 1; 
+  }
+
+  /* Estilos del botón genéricos */
+ion-button {
+    width: 70%; 
+    max-width: 400px;
+    margin: 20px auto; 
+    font-family: 'Helvetica', sans-serif;
+    font-size: larger;
+    font-weight: bold;
+    height: 50px; 
+    display: block; 
+    text-align: center; 
+    border-radius: 25px;
+    --background: none;
+    --color: inherit;
+    border: none;
+    box-shadow: none;
+  }
+  .guardar-viaje {
+    background: linear-gradient(145deg, #00ff00, #00cc00); 
+    border-radius: 50px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5); 
+    color: white;
+    width: 200px; 
+    height: 50px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    position: relative; 
+    border: none; 
+    padding: 0; 
+    overflow: hidden; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+  }
+  .guardar-viaje:hover {
+    background: linear-gradient(145deg, #00cc00, #009900); 
+    transform: scale(1.05); 
+  }
+  .guardar-viaje:active,
+  .guardar-viaje:focus {
+    background: linear-gradient(145deg, #00cc00, #009900); 
+  }
+  .guardar-viaje::before {
+    content: '';
+    position: absolute;
+    top: 3px; 
+    left: 3px; 
+    right: 3px; 
+    bottom: 3px; 
+    border: 2px solid rgb(90, 89, 89);
+    border-radius: 45px; 
+    z-index: 1; 
+    background: transparent; 
+  }
+  .guardar-viaje::after {
+    content: '';
+    width: 40px;
+    height: 5px;
+    background: rgba(255, 255, 255, 0.5); 
+    border-radius: 5px;
+    position: absolute;
+    left: 40px; 
+    bottom: 10px; 
+    z-index: 2;
+  }
+  
+  /* Estilo para el footer con color del menú */
+  ion-footer.custom-footer {
+    --background: #09184D;
+    padding: 0; 
+    position: fixed; 
+    bottom: 0; 
+    width: 100%; 
+    display: flex; 
+    align-items: center;
+    justify-content: center; 
+    z-index: 10; 
+  }
+  
+  /* Estilo para la toolbar del footer */
+  .footer-toolbar {
+    --background: #09184D; 
+    padding: 0; 
+    text-align: center; 
+    color: var(--ion-color-primary-contrast); 
+  } 

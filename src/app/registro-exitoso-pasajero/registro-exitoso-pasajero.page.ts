@@ -3,13 +3,14 @@ import { NavController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 interface Ruta {
+  id?: string; // Añadido como opcional
   origen: string;
   destino: string;
-  fecha: string; // Añadido si no estaba en la interfaz
+  fecha: string;
   hora: string;
-  precio?: string; // Añadido como opcional
-  AsientosDisponibles?: number; // Opcional por compatibilidad
-  conductorId?: string; // Opcional si no siempre está presente
+  precio?: string;
+  AsientosDisponibles?: number;
+  conductorId?: string;
   conductor?: string;
   vehiculo?: {
     color: string;
@@ -28,6 +29,7 @@ export class RegistroExitosoPasajeroPage implements OnInit {
   misViajesCreados: Ruta[] = [];
   rutaSeleccionada: Ruta | null = null;
   mostrarSpinner: boolean = false;
+  selectedIndex: number | null = null;
 
   constructor(
     private navCtrl: NavController,
@@ -62,9 +64,30 @@ export class RegistroExitosoPasajeroPage implements OnInit {
         console.warn('No se encontraron viajes creados por el pasajero.');
         return;
       }
-      this.misViajesCreados = snapshot.docs.map(doc => doc.data() as Ruta);
+      this.misViajesCreados = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...(doc.data() as Ruta)
+      }));
     } catch (error) {
       console.error('Error al obtener los viajes creados por el pasajero:', error);
+    }
+  }
+
+  toggleRoute(index: number) {
+    this.selectedIndex = this.selectedIndex === index ? null : index;
+  }
+
+  gestionarViaje(index: number) {
+    const rutaParaGestionar = this.misViajesCreados[index];
+    this.navCtrl.navigateForward('/programar-viaje-pasajero', { state: { ruta: rutaParaGestionar } });
+  }
+
+  cancelarViaje(index: number) {
+    const rutaParaCancelar = this.misViajesCreados[index];
+    if (rutaParaCancelar.id) {
+      this.navCtrl.navigateForward('/motivo-cancelacion', { state: { rutaId: rutaParaCancelar.id } });
+    } else {
+      console.warn('No se encontró el ID de la ruta para cancelar.');
     }
   }
 

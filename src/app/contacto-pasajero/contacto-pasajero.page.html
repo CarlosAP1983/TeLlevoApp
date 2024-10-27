@@ -1,0 +1,47 @@
+<ion-header [translucent]="true" class="custom-header">
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/detalle-viaje" text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo-header">Viaje en curso</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background ion-padding">
+  <h2 class="titulo">VIAJE INICIADO</h2><br>
+  <div class="color-letter" *ngIf="solicitud">
+    <h3 class="sub-titulo">Detalles del viaje solicitado:</h3>
+    <p><strong>• Origen:</strong> {{ solicitud.origen }}</p>
+    <p><strong>• Destino:</strong> {{ solicitud.destino }}</p>
+    <p><strong>• Hora de Salida:</strong> {{ solicitud.hora }}</p>
+    <p><strong>• Fecha:</strong> {{ solicitud.fecha }}</p>
+  </div>
+
+  <!-- Animación de auto hacia el destino -->
+  <div class="animation-container">
+    <div class="car-icon-container">
+      <img src="assets/icon/car-icon.png" alt="Auto" class="car-icon">
+    </div>
+    <ion-icon name="caret-forward-outline" class="arrow-icon"></ion-icon>
+    <ion-icon name="caret-forward-outline" class="arrow-icon"></ion-icon>
+    <ion-icon name="caret-forward-outline" class="arrow-icon"></ion-icon>
+    <ion-icon name="caret-forward-outline" class="arrow-icon"></ion-icon>
+    <ion-icon name="caret-forward-outline" class="arrow-icon"></ion-icon>
+    <div class="home-icon-container">
+      <ion-icon name="home-outline" class="home-icon"></ion-icon>
+    </div>
+  </div>
+
+    <!-- Botón para finalizar el viaje y calificar servicio, sólo aparece cuando el viaje está en curso -->
+    <ion-button *ngIf="viajeEnCurso" expand="block" class="boton-azul" (click)="finalizarViaje()">
+      Finalizar Viaje
+    </ion-button>
+    </ion-content>
+
+<ion-footer class="custom-footer">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>
