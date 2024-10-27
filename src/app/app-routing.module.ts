@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { authGuard, noAuthGuard } from './utils/guards';  // Asegúrate de importar ambos guards
+import { authGuard, noAuthGuard } from './utils/guards';  
 
 const routes: Routes = [
   // Ruta 'home' protegida por noAuthGuard (solo accesible para usuarios no autenticados)
@@ -26,7 +26,8 @@ const routes: Routes = [
   { path: 'programar-viaje-pasajero',loadChildren: () => import('./programar-viaje-pasajero/programar-viaje-pasajero.module').then(m => m.ProgramarViajePasajeroPageModule), canActivate: [authGuard] },
   { path: 'motivo-cancelacion',loadChildren: () => import('./motivo-cancelacion/motivo-cancelacion.module').then(m => m.MotivoCancelacionPageModule), canActivate: [authGuard] },
   { path: 'esperando-pasajeros', loadChildren: () => import('./esperando-pasajeros/esperando-pasajeros.module').then(m => m.EsperandoPasajerosPageModule), canActivate: [authGuard] },
-  { path: 'contacto-chofer', loadChildren: () => import('./contacto-chofer/contacto-chofer.module').then(m => m.ContactoChoferPageModule), canActivate: [authGuard] },  {
+  { path: 'contacto-chofer', loadChildren: () => import('./contacto-chofer/contacto-chofer.module').then(m => m.ContactoChoferPageModule), canActivate: [authGuard] },
+  {
     path: 'contacto-pasajero',
     loadChildren: () => import('./contacto-pasajero/contacto-pasajero.module').then( m => m.ContactoPasajeroPageModule)
   },

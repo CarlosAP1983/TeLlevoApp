@@ -4,13 +4,13 @@ import { LoginService } from 'src/app/services/login.service';
 
 @Component({
   selector: 'app-cuenta',
-  templateUrl: './cuenta.page.html',  // Cambia a cuenta.page.html
+  templateUrl: './cuenta.page.html',  
   styleUrls: ['./cuenta.page.scss'],
 })
 
-export class CuentaPage {  // Asegúrate de que el nombre de la clase sea CuentaPage
+export class CuentaPage {  
   
-  perfil: string = ''; // Variable para almacenar el perfil seleccionado
+  perfil: string = ''; 
 
   constructor(
     private navCtrl: NavController, 
@@ -18,12 +18,12 @@ export class CuentaPage {  // Asegúrate de que el nombre de la clase sea Cuenta
     private loginService: LoginService
   ) {} // Añade ToastController al constructor
 
-  // Función para seleccionar el perfil
+  
   seleccionarPerfil(tipo: string) {
     this.perfil = tipo;
   }
 
-  // Función para confirmar el perfil y redirigir a la vista correspondiente
+  
   confirmarPerfil() {
     if (this.perfil === 'conductor') {
       this.navCtrl.navigateForward('/registro-exitoso');
@@ -42,14 +42,14 @@ export class CuentaPage {  // Asegúrate de que el nombre de la clase sea Cuenta
   // Función para cerrar sesión
   async cerrarSesion() {
     try {
-      await this.loginService.logout();  // Llamamos al método logout del LoginService para cerrar sesión correctamente
+      await this.loginService.logout();  
       const toast = await this.toastController.create({
         message: 'Sesión cerrada correctamente.',
-        duration: 2000, // Duración del Toast en milisegundos
+        duration: 2000, 
         position: 'bottom'
       });
       await toast.present();
-      this.navCtrl.navigateRoot('/home');  // Redirigir al inicio después de cerrar sesión
+      this.navCtrl.navigateRoot('/home');  
     } catch (error) {
       // Mostrar mensaje de error si no se puede cerrar sesión
       await this.mostrarToast('Error al cerrar sesión. Intenta nuevamente.');

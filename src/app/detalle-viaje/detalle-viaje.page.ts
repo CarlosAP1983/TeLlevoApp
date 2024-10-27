@@ -8,7 +8,7 @@ import { NavController, ToastController } from '@ionic/angular';
 })
 export class DetalleViajePage implements OnInit {
   ruta: any;
-  esSolicitudPasajero: boolean = false; // Nueva propiedad para identificar si es una solicitud del pasajero
+  esSolicitudPasajero: boolean = false; 
   mostrarSpinner: boolean = false;
 
   constructor(
@@ -17,17 +17,17 @@ export class DetalleViajePage implements OnInit {
   ) {
     // Asignar los datos de 'history.state.ruta' y definir si es una solicitud del pasajero o no
     this.ruta = history.state.ruta;
-    this.esSolicitudPasajero = history.state.esSolicitudPasajero || false; // Verificamos si es solicitud del pasajero
+    this.esSolicitudPasajero = history.state.esSolicitudPasajero || false; 
   }
 
   ngOnInit() {}
 
   // Método para aceptar la solicitud o tomar el viaje, según corresponda
   async aceptarSolicitud() {
-    this.mostrarSpinner = true; // Activar el spinner
+    this.mostrarSpinner = true; 
 
     setTimeout(async () => {
-      this.mostrarSpinner = false; // Desactivar el spinner
+      this.mostrarSpinner = false; 
 
       // Redirigir a la vista correspondiente
       if (this.esSolicitudPasajero) {
@@ -40,7 +40,7 @@ export class DetalleViajePage implements OnInit {
     }, 3000);
   }
 
-  // Método para mostrar el toast de confirmación
+  
   async mostrarToast(mensaje: string) {
     const toast = await this.toastCtrl.create({
       message: mensaje,

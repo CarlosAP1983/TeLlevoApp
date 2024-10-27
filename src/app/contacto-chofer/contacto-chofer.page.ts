@@ -68,7 +68,7 @@ export class ContactoChoferPage {
     const starInputs = document.querySelectorAll('.star-input');
     starInputs.forEach((input, index) => {
       if (index < count) {
-        input.classList.add('selected'); // Añade la clase 'selected' para destacar
+        input.classList.add('selected'); 
       } else {
         input.classList.remove('selected');
       }
@@ -80,7 +80,7 @@ export class ContactoChoferPage {
     this.rating = value;
   }
 
-  // Muestra mensaje de agradecimiento
+  // ensaje de agradecimiento
   async showThankYouMessage(rated: boolean) {
     const message = rated ? 'Gracias por calificar nuestra app' : 'Gracias por usar nuestra aplicación';
     const toast = await this.toastCtrl.create({
@@ -93,7 +93,7 @@ export class ContactoChoferPage {
     this.navCtrl.navigateBack('/registro-exitoso-pasajero');
   }
 
-  // Muestra mensaje si no se seleccionó ninguna opción
+  //mensaje si no se seleccionó ninguna opción
   async showNoSelectionMessage() {
     const toast = await this.toastCtrl.create({
       message: 'No marcaste ninguna opción',

@@ -119,51 +119,51 @@ ion-button {
 
 /* Estilo para el footer con color del menú */
 ion-footer.custom-footer {
-  --background: #09184D; /* Color del fondo del footer igual al menú */
-  padding: 0; /* Elimina cualquier relleno adicional */
-  position: fixed; /* Fija el footer al fondo de la página */
-  bottom: 0; /* Alinea el footer al fondo de la página */
-  width: 100%; /* Asegura que el footer ocupe todo el ancho */
-  display: flex; /* Flexbox para alinear el contenido */
-  align-items: center; /* Centra el contenido verticalmente */
-  justify-content: center; /* Centra el contenido horizontalmente */
-  z-index: 10; /* Asegura que el footer esté siempre en la parte superior */
+  --background: #09184D; 
+  padding: 0; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 10; 
 }
 
 /* Estilo para la toolbar del footer */
 .footer-toolbar {
-  --background: #09184D; /* Asegura que el fondo de la toolbar coincida con el footer */
-  padding: 0; /* Sin relleno */
-  text-align: center; /* Centra el texto */
-  color: var(--ion-color-primary-contrast); /* Color de texto de contraste (blanco) */
+  --background: #09184D; 
+  padding: 0; 
+  text-align: center; 
+  color: var(--ion-color-primary-contrast); 
 }
 
 /* Estilo para el mensaje del footer */
 .footer-message p {
-  color: var(--ion-color-primary-contrast); /* Color del texto del mensaje (blanco) */
-  font-size: 0.9rem; /* Tamaño de la fuente */
-  margin: 0; /* Sin margen adicional */
-  font-family: 'Helvetica', sans-serif; /* Fuente personalizada */
+  color: var(--ion-color-primary-contrast); 
+  font-size: 0.9rem; 
+  margin: 0; 
+  font-family: 'Helvetica', sans-serif; 
 }
 
 /* Estilo para el contenedor del spinner */
 .spinner-container {
   display: flex;
-  justify-content: center; /* Centra horizontalmente */
-  align-items: center; /* Centra verticalmente */
-  position: fixed; /* Posiciona el contenedor de forma fija en la pantalla */
+  justify-content: center; 
+  align-items: center; 
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 100; /* Asegura que el spinner esté por encima de otros elementos */
-  background-color: rgba(255, 255, 255, 0.8); /* Fondo semitransparente para resaltar el spinner */
+  z-index: 100; 
+  background-color: rgba(255, 255, 255, 0.8); 
 }
 
 /* Estilo para el spinner */
 .spinner-grande {
   width: 100px;
   height: 100px;
-  --spinner-size: 100px; /* Ajusta el tamaño del spinner */
+  --spinner-size: 100px; 
 }
 

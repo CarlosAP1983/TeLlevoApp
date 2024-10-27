@@ -10,7 +10,7 @@ export class ContactoPasajeroPage {
   solicitud: any;
   rating = 0;
   stars = [1, 2, 3, 4, 5];
-  viajeEnCurso: boolean = true; // Asegúrate de que esté en true
+  viajeEnCurso: boolean = true;
   mostrarSpinner: boolean = false;
 
   constructor(
