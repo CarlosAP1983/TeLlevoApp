@@ -9,13 +9,13 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; // Importación de Firestore
 import { environment } from 'src/environments/environment';
-import { initializeApp } from 'firebase/app'; // Importa initializeApp de Firebase
-import { Capacitor } from '@capacitor/core'; // Importa Capacitor
+import { initializeApp } from 'firebase/app'; 
+import { Capacitor } from '@capacitor/core';
 import { provideHttpClient } from '@angular/common/http';
 
 // Inicialización para la plataforma web
 if (!Capacitor.isNativePlatform()) {
-  initializeApp(environment.firebaseConfig); // Usa la configuración de environment
+  initializeApp(environment.firebaseConfig); //Usa la configuración de environment
   console.log('Firebase inicializado para plataforma web.');
 }
 

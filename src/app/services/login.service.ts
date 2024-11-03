@@ -15,13 +15,11 @@ export class LoginService {
     private navCtrl: NavController,  
     private toastService: ToastService  
   ) {
-    // Observa el estado de autenticación
     this.afAuth.authState.subscribe(user => {
       this.usuarioActual = user; 
     });
   }
 
-  // Método para el login
   async login(email: string, password: string) {
     try {
       const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
@@ -31,12 +29,10 @@ export class LoginService {
     }
   }
 
-  // Obtener el nombre del usuario autenticado
   getNombreUsuario(): string | null {
     return this.usuarioActual ? this.usuarioActual.email : null;
   }
 
-  // Método para cerrar sesión
   async logout() {
     try {
       await this.afAuth.signOut();
