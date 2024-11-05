@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular'; // Importa AlertController
 import { LoginService } from 'src/app/services/login.service';
-import { ToastService } from 'src/app/services/toast.service';  // Servicio de Toast inyectado
 
 @Component({
   selector: 'app-home',
@@ -15,8 +14,18 @@ export class HomePage {
   constructor(
     private navCtrl: NavController,
     private loginService: LoginService,
-    private toastService: ToastService  // Servicio de Toast inyectado
+    private alertController: AlertController // Inyecta AlertController
   ) {}
+
+  // Mostrar Alert
+  async mostrarAlert(mensaje: string) {
+    const alert = await this.alertController.create({
+      header: 'ERROR DE INGRESO',
+      message: mensaje,
+      buttons: ['CONTINUAR']
+    });
+    await alert.present();
+  }
 
   // Inicio de sesión
   async iniciarSesion() {
@@ -25,11 +34,11 @@ export class HomePage {
         await this.loginService.login(this.nombreUsuario, this.contrasena);
         this.navCtrl.navigateForward('/seleccion-perfil');
       } catch (error) {
-        // Mostrar el toast en el componente
-        await this.toastService.mostrarToast('Error: Usuario o contraseña incorrecta. Intenta nuevamente.');
+        // Mostrar Alert en lugar del Toast
+        await this.mostrarAlert('Usuario o contraseña incorrecta.');
       }
     } else {
-      await this.toastService.mostrarToast('Error: Por favor, ingresa tu usuario y contraseña.');
+      await this.mostrarAlert('Por favor, ingresa tu usuario y contraseña.');
     }
   }
 

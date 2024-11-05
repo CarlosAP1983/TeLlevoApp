@@ -1,236 +1,224 @@
 /* Estilo para el header principal */
 ion-toolbar.custom-toolbar {
-    --background: #B5B8BF; 
-    color: var(--ion-color-primary-contrast); 
-    text-align: center;
-  }  
-  ion-back-button.letra {
+    position: relative;
+    background: #FFB800 !important;
+    /* Asegura que el fondo sea completamente naranja */
+    height: 50px;
+    /* Ajusta la altura según lo necesario */
+    overflow: hidden;
+    z-index: 2;
+    /* Asegura que esté sobre otros elementos */
+    opacity: 1;
+    /* Verifica que la opacidad esté al 100% */
+}
+
+/* Pseudo-elemento para la separación diagonal */
+ion-toolbar.custom-toolbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30%;
+    /* Ajusta este valor para controlar el ancho de la parte negra */
+    height: 100%;
+    background-color: #000000;
+    /* Color negro para la sección diagonal */
+    clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+    z-index: 1;
+    opacity: 1;
+    /* Asegúrate de que no haya opacidad */
+}
+
+ion-back-button.letra {
+    color: #FFB800;
     font-weight: bold;
-  }  
-  ion-title.titulo-header {
-    --color: #2F2E2E;
-  }
-    
-  /* Estilo para el contenido */
-  ion-content.background {
-    --background: #EEF1FB; 
+}
+
+ion-title.titulo-header {
+    --color: #ffffff;
+}
+
+/*----------------------------------------------------------*/
+
+/*Estilos del titulo y subtitulo*/
+.titulo {
+    font-family: system-ui;
+    color: #2F2E2E !important;
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    margin: 0;
+    display: block;
+}
+/*----------------------------------------------------------*/
+/* Estilo para el contenido */
+ion-content.background {
+    --background: #E1E0DD;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
-    flex-grow: 1;
-  }
- 
-/*Estilos del titulo y subtitulo*/
-.titulo {
-    font-family: system-ui; 
-    color: #2F2E2E !important; 
-    font-size: 2.5rem; 
-    font-weight: bold; 
-    text-align: center; 
-    width: 100%; 
-    margin: 0; 
-    display: block; 
-  }  
-
-/* configuracion general para el ion-button */
+    flex-grow: 1; 
+    justify-content: center; 
+    height: 100%; 
+    position: relative; 
+}
+/*-------------------------------------------------------*/
+/* Estilos del botón genéricos */
 ion-button {
-    width: 70%; 
-    max-width: 400px;
+    width: 50%; 
+    max-width: 200px;
     margin: 20px auto; 
-    font-family: 'Helvetica', sans-serif;
+    font-family: 'Helvetica', sans-serif; 
     font-size: larger;
-    font-weight: bold;
     height: 50px; 
     display: block; 
-    text-align: center;
-    border-radius: 25px;
-    /* Quitar cualquier estilo de fondo o color que pueda interferir */
+    text-align: center; 
+    border-radius: 25px; 
+    /*Quitar cualquier estilos de fondo o colores que puedan interferir*/
     --background: none;
     --color: inherit;
-}
-
-/* Estilos especiales para el botón azul (Siguiente) */
-.boton-azul {
-    background: linear-gradient(145deg, #7B5BF2, #6A4ED9);
-    border-radius: 50px;
-    box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
-    color: white;
-    width: 200px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    position: relative;
-    border: none;
-    padding: 0;
-    overflow: hidden;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.boton-azul:hover {
-    background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
-    transform: scale(1.05);
-}
-.boton-azul:active,
-.boton-azul:focus {
-    background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
-}
-.boton-azul::before {
-    content: '';
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    right: 3px;
-    bottom: 3px;
-    border: 2px solid rgb(90, 89, 89);
-    border-radius: 45px;
-    z-index: 1;
-    background: transparent;
-}
-.boton-azul::after {
-    content: '';
-    width: 40px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    position: absolute;
-    left: 40px;
-    bottom: 10px;
-    z-index: 2;
-}
-
-/* Estilos especiales para el boton eliminar */
-.delete-button {
-    background: linear-gradient(145deg, #ff4c4c, #e60000); 
+  }
+  
+  /*Estilos propios del boton:*/
+  .boton-tono-especial {  
     border-radius: 50px; 
-    box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5); 
-    color: white; 
+    color: #ffffff !important; 
+    --color: #ffffff !important; // Añadir color a las letras
     width: 200px; 
-    height: 50px;
+    height: 50px; 
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
-    position: relative; 
-    border: none;
+    position: relative;
+    border: none; 
     padding: 0; 
     overflow: hidden; 
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.delete-button:hover {
-    background: linear-gradient(145deg, #e60000, #cc0000); 
-    transform: scale(1.05); 
-}
-.delete-button:active,
-.delete-button:focus {
-    background: linear-gradient(145deg, #e60000, #cc0000); 
-}
-.delete-button::before {
+    margin: 5px auto; 
+    transition: background-color 0.3s ease, transform 0.2s ease; 
+  }
+  
+  .boton-tono-especial::before {
     content: '';
     position: absolute;
     top: 3px; 
     left: 3px; 
-    right: 3px;
-    bottom: 3px; 
-    border: 2px solid rgb(90, 89, 89); 
-    border-radius: 45px;
-    z-index: 1; 
-    background: transparent; 
-}
-.delete-button::after {
-    content: '';
-    width: 40px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5); 
-    border-radius: 5px;
-    position: absolute;
-    left: 40px; 
-    bottom: 10px; 
-    z-index: 2; 
-}
-
-/* Estilos especiales para el boton salir */
-.salir-button {
-    background: linear-gradient(145deg, #00ff00, #00cc00);
-    border-radius: 50px; /* Bordes redondeados */
-    box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5); 
-    color: white;
-    width: 200px; 
-    height: 50px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    position: relative; 
-    border: none; 
-    padding: 0; 
-    overflow: hidden; 
-    transition: background-color 0.3s ease, transform 0.2s ease; 
-}
-.salir-button:hover {
-    background: linear-gradient(145deg, #00cc00, #009900); 
-    transform: scale(1.05);
-}
-.salir-button:active,
-.salir-button:focus {
-    background: linear-gradient(145deg, #00cc00, #009900);
-}
-.salir-button::before {
-    content: '';
-    position: absolute;
-    top: 3px;
-    left: 3px;
     right: 3px; 
     bottom: 3px; 
-    border: 2px solid rgb(90, 89, 89); 
+    border: 2px solid #fdfdfc; // Cambiar el color de las líneas internas a naranja
     border-radius: 45px; 
     z-index: 1; 
     background: transparent; 
-}
-.salir-button::after {
+  }
+  
+  .boton-tono-especial::after {
     content: '';
     width: 40px;
     height: 5px;
-    background: rgba(255, 255, 255, 0.5); 
+    background: #fdfdfc; // Cambiar la línea inferior a naranja
     border-radius: 5px;
     position: absolute;
     left: 40px; 
-    bottom: 10px; 
-    z-index: 2;
+    bottom: 10px;
+    z-index: 2; 
 }
+/*-------------------------------------------------------*/
 
 /* Estilo para el footer con color del menú */
 ion-footer.custom-footer {
-    --background: #09184D; 
-    padding: 0; 
+    padding: 0;
     position: fixed;
-    bottom: 0; 
-    width: 100%; 
+    bottom: 0;
+    width: 100%;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: center;
     z-index: 10;
-  }
-  
-  /* Estilo para la toolbar del footer */
-  .footer-toolbar {
-    --background: #09184D; 
-    padding: 0; 
-    text-align: center; 
-    color: var(--ion-color-primary-contrast); 
-  }
-  
-  /* Estilo para el mensaje del footer */
-  .footer-message p {
-    color: var(--ion-color-primary-contrast); 
-    font-size: 0.9rem; 
-    margin: 0;
-    font-family: 'Helvetica', sans-serif; 
-  }
+}
 
-  ion-spinner {
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+    --background: #000000;
+    padding: 0;
+    text-align: center;
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+    color: #FFB800;
+    font-size: 0.9rem;
+    margin: 0;
+    font-family: 'Helvetica', sans-serif;
+}
+
+/*-------------------------------------------------------*/
+
+ion-spinner {
     width: 100px;
     height: 100px;
+}
+/*-------------------------------------------------------*/
+
+
+/* Ajuste del botón con ícono de tarjeta */
+ion-button[size="small"] {
+    padding: 0;
+    --padding-start: 0;
+    --padding-end: 0;
+    --border-radius: 50%;
+    /* Ajuste redondeado */
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Color del texto de "Tarjeta Registrada: Sí/No" */
+ion-note.texto-si-no [color="dark"] {
+    --font-weight: bold;
+    --text-align: left;
+}
+
+/* Contenedor de botones */
+.boton-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  /* Botón de guardar cambios */
+  .boton-tono-especial {
+    flex: 1;
+    max-width: 220px;
+    background: linear-gradient(145deg, #7B5BF2, #6A4ED9);
+    border-radius: 50px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin-top: 5px; /* Ajusta este valor para mover el botón hacia abajo o arriba */
+  }
+  
+  /* Botón de registrar tarjeta */
+  .boton-tarjeta {
+    flex: 1;
+    max-width: 220px;
+    font-weight: bold;
+    border-radius: 50px;
+    padding: 0 15px;
+    background: #E1E0DD;
+    color: #120396;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin-top: 10px; /* Ajusta este valor para mover el botón hacia abajo o arriba */
   }
   

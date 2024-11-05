@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth';
-import { ToastService } from 'src/app/services/toast.service';  // Asegúrate de inyectar el servicio de Toast
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AlertController } from '@ionic/angular'; // Importa AlertController
 
 @Component({
   selector: 'app-restablecer-contrasena',
@@ -10,36 +11,48 @@ import { ToastService } from 'src/app/services/toast.service';  // Asegúrate de
 export class RestablecerContrasenaPage {
   email: string = ''; 
 
-  constructor(private toastService: ToastService) {}  // Inyecta el servicio de Toast
+  constructor(
+    private firestore: AngularFirestore, // Inyecta Firestore
+    private alertController: AlertController // Inyecta AlertController
+  ) {}
 
-  // Función para enviar el enlace de restablecimiento
+  // Función para mostrar Alert
+  async mostrarAlert(mensaje: string, header: string = 'Información') {
+    const alert = await this.alertController.create({
+      header: header,
+      message: mensaje,
+      buttons: ['CONTINUAR']
+    });
+    await alert.present();
+  }
+
+  // Verificar si el correo está registrado en Firestore y enviar enlace
   async enviarEnlace() {
-    const auth = getAuth();
-
     if (!this.email) {
-      // Si el campo de correo está vacío, mostramos un mensaje de error
-      this.toastService.mostrarToast('Por favor, ingresa tu correo electrónico.');  // Muestra un toast con el error
+      await this.mostrarAlert('Por favor, ingresa tu correo electrónico.', 'ERROR');
       return;
     }
 
     try {
-      // Enviar el enlace de restablecimiento de contraseña
-      await sendPasswordResetEmail(auth, this.email);
-      this.toastService.mostrarToast('Se ha enviado un correo para restablecer la contraseña.');  // Muestra un toast con el mensaje de éxito
+      // Verificar si el correo existe en la colección 'users' de Firestore
+      const snapshot = await this.firestore.collection('users', ref => ref.where('email', '==', this.email)).get().toPromise();
+      
+      if (snapshot && !snapshot.empty) {
+        // El correo está registrado en Firestore, procedemos a enviar el enlace de restablecimiento
+        const auth = getAuth();
+        await sendPasswordResetEmail(auth, this.email);
+        await this.mostrarAlert('Se ha enviado un correo para restablecer la contraseña.', '¡ÉXITO!...');
+      } else {
+        // El correo no está registrado en Firestore
+        await this.mostrarAlert('El correo ingresado no está asociado a una cuenta.', 'ERROR');
+      }
     } catch (error: any) {
       // Manejar el error y mostrar un mensaje apropiado
-      let errorMessage = '';
-      switch (error.code) {
-        case 'auth/user-not-found':
-          errorMessage = 'No existe una cuenta con este correo electrónico.';
-          break;
-        case 'auth/invalid-email':
-          errorMessage = 'El correo electrónico ingresado no es válido.';
-          break;
-        default:
-          errorMessage = 'Ocurrió un error al enviar el correo. Inténtalo nuevamente.';
+      let errorMessage = 'Ocurrió un error al enviar el correo. Inténtalo nuevamente.';
+      if (error.code === 'auth/invalid-email') {
+        errorMessage = 'El correo electrónico ingresado no es válido.';
       }
-      this.toastService.mostrarToast(errorMessage);  // Muestra un toast con el error
+      await this.mostrarAlert(errorMessage, 'ERROR');
     }
   }
 }

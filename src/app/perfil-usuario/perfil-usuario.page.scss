@@ -1,20 +1,38 @@
 /* Estilo para el header principal */
 ion-toolbar.custom-toolbar {
-  --background: #B5B8BF;
-  color: var(--ion-color-primary-contrast);
-  text-align: center;
-  padding: 0 16px; 
+  position: relative;
+  background: #FFB800 !important; /* Asegura que el fondo sea completamente naranja */
+  height: 50px; /* Ajusta la altura según lo necesario */
+  overflow: hidden;
+  z-index: 2; /* Asegura que esté sobre otros elementos */
+  opacity: 1; /* Verifica que la opacidad esté al 100% */
 }
+
+/* Pseudo-elemento para la separación diagonal */
+ion-toolbar.custom-toolbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%; /* Ajusta este valor para controlar el ancho de la parte negra */
+  height: 100%;
+  background-color: #000000; /* Color negro para la sección diagonal */
+  clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+  opacity: 1; /* Asegúrate de que no haya opacidad */
+}
+
 ion-back-button.letra {
+  color: #FFB800;
   font-weight: bold;
 }
 ion-title.titulo-header {
-  --color: #2F2E2E;
+  --color: #ffffff;
 }
   
 /* Estilo para el contenido */
 ion-content.background {
-  --background: #EEF1FB; 
+  --background: #E1E0DD ; 
   padding: 8px 16px; 
   flex-grow: 1; 
 }
@@ -51,7 +69,66 @@ ion-card-header {
   margin: 0; 
   display: block; 
 }
+/*------------------------------------------------------------------------------------*/
+/* Estilos del botón genéricos */
+ion-button {
+  width: 50%; 
+  max-width: 200px;
+  margin: 20px auto; 
+  font-family: 'Helvetica', sans-serif; 
+  font-size: larger;
+  height: 50px; 
+  display: block; 
+  text-align: center; 
+  border-radius: 25px; 
+  /*Quitar cualquier estilos de fondo o colores que puedan interferir*/
+  --background: none;
+  --color: inherit;
+}
 
+/*Estilos propios del boton:*/
+.boton-tono-especial {  
+  border-radius: 50px; 
+  color: #ffffff !important; 
+  --color: #ffffff !important; // Añadir color a las letras
+  width: 200px; 
+  height: 50px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: none; 
+  padding: 0; 
+  overflow: hidden; 
+  margin: 5px auto; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
+
+.boton-tono-especial::before {
+  content: '';
+  position: absolute;
+  top: 3px; 
+  left: 3px; 
+  right: 3px; 
+  bottom: 3px; 
+  border: 2px solid #fdfdfc; // Cambiar el color de las líneas internas a naranja
+  border-radius: 45px; 
+  z-index: 1; 
+  background: transparent; 
+}
+
+.boton-tono-especial::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: #fdfdfc; // Cambiar la línea inferior a naranja
+  border-radius: 5px;
+  position: absolute;
+  left: 40px; 
+  bottom: 10px;
+  z-index: 2; 
+}
+/*-------------------------------------------------------------------------------------*/
 /* Estilo para los elementos de la tarjeta */
 ion-item {
   --background: transparent; 
@@ -77,138 +154,10 @@ ion-label {
   margin: 0; 
   font-size: larger;
 }
-
-/* Estilos del botón genéricos */
-ion-button {
-  width: 70%; 
-  max-width: 400px;
-  margin: 20px auto; 
-  font-family: 'Helvetica', sans-serif;
-  font-size: larger;
-  font-weight: bold;
-  height: 50px; 
-  display: block; 
-  text-align: center;
-  border-radius: 25px; 
-  --background: none;
-  --color: inherit;
-  border: none;
-  box-shadow: none;
-  margin-top: 1%;
-}
-
-/* Estilos especiales para el botón azul (Siguiente) */
-.boton-azul {
-  background: linear-gradient(145deg, #7B5BF2, #6A4ED9); 
-  border-radius: 50px;
-  box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
-  color: white;
-  width: 200px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  position: relative;
-  border: none;
-  padding: 0;
-  overflow: hidden;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.boton-azul:hover {
-  background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
-  transform: scale(1.05);
-}
-.boton-azul:active,
-.boton-azul:focus {
-  background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
-}
-.boton-azul::before {
-  content: '';
-  position: absolute;
-  top: 3px;
-  left: 3px;
-  right: 3px;
-  bottom: 3px;
-  border: 2px solid rgb(90, 89, 89);
-  border-radius: 45px;
-  z-index: 1;
-  background: transparent;
-}
-.boton-azul::after {
-  content: '';
-  width: 40px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 5px;
-  position: absolute;
-  left: 40px;
-  bottom: 10px;
-  z-index: 2;
-}
-
-/* Contenedor para alinear los elementos en la misma línea */
-.inline-content {
-  display: flex; 
-  align-items: center; 
-  justify-content: flex-start; 
-  gap: 10px; 
-  width: 100%; 
-}
-
-/* Estilos especiales para el botón cerrar sesión */
-.boton-cerrar-sesion {
-  background: linear-gradient(145deg, #ff4c4c, #e60000); 
-  border-radius: 50px; 
-  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5); 
-  color: white; 
-  width: 200px; 
-  height: 50px; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-weight: bold;
-  position: relative;
-  border: none; 
-  padding: 0; 
-  overflow: hidden; 
-  transition: background-color 0.3s ease, transform 0.2s ease; 
-}
-.boton-cerrar-sesion:hover {
-  background: linear-gradient(145deg, #e60000, #cc0000); 
-  transform: scale(1.05); 
-}
-.boton-cerrar-sesion:active,
-.boton-cerrar-sesion:focus {
-  background: linear-gradient(145deg, #e60000, #cc0000);
-}
-.boton-cerrar-sesion::before {
-  content: '';
-  position: absolute;
-  top: 3px; 
-  left: 3px; 
-  right: 3px; 
-  bottom: 3px; 
-  border: 2px solid rgb(90, 89, 89);
-  border-radius: 45px; 
-  z-index: 1; 
-  background: transparent; 
-}
-.boton-cerrar-sesion::after {
-  content: '';
-  width: 40px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5); 
-  border-radius: 5px;
-  position: absolute;
-  left: 40px; 
-  bottom: 10px;
-  z-index: 2;
-}
+/*----------------------------------------------------------------------*/
 
 /* Estilo para el footer con color del menú */
 ion-footer.custom-footer {
-  --background: #09184D;
   padding: 0; 
   position: fixed; 
   bottom: 0; 
@@ -218,18 +167,16 @@ ion-footer.custom-footer {
   justify-content: center; 
   z-index: 10; 
 }
-
 /* Estilo para la toolbar del footer */
 .footer-toolbar {
-  --background: #09184D; 
+  --background: #000000; 
   padding: 0; 
-  text-align: center; 
-  color: var(--ion-color-primary-contrast); 
+  text-align: center;
 }
 
 /* Estilo para el mensaje del footer */
 .footer-message p {
-  color: var(--ion-color-primary-contrast); 
+  color: #FFB800; 
   font-size: 0.9rem; 
   margin: 0; 
   font-family: 'Helvetica', sans-serif; 

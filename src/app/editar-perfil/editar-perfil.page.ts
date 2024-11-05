@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController, AlertController } from '@ionic/angular';
 import { getFirestore, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
 import { ToastService } from 'src/app/services/toast.service'; // Servicio Toast
-import { LoadingController } from '@ionic/angular'; // Spinner
 
 @Component({
   selector: 'app-editar-perfil',
@@ -15,6 +14,7 @@ export class EditarPerfilPage implements OnInit {
   telefono: string = '';
   email: string = '';
   tieneVehiculo: boolean = false;
+  tarjetaRegistrada: boolean = false;
   vehiculo = {
     patente: '',
     marca: '',
@@ -23,8 +23,9 @@ export class EditarPerfilPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private toastService: ToastService,  // Inyectar el servicio de Toast
-    private loadingCtrl: LoadingController  // Inyectar el servicio de Spinner
+    private toastService: ToastService,  // Servicio de Toast
+    private loadingCtrl: LoadingController,  // Servicio de Spinner
+    private alertController: AlertController  // Servicio de Alert para confirmaciones
   ) {}
 
   ngOnInit() {
@@ -54,6 +55,9 @@ export class EditarPerfilPage implements OnInit {
             this.vehiculo.marca = userData['vehiculo'].marca;
             this.vehiculo.color = userData['vehiculo'].color;
           }
+          
+          // Verificar si hay una tarjeta registrada
+          this.tarjetaRegistrada = !!userData['tarjeta'];
         }
       }
     } catch (error) {
@@ -66,7 +70,6 @@ export class EditarPerfilPage implements OnInit {
     const loading = await this.loadingCtrl.create({
       message: 'Actualizando la información...',
       spinner: 'crescent',
-      duration: 2000
     });
     await loading.present();
 
@@ -96,11 +99,16 @@ export class EditarPerfilPage implements OnInit {
 
         this.toastService.mostrarToast('Información guardada con éxito.');
         await loading.dismiss();
-        this.navCtrl.navigateForward('/perfil-usuario'); //Vuelve a la página anterior
+        this.navCtrl.navigateForward('/perfil-usuario');
       }
     } catch (error) {
       await loading.dismiss();
       this.toastService.mostrarToast('Error al guardar los cambios.');
     }
+  }
+
+  // Método para navegar a la vista de añadir/editar tarjeta
+  goToAnadirTarjeta() {
+    this.navCtrl.navigateForward('/anadir-tarjeta');
   }
 }

@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { NavController, ActionSheetController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 interface Ruta {
-  id?: string; // Añadido como opcional
+  id?: string;
   origen: string;
   destino: string;
   fecha: string;
@@ -33,7 +33,8 @@ export class RegistroExitosoPasajeroPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private actionSheetController: ActionSheetController
   ) {}
 
   ngOnInit() {
@@ -91,8 +92,28 @@ export class RegistroExitosoPasajeroPage implements OnInit {
     }
   }
 
-  selectRuta(ruta: Ruta) {
-    this.rutaSeleccionada = ruta;
+  async mostrarActionSheet(ruta: Ruta) {
+    const actionSheet = await this.actionSheetController.create({
+      header: 'Detalles de la Ruta',
+      buttons: [
+        {
+          text: 'VER RUTA DISPONIBLE',
+          icon: 'information-circle-outline',
+          handler: () => {
+            this.verDetallesViaje(ruta);
+          }
+        },
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          icon: 'close',
+          handler: () => {
+            console.log('Acción cancelada');
+          }
+        }
+      ]
+    });
+    await actionSheet.present();
   }
 
   verDetallesViaje(ruta: Ruta) {

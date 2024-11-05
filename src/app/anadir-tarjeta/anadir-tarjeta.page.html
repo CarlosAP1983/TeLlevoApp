@@ -1,0 +1,45 @@
+<ion-header class="custom-header">
+  <ion-toolbar class="custom-toolbar">
+    <ion-buttons slot="start">
+      <ion-back-button class="letra" defaultHref="/editar-perfil" text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title class="titulo-header">AÑADIR TARJETA</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="background ion-padding">
+  <!-- Imagen de la tarjeta -->
+  <div class="tarjeta-imagen-container">
+    <img src="assets/images/tarjeta.png" alt="Imagen de tarjeta" class="tarjeta-imagen">
+  </div>
+
+  <h2 class="titulo">Añade los datos de tu tarjeta</h2>
+  
+  <form #tarjetaForm="ngForm">
+    <ion-item>
+      <ion-label position="fixed">Número de Tarjeta</ion-label>
+      <ion-input [(ngModel)]="tarjeta.numero" name="numero" type="tel" placeholder="0000 0000 0000 0000" maxlength="19"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Caducidad (MM/AA)</ion-label>
+      <ion-input [(ngModel)]="tarjeta.caducidad" name="caducidad" type="tel" placeholder="MM/AA" maxlength="5"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">Titular de la Tarjeta</ion-label>
+      <ion-input [(ngModel)]="tarjeta.titular" name="titular" type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="fixed">CVV</ion-label>
+      <ion-input [(ngModel)]="tarjeta.cvv" name="cvv" type="tel" placeholder="000" maxlength="3"></ion-input>
+    </ion-item>
+  </form>
+  
+  <ion-button expand="block" color="dark" class="boton-tono-especial" (click)="confirmarDatos()">Guardar Tarjeta</ion-button>
+</ion-content>
+
+<ion-footer class="footer-estilo">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
+    </div>
+  </ion-toolbar>

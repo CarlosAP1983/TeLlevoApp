@@ -1,13 +1,15 @@
-<ion-header [translucent]="true" class="custom-header">
-  <ion-toolbar class="custom-toolbar">
+<ion-header class="custom-header">
+  <ion-toolbar class="custom-toolbar" style="display: flex; justify-content: space-between; align-items: center;">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <!-- Botón que redirige a la vista 'cuenta' -->
       <ion-button class="letra" (click)="goToCuenta()">
-        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+        <ion-icon  color="warning" slot="start" name="menu-outline"></ion-icon>
+    
       </ion-button>
     </ion-buttons>
-    <ion-title class="titulo-header">Pasajero</ion-title>
+    <ion-title class="titulo-header" style="flex-grow: 1; text-align: center;">VISTA PASAJERO</ion-title>
     <ion-buttons slot="end">
+      <!-- Botón que redirige al perfil de usuario -->
       <ion-button class="letra" (click)="goToUserProfile()">
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
@@ -16,8 +18,8 @@
 </ion-header>
 
 <ion-content class="background ion-padding">
-  <h2 class="titulo">¡Bienvenido a TeLlevoApp!</h2><br>
-  <h1 class="sub-titulo">¡Vamos! Revisa si hay viajes disponibles o crea tu propia solicitud</h1>
+  <h2 class="titulo">¡TeLlevoApp!</h2><br>
+  <h1 class="sub-titulo">Revisa si hay viajes disponibles o crea tu propia solicitud</h1>
   <br>
 
   <!-- Contenedor para el spinner -->
@@ -28,8 +30,8 @@
   <h4><strong>Viajes Disponibles</strong></h4>
   <!-- Lista de rutas disponibles con scroll -->
   <div class="scroll-container">
-    <ion-list *ngIf="!mostrarSpinner">
-      <ion-item *ngFor="let ruta of rutasDisponibles" (click)="selectRuta(ruta)" [color]="rutaSeleccionada === ruta ? 'secondary' : ''">
+    <ion-list class="form" *ngIf="!mostrarSpinner" class="limit-list">
+      <ion-item class="form-item" *ngFor="let ruta of rutasDisponibles; let i = index" (click)="mostrarActionSheet(ruta)" [color]="rutaSeleccionada === ruta ? 'warning' : ''" [hidden]="i >= 2">
         <ion-label>
           <div class="origen-destino">
             <h2><strong>ORIGEN:</strong> {{ ruta.origen }} &nbsp;&nbsp; <strong>DESTINO:</strong> {{ ruta.destino }}</h2>
@@ -38,19 +40,14 @@
           <p><strong>Hora:</strong> {{ ruta.hora }}</p>
           <p><strong>Asientos Disponibles:</strong> {{ ruta.AsientosDisponibles }}</p>
         </ion-label>
-        
-        <!-- Icono flotante en la esquina inferior derecha -->
-        <ion-button fill="clear" size="small" class="icono-flotante" (click)="verDetallesViaje(ruta)">
-          <ion-icon name="information-circle-outline"></ion-icon>
-        </ion-button>
       </ion-item>
     </ion-list>
   </div>
 
   <h2><strong>Mis Viajes Creados</strong></h2>
   <div class="scroll-container">
-    <ion-list *ngIf="misViajesCreados.length > 0">
-      <ion-item *ngFor="let ruta of misViajesCreados; let i = index" (click)="toggleRoute(i)" [class.selected]="i === selectedIndex">
+    <ion-list  *ngIf="misViajesCreados.length > 0">
+      <ion-item class="form-item" *ngFor="let ruta of misViajesCreados; let i = index" (click)="toggleRoute(i)" [class.selected]="i === selectedIndex">
         <ion-label>
           <h2>{{ ruta.origen }} - {{ ruta.destino }}</h2>
           <p>{{ ruta.fecha }} a las {{ ruta.hora }} | Precio: {{ ruta.precio }} | Asientos: {{ ruta.AsientosDisponibles }}</p>
@@ -58,33 +55,30 @@
         
         <!-- Contenedor de los botones "Gestionar" y "Cancelar" en una fila -->
         <div class="boton-container" *ngIf="i === selectedIndex">
-          <ion-button class="boton-editar-viaje" (click)="gestionarViaje(i)">
+          <ion-button color="warning" class="boton-editar-viaje" (click)="gestionarViaje(i)">
             Gestionar
           </ion-button>
           <ion-button color="danger" class="boton-cancelar-viaje" (click)="cancelarViaje(i)">
             Cancelar
           </ion-button>
         </div>
-      </ion-item>
-      
-      
+      </ion-item>   
     </ion-list>
-  </div>
-  
+  </div>  
   
   <!-- Botones de acción -->
   <div class="botones-accion">
-    <ion-button expand="block" class="boton-azul" (click)="crearSolicitud()">Crear Viaje</ion-button>
-    <ion-button fill="clear" (click)="recargarRutas()">
-      <ion-icon name="reload-outline"></ion-icon>
+    <ion-button expand="block" color="dark" class="boton-tono-especial" (click)="crearSolicitud()">
+      Crear Viaje<ion-icon name="chevron-forward-outline" slot="end"></ion-icon></ion-button>
+    <ion-button expand="block" color="success" class="boton-tono-especial" (click)="recargarRutas()">
+      Refrescar Rutas<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
     </ion-button>
   </div>
 </ion-content>
 
-<ion-footer class="custom-footer">
+<ion-footer class="footer-estilo">
   <ion-toolbar class="footer-toolbar">
     <div class="footer-message">
-      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
     </div>
   </ion-toolbar>
-</ion-footer>

@@ -1,53 +1,77 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import { LoginService } from 'src/app/services/login.service';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-seleccion-perfil',
   templateUrl: './seleccion-perfil.page.html',
   styleUrls: ['./seleccion-perfil.page.scss'],
 })
-export class SeleccionPerfilPage {
-  
+export class SeleccionPerfilPage implements OnInit {
+
   nombreUsuario: string | null = null;
   perfil: string | null = null;
+  tieneVehiculo: boolean = false;
 
   constructor(
     private navCtrl: NavController,
     public loginSrv: LoginService,
-    private toastController: ToastController  // Inyecta el controlador de Toast
+    private alertController: AlertController,
+    private firestore: AngularFirestore
   ) {}
 
-  ngOnInit() {
-    this.nombreUsuario = this.loginSrv.getNombreUsuario();  // Obtiene el nombre del usuario desde el servicio
+  async ngOnInit() {
+    const correoCompleto = this.loginSrv.getNombreUsuario();
+    if (correoCompleto) {
+      this.nombreUsuario = correoCompleto.split('@')[0];
+    } else {
+      this.nombreUsuario = null;
+    }
+
+    // Obtener datos del usuario desde Firestore para verificar si tiene vehículo
+    if (this.loginSrv.usuarioActual) {
+      const userId = this.loginSrv.usuarioActual.uid;
+      try {
+        const userDoc = await this.firestore.collection('users').doc(userId).get().toPromise();
+        
+        if (userDoc && userDoc.exists) {
+          const userData = userDoc.data() as { vehiculo?: any };
+          this.tieneVehiculo = userData?.vehiculo ? true : false;
+        } else {
+          this.tieneVehiculo = false;
+        }
+      } catch (error) {
+        console.error("Error al obtener datos del usuario:", error);
+        this.tieneVehiculo = false;
+      }
+    }
   }
 
-  // Seleccionar perfil
   seleccionarPerfil(tipo: string) {
+    if (tipo === 'conductor' && !this.tieneVehiculo) {
+      this.mostrarAlert('No tienes un vehículo registrado, solo puedes acceder como pasajero.');
+      return;
+    }
     this.perfil = tipo;
   }
 
-  // Confirmar perfil y redirigir
-  confirmarPerfil() {
-    if (this.perfil === 'conductor') {
+  async confirmarPerfil() {
+    if (this.perfil === 'conductor' && this.tieneVehiculo) {
       this.navCtrl.navigateForward('/registro-exitoso');
     } else if (this.perfil === 'pasajero') {
       this.navCtrl.navigateForward('/registro-exitoso-pasajero');
     } else {
-      // Mostrar Toast si no se selecciona un perfil
-      this.mostrarToast('Por favor, selecciona un perfil.');
+      await this.mostrarAlert('Por favor, selecciona un perfil.');
     }
   }
 
-  //Mostrar Toast
-  async mostrarToast(mensaje: string) {
-    const toast = await this.toastController.create({
+  async mostrarAlert(mensaje: string) {
+    const alert = await this.alertController.create({
+      header: '¡ALERTA!',
       message: mensaje,
-      duration: 3000,  // Duración en milisegundos
-      position: 'middle',  // Posicionarlo en el centro
-      cssClass: 'custom-toast',  // Añadir clase personalizada
-      translucent: true
+      buttons: ['CONTINUAR']
     });
-    toast.present();
+    await alert.present();
   }
 }

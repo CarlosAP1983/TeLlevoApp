@@ -1,10 +1,10 @@
-<ion-header [translucent]="true" class="custom-header">
+<ion-header class="custom-header">
   <ion-toolbar class="custom-toolbar">
-    <!--Retroceder a la vista anterior-->
+    <!-- Botón de retroceso -->
     <ion-buttons slot="start">
       <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title class="titulo-header">Perfil Usuario</ion-title>
+    <ion-title class="titulo-header">PERFIL DEL USUARIO</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -16,10 +16,9 @@
       <div class="avatar-container">
         <img [src]="avatar" alt="Avatar del usuario" class="avatar" />
       </div>
-      <ion-button expand="full"  class="boton-azul" (click)="onSelectFile()">Subir Nueva Foto</ion-button>
+      <ion-button expand="full" class="boton-tono-especial" (click)="onSelectFile()">Subir Nueva Foto</ion-button>
     </ion-card-header>
-    
-    
+
 
     <!-- Información del Usuario -->
     <ion-card-content>
@@ -37,15 +36,14 @@
       </ion-item>
     </ion-card-content>
   </ion-card>
-  
+
   <!-- Botón para editar perfil -->
-  <ion-button expand="block" class="boton-azul" (click)="editarPerfil()">Editar Perfil</ion-button>
+  <ion-button expand="block" color="dark" class="boton-tono-especial" (click)="editarPerfil()">Editar Perfil</ion-button>
 </ion-content>
 
-<ion-footer class="custom-footer">
+<ion-footer class="footer-estilo">
   <ion-toolbar class="footer-toolbar">
     <div class="footer-message">
-      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
     </div>
   </ion-toolbar>
-</ion-footer>

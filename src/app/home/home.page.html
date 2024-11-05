@@ -2,7 +2,7 @@
   <div class="contenedor-principal">
     <!--Logo corporativo-->
     <div class="logo-container">
-      <img src="assets/images/fondo_logo(2).png" alt="Logo TeLlevoAPP" class="logo" />
+      <img src="assets/images/LogoAppGris.png" alt="Logo TeLlevoAPP" class="logo" />
     </div>
     <br><br><br>
 
@@ -19,8 +19,10 @@
       </div>
 
       <!--Botones para iniciar y crear cuenta-->
-      <ion-button expand="block" class="boton-tono-especial" (click)="iniciarSesion()">Iniciar Sesión</ion-button>
-      <ion-button expand="block" class="boton-tono-especial" (click)="irARegistro()">Crea una cuenta</ion-button>
+      <div class="boton-container">
+        <ion-button expand="block" color="dark" class="boton-tono-especial" (click)="iniciarSesion()">INGRESAR<ion-icon name="chevron-forward-outline" slot="end"></ion-icon></ion-button>
+        <ion-button expand="block" color="dark" class="boton-tono-especial" (click)="irARegistro()">REGISTRATE</ion-button>
+      </div>      
 
       <!--Enlace reestablecer contraseña-->
       <div class="link-container">
@@ -29,3 +31,11 @@
     </div>
   </div>
 </ion-content>
+
+<ion-footer class="footer-estilo">
+  <ion-toolbar class="footer-toolbar">
+    <div class="footer-message">
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
+    </div>
+  </ion-toolbar>
+</ion-footer>

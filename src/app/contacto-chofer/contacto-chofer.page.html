@@ -1,9 +1,10 @@
-<ion-header [translucent]="true" class="custom-header">
+<ion-header class="custom-header">
   <ion-toolbar class="custom-toolbar">
+    <!-- Botón de retroceso -->
     <ion-buttons slot="start">
-      <ion-back-button defaultHref="/detalle-viaje" text="Volver"></ion-back-button>
+      <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title class="titulo-header">Viaje en curso</ion-title>
+    <ion-title class="titulo-header">VIAJE EN CURSO</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -34,13 +35,18 @@
   </div>
 
   <!-- Botón para finalizar viaje y calificar servicio -->
-  <ion-button expand="block" class="boton-azul" (click)="finalizarViaje()">Finalizar Viaje</ion-button>
+  <ion-button expand="block" color="dark" class="boton-tono-especial" (click)="finalizarViaje()">Finalizar Viaje<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+  </ion-button>
+  <br>
+  <!-- Información de la forma de pago acordada -->
+  <p class="forma-pago-info">
+    <strong>Forma de pago de viaje acordado:</strong> <br> <br><h2><strong>{{ formaPago }}</strong></h2>
+  </p>
 </ion-content>
 
-<ion-footer class="custom-footer">
+<ion-footer class="footer-estilo">
   <ion-toolbar class="footer-toolbar">
     <div class="footer-message">
-      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
     </div>
   </ion-toolbar>
-</ion-footer>

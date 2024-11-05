@@ -1,11 +1,11 @@
-<ion-header [translucent]="true" class="custom-header">
+<ion-header class="custom-header">
   <ion-toolbar class="custom-toolbar">
+    <!-- Botón de retroceso -->
     <ion-buttons slot="start">
       <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title class="titulo-header">Restablecer</ion-title>
+    <ion-title class="titulo-header">REESTABLECIMIENTO</ion-title>
   </ion-toolbar>
-  <br>
 </ion-header>
 
 <ion-content class="background ion-padding" [fullscreen]="true">
@@ -20,14 +20,17 @@
       <ion-input type="email" required [(ngModel)]="email" name="email" class="underline-input"></ion-input>
     </ion-item>
     <br><br>
-    <ion-button expand="block" class="boton-enviar-enlace" type="submit">Enviar Enlace de Restablecimiento</ion-button>
+    <ion-button expand="block" color="dark" class="boton-tono-especial" type="submit">
+      Reestable la Contraseña
+      <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-button>
+    
   </form>
 </ion-content>
 
-<ion-footer class="custom-footer">
+<ion-footer class="footer-estilo">
   <ion-toolbar class="footer-toolbar">
     <div class="footer-message">
-      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
     </div>
   </ion-toolbar>
-</ion-footer>
