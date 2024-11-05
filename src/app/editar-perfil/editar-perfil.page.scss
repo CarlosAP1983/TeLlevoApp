@@ -37,7 +37,13 @@ ion-back-button.letra {
 ion-title.titulo-header {
     --color: #ffffff;
 }
-
+/*----------------------------------------------------------*/
+ion-item.form-item {
+    --background: #464741 ;
+    color: #ffffff;
+    font-weight: bold; 
+  }
+  
 /*----------------------------------------------------------*/
 
 /*Estilos del titulo y subtitulo*/
@@ -176,7 +182,7 @@ ion-button[size="small"] {
 }
 
 /* Color del texto de "Tarjeta Registrada: Sí/No" */
-ion-note.texto-si-no [color="dark"] {
+ion-note.texto-si-no [color="light"] {
     --font-weight: bold;
     --text-align: left;
 }

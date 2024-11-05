@@ -11,37 +11,37 @@
 <ion-content class="background ion-padding" [fullscreen]="true">
   <h2 class="titulo">Actualiza tus datos</h2>
   <ion-list>
-    <ion-item>
+    <ion-item class="form-item">
       <ion-label position="floating">• Nombre:</ion-label>
       <ion-input [(ngModel)]="nombre" type="text"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item class="form-item">
       <ion-label position="floating">• Teléfono:</ion-label>
       <ion-input [(ngModel)]="telefono" type="tel"></ion-input>
     </ion-item>
-    <ion-item>
+    <ion-item class="form-item">
       <ion-label position="floating">• Email:</ion-label>
       <ion-input [(ngModel)]="email" type="email"></ion-input>
     </ion-item>
 
     <!-- Datos del vehículo si está registrado -->
-    <ion-item *ngIf="tieneVehiculo">
+    <ion-item class="form-item" *ngIf="tieneVehiculo">
       <ion-label position="floating">• Patente del Vehículo:</ion-label>
       <ion-input [(ngModel)]="vehiculo.patente" type="text"></ion-input>
     </ion-item>
-    <ion-item *ngIf="tieneVehiculo">
+    <ion-item class="form-item" *ngIf="tieneVehiculo">
       <ion-label position="floating">• Marca del Vehículo:</ion-label>
       <ion-input [(ngModel)]="vehiculo.marca" type="text"></ion-input>
     </ion-item>
-    <ion-item *ngIf="tieneVehiculo">
+    <ion-item class="form-item" *ngIf="tieneVehiculo">
       <ion-label position="floating">• Color del Vehículo:</ion-label>
       <ion-input [(ngModel)]="vehiculo.color" type="text"></ion-input>
     </ion-item>
 
     <!-- Información sobre la tarjeta registrada -->
-    <ion-item>
+    <ion-item class="form-item">
       <ion-label>Tarjeta Registrada</ion-label>
-      <ion-note class="texto-si-no" color="dark">{{ tarjetaRegistrada ? 'SI' : 'NO' }}</ion-note>
+      <ion-note class="texto-si-no" color="light">{{ tarjetaRegistrada ? 'SI' : 'NO' }}</ion-note>
     </ion-item>
   </ion-list>
   
