@@ -21,6 +21,31 @@ export class AnadirTarjetaPage {
     private navCtrl: NavController
   ) {}
 
+  // Formatear número de tarjeta (cuatro bloques de 4 dígitos separados por espacios)
+  formatearNumeroTarjeta(event: any) {
+    const input = event.target as HTMLInputElement;
+    let valor = input.value.replace(/\D/g, ''); // Elimina todo lo que no sea dígito
+    if (valor.length > 16) valor = valor.slice(0, 16); // Limita a 16 dígitos
+
+    const bloques = valor.match(/.{1,4}/g); // Divide en bloques de 4
+    input.value = bloques ? bloques.join(' ') : ''; // Une bloques con espacio
+    this.tarjeta.numero = input.value; // Actualiza el modelo
+  }
+
+  // Formatear fecha de caducidad (formato MM/AA)
+  formatearCaducidad(event: any) {
+    const input = event.target as HTMLInputElement;
+    let valor = input.value.replace(/\D/g, ''); // Elimina todo lo que no sea dígito
+    if (valor.length > 4) valor = valor.slice(0, 4); // Limita a 4 dígitos
+
+    // Aplica el formato MM/AA
+    if (valor.length >= 3) {
+      valor = valor.slice(0, 2) + '/' + valor.slice(2);
+    }
+    input.value = valor;
+    this.tarjeta.caducidad = valor; // Actualiza el modelo
+  }
+
   // Confirmar datos de tarjeta
   async confirmarDatos() {
     const alert = await this.alertController.create({

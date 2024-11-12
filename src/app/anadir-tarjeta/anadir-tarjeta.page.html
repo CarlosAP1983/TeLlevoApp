@@ -18,11 +18,25 @@
   <form #tarjetaForm="ngForm">
     <ion-item>
       <ion-label position="fixed">Número de Tarjeta</ion-label>
-      <ion-input [(ngModel)]="tarjeta.numero" name="numero" type="tel" placeholder="0000 0000 0000 0000" maxlength="19"></ion-input>
+      <ion-input
+        [(ngModel)]="tarjeta.numero"
+        name="numero"
+        type="tel"
+        placeholder="0000 0000 0000 0000"
+        maxlength="19"
+        (ionInput)="formatearNumeroTarjeta($event)"
+      ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="fixed">Caducidad (MM/AA)</ion-label>
-      <ion-input [(ngModel)]="tarjeta.caducidad" name="caducidad" type="tel" placeholder="MM/AA" maxlength="5"></ion-input>
+      <ion-input
+        [(ngModel)]="tarjeta.caducidad"
+        name="caducidad"
+        type="tel"
+        placeholder="MM/AA"
+        maxlength="5"
+        (ionInput)="formatearCaducidad($event)"
+      ></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="fixed">Titular de la Tarjeta</ion-label>
