@@ -1,49 +1,44 @@
-<ion-header [translucent]="true" class="custom-header">
+<ion-header class="custom-header">
   <ion-toolbar class="custom-toolbar">
-    <!--Retroceder a la vista anterior-->
-    <ion-buttons slot="start">
-    </ion-buttons>
-    <ion-title class="titulo-header">Selección de Perfil</ion-title>
+    <ion-title class="titulo-header">SELECCION DE PERFIL</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="background ion-padding">
   <h2 class="titulo">¡Bienvenido a TeLlevoApp!</h2><br>
-  <h1>¡Bienvenido {{nombreUsuario}}</h1>
-  <h1 class="sub-titulo">Selecciona un tipo de usuario para comenzar:</h1><br><br>
+  <h1>¡Bienvenido(a) {{nombreUsuario}}!</h1>
+  <h1 class="sub-titulo">Selecciona un tipo de usuario para comenzar:</h1><br>
   <!--Lista para seleccionar el tipo de usuario-->
   <ion-list class="fondo">
-    <div class="inline-content">
-      <ion-icon class="parrafos" name="chevron-forward-circle-outline"></ion-icon>
+    <div  class="inline-content">
+      <ion-icon color="warning" class="parrafos" name="chevron-forward-circle-outline"></ion-icon>
       <p class="parrafos">Conduce y comparte tu viaje con otros...</p>
     </div><br>
-    <ion-item class="fondo-2"
-      button 
-      [ngClass]="{'selected-item': perfil === 'conductor'}" 
+    <ion-item class="fondo-2" button [ngClass]="{'selected-item': perfil === 'conductor'}"
       (click)="seleccionarPerfil('conductor')">
-            <ion-label>• Usuario Conductor • </ion-label>
+      <ion-label class="parrafos">• Usuario Conductor • </ion-label>
     </ion-item>
     <br>
     <div class="inline-content">
-      <ion-icon class="parrafos" name="chevron-forward-circle-outline"></ion-icon>
-    <p class="parrafos">Encuentra y únete a un viaje coordinado...</p> <br>
-  </div><br>
-    <ion-item class="fondo-2"
-      button 
-      [ngClass]="{'selected-item': perfil === 'pasajero'}" 
+      <ion-icon color="warning" class="parrafos" name="chevron-forward-circle-outline"></ion-icon>
+      <p class="parrafos">Encuentra y únete a un viaje coordinado...</p> <br>
+    </div><br>
+    <ion-item class="fondo-2" button [ngClass]="{'selected-item': perfil === 'pasajero'}"
       (click)="seleccionarPerfil('pasajero')">
-      <ion-label>• Usuario Pasajero •</ion-label>
-    </ion-item> <br><br>
-  </ion-list>
-
-  <!--Boton para confirmar la seleccion-->
-  <ion-button expand="block" class="boton-azul" (click)="confirmarPerfil()">Siguiente</ion-button>
+      <ion-label class="parrafos">• Usuario Pasajero •</ion-label>
+    </ion-item>
+  </ion-list><br>
+  <div>
+    <ion-button expand="block" color="dark" class="boton-tono-especial"
+      (click)="confirmarPerfil()">Siguiente<ion-icon name="chevron-forward-outline" slot="end"></ion-icon></ion-button>
+    <br>
+  </div>
 </ion-content>
 
 <ion-footer class="custom-footer">
   <ion-toolbar class="footer-toolbar">
     <div class="footer-message">
-      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
     </div>
   </ion-toolbar>
 </ion-footer>

@@ -1,25 +1,40 @@
 /* Estilo para el header principal */
 ion-toolbar.custom-toolbar {
-  --background: #B5B8BF;
-  color: var(--ion-color-primary-contrast);
-  text-align: center;
-  padding: 0 10px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  position: relative;
+  background: #FFB800 !important; /* Asegura que el fondo sea completamente naranja */
+  height: 50px; /* Ajusta la altura según lo necesario */
+  overflow: hidden;
+  z-index: 2; /* Asegura que esté sobre otros elementos */
+  opacity: 1; /* Verifica que la opacidad esté al 100% */
+}
+
+/* Pseudo-elemento para la separación diagonal */
+ion-toolbar.custom-toolbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%; /* Ajusta este valor para controlar el ancho de la parte negra */
+  height: 100%;
+  background-color: #000000; /* Color negro para la sección diagonal */
+  clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+  opacity: 1; /* Asegúrate de que no haya opacidad */
+}
+
+ion-button.letra {
+  font-weight: bold;
+  color: #FFB800;
 }
 
 ion-title.titulo-header {
   --color: #2F2E2E;
-  font-size: 1rem;
-  flex-grow: 1;
-  text-align: center;
+  font-weight: bold;
 }
 
 /* Estilo para el contenido */
 ion-content.background {
-  --background: #EEF1FB;
+  --background: #E1E0DD;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,6 +44,16 @@ ion-content.background {
   overflow-y: auto;
   height: calc(100vh - 50px);
   box-sizing: border-box;
+}
+/*---------------------------------------------------------------------*/
+
+ion-item.form-item {
+  --background: #464741 ;
+  color: #ffffff;
+  font-weight: bold; 
+}
+ion-list.form {
+  --background: #E1E0DD ;
 }
 
 /* Estilo para los títulos */
@@ -51,45 +76,79 @@ ion-content.background {
   text-align: left;
   width: 100%;
 }
+/*---------------------------------------------------------------------*/
 
 /* Estilos para los botones Crear Viaje y Recargar */
-.boton-azul, .boton-recargar {
-  border-radius: 50px;
-  width: 200px;
-  height: 50px;
+/* Estilos del botón genéricos */
+ion-button {
+  width: 50%; 
+  max-width: 200px;
+  margin: 20px auto; 
+  font-family: 'Helvetica', sans-serif; 
+  font-size: larger;
+  height: 50px; 
+  display: block; 
+  text-align: center; 
+  border-radius: 25px; 
+  /*Quitar cualquier estilos de fondo o colores que puedan interferir*/
+  --background: none;
+  --color: inherit;
+}
+
+/*Estilos propios del boton:*/
+.boton-tono-especial {  
+  border-radius: 50px; 
+  color: #ffffff !important; 
+  --color: #ffffff !important; // Añadir color a las letras
+  width: 200px; 
+  height: 50px; 
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
   position: relative;
-  border: none;
-  padding: 0;
-  overflow: hidden;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none; 
+  padding: 0; 
+  overflow: hidden; 
+  margin: 5px auto; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
 }
 
-.boton-azul {
-  background: linear-gradient(145deg, #7B5BF2, #6A4ED9);
-  box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5);
-  color: white;
+.boton-tono-especial::before {
+  content: '';
+  position: absolute;
+  top: 3px; 
+  left: 3px; 
+  right: 3px; 
+  bottom: 3px; 
+  border: 2px solid #fdfdfc; // Cambiar el color de las líneas internas a naranja
+  border-radius: 45px; 
+  z-index: 1; 
+  background: transparent; 
 }
 
-.boton-azul:hover {
-  background: linear-gradient(145deg, #6A4ED9, #5C3EB8);
-  transform: scale(1.05);
+.boton-tono-especial::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: #fdfdfc; // Cambiar la línea inferior a naranja
+  border-radius: 5px;
+  position: absolute;
+  left: 40px; 
+  bottom: 10px;
+  z-index: 2; 
 }
 
-.boton-recargar {
-  background: linear-gradient(145deg, #00ff00, #00cc00);
-  box-shadow: 0 4px 8px rgba(0, 100, 0, 0.5), 0 -4px 8px rgba(0, 230, 0, 0.5);
-  color: white;
+/* Contenedor para alinear los botones en línea */
+.botones-accion {
+  display: flex;
+  justify-content: center; /* Centra los botones */
+  gap: 20px; /* Espaciado entre los botones */
+  width: 100%; /* Ajusta esto según el espacio disponible */
+  max-width: 500px; /* Ancho máximo del contenedor */
+  margin: 20px auto; /* Centra el contenedor en la página */
 }
 
-.boton-recargar:hover {
-  background: linear-gradient(145deg, #00cc00, #009900);
-  transform: scale(1.05);
-}
-
+/*----------------------------------------------------------*/
 /* Contenedor de los botones "Gestionar" y "Cancelar" en una misma línea */
 .boton-container {
   display: flex; /* Coloca los botones en fila */
@@ -335,3 +394,61 @@ ion-button {
   bottom: 10px;
   z-index: 2;
 }
+
+/*---------------------------------------------------------------------*/
+
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+  padding: 0; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 10; 
+}
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #000000; 
+  padding: 0; 
+  text-align: center;
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: #FFB800; 
+  font-size: 0.9rem; 
+  margin: 0; 
+  font-family: 'Helvetica', sans-serif; 
+}
+
+/*---------------------------------------------------------------------*/
+.scroll-container {
+  max-height: 200px; /* Ajusta la altura según lo necesario */
+  overflow-y: auto; /* Activa el scroll vertical */
+}
+.limit-list ion-item {
+  margin-bottom: 10px;
+}
+/*---------------------------------------------------------------------*/
+/* ESTOLO DEL spinner */
+.spinner-container {
+  position: fixed; /* Mantiene el spinner fijo en el centro de la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(254, 254, 254, 0.5); /* Fondo semitransparente negro */
+  z-index: 9999; /* Asegura que esté por encima de otros elementos */
+}
+
+.spinner-grande {
+  width: 100px;
+  height: 100px;
+  color: #000000; 
+}
+

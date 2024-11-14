@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, ToastController } from '@ionic/angular';
 import { ComunasService } from '../services/comunas.service';
-import { AngularFirestore } from '@angular/fire/compat/firestore'; // Importa AngularFirestore
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-programar-viaje',
@@ -12,28 +12,21 @@ export class ProgramarViajePage implements OnInit {
   nuevoViaje = {
     origen: '',
     destino: '',
-    fecha: '',
-    hora: '',
+    fechaHora: '',  // Campo combinado de fecha y hora
     precio: '',
     asientos: 1
   };
 
-  comunas: any[] = []; // Lista completa de comunas
-  comunasFiltradas: any[] = []; // Lista filtrada para búsqueda en el selector
+  comunas: any[] = [];
+  comunasFiltradas: any[] = [];
 
   constructor(
     private navCtrl: NavController,
     private loadingCtrl: LoadingController,
     private toastCtrl: ToastController,
     private comunasService: ComunasService,
-    private firestore: AngularFirestore // Inyección de AngularFirestore
+    private firestore: AngularFirestore
   ) {}
-
-  selectOptions = {
-    header: 'Selecciona Comuna',
-    subHeader: 'Escribe para buscar', // Muestra el texto "Escribe para buscar" en el desplegable
-    cssClass: 'comuna-select'
-  };
 
   ngOnInit() {
     this.obtenerComunas();
@@ -43,24 +36,13 @@ export class ProgramarViajePage implements OnInit {
     this.comunasService.obtenerComunas().subscribe(
       (data) => {
         this.comunas = data;
-        this.comunasFiltradas = data; // Inicialmente muestra todas las comunas en el filtro
-        console.log("Datos de comunas:", this.comunas); // Verificar los datos aquí
+        this.comunasFiltradas = data;
+        console.log("Datos de comunas:", this.comunas);
       },
       (error) => {
         console.error('Error al obtener comunas:', error);
       }
     );
-  }   
-
-  filtrarComunas(event: any) {
-    const texto = event.target.value.toLowerCase();
-    if (texto && texto.trim() !== '') {
-      this.comunasFiltradas = this.comunas.filter(comuna =>
-        comuna.nombre.toLowerCase().includes(texto)
-      );
-    } else {
-      this.comunasFiltradas = [...this.comunas]; // Restaura la lista completa si el texto está vacío
-    }
   }
 
   async guardarViaje() {
@@ -72,7 +54,7 @@ export class ProgramarViajePage implements OnInit {
     await loading.present();
 
     try {
-      await this.firestore.collection('viajes').add(this.nuevoViaje); // Agrega el documento a la colección "viajes"
+      await this.firestore.collection('viajes').add(this.nuevoViaje);
 
       loading.dismiss();
       const toast = await this.toastCtrl.create({

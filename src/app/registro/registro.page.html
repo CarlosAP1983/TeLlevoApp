@@ -1,9 +1,6 @@
-<ion-header [translucent]="true" class="custom-header">
+<ion-header class="custom-header">
   <ion-toolbar class="custom-toolbar">
-    <!--Retroceder a la vista anterior-->
-    <ion-buttons slot="start">
-    </ion-buttons>
-    <ion-title class="titulo-header">Crea tu cuenta</ion-title>
+    <ion-title class="titulo-header">CREA TU CUENTA</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,6 +8,7 @@
   <form (ngSubmit)="onRegister()" #registerForm="ngForm" class="form-container">
     <!--Campo Nombre y Correo Electronico -->
     <div class="form-group">
+      <p class="parrafos">Ingresa tus datos para completar el registro</p><br>
       <ion-item lines="full" class="form-item">
         <ion-label position="fixed">• Nombre:</ion-label>
         <ion-input type="text" required [(ngModel)]="name" name="name"></ion-input>
@@ -19,8 +17,7 @@
         <ion-label position="fixed">• Correo Electrónico:</ion-label>
         <ion-input type="text" required [(ngModel)]="emailPrefix" name="emailPrefix" ></ion-input>
         <ion-label class="email-dominio" readonly>&#64;duocuc.cl</ion-label> <!-- Usar &#64; para el símbolo @ -->
-      </ion-item>
-      
+      </ion-item>      
     </div>
 
     <!--Campo Numero de Telefono y Usuario-->
@@ -34,7 +31,7 @@
     </div>
 
     <ion-item lines="full" class="form-item">
-      <ion-label position="fixed">• Contraseña:</ion-label>
+      <ion-label position="fixed">Contraseña:</ion-label>
       <ion-input type="password" required [(ngModel)]="password" name="password"></ion-input>
     </ion-item>  
 
@@ -55,21 +52,21 @@
       <ion-item lines="full" class="form-item" [ngClass]="{'disabled-item': !tieneVehiculo}">
         <ion-label position="fixed">• Color:</ion-label>
         <ion-input type="text" [disabled]="!tieneVehiculo" [(ngModel)]="vehiculo.color" name="color"></ion-input>
-      </ion-item> 
+      </ion-item>
     </div>
 
     <!--Contenedor de los botones-->
     <div class="button-container">
-      <ion-button expand="block" class="boton-registrarse" type="submit">Registrarse</ion-button>
-      <ion-button expand="block" class="boton-salir" color="danger" (click)="goHome()">Salir</ion-button>
+      <ion-button expand="block" color="dark" class="boton-tono-especial" type="submit">Registrarse<ion-icon name="chevron-forward-outline" slot="end"></ion-icon></ion-button>
+
+      <ion-button expand="block" color="danger" class="boton-tono-especial" (click)="goHome()">Salir<ion-icon name="chevron-forward-outline" slot="end"></ion-icon></ion-button>
     </div>
   </form>
 </ion-content>
 
-<ion-footer class="custom-footer">
+<ion-footer class="footer-estilo">
   <ion-toolbar class="footer-toolbar">
     <div class="footer-message">
-      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
     </div>
   </ion-toolbar>
-</ion-footer>

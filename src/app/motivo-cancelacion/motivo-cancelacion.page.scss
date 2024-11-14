@@ -1,19 +1,39 @@
 /* Estilo para el header principal */
 ion-toolbar.custom-toolbar {
-    --background: #B5B8BF; 
-    color: var(--ion-color-primary-contrast); 
-    text-align: center;
-  }
-  ion-back-button.letra {
-    font-weight: bold;
-  }
-  ion-title.titulo-header {
-    --color: #2F2E2E;
-  }
+  position: relative;
+  background: #FFB800 !important; /* Asegura que el fondo sea completamente naranja */
+  height: 50px; /* Ajusta la altura según lo necesario */
+  overflow: hidden;
+  z-index: 2; /* Asegura que esté sobre otros elementos */
+  opacity: 1; /* Verifica que la opacidad esté al 100% */
+}
+
+/* Pseudo-elemento para la separación diagonal */
+ion-toolbar.custom-toolbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%; /* Ajusta este valor para controlar el ancho de la parte negra */
+  height: 100%;
+  background-color: #000000; /* Color negro para la sección diagonal */
+  clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+  opacity: 1; /* Asegúrate de que no haya opacidad */
+}
+
+ion-back-button.letra {
+  color: #FFB800;
+  font-weight: bold;
+}
+
+ion-title.titulo-header {
+  --color: #ffffff;
+}
     
   /* Estilo para el contenido */
   ion-content.background {
-    --background: #EEF1FB; 
+    --background: #E1E0DD; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,7 +125,7 @@ ion-radio {
     --size: 25px; 
     --border-width: 2px; 
     --border-color: #0b0b0b; 
-    --background: #0b0b0b; 
+    --background: #E1E0DD; 
     --color-checked: rgb(246, 1, 1); 
 }
   
@@ -139,9 +159,7 @@ ion-radio {
     height: 30px;
     border: 2px solid #0b0b0b; 
     border-radius: 4px;
-  }
-  
-  
+  }  
 
 /* Estilo personalizado para el checkbox */
 .custom-checkbox {
@@ -166,30 +184,37 @@ ion-checkbox::part(container) {
 
 /* Estilo para el footer con color del menú */
 ion-footer.custom-footer {
-    --background: #09184D; 
-    height: 50px; 
-    padding: 0; 
-    position: fixed; 
-    bottom: 0; 
-    width: 100%; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-    z-index: 10; 
-  }
-  
-  /* Estilo para la toolbar del footer */
-  .footer-toolbar {
-    --background: #09184D; 
-    padding: 0; 
-    text-align: center;
-    color: var(--ion-color-primary-contrast); 
-  }
-  
-  /* Estilo para el mensaje del footer */
-  .footer-message p {
-    color: var(--ion-color-primary-contrast); 
-    font-size: 0.9rem; 
-    margin: 0;
-    font-family: 'Helvetica', sans-serif; 
-  }
+  padding: 0; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 10; 
+}
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #000000; 
+  padding: 0; 
+  text-align: center;
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: #FFB800; 
+  font-size: 0.9rem; 
+  margin: 0; 
+  font-family: 'Helvetica', sans-serif; 
+}
+
+ion-item.form-item {
+  --background: #464741 ;
+  color: #ffffff;
+  font-weight: bold; 
+}
+
+ion-list.fondo-entre-items {
+  --background: #E1E0DD;
+  --color: #E1E0DD;
+}

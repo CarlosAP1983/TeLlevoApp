@@ -8,6 +8,7 @@ import { AlertController, NavController, ToastController } from '@ionic/angular'
 })
 export class ContactoChoferPage {
   ruta: any;
+  formaPago: string = '';  // Propiedad para almacenar el método de pago
   rating = 0;
   stars = [1, 2, 3, 4, 5];
 
@@ -16,7 +17,9 @@ export class ContactoChoferPage {
     private toastCtrl: ToastController,
     private alertCtrl: AlertController
   ) {
+    // Obtén los datos de la ruta y la forma de pago desde el estado de navegación
     this.ruta = history.state.ruta;
+    this.formaPago = history.state.formaPago || 'No especificado';  // Forma de pago recibida desde /detalle-viaje
   }
 
   // Muestra el alert de calificación al finalizar el viaje
@@ -30,7 +33,7 @@ export class ContactoChoferPage {
         label: this.renderStars(index + 1),
         value: index + 1,
         checked: index + 1 === this.rating,
-        handler: () => this.highlightSelectedStars(index + 1), // Llama a la función para resaltar
+        handler: () => this.highlightSelectedStars(index + 1),
         cssClass: 'star-input'
       })),
       buttons: [
@@ -64,11 +67,11 @@ export class ContactoChoferPage {
 
   // Destaca las estrellas seleccionadas
   highlightSelectedStars(count: number) {
-    this.rating = count; // Actualiza la calificación seleccionada
+    this.rating = count;
     const starInputs = document.querySelectorAll('.star-input');
     starInputs.forEach((input, index) => {
       if (index < count) {
-        input.classList.add('selected'); 
+        input.classList.add('selected');
       } else {
         input.classList.remove('selected');
       }
@@ -80,7 +83,7 @@ export class ContactoChoferPage {
     this.rating = value;
   }
 
-  // ensaje de agradecimiento
+  // Mensaje de agradecimiento
   async showThankYouMessage(rated: boolean) {
     const message = rated ? 'Gracias por calificar nuestra app' : 'Gracias por usar nuestra aplicación';
     const toast = await this.toastCtrl.create({
@@ -93,7 +96,7 @@ export class ContactoChoferPage {
     this.navCtrl.navigateBack('/registro-exitoso-pasajero');
   }
 
-  //mensaje si no se seleccionó ninguna opción
+  // Mensaje si no se seleccionó ninguna opción
   async showNoSelectionMessage() {
     const toast = await this.toastCtrl.create({
       message: 'No marcaste ninguna opción',

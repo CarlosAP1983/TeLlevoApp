@@ -1,6 +1,6 @@
 /*Estilo para el fondo*/
 ion-content.home-background {
-  --background: #EEF1FB; 
+  --background: #E1E0DD; 
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,7 +48,7 @@ ion-content.home-background {
 
 /* Estilo de etiquetas de entrada */
 .input-label {
-  color: #2F2E2E;
+  color: #000000;
   font-family: 'Helvetica', sans-serif;
   margin-right: 10px;
   white-space: nowrap;
@@ -61,8 +61,8 @@ ion-content.home-background {
 ion-input {
   --padding-start: 20px;
   --padding-end: 10px;
-  --background: #5d3b93; 
-  --color: #d1d1d3;
+  --background: #737668; 
+  --color: #FFB800;
   --border-radius: 25px;
   --border-width: 2px;
   --height: 50px;
@@ -80,9 +80,9 @@ ion-input:focus,
 ion-input:focus-within {
   --border-color: #ffffff;
   caret-color: #ffffff;
-  --background: #5d3b93;
+  --background: #E1E0DD ;
   outline: none;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 10px rgba(4, 4, 4, 0.5);
 }
 
 /*Compativilidad del placeholder para diferentes navegadores */
@@ -98,23 +98,33 @@ ion-input:focus-within {
 .link-container {
   text-align: center; 
   margin-top: 20px;
+
 }
 .link {
-  color: #2F2E2E;
+  color: #07ca21;
   text-decoration: none; 
   font-family: system-ui;
   font-weight: bold;
   font-size: larger;
 }
 
+/* Contenedor para alinear los botones en línea */
+.boton-container {
+  display: flex;
+  justify-content: center; /* Centra los botones */
+  gap: 20px; /* Espaciado entre los botones */
+  width: 100%; /* Ajusta esto según el espacio disponible */
+  max-width: 500px; /* Ancho máximo del contenedor */
+  margin: 20px auto; /* Centra el contenedor en la página */
+}
+
 /*Estilos para el ion-button, heredar a todos los botones*/
 ion-button {
-  width: 70%; 
-  max-width: 400px;
+  width: 50%; 
+  max-width: 200px;
   margin: 20px auto; 
   font-family: 'Helvetica', sans-serif; 
   font-size: larger;
-  font-weight: bold;
   height: 50px; 
   display: block; 
   text-align: center; 
@@ -126,17 +136,15 @@ ion-button {
 
 /*Estilos propios del boton:*/
 /*Boton inicar/crea cuenta*/
-.boton-tono-especial {
-  background: linear-gradient(145deg, #5d3b93, #6531b9); 
+.boton-tono-especial {  
   border-radius: 50px; 
-  box-shadow: 0 4px 8px rgba(61, 194, 255, 0.5), 0 -4px 8px rgba(54, 162, 228, 0.5); 
-  color: #808085; 
+  color: #ffffff !important; 
+  --color: #ffffff !important; // Añadir color a las letras
   width: 200px; 
   height: 50px; 
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
   position: relative;
   border: none; 
   padding: 0; 
@@ -144,14 +152,7 @@ ion-button {
   margin: 5px auto; 
   transition: background-color 0.3s ease, transform 0.2s ease; 
 }
-.boton-tono-especial:hover {
-  background: linear-gradient(145deg, #36a2e4, #2b89c7); 
-  transform: scale(1.05); 
-}
-.boton-tono-especial:active,
-.boton-tono-especial:focus {
-  background: linear-gradient(145deg, #36a2e4, #2b89c7);
-}
+
 .boton-tono-especial::before {
   content: '';
   position: absolute;
@@ -159,16 +160,17 @@ ion-button {
   left: 3px; 
   right: 3px; 
   bottom: 3px; 
-  border: 2px solid rgba(255, 255, 255, 0.5); 
+  border: 2px solid #fdfdfc; // Cambiar el color de las líneas internas a naranja
   border-radius: 45px; 
   z-index: 1; 
   background: transparent; 
 }
+
 .boton-tono-especial::after {
   content: '';
   width: 40px;
   height: 5px;
-  background: rgba(255, 255, 255, 0.5); 
+  background: #fdfdfc; // Cambiar la línea inferior a naranja
   border-radius: 5px;
   position: absolute;
   left: 40px; 
@@ -177,3 +179,28 @@ ion-button {
 }
 
 
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+  padding: 0; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 10; 
+}
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #000000; 
+  padding: 0; 
+  text-align: center;
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: #FFB800; 
+  font-size: 0.9rem; 
+  margin: 0; 
+  font-family: 'Helvetica', sans-serif; 
+}

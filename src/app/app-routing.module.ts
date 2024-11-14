@@ -30,7 +30,11 @@ const routes: Routes = [
   {
     path: 'contacto-pasajero',
     loadChildren: () => import('./contacto-pasajero/contacto-pasajero.module').then( m => m.ContactoPasajeroPageModule)
+  },  {
+    path: 'anadir-tarjeta',
+    loadChildren: () => import('./anadir-tarjeta/anadir-tarjeta.module').then( m => m.AnadirTarjetaPageModule)
   },
+
 
  
 ];

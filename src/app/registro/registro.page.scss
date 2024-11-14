@@ -1,38 +1,44 @@
 /* Estilo para el header principal */
 ion-toolbar.custom-toolbar {
-  --background: #B5B8BF; /* Fondo del toolbar */
-  color: var(--ion-color-primary-contrast); /* Color del texto en el toolbar */
-  text-align: center;
+  position: relative;
+  background: #FFB800 !important; /* Asegura que el fondo sea completamente naranja */
+  height: 50px; /* Ajusta la altura según lo necesario */
+  overflow: hidden;
+  z-index: 2; /* Asegura que esté sobre otros elementos */
+  opacity: 1; /* Verifica que la opacidad esté al 100% */
 }
+
+/* Pseudo-elemento para la separación diagonal */
+ion-toolbar.custom-toolbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%; /* Ajusta este valor para controlar el ancho de la parte negra */
+  height: 100%;
+  background-color: #000000; /* Color negro para la sección diagonal */
+  clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+  opacity: 1; /* Asegúrate de que no haya opacidad */
+}
+
 ion-back-button.letra {
-    font-weight: bold;
+  font-weight: bold;
 }
 ion-title.titulo-header {
-  --color: #2F2E2E;
-}  
+  --color: #ffffff;
+}
+/* ------------------------------------------------------------------------------- */
+
 /* Estilo para el contenido */
 ion-content.background {
-  --background: #EEF1FB; 
+  --background: #E1E0DD; 
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 20px;
   flex-grow: 1; 
 }  
-/* Aplica un color de fondo al header cuando se colapsa */
-ion-header[collapse="fade"] ion-toolbar {
-  --background: var(--ion-color-primary); 
-  color: var(--ion-color-primary-contrast); 
-}
-
-.error-message {
-  color: red;
-  text-align: center;
-  margin-top: 10px;
-  font-family: 'Helvetica', sans-serif;
-  font-size: 20px;
-
-}
 
 ion-item {
   --highlight-color-focused: #6a0dad; 
@@ -45,151 +51,68 @@ ion-item {
   --color: #a8a8a8; 
 }
 
+/* ------------------------------------------------------------------------------- */
+
+/* Estilos del botón genéricos */
 ion-button {
-  width: 70%; 
-  max-width: 400px;
+  width: 50%; 
+  max-width: 200px;
   margin: 20px auto; 
-  font-family: 'Helvetica', sans-serif;
+  font-family: 'Helvetica', sans-serif; 
   font-size: larger;
-  font-weight: bold;
   height: 50px; 
   display: block; 
   text-align: center; 
   border-radius: 25px; 
-  /* Quitar cualquier estilo de fondo o color que pueda interferir */
+  /*Quitar cualquier estilos de fondo o colores que puedan interferir*/
   --background: none;
   --color: inherit;
 }
 
-/* Estilos especiales para el boton-salir */
-.boton-salir {
-  background: linear-gradient(145deg, #ff4c4c, #e60000); 
-  border-radius: 50px;
-  box-shadow: 0 4px 8px rgba(255, 0, 0, 0.5), 0 -4px 8px rgba(230, 0, 0, 0.5); 
-  color: white; 
+/*Estilos propios del boton:*/
+.boton-tono-especial {  
+  border-radius: 50px; 
+  color: #ffffff !important; 
+  --color: #ffffff !important; // Añadir color a las letras
   width: 200px; 
   height: 50px; 
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
-  position: relative; 
+  position: relative;
   border: none; 
   padding: 0; 
   overflow: hidden; 
+  margin: 5px auto; 
   transition: background-color 0.3s ease, transform 0.2s ease; 
 }
-.boton-salir:hover {
-  background: linear-gradient(145deg, #e60000, #cc0000); 
-  transform: scale(1.05); 
-}
-.boton-salir:active,
-.boton-salir:focus {
-  background: linear-gradient(145deg, #e60000, #cc0000); 
-}
-.boton-salir::before {
+
+.boton-tono-especial::before {
   content: '';
   position: absolute;
   top: 3px; 
   left: 3px; 
   right: 3px; 
-  bottom: 3px;
-  border: 2px solid rgb(90, 89, 89);
+  bottom: 3px; 
+  border: 2px solid #fdfdfc; // Cambiar el color de las líneas internas a naranja
   border-radius: 45px; 
   z-index: 1; 
   background: transparent; 
 }
-.boton-salir::after {
+
+.boton-tono-especial::after {
   content: '';
   width: 40px;
   height: 5px;
-  background: rgba(255, 255, 255, 0.5); 
+  background: #fdfdfc; // Cambiar la línea inferior a naranja
   border-radius: 5px;
   position: absolute;
   left: 40px; 
   bottom: 10px;
-  z-index: 2;
-}
-
-.boton-registrarse {
-background: linear-gradient(145deg, #7B5BF2, #6A4ED9); 
-    border-radius: 50px;
-    box-shadow: 0 4px 8px rgba(123, 91, 242, 0.5), 0 -4px 8px rgba(106, 78, 217, 0.5); 
-    color: white; 
-    width: 200px; 
-    height: 50px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    position: relative; 
-    border: none;
-    padding: 0; 
-    overflow: hidden;
-    transition: background-color 0.3s ease, transform 0.2s ease; 
-
-}
-
-.boton-registrarse:hover {
-  background: linear-gradient(145deg, #36a2e4, #2b89c7); 
-  transform: scale(1.05); 
-}
-.boton-registrarse:active,
-.boton-registrarse:focus {
-  background: linear-gradient(145deg, #36a2e4, #2b89c7);
-}
-.boton-registrarse::before {
-  content: '';
-  position: absolute;
-  top: 3px; 
-  left: 3px; 
-  right: 3px;
-  bottom: 3px; 
-  border: 2px solid rgba(255, 255, 255, 0.5); 
-  border-radius: 45px; 
-  z-index: 1; 
-  background: transparent;
-}
-
-.boton-registrarse::after {
-  content: '';
-  width: 40px;
-  height: 5px;
-  background: rgba(255, 255, 255, 0.5); 
-  border-radius: 5px;
-  position: absolute;
-  left: 40px; 
-  bottom: 10px; 
   z-index: 2; 
 }
 
-/* Estilo para el footer con color del menú */
-ion-footer.custom-footer {
-  --background: #09184D; 
-  height: 50px; 
-  padding: 0; 
-  position: fixed; 
-  bottom: 0;
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  z-index: 10; 
-}
-/* Estilo para la toolbar del footer */
-.footer-toolbar {
-  --background: #09184D;
-  padding: 0;
-  text-align: center; 
-  color: var(--ion-color-primary-contrast);
-}
-/* Estilo para el mensaje del footer */
-.footer-message p {
-  color: var(--ion-color-primary-contrast); 
-  font-size: 0.9rem; 
-  margin: 0; 
-  font-family: 'Helvetica', sans-serif; 
-}
-
+/* ------------------------------------------------------------------------------- */
 .email-dominio {
   margin-left: 5px;
   color: gray;
@@ -201,3 +124,52 @@ ion-footer.custom-footer {
   color: gray;
   font-weight: bold;
 }
+/* ------------------------------------------------------------------------------- */
+
+/* Estilo para los párrafos */
+.parrafos {
+  font-family: system-ui;
+  color: #737668 !important;
+  font-size: 1rem;
+  font-weight: bold; 
+  text-align: left; 
+  margin: 0;
+}
+/* ------------------------------------------------------------------------------- */
+/* Items */
+
+ion-item.form-item {
+  --background: #464741 ;
+  color: #ffffff;
+  font-weight: bold; 
+}
+
+/* Estilo para el footer con color del menú */
+ion-footer.custom-footer {
+  padding: 0; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 10; 
+}
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #000000; 
+  padding: 0; 
+  text-align: center;
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: #FFB800; 
+  font-size: 0.9rem; 
+  margin: 0; 
+  font-family: 'Helvetica', sans-serif; 
+}
+
+/* ------------------------------------------------------------------------------ */
+
+

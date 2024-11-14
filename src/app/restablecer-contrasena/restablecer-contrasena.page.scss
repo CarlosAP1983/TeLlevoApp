@@ -1,174 +1,163 @@
 /* Estilo para el header principal */
 ion-toolbar.custom-toolbar {
-    --background: #B5B8BF; /* Fondo del toolbar */
-    color: var(--ion-color-primary-contrast); /* Color del texto en el toolbar */
-    text-align: center;
-  }
-  
-  ion-back-button.letra {
-    font-weight: bold;
-  }
-  
-  ion-title.titulo-header {
-    --color: #2F2E2E;
-  }
-  
-  /* Estilo para el contenido */
-  ion-content.background {
-    --background: #EEF1FB; /* Fondo claro */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
-    justify-content: center; /* Alinea el contenido verticalmente en el centro */
-    height: 100%; /* Asegura que el contenido tome el 100% de la altura disponible */
-    position: relative; /* Necesario para los elementos posicionados absolutamente dentro del contenido */
-  }
-  
-  /*Estilos del titulo y subtitulo*/
-  .titulo {
-    font-family: system-ui; /* Cambia la fuente */
-    color: #2F2E2E !important; /* Cambia el color del texto */
-    font-size: 2.5rem; /* Tamaño del texto */
-    font-weight: bold; /* Texto en negrita */
-    text-align: center; /* Centra el texto */
-    width: 100%; /* Asegura que el título ocupe todo el ancho */
-    margin: 0; /* Elimina cualquier margen extra */
-    display: block; /* Asegura que el título se comporte como un elemento de bloque */
-    font-size: x-large;
-  }
-
-/* mensaje enviado */
-.success-message {
-    color: #2dd36f;
-    font-size: x-large;
-    font-weight: bold;
-    text-align: center;
+  position: relative;
+  background: #FFB800 !important; /* Asegura que el fondo sea completamente naranja */
+  height: 50px; /* Ajusta la altura según lo necesario */
+  overflow: hidden;
+  z-index: 2; /* Asegura que esté sobre otros elementos */
+  opacity: 1; /* Verifica que la opacidad esté al 100% */
 }
 
-/* error al enviar mensaje */
-.error-message {
-    color: #fc0303;
-    font-size: x-large;
-    font-weight: bold;
-    text-align: center;
+/* Pseudo-elemento para la separación diagonal */
+ion-toolbar.custom-toolbar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%; /* Ajusta este valor para controlar el ancho de la parte negra */
+  height: 100%;
+  background-color: #000000; /* Color negro para la sección diagonal */
+  clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+  z-index: 1;
+  opacity: 1; /* Asegúrate de que no haya opacidad */
+}
+ion-back-button.letra {
+  font-weight: bold;
+  color: #FFB800 ;
+}
+ion-title.titulo-header {
+    --color: #2F2E2E;
+}
+  
+/* Estilo para el contenido */
+ion-content.background {
+  --background: #E1E0DD ; /* Fondo claro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  flex-grow: 1; /* Permite que el contenido crezca para llenar el espacio disponible */
+  justify-content: center; /* Alinea el contenido verticalmente en el centro */
+  height: 100%; /* Asegura que el contenido tome el 100% de la altura disponible */
+  position: relative; /* Necesario para los elementos posicionados absolutamente dentro del contenido */
+}
+  
+/*Estilos del titulo y subtitulo*/
+.titulo {
+  font-family: system-ui; /* Cambia la fuente */
+  color: #2F2E2E !important; /* Cambia el color del texto */
+  font-size: 2.5rem; /* Tamaño del texto */
+  font-weight: bold; /* Texto en negrita */
+  text-align: center; /* Centra el texto */
+  width: 100%; /* Asegura que el título ocupe todo el ancho */
+  margin: 0; /* Elimina cualquier margen extra */
+  display: block; /* Asegura que el título se comporte como un elemento de bloque */
+  font-size: x-large;
 }
 
 ion-item {
-    --background: transparent;
-    /* Hace el fondo de los items transparente */
-    --border-color: transparent;
-    /* Hace que las líneas de los items sean transparentes */
-    --ion-text-color: #ffffff;
-    /* Ajusta el color del texto si es necesario */
-    font-size: larger;
+  --background: transparent;
+  /* Hace el fondo de los items transparente */
+  --border-color: transparent;
+  /* Hace que las líneas de los items sean transparentes */
+  --ion-text-color: #ffffff;
+  /* Ajusta el color del texto si es necesario */
+  font-size: larger;
 }
 
 /* Estilo personalizado para subrayar el campo de entrada */
 .underline-input {
-    border-bottom: 1px solid #ccc;
-    /* Línea gris debajo del campo de entrada */
-    padding-bottom: 5px;
-    /* Espacio entre el texto y la línea */
+  border-bottom: 1px solid #ccc;
+  /* Línea gris debajo del campo de entrada */
+  padding-bottom: 5px;
+  /* Espacio entre el texto y la línea */
 }
 
+/*---------------------------------------------------------------------------------------*/
+/* Estilos del botón genéricos */
 ion-button {
-    width: 70%; 
-    max-width: 400px;
-    margin: 20px auto; 
-    font-family: 'Helvetica', sans-serif;
-    font-size: larger;
-    font-weight: bold;
-    height: 50px; 
-    display: block; 
-    text-align: center; 
-    border-radius: 25px; 
-    /* Quitar cualquier estilo de fondo o color que pueda interferir */
-    --background: none;
-    --color: inherit;
+  width: 50%; 
+  max-width: 200px;
+  margin: 20px auto; 
+  font-family: 'Helvetica', sans-serif; 
+  font-size: larger;
+  height: 50px; 
+  display: block; 
+  text-align: center; 
+  border-radius: 25px; 
+  /*Quitar cualquier estilos de fondo o colores que puedan interferir*/
+  --background: none;
+  --color: inherit;
 }
 
-.boton-enviar-enlace {
-    background: linear-gradient(145deg, #3dc2ff, #36a2e4); 
-    border-radius: 50px; /* Bordes redondeados igual que los otros botones */
-    box-shadow: 0 4px 8px rgba(61, 194, 255, 0.5), 0 -4px 8px rgba(54, 162, 228, 0.5); 
-    color: white; 
-    width: 200px; 
-    --height: 60px; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    position: relative;
-    border: none;
-    padding: 0; 
-    overflow: hidden; 
-    margin: 5px auto; 
-    transition: background-color 0.3s ease, transform 0.2s ease; 
-  }
-  
-  .boton-enviar-enlace:hover {
-    background: linear-gradient(145deg, #36a2e4, #2b89c7);
-    transform: scale(1.05);
-  }
-  .boton-enviar-enlace:active,
-  .boton-enviar-enlace:focus {
-    background: linear-gradient(145deg, #36a2e4, #2b89c7); 
-  }
-  .boton-enviar-enlace::before {
-    content: '';
-    position: absolute;
-    top: 3px; 
-    left: 3px; 
-    right: 3px; 
-    bottom: 3px; 
-    border: 2px solid rgba(255, 255, 255, 0.5); 
-    border-radius: 45px; 
-    z-index: 1; 
-    background: transparent;
-  }
-  
-  .boton-enviar-enlace::after {
-    content: '';
-    width: 40px;
-    height: 5px;
-    background: rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    position: absolute;
-    left: 40px; 
-    bottom: 10px; 
-    z-index: 2;
-  }
+/*Estilos propios del boton:*/
+.boton-tono-especial {  
+  border-radius: 50px; 
+  color: #ffffff !important; 
+  --color: #ffffff !important; // Añadir color a las letras
+  width: 200px; 
+  height: 50px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  border: none; 
+  padding: 0; 
+  overflow: hidden; 
+  margin: 5px auto; 
+  transition: background-color 0.3s ease, transform 0.2s ease; 
+}
 
+.boton-tono-especial::before {
+  content: '';
+  position: absolute;
+  top: 3px; 
+  left: 3px; 
+  right: 3px; 
+  bottom: 3px; 
+  border: 2px solid #fdfdfc; // Cambiar el color de las líneas internas a naranja
+  border-radius: 45px; 
+  z-index: 1; 
+  background: transparent; 
+}
+
+.boton-tono-especial::after {
+  content: '';
+  width: 40px;
+  height: 5px;
+  background: #fdfdfc; // Cambiar la línea inferior a naranja
+  border-radius: 5px;
+  position: absolute;
+  left: 40px; 
+  bottom: 10px;
+  z-index: 2; 
+}
+/*-------------------------------------------------------------------------------*/
 /* Estilo para el footer con color del menú */
 ion-footer.custom-footer {
-    --background: #09184D; /* Color del fondo del footer igual al menú */
-    padding: 0; /* Elimina cualquier relleno adicional */
-    position: fixed; /* Fija el footer al fondo de la página */
-    bottom: 0; /* Alinea el footer al fondo de la página */
-    width: 100%; /* Asegura que el footer ocupe todo el ancho */
-    display: flex; /* Flexbox para alinear el contenido */
-    align-items: center; /* Centra el contenido verticalmente */
-    justify-content: center; /* Centra el contenido horizontalmente */
-    z-index: 10; /* Asegura que el footer esté siempre en la parte superior */
-  }
-  
-  /* Estilo para la toolbar del footer */
-  .footer-toolbar {
-    --background: #09184D; /* Asegura que el fondo de la toolbar coincida con el footer */
-    padding: 0; /* Sin relleno */
-    text-align: center; /* Centra el texto */
-    color: var(--ion-color-primary-contrast); /* Color de texto de contraste (blanco) */
-  }
-  
-  /* Estilo para el mensaje del footer */
-  .footer-message p {
-    color: var(--ion-color-primary-contrast); /* Color del texto del mensaje (blanco) */
-    font-size: 0.9rem; /* Tamaño de la fuente */
-    margin: 0; /* Sin margen adicional */
-    font-family: 'Helvetica', sans-serif; /* Fuente personalizada */
-  }  
+  padding: 0; 
+  position: fixed; 
+  bottom: 0; 
+  width: 100%; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  z-index: 10; 
+}
+/* Estilo para la toolbar del footer */
+.footer-toolbar {
+  --background: #000000; 
+  padding: 0; 
+  text-align: center;
+}
+
+/* Estilo para el mensaje del footer */
+.footer-message p {
+  color: #FFB800; 
+  font-size: 0.9rem; 
+  margin: 0; 
+  font-family: 'Helvetica', sans-serif; 
+}  
 
 ion-item ion-label {
   --color: #000000; /* Cambia el color del texto a negro */

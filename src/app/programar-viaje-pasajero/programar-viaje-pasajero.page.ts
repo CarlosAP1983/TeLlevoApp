@@ -6,8 +6,7 @@ import { ComunasService } from '../services/comunas.service';
 interface Ruta {
   origen: string;
   destino: string;
-  fecha: string;
-  hora: string;
+  fechaHora: string; // Almacena tanto fecha como hora en un solo campo
 }
 
 @Component({
@@ -19,8 +18,7 @@ export class ProgramarViajePasajeroPage implements OnInit {
   nuevoViaje: Ruta = {
     origen: '',
     destino: '',
-    fecha: '',
-    hora: ''
+    fechaHora: '' // Cambiado para usar un solo campo de fecha y hora
   };
   comunas: any[] = []; // Array para almacenar las comunas obtenidas desde la API
 

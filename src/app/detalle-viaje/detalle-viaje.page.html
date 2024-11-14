@@ -1,9 +1,10 @@
-<ion-header [translucent]="true" class="custom-header">
+<ion-header class="custom-header">
   <ion-toolbar class="custom-toolbar">
+    <!-- Botón de retroceso -->
     <ion-buttons slot="start">
-      <ion-back-button class="letra" defaultHref="/home"></ion-back-button>
+      <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title class="titulo-header">{{ esSolicitudPasajero ? 'Detalles de la Solicitud' : 'Detalles del Viaje' }}</ion-title>
+    <ion-title class="titulo-header">{{ esSolicitudPasajero ? 'Detalles de la Solicitud' : 'VIAJE EN CURSO' }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -20,8 +21,11 @@
     <p *ngIf="!esSolicitudPasajero"><strong>• Asientos Disponibles:</strong> {{ ruta.AsientosDisponibles }}</p>
   </div>
 
-  <ion-button expand="block" class="boton-azul" (click)="aceptarSolicitud()">
+  <ion-button expand="block" color="dark" class="boton-tono-especial" (click)="aceptarSolicitud()">
     {{ esSolicitudPasajero ? 'Aceptar solicitud' : 'Tomar viaje' }}
+  </ion-button>
+  <ion-button expand="block" color="primary" class="boton-tono-especial" (click)="mostrarOpcionesPago()">
+    Añadir Pago
   </ion-button>
   
   <div class="spinner-container" *ngIf="mostrarSpinner">
@@ -29,10 +33,9 @@
   </div>
 </ion-content>
 
-<ion-footer class="custom-footer">
+<ion-footer class="footer-estilo">
   <ion-toolbar class="footer-toolbar">
     <div class="footer-message">
-      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
     </div>
   </ion-toolbar>
-</ion-footer>
