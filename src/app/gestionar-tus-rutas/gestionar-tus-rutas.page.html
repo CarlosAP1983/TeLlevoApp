@@ -13,17 +13,22 @@
   <h4><strong>Solicitudes de viaje</strong></h4>
   <div class="scroll-container">
     <ion-list *ngIf="!mostrarSpinner" class="limit-list">
-      <ion-item class="form-item" *ngFor="let solicitud of solicitudesViaje; let i = index" 
-                (click)="tomarSolicitud(solicitud)" 
-                [color]="rutaSeleccionada === solicitud ? 'warning' : ''" 
-                [hidden]="i >= 2">
+      <ion-item 
+        class="form-item" 
+        *ngFor="let solicitud of solicitudesViaje; let i = index" 
+        (click)="mostrarActionSheet(solicitud)" 
+        [color]="rutaSeleccionada === solicitud ? 'warning' : ''" 
+        [hidden]="i >= 2">
+        
         <ion-label>
           <h2><strong>ORIGEN:</strong> {{ solicitud.origen }} &nbsp;&nbsp; <strong>DESTINO:</strong> {{ solicitud.destino }}</h2>
           <p>Fecha: {{ solicitud.fecha }} | Hora: {{ solicitud.hora }}</p>
           <p>Pasajero: {{ solicitud.pasajeroNombre }}</p>
         </ion-label>
+        
       </ion-item>
     </ion-list>
+    
   </div>
 
   <!-- Sección de Mis Viajes Creados -->
