@@ -1,13 +1,15 @@
-<ion-header [translucent]="true" class="custom-header">
-  <ion-toolbar class="custom-toolbar">
+<ion-header class="custom-header">
+  <ion-toolbar class="custom-toolbar" style="display: flex; justify-content: space-between; align-items: center;">
     <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
+      <!-- Botón que redirige a la vista 'cuenta' -->
       <ion-button class="letra" (click)="goToCuenta()">
-        <ion-icon slot="icon-only" name="menu-outline"></ion-icon>
+        <ion-icon  color="warning" slot="start" name="menu-outline"></ion-icon>
+    
       </ion-button>
     </ion-buttons>
-    <ion-title class="titulo-header">Conductor</ion-title>
+    <ion-title class="titulo-header" style="flex-grow: 1; text-align: center;">VISTA CONDUCTOR</ion-title>
     <ion-buttons slot="end">
+      <!-- Botón que redirige al perfil de usuario -->
       <ion-button class="letra" (click)="goToUserProfile()">
         <ion-icon slot="icon-only" name="create-outline"></ion-icon>
       </ion-button>
@@ -15,27 +17,27 @@
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="background ion-padding">
-  <h2 class="titulo">¡Bienvenido a TeLlevoApp!</h2><br>
+  <h2 class="titulo">¡TeLlevoApp!</h2><br>
   <h1 class="sub-titulo">Comparte tu auto y disfruta del viaje acompañado:</h1>
 
   <div class="image-container">
-    <img src="assets/images/car-sharing.png" alt="Compartir Auto" class="gradient-image" />
+    <img src="assets\images\conductor.jpeg" alt="Compartir Auto" class="gradient-image" />
   </div>
 
   <p class="welcome-message"> ¡Vamos! Crea tu ruta de viaje... </p>
 
   <div class="button-container">
-    <ion-button expand="block" class="boton-azul" (click)="createTrip()">Crear Viaje</ion-button>
-    <ion-button expand="block" class="boton-ver-rutas" (click)="verTusRutas()">Gestionar Viajes</ion-button>
+    <ion-button expand="block" color="dark" class="boton-tono-especial" (click)="createTrip()">Crear Viaje<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-button>
+    <ion-button expand="block" class="boton-ver-rutas" (click)="verTusRutas()">Gestionar Viajes<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-button>
   </div>
 </ion-content>
 
-<ion-footer class="custom-footer">
+<ion-footer class="footer-estilo">
   <ion-toolbar class="footer-toolbar">
     <div class="footer-message">
-      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
     </div>
   </ion-toolbar>
-</ion-footer>

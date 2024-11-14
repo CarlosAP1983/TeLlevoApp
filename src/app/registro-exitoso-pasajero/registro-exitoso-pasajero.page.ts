@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, ActionSheetController } from '@ionic/angular';
+import { NavController, ActionSheetController, AlertController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 interface Ruta {
@@ -28,13 +28,14 @@ export class RegistroExitosoPasajeroPage implements OnInit {
   rutasDisponibles: Ruta[] = [];
   misViajesCreados: Ruta[] = [];
   rutaSeleccionada: Ruta | null = null;
-  mostrarSpinner: boolean = false;
+  mostrarSpinner: boolean = false; // Controla la visualización del spinner
   selectedIndex: number | null = null;
 
   constructor(
     private navCtrl: NavController,
     private firestore: AngularFirestore,
-    private actionSheetController: ActionSheetController
+    private actionSheetController: ActionSheetController,
+    private alertController: AlertController // Para la alerta de rutas actualizadas
   ) {}
 
   ngOnInit() {
@@ -43,19 +44,16 @@ export class RegistroExitosoPasajeroPage implements OnInit {
   }
 
   async obtenerRutasDisponibles() {
-    this.mostrarSpinner = true;
     try {
       const snapshot = await this.firestore.collection('viajes').get().toPromise();
       if (!snapshot || snapshot.empty) {
         console.warn('No se encontraron rutas disponibles.');
-        this.mostrarSpinner = false;
         return;
       }
       this.rutasDisponibles = snapshot.docs.map(doc => doc.data() as Ruta);
     } catch (error) {
       console.error('Error al obtener las rutas disponibles:', error);
     }
-    this.mostrarSpinner = false;
   }
 
   async obtenerMisViajesCreados() {
@@ -72,6 +70,20 @@ export class RegistroExitosoPasajeroPage implements OnInit {
     } catch (error) {
       console.error('Error al obtener los viajes creados por el pasajero:', error);
     }
+  }
+
+  async recargarRutas() {
+    this.mostrarSpinner = true; // Muestra el spinner
+    await this.obtenerRutasDisponibles();
+    await this.obtenerMisViajesCreados();
+    this.mostrarSpinner = false; // Oculta el spinner
+
+    const alert = await this.alertController.create({
+      header: 'Actualización',
+      message: 'Viajes y rutas actualizados.',
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 
   toggleRoute(index: number) {
@@ -118,11 +130,6 @@ export class RegistroExitosoPasajeroPage implements OnInit {
 
   verDetallesViaje(ruta: Ruta) {
     this.navCtrl.navigateForward('/detalle-viaje', { state: { ruta } });
-  }
-
-  recargarRutas() {
-    this.obtenerRutasDisponibles();
-    this.obtenerMisViajesCreados();
   }
 
   goToCuenta() {

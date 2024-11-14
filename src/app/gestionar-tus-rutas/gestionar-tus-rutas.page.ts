@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController, AlertController } from '@ionic/angular';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ToastService } from 'src/app/services/toast.service';
 
 @Component({
   selector: 'app-gestionar-tus-rutas',
@@ -10,18 +9,22 @@ import { ToastService } from 'src/app/services/toast.service';
 })
 export class GestionarTusRutasPage {
   rutas: any[] = [];
-  solicitudesViaje: any[] = []; // Array para almacenar las solicitudes de viaje
+  solicitudesViaje: any[] = [];
   selectedIndex: number | null = null;
+  mostrarSpinner: boolean = false;
+  rutaSeleccionada: any | null = null;
 
   constructor(
-    private navCtrl: NavController, 
-    private toastService: ToastService,
+    private navCtrl: NavController,
+    private alertController: AlertController,
     private firestore: AngularFirestore
   ) {}
 
   async ionViewWillEnter() {
+    this.mostrarSpinner = true;
     await this.cargarRutas();
-    await this.cargarSolicitudesViaje(); // Cargar solicitudes de viaje al iniciar
+    await this.cargarSolicitudesViaje();
+    this.mostrarSpinner = false;
   }
 
   async cargarRutas() {
@@ -34,16 +37,15 @@ export class GestionarTusRutasPage {
           const data = doc.data();
           return { id: doc.id, ...(data ? data : {}) };
         });
-        this.toastService.mostrarToast('Rutas cargadas correctamente.');
+        this.mostrarAlerta('Éxito', 'Rutas cargadas correctamente.');
       } else {
-        this.toastService.mostrarToast('No tienes rutas registradas.');
+        this.mostrarAlerta('Información', 'No tienes rutas registradas.');
       }
     } catch (error) {
-      this.toastService.mostrarToast('Error al cargar las rutas.');
+      this.mostrarAlerta('Error', 'Error al cargar las rutas.');
     }
   }
 
-  // Método para cargar las solicitudes de viaje desde Firestore
   async cargarSolicitudesViaje() {
     try {
       const solicitudesRef = this.firestore.collection('solicitudesPasajeros');
@@ -54,23 +56,26 @@ export class GestionarTusRutasPage {
           const data = doc.data();
           return { id: doc.id, ...(data ? data : {}) };
         });
-        this.toastService.mostrarToast('Solicitudes cargadas correctamente.');
+        this.mostrarAlerta('Éxito', 'Solicitudes cargadas correctamente.');
       } else {
-        this.toastService.mostrarToast('No hay solicitudes de viaje.');
+        this.mostrarAlerta('Información', 'No hay solicitudes de viaje.');
       }
     } catch (error) {
-      this.toastService.mostrarToast('Error al cargar las solicitudes de viaje.');
+      this.mostrarAlerta('Error', 'Error al cargar las solicitudes de viaje.');
     }
   }
 
+  async mostrarAlerta(titulo: string, mensaje: string) {
+    const alert = await this.alertController.create({
+      header: titulo,
+      message: mensaje,
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
   toggleRoute(index: number) {
-    if (this.selectedIndex === index) {
-      // Cierra la ruta si está abierta
-      this.selectedIndex = null;
-    } else {
-      // Abre la ruta seleccionada y cierra cualquier otra
-      this.selectedIndex = index;
-    }
+    this.selectedIndex = this.selectedIndex === index ? null : index;
   }
 
   crearNuevaRuta() {
@@ -94,10 +99,8 @@ export class GestionarTusRutasPage {
   verDetallesViaje(ruta: any) {
     this.navCtrl.navigateForward('/detalle-viaje', { state: { ruta, esSolicitudPasajero: false } });
   }
-  
-  // Añadir el método tomarSolicitud
+
   tomarSolicitud(solicitud: any) {
-    // Navega a detalle-viaje con los detalles de la solicitud del pasajero
     this.navCtrl.navigateForward('/detalle-viaje', { state: { ruta: solicitud, esSolicitudPasajero: true } });
   }
 }

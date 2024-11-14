@@ -44,8 +44,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "6kb",    // Aumento del límite de advertencia
+                  "maximumError": "8kb"       // Aumento del límite de error
                 }
               ],
               "fileReplacements": [
@@ -73,7 +73,7 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "proxyConfig": "proxy.conf.json" 
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {

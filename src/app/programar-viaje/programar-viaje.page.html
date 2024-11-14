@@ -1,9 +1,9 @@
-<ion-header [translucent]="true" class="custom-header">
+<ion-header class="custom-header">
   <ion-toolbar class="custom-toolbar">
     <ion-buttons slot="start">
       <ion-back-button class="letra" defaultHref="/home" text="Volver"></ion-back-button>
     </ion-buttons>
-    <ion-title class="titulo-header">Programar un viaje</ion-title>
+    <ion-title class="titulo-header">PROGRAMAR VIAJE</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +11,7 @@
   <h2 class="titulo">Crea una nueva ruta</h2>
   <form (ngSubmit)="guardarViaje()">
     <!-- Selección de Comuna Origen -->
-    <ion-item>
+    <ion-item class="form-item"> 
       <ion-label position="stacked">• Comuna Origen / Sede:</ion-label>
       <ion-select [(ngModel)]="nuevoViaje.origen" name="origen">
         <ion-select-option *ngFor="let comuna of comunas" [value]="comuna.nombre">
@@ -21,7 +21,7 @@
     </ion-item>
 
     <!-- Selección de Comuna Destino -->
-    <ion-item>
+    <ion-item class="form-item">
       <ion-label position="stacked">• Comuna Destino:</ion-label>
       <ion-select [(ngModel)]="nuevoViaje.destino" name="destino">
         <ion-select-option *ngFor="let comuna of comunas" [value]="comuna.nombre">
@@ -30,39 +30,43 @@
       </ion-select>
     </ion-item>
 
-    <!-- Fecha de Salida -->
-    <ion-item>
-      <ion-label position="stacked">• Fecha de Salida</ion-label>
-      <ion-input type="date" [(ngModel)]="nuevoViaje.fecha" name="fecha" placeholder="DD/MM/YYYY"></ion-input>
-    </ion-item>
-
-    <!-- Hora de Salida -->
-    <ion-item>
-      <ion-label position="stacked">• Hora de Salida</ion-label>
-      <ion-input type="time" [(ngModel)]="nuevoViaje.hora" name="hora" placeholder="HH:mm"></ion-input>
+    <!-- Fecha y Hora de Salida -->
+    <ion-item class="form-item">
+      <ion-label position="stacked">• Fecha y Hora de Salida</ion-label>
+      <ion-datetime 
+        [(ngModel)]="nuevoViaje.fechaHora" 
+        name="fechaHora" 
+        displayFormat="DD/MM/YYYY HH:mm" 
+        placeholder="Selecciona fecha y hora" 
+        presentation="date-time" 
+        [preferWheel]="true">
+      </ion-datetime>
     </ion-item>
 
     <!-- Precio -->
-    <ion-item>
+    <ion-item class="form-item">
       <ion-label position="stacked">• Precio</ion-label>
       <ion-input type="number" [(ngModel)]="nuevoViaje.precio" name="precio"></ion-input>
     </ion-item>
 
     <!-- Asientos Disponibles -->
-    <ion-item>
+    <ion-item class="form-item">
       <ion-label position="stacked">• Asientos Disponibles</ion-label>
       <ion-input type="number" [(ngModel)]="nuevoViaje.asientos" name="asientos"></ion-input>
     </ion-item>
 
     <!-- Botón para Guardar el Viaje -->
-    <ion-button expand="block" type="submit" color="success" class="guardar-viaje">Guardar Viaje</ion-button>
+    <ion-button expand="block" type="submit" color="dark" class="boton-tono-especial">
+      Guardar Viaje<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+    </ion-button>
   </form>
 </ion-content>
 
-<ion-footer class="custom-footer">
+
+<ion-footer class="footer-estilo">
   <ion-toolbar class="footer-toolbar">
     <div class="footer-message">
-      <p>© 2024 TeLlevoApp. Todos los derechos reservados.</p>
+      <p>© 2024 TeLlevoApp. Todos los derechos reservados V.2.0.1.</p>
     </div>
   </ion-toolbar>
 </ion-footer>

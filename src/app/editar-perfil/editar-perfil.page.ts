@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, AlertController } from '@ionic/angular';
 import { getFirestore, doc, getDoc, updateDoc } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
-import { ToastService } from 'src/app/services/toast.service'; // Servicio Toast
 
 @Component({
   selector: 'app-editar-perfil',
@@ -23,9 +22,8 @@ export class EditarPerfilPage implements OnInit {
 
   constructor(
     private navCtrl: NavController,
-    private toastService: ToastService,  // Servicio de Toast
-    private loadingCtrl: LoadingController,  // Servicio de Spinner
-    private alertController: AlertController  // Servicio de Alert para confirmaciones
+    private loadingCtrl: LoadingController,
+    private alertController: AlertController
   ) {}
 
   ngOnInit() {
@@ -61,11 +59,11 @@ export class EditarPerfilPage implements OnInit {
         }
       }
     } catch (error) {
-      this.toastService.mostrarToast('Error al recuperar el perfil.');
+      this.mostrarAlerta('Error', 'Error al recuperar el perfil.');
     }
   }
 
-  // Guardar los cambios en Firestore con Spinner y Toast
+  // Guardar los cambios en Firestore con Spinner y Alert
   async guardarCambios() {
     const loading = await this.loadingCtrl.create({
       message: 'Actualizando la información...',
@@ -97,14 +95,24 @@ export class EditarPerfilPage implements OnInit {
 
         await updateDoc(docRef, userData);
 
-        this.toastService.mostrarToast('Información guardada con éxito.');
         await loading.dismiss();
+        this.mostrarAlerta('Éxito', 'Información guardada con éxito.');
         this.navCtrl.navigateForward('/perfil-usuario');
       }
     } catch (error) {
       await loading.dismiss();
-      this.toastService.mostrarToast('Error al guardar los cambios.');
+      this.mostrarAlerta('Error', 'Error al guardar los cambios.');
     }
+  }
+
+  // Método para mostrar una alerta
+  async mostrarAlerta(header: string, message: string) {
+    const alert = await this.alertController.create({
+      header,
+      message,
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 
   // Método para navegar a la vista de añadir/editar tarjeta
