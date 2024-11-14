@@ -44,8 +44,8 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "6kb",    // Aumento del límite de advertencia
-                  "maximumError": "8kb"       // Aumento del límite de error
+                  "maximumWarning": "6kb",    
+                  "maximumError": "8kb"       
                 }
               ],
               "fileReplacements": [
