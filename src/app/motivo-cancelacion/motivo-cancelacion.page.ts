@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, ToastController, LoadingController } from '@ionic/angular';
-import { AngularFirestore } from '@angular/fire/compat/firestore'; // Usar AngularFirestore en lugar de Firestore
+import { AngularFirestore } from '@angular/fire/compat/firestore'; 
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -17,8 +17,8 @@ export class MotivoCancelacionPage {
     private navCtrl: NavController, 
     private toastCtrl: ToastController,
     private loadingCtrl: LoadingController,
-    private firestore: AngularFirestore, // Inyección de AngularFirestore
-    private route: ActivatedRoute // Usar ActivatedRoute para recibir el estado de navegación
+    private firestore: AngularFirestore, 
+    private route: ActivatedRoute 
   ) {}
 
   ionViewWillEnter() {

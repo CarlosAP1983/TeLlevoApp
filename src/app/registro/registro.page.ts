@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { NavController, AlertController } from '@ionic/angular'; // Importa AlertController
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
@@ -22,6 +23,7 @@ export class RegistroPage {
 
   constructor(
     private navCtrl: NavController, 
+    private firestore: AngularFirestore,
     private alertController: AlertController // Inyecta AlertController
   ) {}
 
