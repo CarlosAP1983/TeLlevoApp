@@ -3,6 +3,8 @@ import { RestablecerContrasenaPage } from './restablecer-contrasena.page';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { ReactiveFormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
+import { FormsModule } from '@angular/forms';
+
 
 describe('RestablecerContrasenaPage', () => {
   let component: RestablecerContrasenaPage;
