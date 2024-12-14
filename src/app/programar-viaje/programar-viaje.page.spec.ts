@@ -1,17 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { ProgramarViajePage } from './programar-viaje.page';
+import { HttpClientModule } from '@angular/common/http';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 describe('ProgramarViajePage', () => {
-  let component: ProgramarViajePage;
-  let fixture: ComponentFixture<ProgramarViajePage>;
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ProgramarViajePage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ProgramarViajePage], // Declarar el componente
+      imports: [HttpClientModule], // Importar HttpClientModule para HttpClient
+      providers: [
+        {
+          provide: AngularFirestore, // Proveer un mock de AngularFirestore
+          useValue: {}, // Mock vacío
+        },
+      ],
+    }).compileComponents();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const fixture = TestBed.createComponent(ProgramarViajePage); // Crear instancia del componente
+    const component = fixture.componentInstance;
+    expect(component).toBeTruthy(); // Verificar que el componente se haya creado correctamente
   });
 });

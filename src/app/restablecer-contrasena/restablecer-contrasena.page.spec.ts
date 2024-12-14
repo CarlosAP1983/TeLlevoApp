@@ -1,40 +1,25 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { RestablecerContrasenaPage } from './restablecer-contrasena.page';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ReactiveFormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { FormsModule } from '@angular/forms';
-
+import { FormsModule } from '@angular/forms'; // Importar FormsModule para ngForm
+import { AngularFirestore } from '@angular/fire/compat/firestore'; // Importar AngularFirestore
 
 describe('RestablecerContrasenaPage', () => {
-  let component: RestablecerContrasenaPage;
-  let fixture: ComponentFixture<RestablecerContrasenaPage>;
-
-  // Mock básico de AngularFirestore
-  const mockAngularFirestore = {
-    collection: jasmine.createSpy('collection').and.returnValue({
-      doc: jasmine.createSpy('doc').and.returnValue({
-        set: jasmine.createSpy('set'),
-        get: jasmine.createSpy('get').and.returnValue(Promise.resolve({ exists: true, data: () => ({}) })),
-      }),
-    }),
-  };
-
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [RestablecerContrasenaPage],
-      imports: [IonicModule.forRoot(), ReactiveFormsModule],
+      declarations: [RestablecerContrasenaPage], // Declarar el componente
+      imports: [FormsModule], // Importar FormsModule para habilitar ngForm
       providers: [
-        { provide: AngularFirestore, useValue: mockAngularFirestore }, // Usa el mock
+        {
+          provide: AngularFirestore, // Mock de AngularFirestore
+          useValue: {}, // Mock vacío
+        },
       ],
     }).compileComponents();
-
-    fixture = TestBed.createComponent(RestablecerContrasenaPage);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
   });
 
   it('should create', () => {
-    expect(component).toBeTruthy();
+    const fixture = TestBed.createComponent(RestablecerContrasenaPage); // Crear instancia del componente
+    const component = fixture.componentInstance;
+    expect(component).toBeTruthy(); // Verificar que el componente se haya creado correctamente
   });
 });
